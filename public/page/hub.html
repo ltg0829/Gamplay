@@ -12,8 +12,6 @@
     :root.light body::before{background-image:linear-gradient(rgba(0,153,168,0.06) 1px,transparent 1px),linear-gradient(90deg,rgba(0,153,168,0.06) 1px,transparent 1px);}
     :root.light header{background:rgba(240,242,248,0.9);}
     * {margin:0;padding:0;box-sizing:border-box;}
-    body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-serif;min-height:100vh;overflow-x:hidden;visibility:hidden;}
-    body.ready{visibility:visible;}
     body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(0,245,200,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(0,245,200,0.025) 1px,transparent 1px);background-size:60px 60px;animation:gridMove 25s linear infinite;pointer-events:none;}
     @keyframes gridMove{0%{background-position:0 0}100%{background-position:60px 60px}}
     .scanlines{position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.03) 2px,rgba(0,0,0,0.03) 4px);pointer-events:none;z-index:999;}
@@ -206,7 +204,6 @@
 //  인증 체크 (즉시 실행 — 깜빡임 방지)
 // ══════════════════════════════════════════
 (function() {
-  (function() {
   const token   = localStorage.getItem('token');
   const userStr = localStorage.getItem('user');
   if (!token || !userStr || userStr === 'undefined') {
@@ -215,10 +212,12 @@
   }
   try {
     const user = JSON.parse(userStr);
-    // DOMContentLoaded 중첩 제거 — 스크립트는 </body> 직전이라 DOM 이미 준비됨
-    document.getElementById('nicknameEl').textContent = user.nickname || 'Player';
-    document.getElementById('avatarEl').textContent   = (user.nickname || 'P')[0].toUpperCase();
-    document.body.classList.add('ready');
+    document.addEventListener('DOMContentLoaded', () => {
+      const nickEl   = document.getElementById('nicknameEl');
+      const avatarEl = document.getElementById('avatarEl');
+      if (nickEl)   nickEl.textContent   = user.nickname || 'Player';
+      if (avatarEl) avatarEl.textContent = (user.nickname || 'P')[0].toUpperCase();
+    });
   } catch(e) {
     localStorage.clear();
     window.location.replace('/index.html');
