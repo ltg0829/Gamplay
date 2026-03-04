@@ -8,16 +8,16 @@ const WebSocket = require('ws');
 const bcrypt    = require('bcryptjs');
 const jwt       = require('jsonwebtoken');
 const path      = require('path');
-const mongoose  = require('mongoose'); // MongoDB 라이브러리 추가
+const mongoose  = require('mongoose');
 
 const app    = express();
 const server = http.createServer(app);
 const wss    = new WebSocket.Server({ server });
 
 // ── 환경 설정 ──────────────────────────────────────────
-const PORT       = process.env.PORT || 3000;
+// Render는 내부적으로 10000 포트를 사용하므로 기본값을 변경했습니다.
+const PORT       = process.env.PORT || 10000; 
 const JWT_SECRET = process.env.JWT_SECRET || 'nexus-games-secret-key';
-// 보내주신 MongoDB 주소 (비밀번호 포함됨)
 const MONGO_URI  = process.env.MONGO_URI || 'mongodb+srv://jebag0828_db_user:yPMTXL0OFm6QPHkZ@cluster0.hutwijf.mongodb.net/nexus_games?retryWrites=true&w=majority&appName=Cluster0';
 
 // ── MongoDB 연결 ───────────────────────────────────────
@@ -44,6 +44,7 @@ const User = mongoose.model('User', userSchema);
 
 // ── Middleware ────────────────────────────────────────
 app.use(express.json());
+// public 폴더 안의 정적 파일(이미지, CSS, JS)을 자동으로 제공합니다.
 app.use(express.static(path.join(__dirname, 'public')));
 
 // ── Auth Middleware ───────────────────────────────────
@@ -60,8 +61,13 @@ function authRequired(req, res, next) {
 }
 
 // ════════════════════════════════════════════════════════
-//  REST API (MongoDB 로직으로 변경)
+//  REST API
 // ════════════════════════════════════════════════════════
+
+// [중요] 메인 페이지 접속 시 index.html을 강제로 보내주는 라우트
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 
 app.get('/api/health', (_, res) => res.json({ status: 'ok', time: new Date().toISOString() }));
 
@@ -120,7 +126,7 @@ app.get('/api/stats', authRequired, async (req, res) => {
   if (!user) return res.status(404).json({ message: '사용자 없음' });
   
   const s = user.stats;
-  const totalUsers = await User.countDocuments(); // 전체 가입자 수
+  const totalUsers = await User.countDocuments();
   
   res.json({
     totalGames: s.totalGames,
@@ -147,13 +153,18 @@ app.post('/api/stats/update', authRequired, async (req, res) => {
   res.json({ message: '통계 업데이트 완료' });
 });
 
+// 상세 페이지 라우팅 (index.html로 대응)
 app.get('/pages/*', (req, res) => {
   const file = path.join(__dirname, 'public', req.path);
-  res.sendFile(file, err => { if (err) res.status(404).send('Not found'); });
+  res.sendFile(file, err => { 
+    if (err) {
+      res.status(404).sendFile(path.join(__dirname, 'public', 'index.html'));
+    }
+  });
 });
 
 // ════════════════════════════════════════════════════════
-//  WEBSOCKET — 체스 온라인 대전 (기존 로직 유지)
+//  WEBSOCKET — 체스 온라인 대전
 // ════════════════════════════════════════════════════════
 
 const rooms = new Map();
