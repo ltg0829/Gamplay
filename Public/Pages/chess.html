@@ -1,0 +1,1510 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>NEXUS CHESS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #1a1410;
+  --surface: #231e18;
+  --surface2: #2d2620;
+  --border: #3d342a;
+  --light-sq: #f0d9b5;
+  --dark-sq:  #b58863;
+  --light-sq-sel: #f6f669;
+  --dark-sq-sel:  #baca2b;
+  --light-sq-move: #cdd16f;
+  --dark-sq-move:  #aaa23a;
+  --light-sq-check: #ff6b6b;
+  --dark-sq-check:  #cc4444;
+  --light-sq-line: #7ec8e3;
+  --dark-sq-line:  #4a9dbf;
+  --accent: #c9a96e;
+  --accent2: #e8c987;
+  --text: #f5e6cc;
+  --text-muted: #8a7560;
+  --white-piece: #fff9f0;
+  --black-piece: #1a1208;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Noto Sans KR', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── HEADER ─────────────────────────────────── */
+header {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 0 32px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-family: 'Cinzel', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--accent2);
+  letter-spacing: 0.15em;
+}
+
+.header-nav { display:flex; gap:8px; }
+
+.nav-btn {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.nav-btn:hover, .nav-btn.active { border-color: var(--accent); color: var(--accent2); }
+
+/* ── LAYOUT ─────────────────────────────────── */
+.app {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 220px 1fr 220px;
+  gap: 0;
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+/* ── SIDE PANELS ─────────────────────────────── */
+.side-panel {
+  padding: 0 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.panel-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.panel-title {
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+/* Player info */
+.player-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  transition: border-color 0.3s;
+}
+.player-card.active-turn { border-color: var(--accent); background: rgba(201,169,110,0.08); }
+
+.player-color {
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  flex-shrink: 0;
+}
+.player-color.white { background: #f5f0e8; }
+.player-color.black { background: #2a2018; }
+
+.player-name { font-size: 13px; font-weight: 500; }
+.player-label { font-size: 11px; color: var(--text-muted); }
+
+/* Captured pieces */
+.captured-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  min-height: 24px;
+}
+.captured-piece { font-size: 16px; line-height: 1; }
+
+/* Move history */
+.move-list {
+  max-height: 200px;
+  overflow-y: auto;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 12px;
+}
+.move-list::-webkit-scrollbar { width: 4px; }
+.move-list::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+.move-row { display:flex; gap:8px; padding: 3px 0; border-bottom: 1px solid rgba(61,52,42,0.4); }
+.move-num { color: var(--text-muted); width: 24px; }
+.move-w { color: var(--text); flex: 1; }
+.move-b { color: var(--text-muted); flex: 1; }
+
+/* Status */
+.status-box {
+  text-align: center;
+  padding: 12px;
+  border-radius: 8px;
+  font-family: 'Cinzel', serif;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+}
+.status-playing { background: rgba(201,169,110,0.08); color: var(--accent2); }
+.status-check   { background: rgba(255,100,100,0.15); color: #ff8080; border: 1px solid rgba(255,100,100,0.3); }
+.status-checkmate { background: rgba(255,50,50,0.2); color: #ff6060; border: 1px solid rgba(255,50,50,0.4); }
+.status-stalemate { background: rgba(100,100,100,0.2); color: #aaa; border: 1px solid rgba(100,100,100,0.3); }
+
+/* Controls */
+.ctrl-btn {
+  width: 100%;
+  padding: 9px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--surface2);
+  color: var(--text);
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-bottom: 6px;
+}
+.ctrl-btn:hover { border-color: var(--accent); color: var(--accent2); }
+.ctrl-btn.primary { background: linear-gradient(135deg, #7a5c2a, #a07838); border-color: var(--accent); color: #fff8e8; }
+.ctrl-btn.primary:hover { background: linear-gradient(135deg, #8a6c3a, #b08848); }
+
+/* Difficulty */
+.diff-btns { display:flex; gap:6px; }
+.diff-btn {
+  flex:1; padding:6px 4px;
+  border-radius:6px; border:1px solid var(--border);
+  background:var(--surface2); color:var(--text-muted);
+  font-size:11px; font-family:'Cinzel',serif;
+  cursor:pointer; transition:all 0.2s; text-align:center;
+}
+.diff-btn.active { border-color:var(--accent); color:var(--accent2); background:rgba(201,169,110,0.1); }
+
+/* Line push panel */
+.line-push-panel { display:none; }
+.line-push-panel.visible { display:block; }
+
+.push-mode-btns { display:flex; gap:6px; margin-bottom:10px; }
+.push-mode-btn {
+  flex:1; padding:7px;
+  border-radius:6px; border:1px solid var(--border);
+  background:var(--surface2); color:var(--text-muted);
+  font-size:11px; font-family:'Cinzel',serif; cursor:pointer; transition:all 0.2s;
+}
+.push-mode-btn.active { border-color:#7ec8e3; color:#7ec8e3; background:rgba(126,200,227,0.1); }
+
+.line-select {
+  display:grid; grid-template-columns:repeat(4,1fr); gap:4px; margin-bottom:8px;
+}
+.line-btn {
+  padding:5px 2px; text-align:center;
+  border-radius:4px; border:1px solid var(--border);
+  background:var(--surface2); color:var(--text-muted);
+  font-size:11px; font-family:'Roboto Mono',monospace;
+  cursor:pointer; transition:all 0.2s;
+}
+.line-btn:hover, .line-btn.selected { border-color:#7ec8e3; color:#7ec8e3; }
+
+.dir-btns { display:grid; grid-template-columns:1fr 1fr; gap:6px; }
+.dir-btn {
+  padding:8px; text-align:center;
+  border-radius:6px; border:1px solid var(--border);
+  background:var(--surface2); color:var(--text-muted);
+  font-size:13px; cursor:pointer; transition:all 0.2s;
+}
+.dir-btn:hover { border-color:#7ec8e3; color:#7ec8e3; }
+
+/* ── BOARD AREA ───────────────────────────────── */
+.board-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.board-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.coord-row {
+  display: flex;
+  padding: 0 24px;
+  justify-content: space-around;
+}
+.coord-col {
+  position: absolute;
+  top: 0; bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.coord-col.left { left: 4px; }
+.coord-col.right { right: 4px; }
+
+.coord {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 11px;
+  color: var(--text-muted);
+  width: 16px;
+  text-align: center;
+  line-height: 1;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(8, 70px);
+  grid-template-rows: repeat(8, 70px);
+  border: 3px solid #5a4a38;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.6), inset 0 0 0 1px rgba(255,220,150,0.1);
+  width: 560px;
+  height: 560px;
+}
+
+.sq {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.12s;
+  user-select: none;
+}
+
+.sq.light { background: var(--light-sq); }
+.sq.dark  { background: var(--dark-sq); }
+.sq.selected.light { background: var(--light-sq-sel); }
+.sq.selected.dark  { background: var(--dark-sq-sel); }
+.sq.move-hint.light { background: var(--light-sq-move); }
+.sq.move-hint.dark  { background: var(--dark-sq-move); }
+.sq.in-check.light { background: var(--light-sq-check); }
+.sq.in-check.dark  { background: var(--dark-sq-check); }
+.sq.line-preview.light { background: var(--light-sq-line); }
+.sq.line-preview.dark  { background: var(--dark-sq-line); }
+.sq.immune-highlight { outline: 2px inset rgba(255,200,50,0.4); }
+
+/* Move hint dot */
+.sq.move-hint::after {
+  content: '';
+  width: 28%;
+  height: 28%;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.2);
+  position: absolute;
+}
+.sq.move-hint.capture-hint::after {
+  width: 90%; height: 90%;
+  background: none;
+  border-radius: 50%;
+  border: 4px solid rgba(0,0,0,0.2);
+}
+
+/* Piece */
+.piece {
+  font-size: 52px;
+  line-height: 1;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.1s;
+  pointer-events: none;
+}
+.piece.white { color: var(--white-piece); text-shadow: 0 1px 3px rgba(0,0,0,0.5), 0 0 1px #000; }
+.piece.black { color: var(--black-piece); text-shadow: 0 1px 2px rgba(255,255,255,0.1); }
+
+.sq:hover .piece { transform: scale(1.05); }
+.sq.selected .piece { transform: scale(1.08); }
+
+/* Last move highlight */
+.sq.last-from, .sq.last-to { box-shadow: inset 0 0 0 3px rgba(255,200,0,0.4); }
+
+/* ── PROMOTION MODAL ──────────────────────────── */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+}
+.modal-overlay.show { display:flex; }
+
+.promo-modal {
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+  text-align: center;
+}
+.promo-title {
+  font-family: 'Cinzel', serif;
+  font-size: 14px;
+  color: var(--accent2);
+  margin-bottom: 16px;
+  letter-spacing: 0.2em;
+}
+.promo-choices {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+.promo-choice {
+  width: 64px; height: 64px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 40px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.promo-choice:hover { border-color: var(--accent); transform: scale(1.05); }
+
+/* ── MODE SELECT MODAL ───────────────────────── */
+.mode-modal {
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: 20px;
+  padding: 40px;
+  max-width: 500px;
+  width: 90%;
+}
+.mode-title {
+  font-family: 'Cinzel', serif;
+  font-size: 22px;
+  text-align: center;
+  color: var(--accent2);
+  margin-bottom: 8px;
+  letter-spacing: 0.15em;
+}
+.mode-sub { text-align:center; color:var(--text-muted); font-size:13px; margin-bottom:28px; }
+.mode-options { display:flex; flex-direction:column; gap:12px; }
+.mode-option {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px 20px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: left;
+}
+.mode-option:hover { border-color: var(--accent); }
+.mode-option-title { font-family:'Cinzel',serif; font-size:14px; color:var(--accent2); margin-bottom:4px; }
+.mode-option-desc { font-size:12px; color:var(--text-muted); line-height:1.5; }
+
+/* ── ONLINE LOBBY ────────────────────────────── */
+.lobby-modal {
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: 20px;
+  padding: 36px;
+  max-width: 420px;
+  width: 90%;
+}
+.lobby-title { font-family:'Cinzel',serif; font-size:18px; color:var(--accent2); text-align:center; margin-bottom:20px; letter-spacing:0.15em; }
+.lobby-input {
+  width:100%; padding:10px 14px;
+  background:var(--surface2); border:1px solid var(--border);
+  border-radius:8px; color:var(--text);
+  font-family:'Roboto Mono',monospace; font-size:14px;
+  outline:none; margin-bottom:10px;
+  transition:border-color 0.2s;
+}
+.lobby-input:focus { border-color:var(--accent); }
+.lobby-btn {
+  width:100%; padding:11px;
+  background:linear-gradient(135deg,#7a5c2a,#a07838);
+  border:1px solid var(--accent); border-radius:8px;
+  color:#fff8e8; font-family:'Cinzel',serif; font-size:12px;
+  letter-spacing:0.15em; cursor:pointer; margin-bottom:8px;
+  transition:all 0.2s;
+}
+.lobby-btn:hover { background:linear-gradient(135deg,#8a6c3a,#b08848); }
+.lobby-status { text-align:center; font-size:12px; color:var(--text-muted); min-height:18px; }
+.room-code-display {
+  text-align:center; padding:12px;
+  background:var(--surface2); border:1px solid var(--accent);
+  border-radius:8px; margin-bottom:10px;
+  font-family:'Roboto Mono',monospace;
+}
+.room-code-label { font-size:11px; color:var(--text-muted); margin-bottom:4px; }
+.room-code-value { font-size:24px; color:var(--accent2); letter-spacing:0.3em; font-weight:500; }
+
+/* ── GAME INFO BAR ────────────────────────────── */
+.game-mode-bar {
+  padding: 8px 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-family: 'Cinzel', serif;
+  font-size: 12px;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  text-align: center;
+  width: 100%;
+  max-width: 560px;
+}
+
+.action-toggle {
+  display: flex;
+  gap: 6px;
+  width: 100%;
+  max-width: 560px;
+}
+.action-btn {
+  flex:1; padding:8px;
+  border-radius:8px; border:1px solid var(--border);
+  background:var(--surface2); color:var(--text-muted);
+  font-family:'Cinzel',serif; font-size:11px; letter-spacing:0.1em;
+  cursor:pointer; transition:all 0.2s;
+}
+.action-btn.active { border-color:var(--accent); color:var(--accent2); background:rgba(201,169,110,0.08); }
+.action-btn.linepush-active { border-color:#7ec8e3; color:#7ec8e3; background:rgba(126,200,227,0.08); }
+
+@media (max-width:900px) {
+  .app { grid-template-columns:1fr; }
+  .side-panel { flex-direction:row; flex-wrap:wrap; padding:0; }
+  .panel-card { flex:1; min-width:160px; }
+  .board { width:min(560px,calc(100vw-32px)); height:min(560px,calc(100vw-32px)); }
+  .piece { font-size:min(52px,calc((100vw - 32px) / 8 * 0.8)); }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="logo">♞ NEXUS CHESS</div>
+  <div class="header-nav">
+    <button class="nav-btn" id="btnNewGame" onclick="showStep1()">새 게임</button>
+    <button class="nav-btn" onclick="window.location.href='/pages/hub.html'">← 허브</button>
+  </div>
+</header>
+
+<!-- MODALS -->
+<!-- Step 1: Game Type -->
+<div class="modal-overlay show" id="step1Modal">
+  <div class="mode-modal">
+    <div class="mode-title">♞ NEXUS CHESS</div>
+    <div class="mode-sub">게임 종류를 선택하세요</div>
+    <div class="mode-options">
+      <div class="mode-option" onclick="selectGameType('classic')">
+        <div class="mode-option-title">♟ 오리지널 체스</div>
+        <div class="mode-option-desc">클래식 체스 규칙 — 앙파상, 캐슬링, 폰 승급 완전 지원</div>
+      </div>
+      <div class="mode-option" onclick="selectGameType('line')">
+        <div class="mode-option-title">⇄ 라인 체스</div>
+        <div class="mode-option-desc">매 턴 기물 이동 또는 행·열 전체 밀기 선택 — 랩어라운드 적용</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Step 2: Mode Select -->
+<div class="modal-overlay" id="step2Modal">
+  <div class="mode-modal">
+    <div class="mode-title">♞ NEXUS CHESS</div>
+    <div class="mode-sub" id="modeSubtitle">대전 방식을 선택하세요</div>
+    <div class="mode-options">
+      <div class="mode-option" onclick="startLocalGame()">
+        <div class="mode-option-title">🖥 로컬 대전</div>
+        <div class="mode-option-desc">같은 컴퓨터에서 두 명이 번갈아가며 플레이</div>
+      </div>
+      <div class="mode-option" onclick="showOnlineLobby()">
+        <div class="mode-option-title">🌐 온라인 대전</div>
+        <div class="mode-option-desc">방을 만들거나 코드로 참가해서 원격 대전</div>
+      </div>
+      <div class="mode-option" onclick="startAIGame()">
+        <div class="mode-option-title">🤖 AI 대전</div>
+        <div class="mode-option-desc">컴퓨터와 대결 — 난이도 조절 가능</div>
+      </div>
+    </div>
+    <br>
+    <button class="mode-option" style="width:100%;text-align:center;border:1px solid var(--border);background:var(--surface2);color:var(--text-muted);font-family:Cinzel,serif;font-size:12px;padding:10px;border-radius:10px;cursor:pointer;" onclick="showStep1()">← 뒤로</button>
+  </div>
+</div>
+
+<!-- Online Lobby -->
+<div class="modal-overlay" id="lobbyModal">
+  <div class="lobby-modal">
+    <div class="lobby-title">온라인 대전</div>
+    <div id="lobbyCreateArea">
+      <button class="lobby-btn" onclick="createRoom()">방 만들기</button>
+      <div class="lobby-status">또는</div>
+    </div>
+    <div id="lobbyRoomCode" style="display:none">
+      <div class="room-code-display">
+        <div class="room-code-label">방 코드 (상대에게 알려주세요)</div>
+        <div class="room-code-value" id="roomCodeDisplay">----</div>
+      </div>
+      <div class="lobby-status" id="waitingStatus">상대방을 기다리는 중...</div>
+    </div>
+    <input class="lobby-input" id="joinCodeInput" placeholder="방 코드 입력 (4자리)" maxlength="4" style="text-transform:uppercase"/>
+    <button class="lobby-btn" onclick="joinRoom()">방 참가</button>
+    <div class="lobby-status" id="lobbyStatus"></div>
+    <br>
+    <button class="lobby-btn" style="background:var(--surface2);border-color:var(--border);color:var(--text-muted)" onclick="hideLobby()">← 뒤로</button>
+  </div>
+</div>
+
+<!-- Promotion -->
+<div class="modal-overlay" id="promoModal">
+  <div class="promo-modal">
+    <div class="promo-title">PAWN PROMOTION</div>
+    <div class="promo-choices" id="promoChoices"></div>
+  </div>
+</div>
+
+<!-- APP LAYOUT -->
+<div class="app">
+  <!-- Left Panel -->
+  <div class="side-panel">
+    <!-- Black player -->
+    <div class="panel-card">
+      <div class="player-card" id="blackPlayer">
+        <div class="player-color black"></div>
+        <div>
+          <div class="player-name" id="blackName">흑</div>
+          <div class="player-label" id="blackLabel">대기 중</div>
+        </div>
+      </div>
+      <br>
+      <!-- White player -->
+      <div class="player-card active-turn" id="whitePlayer">
+        <div class="player-color white"></div>
+        <div>
+          <div class="player-name" id="whiteName">백</div>
+          <div class="player-label" id="whiteLabel">차례</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Status -->
+    <div class="panel-card">
+      <div class="panel-title">상태</div>
+      <div class="status-box status-playing" id="statusBox">백의 차례</div>
+    </div>
+
+    <!-- Captured -->
+    <div class="panel-card">
+      <div class="panel-title">잡은 기물</div>
+      <div style="font-size:11px;color:var(--text-muted);margin-bottom:4px;">백</div>
+      <div class="captured-row" id="capturedByWhite"></div>
+      <br>
+      <div style="font-size:11px;color:var(--text-muted);margin-bottom:4px;">흑</div>
+      <div class="captured-row" id="capturedByBlack"></div>
+    </div>
+  </div>
+
+  <!-- Center: Board -->
+  <div class="board-area">
+    <div class="game-mode-bar" id="gameModeBar">게임 모드를 선택하세요</div>
+
+    <!-- Coords top -->
+    <div class="coord-row" style="padding:0 0 0 0; width:560px">
+      <span class="coord">a</span><span class="coord">b</span><span class="coord">c</span>
+      <span class="coord">d</span><span class="coord">e</span><span class="coord">f</span>
+      <span class="coord">g</span><span class="coord">h</span>
+    </div>
+
+    <div class="board-wrapper">
+      <div class="coord-col left" id="coordLeft"></div>
+      <div class="board" id="board"></div>
+      <div class="coord-col right" id="coordRight"></div>
+    </div>
+
+    <div class="coord-row" style="width:560px">
+      <span class="coord">a</span><span class="coord">b</span><span class="coord">c</span>
+      <span class="coord">d</span><span class="coord">e</span><span class="coord">f</span>
+      <span class="coord">g</span><span class="coord">h</span>
+    </div>
+
+    <!-- Line Chess action toggle -->
+    <div class="action-toggle" id="actionToggle" style="display:none">
+      <button class="action-btn active" id="btnNormalAction" onclick="setAction('normal')">♟ 기물 이동</button>
+      <button class="action-btn" id="btnLineAction" onclick="setAction('linepush')">⇄ 라인 밀기</button>
+    </div>
+  </div>
+
+  <!-- Right Panel -->
+  <div class="side-panel">
+    <!-- Controls -->
+    <div class="panel-card">
+      <div class="panel-title">게임</div>
+      <button class="ctrl-btn primary" onclick="showModeModal()">새 게임</button>
+      <button class="ctrl-btn" onclick="offerDraw()">무승부 제안</button>
+      <button class="ctrl-btn" onclick="resign()">기권</button>
+    </div>
+
+    <!-- AI Difficulty -->
+    <div class="panel-card" id="aiPanel" style="display:none">
+      <div class="panel-title">AI 난이도</div>
+      <div class="diff-btns">
+        <div class="diff-btn active" onclick="setDiff(1,this)">쉬움</div>
+        <div class="diff-btn" onclick="setDiff(2,this)">보통</div>
+        <div class="diff-btn" onclick="setDiff(3,this)">어려움</div>
+      </div>
+    </div>
+
+    <!-- Line Push Panel -->
+    <div class="panel-card line-push-panel" id="linePushPanel">
+      <div class="panel-title">라인 밀기</div>
+      <div class="push-mode-btns">
+        <button class="push-mode-btn active" id="btnRow" onclick="setPushType('row')">행 (←→)</button>
+        <button class="push-mode-btn" id="btnCol" onclick="setPushType('col')">열 (↑↓)</button>
+      </div>
+
+      <div class="panel-title" id="lineSelectLabel">행 선택 (1~8)</div>
+      <div class="line-select" id="lineSelectBtns"></div>
+
+      <div class="panel-title">방향</div>
+      <div class="dir-btns">
+        <button class="dir-btn" id="dirA" onclick="previewAndPush('a')">◀ / ▲</button>
+        <button class="dir-btn" id="dirB" onclick="previewAndPush('b')">▶ / ▼</button>
+      </div>
+      <br>
+      <div style="font-size:11px;color:var(--text-muted);line-height:1.6;">
+        ⚠ 행 1·2·7·8의 기물은<br>밀기 영향을 받지 않습니다
+      </div>
+    </div>
+
+    <!-- Move History -->
+    <div class="panel-card">
+      <div class="panel-title">기보</div>
+      <div class="move-list" id="moveList"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Scripts (inlined to avoid path issues) -->
+<script>
+// ═══════════════════════════════════════
+//  CHESS ENGINE
+// ═══════════════════════════════════════
+const PIECES = {
+  EMPTY: 0,
+  W_PAWN: 1, W_KNIGHT: 2, W_BISHOP: 3, W_ROOK: 4, W_QUEEN: 5, W_KING: 6,
+  B_PAWN: 7, B_KNIGHT: 8, B_BISHOP: 9, B_ROOK: 10, B_QUEEN: 11, B_KING: 12,
+};
+function isWhite(p) { return p >= 1 && p <= 6; }
+function isBlack(p) { return p >= 7 && p <= 12; }
+function isEmpty(p) { return p === 0; }
+function sameColor(a, b) { return (isWhite(a) && isWhite(b)) || (isBlack(a) && isBlack(b)); }
+function pieceColor(p) { return isWhite(p) ? 'white' : isBlack(p) ? 'black' : null; }
+
+class ChessEngine {
+  constructor() { this.reset(); }
+  reset() {
+    this.board = [
+      [PIECES.B_ROOK,PIECES.B_KNIGHT,PIECES.B_BISHOP,PIECES.B_QUEEN,PIECES.B_KING,PIECES.B_BISHOP,PIECES.B_KNIGHT,PIECES.B_ROOK],
+      [PIECES.B_PAWN,PIECES.B_PAWN,PIECES.B_PAWN,PIECES.B_PAWN,PIECES.B_PAWN,PIECES.B_PAWN,PIECES.B_PAWN,PIECES.B_PAWN],
+      [0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],
+      [PIECES.W_PAWN,PIECES.W_PAWN,PIECES.W_PAWN,PIECES.W_PAWN,PIECES.W_PAWN,PIECES.W_PAWN,PIECES.W_PAWN,PIECES.W_PAWN],
+      [PIECES.W_ROOK,PIECES.W_KNIGHT,PIECES.W_BISHOP,PIECES.W_QUEEN,PIECES.W_KING,PIECES.W_BISHOP,PIECES.W_KNIGHT,PIECES.W_ROOK],
+    ];
+    this.turn='white'; this.enPassant=null;
+    this.castling={W_K:true,W_Q:true,B_K:true,B_Q:true};
+    this.moveHistory=[]; this.capturedPieces={white:[],black:[]};
+    this.status='playing'; this.fullMoveNumber=1;
+  }
+  cloneBoard(b){return b.map(r=>[...r]);}
+  getBoard(){return this.board;}
+  getPiece(r,c){return this.board[r]?.[c]??-1;}
+  inBounds(r,c){return r>=0&&r<8&&c>=0&&c<8;}
+  rawMoves(board,row,col,enPassant,castling){
+    const piece=board[row][col]; if(!piece)return[];
+    const moves=[]; const white=isWhite(piece); const dir=white?-1:1;
+    const add=(r,c,extra={})=>{if(this.inBounds(r,c))moves.push({from:{row,col},to:{row:r,col:c},...extra});};
+    const slide=(dr,dc)=>{let r=row+dr,c=col+dc;while(this.inBounds(r,c)){const t=board[r][c];if(isEmpty(t)){add(r,c);}else{if(!sameColor(piece,t))add(r,c);break;}r+=dr;c+=dc;}};
+    switch(piece){
+      case PIECES.W_PAWN: case PIECES.B_PAWN:{
+        if(this.inBounds(row+dir,col)&&isEmpty(board[row+dir][col])){
+          add(row+dir,col,{promotion:(row+dir===0||row+dir===7)});
+          const sr=white?6:1;
+          if(row===sr&&isEmpty(board[row+2*dir][col]))add(row+2*dir,col,{doublePush:true});
+        }
+        for(const dc of[-1,1]){const tr=row+dir,tc=col+dc;if(!this.inBounds(tr,tc))continue;const t=board[tr][tc];if(!isEmpty(t)&&!sameColor(piece,t))add(tr,tc,{promotion:(tr===0||tr===7)});if(enPassant&&tr===enPassant.row&&tc===enPassant.col)add(tr,tc,{enPassant:true});}
+        break;
+      }
+      case PIECES.W_KNIGHT: case PIECES.B_KNIGHT:
+        for(const[dr,dc]of[[-2,-1],[-2,1],[-1,-2],[-1,2],[1,-2],[1,2],[2,-1],[2,1]]){const tr=row+dr,tc=col+dc;if(this.inBounds(tr,tc)&&!sameColor(piece,board[tr][tc]))add(tr,tc);}break;
+      case PIECES.W_BISHOP: case PIECES.B_BISHOP:for(const[dr,dc]of[[-1,-1],[-1,1],[1,-1],[1,1]])slide(dr,dc);break;
+      case PIECES.W_ROOK: case PIECES.B_ROOK:for(const[dr,dc]of[[-1,0],[1,0],[0,-1],[0,1]])slide(dr,dc);break;
+      case PIECES.W_QUEEN: case PIECES.B_QUEEN:for(const[dr,dc]of[[-1,-1],[-1,1],[1,-1],[1,1],[-1,0],[1,0],[0,-1],[0,1]])slide(dr,dc);break;
+      case PIECES.W_KING: case PIECES.B_KING:
+        for(const[dr,dc]of[[-1,-1],[-1,0],[-1,1],[0,-1],[0,1],[1,-1],[1,0],[1,1]]){const tr=row+dr,tc=col+dc;if(this.inBounds(tr,tc)&&!sameColor(piece,board[tr][tc]))add(tr,tc);}
+        if(white){
+          if(castling.W_K&&isEmpty(board[7][5])&&isEmpty(board[7][6])&&!this.squareAttacked(board,7,4,'white')&&!this.squareAttacked(board,7,5,'white')&&!this.squareAttacked(board,7,6,'white'))add(7,6,{castle:'K'});
+          if(castling.W_Q&&isEmpty(board[7][3])&&isEmpty(board[7][2])&&isEmpty(board[7][1])&&!this.squareAttacked(board,7,4,'white')&&!this.squareAttacked(board,7,3,'white')&&!this.squareAttacked(board,7,2,'white'))add(7,2,{castle:'Q'});
+        }else{
+          if(castling.B_K&&isEmpty(board[0][5])&&isEmpty(board[0][6])&&!this.squareAttacked(board,0,4,'black')&&!this.squareAttacked(board,0,5,'black')&&!this.squareAttacked(board,0,6,'black'))add(0,6,{castle:'K'});
+          if(castling.B_Q&&isEmpty(board[0][3])&&isEmpty(board[0][2])&&isEmpty(board[0][1])&&!this.squareAttacked(board,0,4,'black')&&!this.squareAttacked(board,0,3,'black')&&!this.squareAttacked(board,0,2,'black'))add(0,2,{castle:'Q'});
+        }
+        break;
+    }
+    return moves;
+  }
+  squareAttacked(board,row,col,color){
+    const opp=color==='white'?'black':'white';
+    for(let r=0;r<8;r++)for(let c=0;c<8;c++){const p=board[r][c];if(!p||pieceColor(p)!==opp)continue;const moves=this.rawMoves(board,r,c,null,{W_K:false,W_Q:false,B_K:false,B_Q:false});if(moves.some(m=>m.to.row===row&&m.to.col===col))return true;}
+    return false;
+  }
+  findKing(board,color){const king=color==='white'?PIECES.W_KING:PIECES.B_KING;for(let r=0;r<8;r++)for(let c=0;c<8;c++)if(board[r][c]===king)return{row:r,col:c};return null;}
+  applyMove(board,move,enPassant){
+    const b=this.cloneBoard(board);const piece=b[move.from.row][move.from.col];
+    b[move.to.row][move.to.col]=piece;b[move.from.row][move.from.col]=0;
+    if(move.enPassant)b[move.from.row][move.to.col]=0;
+    if(move.castle){if(move.castle==='K'&&move.to.row===7){b[7][5]=b[7][7];b[7][7]=0;}if(move.castle==='Q'&&move.to.row===7){b[7][3]=b[7][0];b[7][0]=0;}if(move.castle==='K'&&move.to.row===0){b[0][5]=b[0][7];b[0][7]=0;}if(move.castle==='Q'&&move.to.row===0){b[0][3]=b[0][0];b[0][0]=0;}}
+    if(move.promotion){const q=isWhite(piece)?PIECES.W_QUEEN:PIECES.B_QUEEN;b[move.to.row][move.to.col]=move.promoPiece||q;}
+    return b;
+  }
+  legalMoves(row,col){
+    const piece=this.board[row][col];if(!piece||pieceColor(piece)!==this.turn)return[];
+    return this.rawMoves(this.board,row,col,this.enPassant,this.castling).filter(move=>{const nb=this.applyMove(this.board,move,this.enPassant);const king=this.findKing(nb,this.turn);return king&&!this.squareAttacked(nb,king.row,king.col,this.turn);});
+  }
+  allLegalMoves(color){const moves=[];for(let r=0;r<8;r++)for(let c=0;c<8;c++)if(pieceColor(this.board[r][c])===color)moves.push(...this.legalMoves(r,c));return moves;}
+  isInCheck(color){const king=this.findKing(this.board,color);return king?this.squareAttacked(this.board,king.row,king.col,color):false;}
+  makeMove(move,promoPiece=null){
+    if(move.promotion&&promoPiece)move.promoPiece=promoPiece;
+    const piece=this.board[move.from.row][move.from.col];const captured=this.board[move.to.row][move.to.col];
+    if(captured)this.capturedPieces[this.turn].push(captured);
+    if(move.enPassant)this.capturedPieces[this.turn].push(this.board[move.from.row][move.to.col]);
+    this.board=this.applyMove(this.board,move,this.enPassant);
+    this.enPassant=move.doublePush?{row:move.from.row+(isWhite(piece)?-1:1),col:move.from.col}:null;
+    if(piece===PIECES.W_KING){this.castling.W_K=false;this.castling.W_Q=false;}
+    if(piece===PIECES.B_KING){this.castling.B_K=false;this.castling.B_Q=false;}
+    if(move.from.row===7&&move.from.col===0)this.castling.W_Q=false;
+    if(move.from.row===7&&move.from.col===7)this.castling.W_K=false;
+    if(move.from.row===0&&move.from.col===0)this.castling.B_Q=false;
+    if(move.from.row===0&&move.from.col===7)this.castling.B_K=false;
+    this.moveHistory.push({move,piece,captured,board:this.cloneBoard(this.board)});
+    this.turn=this.turn==='white'?'black':'white';
+    if(this.turn==='white')this.fullMoveNumber++;
+    this.updateStatus();return true;
+  }
+  updateStatus(){const moves=this.allLegalMoves(this.turn);if(moves.length===0){this.status=this.isInCheck(this.turn)?'checkmate':'stalemate';}else{this.status=this.isInCheck(this.turn)?'check':'playing';}}
+  toAlgebraic(row,col){return String.fromCharCode(97+col)+(8-row);}
+  getStatus(){return this.status;}
+  getTurn(){return this.turn;}
+  getCaptured(){return this.capturedPieces;}
+  getMoveHistory(){return this.moveHistory;}
+}
+
+// ═══════════════════════════════════════
+//  CHESS AI
+// ═══════════════════════════════════════
+class ChessAI {
+  constructor(engine,difficulty=2){this.engine=engine;this.difficulty=difficulty;this.depth={1:1,2:3,3:5}[difficulty]||3;}
+  setDifficulty(d){this.difficulty=d;this.depth={1:1,2:3,3:5}[d]||3;}
+  PST={pawn:[[0,0,0,0,0,0,0,0],[50,50,50,50,50,50,50,50],[10,10,20,30,30,20,10,10],[5,5,10,25,25,10,5,5],[0,0,0,20,20,0,0,0],[5,-5,-10,0,0,-10,-5,5],[5,10,10,-20,-20,10,10,5],[0,0,0,0,0,0,0,0]],knight:[[-50,-40,-30,-30,-30,-30,-40,-50],[-40,-20,0,0,0,0,-20,-40],[-30,0,10,15,15,10,0,-30],[-30,5,15,20,20,15,5,-30],[-30,0,15,20,20,15,0,-30],[-30,5,10,15,15,10,5,-30],[-40,-20,0,5,5,0,-20,-40],[-50,-40,-30,-30,-30,-30,-40,-50]],bishop:[[-20,-10,-10,-10,-10,-10,-10,-20],[-10,0,0,0,0,0,0,-10],[-10,0,5,10,10,5,0,-10],[-10,5,5,10,10,5,5,-10],[-10,0,10,10,10,10,0,-10],[-10,10,10,10,10,10,10,-10],[-10,5,0,0,0,0,5,-10],[-20,-10,-10,-10,-10,-10,-10,-20]],rook:[[0,0,0,0,0,0,0,0],[5,10,10,10,10,10,10,5],[-5,0,0,0,0,0,0,-5],[-5,0,0,0,0,0,0,-5],[-5,0,0,0,0,0,0,-5],[-5,0,0,0,0,0,0,-5],[-5,0,0,0,0,0,0,-5],[0,0,0,5,5,0,0,0]],queen:[[-20,-10,-10,-5,-5,-10,-10,-20],[-10,0,0,0,0,0,0,-10],[-10,0,5,5,5,5,0,-10],[-5,0,5,5,5,5,0,-5],[0,0,5,5,5,5,0,-5],[-10,5,5,5,5,5,0,-10],[-10,0,5,0,0,0,0,-10],[-20,-10,-10,-5,-5,-10,-10,-20]],king:[[-30,-40,-40,-50,-50,-40,-40,-30],[-30,-40,-40,-50,-50,-40,-40,-30],[-30,-40,-40,-50,-50,-40,-40,-30],[-30,-40,-40,-50,-50,-40,-40,-30],[-20,-30,-30,-40,-40,-30,-30,-20],[-10,-20,-20,-20,-20,-20,-20,-10],[20,20,0,0,0,0,20,20],[20,30,10,0,0,10,30,20]]};
+  PIECE_VALUES={1:100,2:320,3:330,4:500,5:900,6:20000,7:-100,8:-320,9:-330,10:-500,11:-900,12:-20000};
+  getPST(piece,row,col){const t={1:'pawn',2:'knight',3:'bishop',4:'rook',5:'queen',6:'king',7:'pawn',8:'knight',9:'bishop',10:'rook',11:'queen',12:'king'};const n=t[piece];if(!n)return 0;const r=piece<=6?row:7-row;return this.PST[n][r][col]*(piece<=6?1:-1);}
+  evaluate(board){let s=0;for(let r=0;r<8;r++)for(let c=0;c<8;c++){const p=board[r][c];if(p)s+=(this.PIECE_VALUES[p]||0)+this.getPST(p,r,c);}return s;}
+  minimax(engine,depth,alpha,beta,maximizing){
+    if(depth===0)return this.evaluate(engine.board);
+    const color=maximizing?'black':'white';const moves=engine.allLegalMoves(color);
+    if(moves.length===0){if(engine.isInCheck(color))return maximizing?-Infinity:Infinity;return 0;}
+    if(this.difficulty===1)moves.sort(()=>Math.random()-0.5);
+    else moves.sort((a,b)=>(engine.board[b.to.row][b.to.col]?1:0)-(engine.board[a.to.row][a.to.col]?1:0));
+    if(maximizing){let best=-Infinity;for(const m of moves){const s=this.saveState(engine);engine.makeMove(m);const v=this.minimax(engine,depth-1,alpha,beta,false);this.restoreState(engine,s);best=Math.max(best,v);alpha=Math.max(alpha,v);if(beta<=alpha)break;}return best;}
+    else{let best=Infinity;for(const m of moves){const s=this.saveState(engine);engine.makeMove(m);const v=this.minimax(engine,depth-1,alpha,beta,true);this.restoreState(engine,s);best=Math.min(best,v);beta=Math.min(beta,v);if(beta<=alpha)break;}return best;}
+  }
+  saveState(e){return{board:e.cloneBoard(e.board),turn:e.turn,enPassant:e.enPassant?{...e.enPassant}:null,castling:{...e.castling},status:e.status,capturedPieces:{white:[...e.capturedPieces.white],black:[...e.capturedPieces.black]},moveHistory:[...e.moveHistory],fullMoveNumber:e.fullMoveNumber};}
+  restoreState(e,s){e.board=e.cloneBoard(s.board);e.turn=s.turn;e.enPassant=s.enPassant;e.castling={...s.castling};e.status=s.status;e.capturedPieces={white:[...s.capturedPieces.white],black:[...s.capturedPieces.black]};e.moveHistory=[...s.moveHistory];e.fullMoveNumber=s.fullMoveNumber;}
+  getBestMove(){
+    const moves=this.engine.allLegalMoves('black');if(!moves.length)return null;
+    let bestMove=null,bestVal=-Infinity;
+    for(const m of moves){const s=this.saveState(this.engine);this.engine.makeMove(m);const v=this.minimax(this.engine,this.depth-1,-Infinity,Infinity,false);this.restoreState(this.engine,s);if(v>bestVal||(v===bestVal&&Math.random()>0.6)){bestVal=v;bestMove=m;}}
+    return bestMove;
+  }
+}
+
+// ═══════════════════════════════════════
+//  LINE CHESS ENGINE
+// ═══════════════════════════════════════
+class LineChessEngine extends ChessEngine {
+  constructor(){super();this.actionType='normal';}
+  reset(){super.reset();this.actionType='normal';}
+  isImmune(row){return row===0||row===1||row===6||row===7;}
+  getLinePushes(){const p=[];for(let r=0;r<8;r++)for(const d of['left','right'])p.push({type:'row',index:r,dir:d});for(let c=0;c<8;c++)for(const d of['up','down'])p.push({type:'col',index:c,dir:d});return p;}
+  previewLinePush(type,index,dir){
+    const b=this.cloneBoard(this.board);
+    if(type==='row'){
+      if(this.isImmune(index))return b;
+      const saved=[...b[index]];const newRow=[...saved];
+      if(dir==='right'){for(let c=0;c<8;c++)newRow[(c+1)%8]=saved[c];}
+      else{for(let c=0;c<8;c++)newRow[(c-1+8)%8]=saved[c];}
+      b[index]=newRow;
+    }else{
+      const saved=b.map(row=>row[index]);const newCol=[...saved];
+      if(dir==='down'){
+        for(let r=0;r<8;r++)if(!this.isImmune(r))newCol[(r+1)%8]=saved[r];
+        for(let r=0;r<8;r++)if(this.isImmune(r))newCol[r]=saved[r];
+      }else{
+        for(let r=0;r<8;r++)if(!this.isImmune(r))newCol[(r-1+8)%8]=saved[r];
+        for(let r=0;r<8;r++)if(this.isImmune(r))newCol[r]=saved[r];
+      }
+      for(let r=0;r<8;r++)b[r][index]=newCol[r];
+    }
+    return b;
+  }
+  makeLinePush(type,index,dir){
+    this.board=this.previewLinePush(type,index,dir);
+    this.moveHistory.push({linePush:{type,index,dir},board:this.cloneBoard(this.board)});
+    this.turn=this.turn==='white'?'black':'white';
+    if(this.turn==='white')this.fullMoveNumber++;
+    this.updateStatus();return true;
+  }
+}
+</script>
+
+<script>
+// ═══════════════════════════════════════
+//  GAME STATE
+// ═══════════════════════════════════════
+let gameType = 'classic';   // 'classic' | 'line'
+let gameMode = null;        // 'local' | 'ai' | 'online'
+let engine = null;
+let ai = null;
+let selectedSq = null;
+let legalMoves = [];
+let pendingPromo = null;
+let aiThinking = false;
+
+// Online
+let ws = null;
+let myColor = null;
+let roomCode = null;
+let onlineOpponent = null;
+
+// Line chess
+let currentAction = 'normal'; // 'normal' | 'linepush'
+let pushType = 'row';
+let selectedLine = null;
+
+const UNICODE = { 1:'♙',2:'♘',3:'♗',4:'♖',5:'♕',6:'♔',7:'♟',8:'♞',9:'♝',10:'♜',11:'♛',12:'♚' };
+const PIECE_NAMES = { 1:'P',2:'N',3:'B',4:'R',5:'Q',6:'K' };
+
+// ═══════════════════════════════════════
+//  INIT
+// ═══════════════════════════════════════
+function showStep1() {
+  document.getElementById('step1Modal').classList.add('show');
+  document.getElementById('step2Modal').classList.remove('show');
+}
+
+function selectGameType(type) {
+  gameType = type;
+  document.getElementById('step1Modal').classList.remove('show');
+  document.getElementById('step2Modal').classList.add('show');
+  document.getElementById('modeSubtitle').textContent =
+    (type === 'line' ? '라인 체스' : '오리지널 체스') + ' — 대전 방식 선택';
+}
+
+function showModeModal() {
+  showStep1();
+}
+
+function hideModeModal() {
+  document.getElementById('step1Modal').classList.remove('show');
+  document.getElementById('step2Modal').classList.remove('show');
+}
+
+function initEngine() {
+  engine = gameType === 'line' ? new LineChessEngine() : new ChessEngine();
+  ai = null;
+}
+
+function startLocalGame() {
+  hideModeModal();
+  gameMode = 'local';
+  initEngine();
+  setupBoard();
+  updateUI();
+  document.getElementById('aiPanel').style.display = 'none';
+  document.getElementById('gameModeBar').textContent =
+    gameType === 'line' ? '라인 체스 — 로컬 2인 대전' : '오리지널 체스 — 로컬 2인 대전';
+  document.getElementById('whiteName').textContent = '백 플레이어';
+  document.getElementById('blackName').textContent = '흑 플레이어';
+  if (gameType === 'line') {
+    document.getElementById('actionToggle').style.display = 'flex';
+    document.getElementById('linePushPanel').classList.add('visible');
+  } else {
+    document.getElementById('actionToggle').style.display = 'none';
+    document.getElementById('linePushPanel').classList.remove('visible');
+  }
+  setupLinePanel();
+}
+
+function startAIGame() {
+  hideModeModal();
+  gameMode = 'ai';
+  myColor = 'white';
+  initEngine();
+  ai = new ChessAI(engine, 2);
+  setupBoard();
+  updateUI();
+  document.getElementById('aiPanel').style.display = 'block';
+  document.getElementById('gameModeBar').textContent =
+    gameType === 'line' ? '라인 체스 — AI 대전' : '오리지널 체스 — AI 대전';
+  document.getElementById('whiteName').textContent = '나 (백)';
+  document.getElementById('blackName').textContent = 'AI (흑)';
+  if (gameType === 'line') {
+    document.getElementById('actionToggle').style.display = 'flex';
+    document.getElementById('linePushPanel').classList.add('visible');
+  } else {
+    document.getElementById('actionToggle').style.display = 'none';
+    document.getElementById('linePushPanel').classList.remove('visible');
+  }
+  setupLinePanel();
+}
+
+function setDiff(d, btn) {
+  if (ai) ai.setDifficulty(d);
+  document.querySelectorAll('.diff-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+// ═══════════════════════════════════════
+//  ONLINE
+// ═══════════════════════════════════════
+function showOnlineLobby() {
+  hideModeModal();
+  document.getElementById('lobbyModal').classList.add('show');
+  document.getElementById('lobbyStatus').textContent = '';
+  document.getElementById('lobbyRoomCode').style.display = 'none';
+  document.getElementById('lobbyCreateArea').style.display = 'block';
+}
+
+function hideLobby() {
+  document.getElementById('lobbyModal').classList.remove('show');
+  if (ws) { ws.close(); ws = null; }
+  document.getElementById('step2Modal').classList.add('show');
+}
+
+function createRoom() {
+  connectWS(() => {
+    ws.send(JSON.stringify({ type: 'create', gameType }));
+  });
+}
+
+function joinRoom() {
+  const code = document.getElementById('joinCodeInput').value.toUpperCase();
+  if (code.length !== 4) { document.getElementById('lobbyStatus').textContent = '4자리 코드를 입력하세요'; return; }
+  connectWS(() => {
+    ws.send(JSON.stringify({ type: 'join', code, gameType }));
+  });
+}
+
+function connectWS(onOpen) {
+  const proto = location.protocol === 'https:' ? 'wss' : 'ws';
+  ws = new WebSocket(`${proto}://${location.host}`);
+  ws.onopen = onOpen;
+  ws.onmessage = handleWS;
+  ws.onerror = () => { document.getElementById('lobbyStatus').textContent = '서버 연결 실패'; };
+}
+
+function handleWS(event) {
+  const msg = JSON.parse(event.data);
+  switch (msg.type) {
+    case 'room_created':
+      roomCode = msg.code;
+      document.getElementById('roomCodeDisplay').textContent = msg.code;
+      document.getElementById('lobbyRoomCode').style.display = 'block';
+      document.getElementById('lobbyCreateArea').style.display = 'none';
+      break;
+    case 'game_start':
+      myColor = msg.color;
+      onlineOpponent = msg.opponent;
+      gameType = msg.gameType || gameType;
+      document.getElementById('lobbyModal').classList.remove('show');
+      gameMode = 'online';
+      initEngine();
+      setupBoard();
+      updateUI();
+      document.getElementById('gameModeBar').textContent = `${gameType === 'line' ? '라인 체스' : '오리지널 체스'} 온라인 대전 — 방 코드: ${roomCode || msg.code}`;
+      document.getElementById('whiteName').textContent = myColor === 'white' ? '나 (백)' : (onlineOpponent || '상대방') + ' (백)';
+      document.getElementById('blackName').textContent = myColor === 'black' ? '나 (흑)' : (onlineOpponent || '상대방') + ' (흑)';
+      document.getElementById('aiPanel').style.display = 'none';
+      if (gameType === 'line') {
+        document.getElementById('actionToggle').style.display = 'flex';
+        document.getElementById('linePushPanel').classList.add('visible');
+        setupLinePanel();
+      } else {
+        document.getElementById('actionToggle').style.display = 'none';
+        document.getElementById('linePushPanel').classList.remove('visible');
+      }
+      break;
+    case 'move':
+      const m = msg.move;
+      engine.makeMove(m, m.promoPiece || null);
+      renderBoard();
+      updateUI();
+      break;
+    case 'linepush':
+      engine.makeLinePush(msg.pushType, msg.index, msg.dir);
+      renderBoard();
+      updateUI();
+      break;
+    case 'opponent_left':
+      showToast('상대방이 게임을 떠났습니다');
+      break;
+    case 'error':
+      document.getElementById('lobbyStatus').textContent = msg.message;
+      break;
+  }
+}
+
+// ═══════════════════════════════════════
+//  BOARD RENDER
+// ═══════════════════════════════════════
+function setupBoard() {
+  selectedSq = null; legalMoves = [];
+  renderBoard();
+  renderCoords();
+}
+
+function renderCoords() {
+  const left = document.getElementById('coordLeft');
+  const right = document.getElementById('coordRight');
+  left.innerHTML = right.innerHTML = '';
+  for (let r = 0; r < 8; r++) {
+    [left, right].forEach(el => {
+      const sp = document.createElement('span');
+      sp.className = 'coord';
+      sp.textContent = 8 - r;
+      el.appendChild(sp);
+    });
+  }
+}
+
+function renderBoard() {
+  const boardEl = document.getElementById('board');
+  boardEl.innerHTML = '';
+  const b = engine.board;
+  const status = engine.getStatus();
+  const kingPos = (status === 'check' || status === 'checkmate') ? engine.findKing(b, engine.turn) : null;
+
+  for (let r = 0; r < 8; r++) {
+    for (let c = 0; c < 8; c++) {
+      const sq = document.createElement('div');
+      sq.className = 'sq ' + ((r + c) % 2 === 0 ? 'light' : 'dark');
+      sq.dataset.row = r;
+      sq.dataset.col = c;
+
+      // Highlights
+      if (selectedSq && selectedSq.row === r && selectedSq.col === c) sq.classList.add('selected');
+
+      // Move hints
+      const moveTo = legalMoves.find(m => m.to.row === r && m.to.col === c);
+      if (moveTo) {
+        sq.classList.add('move-hint');
+        if (b[r][c]) sq.classList.add('capture-hint');
+      }
+
+      // Check highlight
+      if (kingPos && kingPos.row === r && kingPos.col === c) sq.classList.add('in-check');
+
+      // Last move
+      const hist = engine.moveHistory;
+      if (hist.length > 0) {
+        const last = hist[hist.length - 1];
+        if (last.move) {
+          if (last.move.from.row === r && last.move.from.col === c) sq.classList.add('last-from');
+          if (last.move.to.row === r && last.move.to.col === c) sq.classList.add('last-to');
+        }
+      }
+
+      // Line chess immune highlight
+      if (gameType === 'line' && engine.isImmune && engine.isImmune(r)) {
+        sq.classList.add('immune-highlight');
+      }
+
+      // Piece
+      const p = b[r][c];
+      if (p) {
+        const pieceEl = document.createElement('span');
+        pieceEl.className = 'piece ' + (p <= 6 ? 'white' : 'black');
+        pieceEl.textContent = UNICODE[p] || '';
+        sq.appendChild(pieceEl);
+      }
+
+      sq.addEventListener('click', () => onSquareClick(r, c));
+      boardEl.appendChild(sq);
+    }
+  }
+}
+
+// ═══════════════════════════════════════
+//  CLICK HANDLER
+// ═══════════════════════════════════════
+function onSquareClick(row, col) {
+  if (!engine || !gameMode) return;
+
+  // Online: only my turn
+  if (gameMode === 'online' && engine.turn !== myColor) return;
+  // AI: only white turn
+  if (gameMode === 'ai' && engine.turn !== 'white') return;
+  // Game over
+  const status = engine.getStatus();
+  if (status === 'checkmate' || status === 'stalemate') return;
+
+  // Line chess: normal action mode
+  if (gameType === 'line' && currentAction === 'linepush') return;
+
+  const piece = engine.getPiece(row, col);
+  const turn = engine.turn;
+
+  if (selectedSq) {
+    // Try to make move
+    const move = legalMoves.find(m => m.to.row === row && m.to.col === col);
+    if (move) {
+      if (move.promotion) {
+        pendingPromo = move;
+        showPromoModal(turn);
+        return;
+      }
+      executeMove(move);
+      return;
+    }
+    // Reselect
+    if (piece && ((turn === 'white' && piece <= 6) || (turn === 'black' && piece >= 7 && piece <= 12))) {
+      selectSquare(row, col);
+      return;
+    }
+    deselectSquare();
+  } else {
+    if (piece && ((turn === 'white' && piece <= 6) || (turn === 'black' && piece >= 7))) {
+      selectSquare(row, col);
+    }
+  }
+}
+
+function selectSquare(row, col) {
+  selectedSq = { row, col };
+  legalMoves = engine.legalMoves(row, col);
+  renderBoard();
+}
+
+function deselectSquare() {
+  selectedSq = null;
+  legalMoves = [];
+  renderBoard();
+}
+
+function executeMove(move, promoPiece = null) {
+  engine.makeMove(move, promoPiece);
+  selectedSq = null; legalMoves = [];
+
+  // Send to opponent
+  if (gameMode === 'online' && ws) {
+    ws.send(JSON.stringify({ type: 'move', move: { ...move, promoPiece } }));
+  }
+
+  renderBoard();
+  updateUI();
+
+  // AI response
+  if (gameMode === 'ai' && engine.turn === 'black' && engine.getStatus() === 'playing') {
+    setTimeout(doAIMove, 400);
+  }
+}
+
+function doAIMove() {
+  if (aiThinking) return;
+  aiThinking = true;
+  setTimeout(() => {
+    const best = ai.getBestMove();
+    if (best) engine.makeMove(best);
+    aiThinking = false;
+    renderBoard();
+    updateUI();
+  }, 100);
+}
+
+// ═══════════════════════════════════════
+//  PROMOTION
+// ═══════════════════════════════════════
+function showPromoModal(turn) {
+  const isWhite = turn === 'white';
+  const pieces = isWhite ? [5,4,3,2] : [11,10,9,8];
+  const div = document.getElementById('promoChoices');
+  div.innerHTML = '';
+  pieces.forEach(p => {
+    const btn = document.createElement('div');
+    btn.className = 'promo-choice';
+    btn.textContent = UNICODE[p];
+    btn.addEventListener('click', () => {
+      document.getElementById('promoModal').classList.remove('show');
+      executeMove(pendingPromo, p);
+      pendingPromo = null;
+    });
+    div.appendChild(btn);
+  });
+  document.getElementById('promoModal').classList.add('show');
+}
+
+// ═══════════════════════════════════════
+//  LINE CHESS PUSH
+// ═══════════════════════════════════════
+function setAction(action) {
+  currentAction = action;
+  document.getElementById('btnNormalAction').className = 'action-btn' + (action === 'normal' ? ' active' : '');
+  document.getElementById('btnLineAction').className = 'action-btn' + (action === 'linepush' ? ' linepush-active' : '');
+  deselectSquare();
+}
+
+function setPushType(type) {
+  pushType = type;
+  selectedLine = null;
+  document.getElementById('btnRow').classList.toggle('active', type === 'row');
+  document.getElementById('btnCol').classList.toggle('active', type === 'col');
+  setupLinePanel();
+}
+
+function setupLinePanel() {
+  const container = document.getElementById('lineSelectBtns');
+  container.innerHTML = '';
+  const label = document.getElementById('lineSelectLabel');
+
+  if (pushType === 'row') {
+    label.textContent = '행 선택 (1~8)';
+    document.getElementById('dirA').textContent = '← 왼쪽';
+    document.getElementById('dirB').textContent = '오른쪽 →';
+    for (let i = 1; i <= 8; i++) {
+      const btn = document.createElement('button');
+      btn.className = 'line-btn';
+      btn.textContent = i;
+      btn.dataset.val = 8 - i; // convert rank to row index
+      btn.addEventListener('click', () => {
+        selectedLine = parseInt(btn.dataset.val);
+        container.querySelectorAll('.line-btn').forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected');
+        previewLine();
+      });
+      container.appendChild(btn);
+    }
+  } else {
+    label.textContent = '열 선택 (a~h)';
+    document.getElementById('dirA').textContent = '▲ 위';
+    document.getElementById('dirB').textContent = '아래 ▼';
+    const cols = ['a','b','c','d','e','f','g','h'];
+    cols.forEach((name, i) => {
+      const btn = document.createElement('button');
+      btn.className = 'line-btn';
+      btn.textContent = name;
+      btn.dataset.val = i;
+      btn.addEventListener('click', () => {
+        selectedLine = i;
+        container.querySelectorAll('.line-btn').forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected');
+        previewLine();
+      });
+      container.appendChild(btn);
+    });
+  }
+}
+
+function previewLine() {
+  renderBoard(); // clear previous
+  if (selectedLine === null) return;
+  // Highlight the selected line
+  const boardEl = document.getElementById('board');
+  const squares = boardEl.querySelectorAll('.sq');
+  squares.forEach(sq => {
+    const r = parseInt(sq.dataset.row);
+    const c = parseInt(sq.dataset.col);
+    if (pushType === 'row' && r === selectedLine) sq.classList.add('line-preview');
+    if (pushType === 'col' && c === selectedLine) sq.classList.add('line-preview');
+  });
+}
+
+function previewAndPush(dirKey) {
+  if (!engine || gameType !== 'line') return;
+  if (selectedLine === null) { showToast('먼저 행/열을 선택하세요'); return; }
+  if (engine.getStatus() === 'checkmate' || engine.getStatus() === 'stalemate') return;
+  if (gameMode === 'online' && engine.turn !== myColor) return;
+  if (gameMode === 'ai' && engine.turn !== 'white') return;
+
+  let dir;
+  if (pushType === 'row') dir = dirKey === 'a' ? 'left' : 'right';
+  else dir = dirKey === 'a' ? 'up' : 'down';
+
+  engine.makeLinePush(pushType, selectedLine, dir);
+
+  if (gameMode === 'online' && ws) {
+    ws.send(JSON.stringify({ type: 'linepush', pushType, index: selectedLine, dir }));
+  }
+
+  selectedLine = null;
+  document.querySelectorAll('.line-btn').forEach(b => b.classList.remove('selected'));
+  renderBoard();
+  updateUI();
+
+  if (gameMode === 'ai' && engine.turn === 'black' && engine.getStatus() === 'playing') {
+    setTimeout(doAIMove, 400);
+  }
+}
+
+// ═══════════════════════════════════════
+//  UI UPDATE
+// ═══════════════════════════════════════
+function updateUI() {
+  const status = engine.getStatus();
+  const turn = engine.turn;
+
+  // Player turn indicators
+  document.getElementById('whitePlayer').classList.toggle('active-turn', turn === 'white');
+  document.getElementById('blackPlayer').classList.toggle('active-turn', turn === 'black');
+  document.getElementById('whiteLabel').textContent = turn === 'white' ? '차례' : '';
+  document.getElementById('blackLabel').textContent = turn === 'black' ? '차례' : '';
+
+  // Status box
+  const statusBox = document.getElementById('statusBox');
+  statusBox.className = 'status-box';
+  const turnName = turn === 'white' ? '백' : '흑';
+  switch (status) {
+    case 'playing': statusBox.classList.add('status-playing'); statusBox.textContent = `${turnName}의 차례`; break;
+    case 'check':   statusBox.classList.add('status-check');   statusBox.textContent = `⚠ ${turnName} 체크!`; break;
+    case 'checkmate': statusBox.classList.add('status-checkmate');
+      statusBox.textContent = `♚ 체크메이트! ${turn === 'white' ? '흑' : '백'} 승리!`; break;
+    case 'stalemate': statusBox.classList.add('status-stalemate'); statusBox.textContent = '스테일메이트 — 무승부'; break;
+  }
+
+  // Captured pieces
+  const cap = engine.getCaptured();
+  document.getElementById('capturedByWhite').innerHTML = cap.white.map(p => `<span class="captured-piece">${UNICODE[p]}</span>`).join('');
+  document.getElementById('capturedByBlack').innerHTML = cap.black.map(p => `<span class="captured-piece">${UNICODE[p]}</span>`).join('');
+
+  // Move history
+  updateMoveHistory();
+
+  // Game over cleanup
+  if (status === 'checkmate' || status === 'stalemate') {
+    selectedSq = null; legalMoves = [];
+  }
+}
+
+function updateMoveHistory() {
+  const list = document.getElementById('moveList');
+  const hist = engine.getMoveHistory();
+  list.innerHTML = '';
+
+  for (let i = 0; i < hist.length; i += 2) {
+    const row = document.createElement('div');
+    row.className = 'move-row';
+
+    const num = document.createElement('span');
+    num.className = 'move-num';
+    num.textContent = (Math.floor(i / 2) + 1) + '.';
+    row.appendChild(num);
+
+    const wMove = hist[i];
+    const wSpan = document.createElement('span');
+    wSpan.className = 'move-w';
+    wSpan.textContent = formatMove(wMove);
+    row.appendChild(wSpan);
+
+    if (hist[i + 1]) {
+      const bSpan = document.createElement('span');
+      bSpan.className = 'move-b';
+      bSpan.textContent = formatMove(hist[i + 1]);
+      row.appendChild(bSpan);
+    }
+
+    list.appendChild(row);
+  }
+  list.scrollTop = list.scrollHeight;
+}
+
+function formatMove(h) {
+  if (!h) return '';
+  if (h.linePush) {
+    const { type, index, dir } = h.linePush;
+    if (type === 'row') return `R${8 - index}${dir === 'left' ? '←' : '→'}`;
+    return `C${'abcdefgh'[index]}${dir === 'up' ? '↑' : '↓'}`;
+  }
+  const m = h.move;
+  if (!m) return '';
+  const pName = PIECE_NAMES[h.piece <= 6 ? h.piece : h.piece - 6] || '';
+  const from = engine.toAlgebraic(m.from.row, m.from.col);
+  const to = engine.toAlgebraic(m.to.row, m.to.col);
+  const cap = h.captured ? 'x' : '';
+  return `${pName}${from}${cap}${to}`;
+}
+
+// ═══════════════════════════════════════
+//  CONTROLS
+// ═══════════════════════════════════════
+function offerDraw() {
+  if (!engine || !gameMode) return;
+  if (confirm('무승부를 제안합니까?')) {
+    engine.status = 'stalemate';
+    renderBoard();
+    updateUI();
+    showToast('무승부로 게임이 종료되었습니다');
+  }
+}
+
+function resign() {
+  if (!engine || !gameMode) return;
+  if (confirm('기권하시겠습니까?')) {
+    const winner = engine.turn === 'white' ? '흑' : '백';
+    engine.status = 'checkmate';
+    renderBoard();
+    updateUI();
+    showToast(`${winner}의 승리! (기권)`);
+  }
+}
+
+function showToast(msg) {
+  let t = document.getElementById('toast');
+  if (!t) {
+    t = document.createElement('div');
+    t.id = 'toast';
+    t.style.cssText = 'position:fixed;bottom:32px;left:50%;transform:translateX(-50%);background:#2d2620;border:1px solid #c9a96e;color:#f5e6cc;padding:12px 24px;border-radius:10px;font-family:Cinzel,serif;font-size:13px;z-index:9999;transition:opacity 0.4s;';
+    document.body.appendChild(t);
+  }
+  t.textContent = msg;
+  t.style.opacity = '1';
+  setTimeout(() => { t.style.opacity = '0'; }, 2500);
+}
+
+// ═══════════════════════════════════════
+//  INIT ON LOAD
+// ═══════════════════════════════════════
+window.addEventListener('DOMContentLoaded', () => {
+  renderCoords();
+  // Draw empty board
+  engine = new ChessEngine();
+  renderBoard();
+});
+</script>
+</body>
+</html>

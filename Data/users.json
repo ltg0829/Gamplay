@@ -1,0 +1,17 @@
+{
+  "users": [
+    {
+      "id": "test1234",
+      "nickname": "지백",
+      "password": "$2a$12$7WhVlJgxTx.LG/36LUYxzeQBrBmThIkCF3GLeIdfRW1bW3dQj2Da2",
+      "createdAt": "2026-03-03T23:57:02.212Z",
+      "stats": {
+        "totalGames": 0,
+        "totalWins": 0,
+        "chessWins": 0,
+        "playDays": 1,
+        "lastPlayDate": "Wed Mar 04 2026"
+      }
+    }
+  ]
+}
