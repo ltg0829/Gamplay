@@ -1,47 +1,46 @@
-==> Deploying...
-==> Setting WEB_CONCURRENCY=1 by default, based on available CPUs in the instance
-==> Running 'node server.js'
-node:internal/modules/cjs/loader:1386
-  throw err;
-  ^
-Error: Cannot find module 'dotenv'
-Require stack:
-- /opt/render/project/src/server.js
-    at Function._resolveFilename (node:internal/modules/cjs/loader:1383:15)
-    at defaultResolveImpl (node:internal/modules/cjs/loader:1025:19)
-    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1030:22)
-    at Function._load (node:internal/modules/cjs/loader:1192:37)
-    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
-    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
-    at Module.require (node:internal/modules/cjs/loader:1463:12)
-    at require (node:internal/modules/helpers:147:16)
-    at Object.<anonymous> (/opt/render/project/src/server.js:5:1)
-    at Module._compile (node:internal/modules/cjs/loader:1706:14) {
-  code: 'MODULE_NOT_FOUND',
-  requireStack: [ '/opt/render/project/src/server.js' ]
-}
-Node.js v22.22.0
-==> Exited with status 1
-==> Common ways to troubleshoot your deploy: https://render.com/docs/troubleshooting-deploys
-==> Running 'node server.js'
-node:internal/modules/cjs/loader:1386
-  throw err;
-Menu
-  ^
-Error: Cannot find module 'dotenv'
-Require stack:
-- /opt/render/project/src/server.js
-    at Function._resolveFilename (node:internal/modules/cjs/loader:1383:15)
-    at defaultResolveImpl (node:internal/modules/cjs/loader:1025:19)
-    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1030:22)
-    at Function._load (node:internal/modules/cjs/loader:1192:37)
-    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
-    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)
-    at Module.require (node:internal/modules/cjs/loader:1463:12)
-    at require (node:internal/modules/helpers:147:16)
-    at Object.<anonymous> (/opt/render/project/src/server.js:5:1)
-    at Module._compile (node:internal/modules/cjs/loader:1706:14) {
-  code: 'MODULE_NOT_FOUND',
-  requireStack: [ '/opt/render/project/src/server.js' ]
-}
-Node.js v22.22.0
+const express = require('express');
+const mongoose = require('mongoose');
+const path = require('path');
+const cors = require('cors');
+require('dotenv').config(); // 🔴 이 코드를 위해 위에서 npm install dotenv가 필요합니다.
+
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+app.use(cors());
+app.use(express.json());
+
+// 1. 정적 파일 서빙 (public 폴더 기준)
+app.use(express.static(path.join(__dirname, 'public')));
+
+// 2. MongoDB 연결
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => console.log('✅ MongoDB 연결 성공!'))
+  .catch(err => console.error('❌ MongoDB 연결 실패:', err));
+
+// [중요] 3. 폴더명 'page'에 맞춘 경로 설정
+app.get('/page/hub.html', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'page', 'hub.html'));
+});
+
+// 4. 로그라이크 캐릭터 데이터 API (기획하신 구조)
+app.get('/api/character/status', (req, res) => {
+    res.json({
+        charName: "지백",
+        movePoint: 3,
+        maxFloor: "1F",
+        imageUrl: "/assets/char_default.png"
+    });
+});
+
+// 5. 그 외 모든 요청 처리
+app.get('*', (req, res) => {
+    if (req.path.startsWith('/api')) {
+        return res.status(404).json({ message: "API를 찾을 수 없습니다." });
+    }
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
+app.listen(PORT, () => {
+    console.log(`🚀 서버가 실행 중입니다.`);
+});
