@@ -34,11 +34,19 @@ app.get('/api/character/status', (req, res) => {
 });
 
 // 5. 그 외 모든 요청 처리
+app.get('/pages/:file', (req, res) => {
+  const file = path.join(__dirname, 'public', 'pages', req.params.file);
+  res.sendFile(file, err => {
+    if (err) res.status(404).send('Not found');
+  });
+});
+
+app.use('/api', (req, res) => {
+  res.status(404).json({ message: 'API를 찾을 수 없습니다.' });
+});
+
 app.get('*', (req, res) => {
-    if (req.path.startsWith('/api')) {
-        return res.status(404).json({ message: "API를 찾을 수 없습니다." });
-    }
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 app.listen(PORT, () => {

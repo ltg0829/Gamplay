@@ -400,7 +400,10 @@ function toggleTheme() {
 }
 
 // Init
-if (localStorage.getItem('token')) window.location.href = '/pages/hub.html';
+// 현재 경로가 index일 때만 리다이렉트
+if (localStorage.getItem('token') && window.location.pathname === '/') {
+  window.location.href = '/pages/hub.html';
+}
 applyLang();
 applyTheme();
 </script>
