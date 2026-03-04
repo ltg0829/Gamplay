@@ -41,10 +41,12 @@ app.get('/pages/:file', (req, res) => {
   });
 });
 
+// API 404
 app.use('/api', (req, res) => {
   res.status(404).json({ message: 'API를 찾을 수 없습니다.' });
 });
 
+// 나머지 → index.html
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
