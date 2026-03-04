@@ -363,7 +363,7 @@ async function handleLogin(e) {
   try {
     const res  = await fetch('/api/login', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({ id: document.getElementById('loginId').value, password: document.getElementById('loginPw').value }) });
     const data = await res.json();
-    if (res.ok) { localStorage.setItem('token', data.token); localStorage.setItem('user', JSON.stringify(data.user)); window.location.href = '/pages/hub.html'; }
+    if (res.ok) { localStorage.setItem('token', data.token); localStorage.setItem('user', JSON.stringify(data.user)); window.location.href = '/page/hub.html'; }
     else        { showAlert('loginAlert', 'error', data.message); }
   } catch { showAlert('loginAlert', 'error', t('errServerCheck')); }
   finally { btn.disabled = false; btn.innerHTML = t('btnLogin'); }
