@@ -503,7 +503,7 @@ header {
   <div class="logo">♞ NEXUS CHESS</div>
   <div class="header-nav">
     <button class="nav-btn" id="btnNewGame" onclick="showStep1()">새 게임</button>
-    <button class="nav-btn" onclick="window.location.href='/pages/hub.html'">← 허브</button>
+    <button class="nav-btn" onclick="window.location.href='/page/hub.html'">← 허브</button>
   </div>
 </header>
 
@@ -1009,25 +1009,37 @@ function hideLobby() {
 }
 
 function createRoom() {
+  const nickname = JSON.parse(localStorage.getItem('user') || '{}').nickname || '플레이어';
   connectWS(() => {
-    ws.send(JSON.stringify({ type: 'create', gameType }));
+    ws.send(JSON.stringify({ type: 'create', gameType, nickname }));
   });
 }
 
 function joinRoom() {
   const code = document.getElementById('joinCodeInput').value.toUpperCase();
   if (code.length !== 4) { document.getElementById('lobbyStatus').textContent = '4자리 코드를 입력하세요'; return; }
+  const nickname = JSON.parse(localStorage.getItem('user') || '{}').nickname || '플레이어';
   connectWS(() => {
-    ws.send(JSON.stringify({ type: 'join', code, gameType }));
+    ws.send(JSON.stringify({ type: 'join', code, gameType, nickname }));
   });
 }
 
 function connectWS(onOpen) {
+  // 기존 연결 있으면 닫기
+  if (ws && ws.readyState !== WebSocket.CLOSED) {
+    ws.close();
+    ws = null;
+  }
   const proto = location.protocol === 'https:' ? 'wss' : 'ws';
   ws = new WebSocket(`${proto}://${location.host}`);
   ws.onopen = onOpen;
   ws.onmessage = handleWS;
-  ws.onerror = () => { document.getElementById('lobbyStatus').textContent = '서버 연결 실패'; };
+  ws.onerror = () => {
+    document.getElementById('lobbyStatus').textContent = '서버 연결 실패';
+  };
+  ws.onclose = () => {
+    if (gameMode === 'online') showToast('서버 연결이 끊어졌습니다');
+  };
 }
 
 function handleWS(event) {
