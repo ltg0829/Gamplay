@@ -1103,17 +1103,33 @@ function setupBoard() {
 }
 
 function renderCoords() {
-  const left = document.getElementById('coordLeft');
+  const left  = document.getElementById('coordLeft');
   const right = document.getElementById('coordRight');
   left.innerHTML = right.innerHTML = '';
-  for (let r = 0; r < 8; r++) {
+
+  const flipped = (gameMode === 'online' && myColor === 'black');
+
+  for (let ri = 0; ri < 8; ri++) {
+    const r = flipped ? ri : ri; // 표시 순서용
     [left, right].forEach(el => {
       const sp = document.createElement('span');
       sp.className = 'coord';
-      sp.textContent = 8 - r;
+      sp.textContent = flipped ? (ri + 1) : (8 - ri);
       el.appendChild(sp);
     });
   }
+
+  // 상단/하단 파일 좌표 (a~h) 업데이트
+  const files = flipped
+    ? ['h','g','f','e','d','c','b','a']
+    : ['a','b','c','d','e','f','g','h'];
+
+  document.querySelectorAll('.coord-row').forEach(row => {
+    const spans = row.querySelectorAll('.coord');
+    if (spans.length === 8) {
+      spans.forEach((sp, i) => sp.textContent = files[i]);
+    }
+  });
 }
 
 function renderBoard() {
@@ -1123,27 +1139,29 @@ function renderBoard() {
   const status = engine.getStatus();
   const kingPos = (status === 'check' || status === 'checkmate') ? engine.findKing(b, engine.turn) : null;
 
-  for (let r = 0; r < 8; r++) {
-    for (let c = 0; c < 8; c++) {
+  // 흑 시점이면 보드 반전
+  const flipped = (gameMode === 'online' && myColor === 'black');
+
+  for (let ri = 0; ri < 8; ri++) {
+    for (let ci = 0; ci < 8; ci++) {
+      const r = flipped ? 7 - ri : ri;
+      const c = flipped ? 7 - ci : ci;
+
       const sq = document.createElement('div');
       sq.className = 'sq ' + ((r + c) % 2 === 0 ? 'light' : 'dark');
       sq.dataset.row = r;
       sq.dataset.col = c;
 
-      // Highlights
       if (selectedSq && selectedSq.row === r && selectedSq.col === c) sq.classList.add('selected');
 
-      // Move hints
       const moveTo = legalMoves.find(m => m.to.row === r && m.to.col === c);
       if (moveTo) {
         sq.classList.add('move-hint');
         if (b[r][c]) sq.classList.add('capture-hint');
       }
 
-      // Check highlight
       if (kingPos && kingPos.row === r && kingPos.col === c) sq.classList.add('in-check');
 
-      // Last move
       const hist = engine.moveHistory;
       if (hist.length > 0) {
         const last = hist[hist.length - 1];
@@ -1153,12 +1171,10 @@ function renderBoard() {
         }
       }
 
-      // Line chess immune highlight
       if (gameType === 'line' && engine.isImmune && engine.isImmune(r)) {
         sq.classList.add('immune-highlight');
       }
 
-      // Piece
       const p = b[r][c];
       if (p) {
         const pieceEl = document.createElement('span');
