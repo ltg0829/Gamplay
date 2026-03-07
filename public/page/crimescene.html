@@ -1,0 +1,1454 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>CRIME SCENE — NEXUS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+/* ── 변수 ─────────────────────────────────── */
+:root {
+  --bg:       #080b10;
+  --bg2:      #0d1118;
+  --surface:  #111620;
+  --surface2: #161c28;
+  --border:   #1e2736;
+  --border2:  #2a3548;
+  --tape:     #f0c60a;
+  --tape2:    #d4a800;
+  --red:      #c0392b;
+  --red2:     #e74c3c;
+  --green:    #27ae60;
+  --blue:     #2980b9;
+  --text:     #dde4f0;
+  --text-muted: #6a7a90;
+  --text-dim:   #3a4a60;
+  --paper:    #f5f0e8;
+  --ink:      #1a1a2e;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Crimson Text', Georgia, serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  cursor: default;
+}
+
+/* 배경 노이즈 + 그리드 */
+body::before {
+  content: '';
+  position: fixed; inset: 0; z-index: 0;
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 59px, rgba(30,39,54,.4) 60px),
+    repeating-linear-gradient(90deg, transparent, transparent 59px, rgba(30,39,54,.4) 60px);
+  pointer-events: none;
+}
+body::after {
+  content: '';
+  position: fixed; inset: 0; z-index: 0;
+  background:
+    radial-gradient(ellipse 70% 50% at 15% 10%, rgba(192,57,43,.06) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 40% at 85% 90%, rgba(41,128,185,.06) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+/* ── 경고 테이프 헤더 ─────────────────────── */
+.tape-header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  height: 52px;
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--tape) 0px, var(--tape) 18px,
+    #1a1a1a 18px, #1a1a1a 36px
+  );
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 24px;
+  box-shadow: 0 2px 20px rgba(240,198,10,.15);
+}
+.tape-logo {
+  font-family: 'Special Elite', monospace;
+  font-size: 13px;
+  letter-spacing: .35em;
+  color: #1a1a1a;
+  background: var(--tape);
+  padding: 4px 14px;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+.tape-right {
+  display: flex; align-items: center; gap: 10px;
+}
+.tape-btn {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 10px;
+  letter-spacing: .2em;
+  padding: 5px 14px;
+  border-radius: 2px;
+  cursor: pointer;
+  border: none;
+  transition: all .2s;
+  text-transform: uppercase;
+}
+.tape-btn.dark {
+  background: rgba(0,0,0,.7);
+  color: var(--tape);
+  border: 1px solid rgba(240,198,10,.4);
+}
+.tape-btn.dark:hover { background: rgba(240,198,10,.1); }
+.tape-btn.back {
+  background: rgba(0,0,0,.6);
+  color: var(--text-muted);
+  border: 1px solid var(--border2);
+}
+.tape-btn.back:hover { color: var(--text); border-color: var(--text-muted); }
+.streak-pill {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 11px;
+  background: rgba(0,0,0,.6);
+  border: 1px solid rgba(240,198,10,.3);
+  color: var(--tape);
+  padding: 4px 12px;
+  border-radius: 2px;
+  letter-spacing: .1em;
+}
+
+/* ── 레이아웃 ─────────────────────────────── */
+.page {
+  position: relative; z-index: 1;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 72px 22px 80px;
+  display: grid;
+  grid-template-columns: 1fr 370px;
+  gap: 22px;
+  align-items: start;
+}
+
+/* ── 수사 파일 탑 바 ─────────────────────── */
+.file-bar {
+  grid-column: 1 / -1;
+  display: flex; align-items: stretch;
+  gap: 0;
+  border: 1px solid var(--border2);
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--surface);
+  margin-bottom: 4px;
+  animation: fadeSlideDown .5s ease both;
+}
+@keyframes fadeSlideDown { from { opacity:0; transform:translateY(-12px); } to { opacity:1; transform:translateY(0); } }
+
+.file-bar-tab {
+  padding: 10px 20px;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 10px;
+  letter-spacing: .2em;
+  color: var(--text-muted);
+  border-right: 1px solid var(--border);
+  text-transform: uppercase;
+}
+.file-bar-tab.active {
+  background: var(--tape);
+  color: #1a1a1a;
+  font-weight: bold;
+}
+.file-bar-date {
+  margin-left: auto;
+  padding: 10px 20px;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 10px;
+  letter-spacing: .15em;
+  color: var(--text-dim);
+  border-left: 1px solid var(--border);
+}
+.att-bar {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 20px;
+  border-left: 1px solid var(--border);
+}
+.att-label {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 9px;
+  color: var(--text-dim);
+  letter-spacing: .15em;
+  text-transform: uppercase;
+}
+.att-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  border: 1px solid var(--border2);
+  background: var(--surface2);
+  transition: all .3s;
+}
+.att-dot.used { background: var(--red); border-color: var(--red); box-shadow: 0 0 6px rgba(192,57,43,.7); }
+.att-dot.remain { background: var(--tape); border-color: var(--tape); box-shadow: 0 0 5px rgba(240,198,10,.4); }
+
+/* ── 카드 공통 ───────────────────────────── */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 22px 26px;
+  margin-bottom: 16px;
+  position: relative;
+  overflow: hidden;
+  animation: fadeSlideUp .5s ease both;
+}
+@keyframes fadeSlideUp { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
+.card:nth-child(2) { animation-delay: .07s; }
+.card:nth-child(3) { animation-delay: .14s; }
+.card:nth-child(4) { animation-delay: .21s; }
+
+/* 레드 상단 라인 */
+.card-red::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: var(--red);
+}
+/* 테이프 상단 라인 */
+.card-tape::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: var(--tape);
+}
+
+/* ── 섹션 타이틀 ────────────────────────── */
+.sec-title {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 9px;
+  letter-spacing: .35em;
+  color: var(--tape2);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  display: flex; align-items: center; gap: 12px;
+}
+.sec-title::after {
+  content: ''; flex: 1; height: 1px;
+  background: repeating-linear-gradient(90deg, var(--border2) 0px, var(--border2) 4px, transparent 4px, transparent 8px);
+}
+
+/* ── 사건 타이틀 카드 ────────────────────── */
+.case-era-badge {
+  display: inline-block;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 9px;
+  letter-spacing: .3em;
+  color: #1a1a1a;
+  background: var(--tape);
+  padding: 3px 10px;
+  margin-bottom: 14px;
+  text-transform: uppercase;
+}
+.case-number {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 10px;
+  letter-spacing: .25em;
+  color: var(--red);
+  margin-bottom: 6px;
+}
+.case-title-txt {
+  font-family: 'Special Elite', monospace;
+  font-size: clamp(24px, 3.5vw, 40px);
+  color: var(--text);
+  line-height: 1.15;
+  margin-bottom: 18px;
+  letter-spacing: .02em;
+}
+.case-meta {
+  display: flex; flex-wrap: wrap; gap: 0;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 0;
+}
+.meta-cell {
+  flex: 1; min-width: 120px;
+  padding: 9px 14px;
+  border-right: 1px solid var(--border);
+}
+.meta-cell:last-child { border-right: none; }
+.meta-key {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 8px;
+  letter-spacing: .25em;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.meta-val {
+  font-family: 'Crimson Text', serif;
+  font-size: 13px;
+  color: var(--tape);
+  font-style: italic;
+}
+
+/* ── 시놉시스 ────────────────────────────── */
+.synopsis-text {
+  font-size: 15px;
+  line-height: 2.05;
+  color: var(--text);
+  opacity: .9;
+  font-style: italic;
+  letter-spacing: .01em;
+}
+
+/* ── 타임라인 ────────────────────────────── */
+.tl-wrap { overflow-x: auto; }
+.tl-head-row {
+  display: flex;
+  padding-left: 100px;
+  margin-bottom: 5px;
+}
+.tl-head-cell {
+  flex: 1;
+  text-align: center;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 9px;
+  color: var(--text-dim);
+  letter-spacing: .05em;
+  border-left: 1px solid rgba(30,39,54,.5);
+  padding: 3px 2px;
+}
+.tl-head-cell:first-child { border-left: none; }
+.tl-head-cell.death-col { color: var(--red); font-weight: bold; }
+.tl-row {
+  display: flex; align-items: center;
+  margin-bottom: 5px;
+}
+.tl-name {
+  width: 100px; flex-shrink: 0;
+  font-family: 'Special Elite', monospace;
+  font-size: 11px;
+  color: var(--text-muted);
+  padding-right: 10px;
+  text-align: right;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.tl-cells {
+  display: flex; flex: 1;
+  border: 1px solid var(--border2);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.tl-cell {
+  flex: 1; height: 32px;
+  border-left: 1px solid rgba(30,39,54,.4);
+  position: relative;
+  cursor: default;
+}
+.tl-cell:first-child { border-left: none; }
+.tl-cell.confirmed   { background: rgba(39,174,96,.2); }
+.tl-cell.unverified  { background: rgba(240,198,10,.12); }
+.tl-cell.suspicious  { background: rgba(192,57,43,.22); }
+.tl-cell.unknown     { background: rgba(8,11,16,.8); }
+.tl-cell.death-zone  {
+  outline: 2px solid rgba(192,57,43,.6);
+  outline-offset: -2px;
+}
+.tl-cell.death-zone::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: rgba(192,57,43,.08);
+}
+/* 툴팁 */
+.tl-tip {
+  position: absolute;
+  bottom: calc(100% + 7px);
+  left: 50%; transform: translateX(-50%);
+  background: var(--surface2);
+  border: 1px solid var(--border2);
+  padding: 7px 12px;
+  font-family: 'Crimson Text', serif;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--text);
+  white-space: normal;
+  min-width: 160px;
+  max-width: 240px;
+  text-align: center;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .15s;
+  z-index: 50;
+  border-radius: 2px;
+}
+.tl-tip::after {
+  content: '';
+  position: absolute;
+  top: 100%; left: 50%; transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: var(--border2);
+}
+.tl-cell:hover .tl-tip { opacity: 1; }
+
+/* 범례 */
+.tl-legend {
+  display: flex; gap: 16px; flex-wrap: wrap;
+  margin-top: 12px;
+}
+.leg-item {
+  display: flex; align-items: center; gap: 6px;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 9px;
+  color: var(--text-muted);
+  letter-spacing: .08em;
+}
+.leg-dot {
+  width: 10px; height: 10px;
+  border-radius: 2px;
+}
+.leg-dot.confirmed  { background: rgba(39,174,96,.4); border: 1px solid rgba(39,174,96,.6); }
+.leg-dot.unverified { background: rgba(240,198,10,.3); border: 1px solid rgba(240,198,10,.5); }
+.leg-dot.suspicious { background: rgba(192,57,43,.4); border: 1px solid rgba(192,57,43,.6); }
+.leg-dot.unknown    { background: rgba(8,11,16,.9); border: 1px solid var(--border2); }
+
+/* ── 단서 ─────────────────────────────────── */
+.clue-item {
+  display: flex; gap: 14px;
+  align-items: flex-start;
+  padding: 13px 15px;
+  background: var(--surface2);
+  border: 1px solid var(--border2);
+  border-left: 3px solid var(--tape);
+  border-radius: 2px;
+  margin-bottom: 9px;
+  animation: slideIn .35s ease both;
+}
+@keyframes slideIn { from { opacity:0; transform:translateX(-8px); } to { opacity:1; transform:translateX(0); } }
+.clue-num {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 9px;
+  color: #1a1a1a;
+  background: var(--tape);
+  padding: 3px 8px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-top: 3px;
+  letter-spacing: .1em;
+}
+.clue-text {
+  font-size: 14px;
+  line-height: 1.85;
+  color: var(--text);
+  font-style: italic;
+}
+.clue-locked {
+  display: flex; gap: 14px; align-items: center;
+  padding: 12px 15px;
+  background: rgba(8,11,16,.5);
+  border: 1px dashed var(--border2);
+  border-radius: 2px;
+  margin-bottom: 9px;
+  opacity: .4;
+}
+.clue-locked-num {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 9px;
+  color: var(--text-dim);
+  padding: 3px 8px;
+  border: 1px solid var(--border2);
+  flex-shrink: 0;
+  letter-spacing: .1em;
+}
+.clue-locked-text {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 10px;
+  color: var(--text-dim);
+  letter-spacing: .12em;
+}
+
+/* ── 용의자 패널 ─────────────────────────── */
+.suspects-panel {
+  position: sticky;
+  top: 72px;
+}
+.panel-title {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 9px;
+  letter-spacing: .35em;
+  color: var(--tape2);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  display: flex; align-items: center; gap: 10px;
+}
+.panel-title::after {
+  content: ''; flex: 1; height: 1px;
+  background: repeating-linear-gradient(90deg, var(--border2) 0px, var(--border2) 4px, transparent 4px, transparent 8px);
+}
+
+/* 용의자 카드 */
+.s-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 13px 15px;
+  cursor: pointer;
+  transition: border-color .2s, background .2s;
+  margin-bottom: 8px;
+  position: relative;
+  overflow: hidden;
+}
+.s-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; bottom: 0;
+  width: 3px;
+  background: var(--border2);
+  transition: background .2s;
+}
+.s-card:hover { border-color: var(--border2); }
+.s-card:hover::before { background: var(--tape2); }
+.s-card.open { border-color: var(--tape); background: rgba(240,198,10,.03); }
+.s-card.open::before { background: var(--tape); }
+.s-card.elim {
+  opacity: .2;
+  cursor: not-allowed;
+  pointer-events: none;
+  filter: grayscale(1);
+}
+.s-card.elim::before { background: var(--red); }
+
+.s-hdr {
+  display: flex; align-items: center; gap: 11px;
+}
+.s-id {
+  width: 28px; height: 28px;
+  border-radius: 2px;
+  background: var(--surface2);
+  border: 1px solid var(--border2);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Special Elite', monospace;
+  font-size: 13px;
+  color: var(--tape);
+  flex-shrink: 0;
+  transition: all .2s;
+}
+.s-card.open .s-id {
+  background: var(--tape);
+  color: #1a1a1a;
+  border-color: var(--tape);
+}
+.s-name {
+  font-family: 'Special Elite', monospace;
+  font-size: 14px;
+  color: var(--text);
+  letter-spacing: .02em;
+}
+.s-job {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 10px;
+  color: var(--text-muted);
+  margin-top: 2px;
+  letter-spacing: .05em;
+}
+.s-chev {
+  margin-left: auto;
+  font-size: 10px;
+  color: var(--text-dim);
+  transition: transform .2s;
+  font-family: 'Share Tech Mono', monospace;
+}
+.s-card.open .s-chev { transform: rotate(180deg); }
+
+.s-detail {
+  display: none;
+  margin-top: 13px;
+  padding-top: 13px;
+  border-top: 1px dashed var(--border2);
+}
+.s-card.open .s-detail { display: block; }
+
+.d-row {
+  font-size: 13px;
+  line-height: 1.9;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+  font-style: italic;
+}
+.d-row strong {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 8px;
+  letter-spacing: .2em;
+  color: var(--tape2);
+  margin-right: 6px;
+  font-style: normal;
+  text-transform: uppercase;
+}
+.d-row.flag { color: rgba(192,57,43,.9); }
+
+.accuse-btn {
+  display: none;
+  margin-top: 13px;
+  width: 100%;
+  padding: 10px;
+  border-radius: 2px;
+  background: var(--red);
+  border: none;
+  color: #fff;
+  font-family: 'Special Elite', monospace;
+  font-size: 12px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all .2s;
+  position: relative;
+  overflow: hidden;
+}
+.accuse-btn::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(
+    45deg, rgba(255,255,255,.04) 0px, rgba(255,255,255,.04) 2px,
+    transparent 2px, transparent 6px
+  );
+}
+.accuse-btn:hover { background: var(--red2); box-shadow: 0 4px 16px rgba(231,76,60,.4); }
+.s-card.open .accuse-btn { display: block; }
+
+/* ── 완료 박스 ───────────────────────────── */
+.played-box {
+  display: none;
+  background: var(--surface);
+  border: 1px solid var(--border2);
+  border-top: 2px solid var(--tape);
+  border-radius: 3px;
+  padding: 24px 20px;
+  text-align: center;
+  margin-top: 8px;
+}
+.played-icon {
+  font-size: 36px;
+  margin-bottom: 12px;
+  display: block;
+}
+.played-title {
+  font-family: 'Special Elite', monospace;
+  font-size: 16px;
+  color: var(--tape);
+  margin-bottom: 6px;
+  letter-spacing: .05em;
+}
+.played-sub {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 10px;
+  color: var(--text-muted);
+  line-height: 1.8;
+  letter-spacing: .08em;
+}
+.next-timer {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 28px;
+  color: var(--tape);
+  margin: 16px 0 4px;
+  letter-spacing: .15em;
+  text-shadow: 0 0 20px rgba(240,198,10,.3);
+}
+.next-label {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 9px;
+  color: var(--text-dim);
+  letter-spacing: .2em;
+  text-transform: uppercase;
+}
+
+/* ── 결과 모달 ───────────────────────────── */
+.modal-ov {
+  display: none;
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,.9);
+  z-index: 500;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(6px);
+}
+.modal-ov.show { display: flex; }
+.r-modal {
+  background: var(--surface);
+  border: 1px solid var(--border2);
+  border-radius: 4px;
+  padding: 38px 44px;
+  max-width: 560px;
+  width: 93%;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  animation: modalIn .3s ease both;
+}
+@keyframes modalIn { from { opacity:0; transform:scale(.95) translateY(10px); } to { opacity:1; transform:none; } }
+/* 경고테이프 상단 */
+.r-modal::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 6px;
+  background: repeating-linear-gradient(
+    -45deg, var(--tape) 0px, var(--tape) 10px,
+    #1a1a1a 10px, #1a1a1a 20px
+  );
+}
+.r-modal.wrong::before  { background: repeating-linear-gradient(-45deg, var(--red) 0px, var(--red) 10px, #1a1a1a 10px, #1a1a1a 20px); }
+.r-modal.over::before   { background: #1a1a1a; border-top: 2px solid var(--text-dim); }
+
+.r-stamp {
+  display: inline-block;
+  font-family: 'Special Elite', monospace;
+  font-size: 42px;
+  font-weight: normal;
+  letter-spacing: .08em;
+  padding: 6px 18px;
+  border: 4px solid;
+  border-radius: 4px;
+  transform: rotate(-3deg);
+  margin: 18px 0 14px;
+}
+.r-modal.correct .r-stamp { color: var(--green); border-color: var(--green); text-shadow: 0 0 20px rgba(39,174,96,.4); }
+.r-modal.wrong   .r-stamp { color: var(--red2); border-color: var(--red2); }
+.r-modal.over    .r-stamp { color: var(--text-muted); border-color: var(--text-muted); }
+
+.r-title {
+  font-family: 'Special Elite', monospace;
+  font-size: 22px;
+  margin-bottom: 8px;
+  letter-spacing: .05em;
+}
+.r-modal.correct .r-title { color: var(--tape); }
+.r-modal.wrong   .r-title { color: var(--red2); }
+.r-modal.over    .r-title { color: var(--text-muted); }
+.r-sub {
+  font-family: 'Crimson Text', serif;
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.75;
+  font-style: italic;
+  margin-bottom: 16px;
+}
+.r-explain {
+  background: var(--surface2);
+  border: 1px solid var(--border2);
+  border-left: 3px solid var(--tape2);
+  border-radius: 2px;
+  padding: 14px 18px;
+  font-family: 'Crimson Text', serif;
+  font-size: 13.5px;
+  line-height: 1.85;
+  color: var(--text);
+  text-align: left;
+  margin-bottom: 18px;
+  white-space: pre-line;
+  font-style: italic;
+}
+.r-modal.wrong   .r-explain, .r-modal.over .r-explain { border-left-color: var(--red); }
+.r-stats {
+  display: flex; justify-content: center; gap: 32px;
+  margin-bottom: 20px;
+}
+.r-stat-val {
+  font-family: 'Special Elite', monospace;
+  font-size: 32px;
+  color: var(--tape);
+}
+.r-stat-lbl {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 9px;
+  color: var(--text-dim);
+  letter-spacing: .15em;
+  text-transform: uppercase;
+}
+.r-close-btn {
+  padding: 11px 30px;
+  border-radius: 2px;
+  background: var(--surface2);
+  border: 1px solid var(--border2);
+  color: var(--text-muted);
+  font-family: 'Special Elite', monospace;
+  font-size: 12px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all .2s;
+}
+.r-close-btn:hover { border-color: var(--tape); color: var(--tape); }
+
+/* ── 로딩 / 에러 ─────────────────────────── */
+.fullscreen-state {
+  position: relative; z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 52px);
+  gap: 18px;
+  padding: 24px;
+}
+.loading-ring {
+  width: 44px; height: 44px;
+  border: 2px solid var(--border2);
+  border-top-color: var(--tape);
+  border-radius: 50%;
+  animation: spin .7s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.loading-label {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 11px;
+  color: var(--text-muted);
+  letter-spacing: .25em;
+  text-transform: uppercase;
+}
+.error-code {
+  font-family: 'Special Elite', monospace;
+  font-size: 72px;
+  color: var(--red);
+  opacity: .3;
+  line-height: 1;
+}
+.error-title {
+  font-family: 'Special Elite', monospace;
+  font-size: 20px;
+  color: var(--text);
+}
+.error-msg {
+  font-family: 'Crimson Text', serif;
+  font-size: 14px;
+  color: var(--text-muted);
+  font-style: italic;
+  max-width: 400px;
+  text-align: center;
+  line-height: 1.7;
+}
+.retry-btn {
+  padding: 10px 26px;
+  border-radius: 2px;
+  background: transparent;
+  border: 1px solid var(--tape2);
+  color: var(--tape);
+  font-family: 'Special Elite', monospace;
+  font-size: 12px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all .2s;
+}
+.retry-btn:hover { background: rgba(240,198,10,.08); }
+
+/* ── 토스트 ──────────────────────────────── */
+.toast {
+  position: fixed; bottom: 30px; left: 50%;
+  transform: translateX(-50%);
+  background: var(--surface2);
+  border: 1px solid var(--tape2);
+  color: var(--tape);
+  padding: 10px 22px;
+  border-radius: 2px;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 11px;
+  letter-spacing: .15em;
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .3s;
+}
+.toast.show { opacity: 1; }
+
+/* ── 반응형 ──────────────────────────────── */
+@media (max-width: 820px) {
+  .page { grid-template-columns: 1fr; }
+  .suspects-panel { position: static; }
+  .tape-header { padding: 0 12px; }
+  .file-bar { flex-wrap: wrap; }
+  .case-meta { flex-direction: column; }
+  .meta-cell { border-right: none; border-bottom: 1px solid var(--border); }
+  .meta-cell:last-child { border-bottom: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══ 경고 테이프 헤더 ════════════════════ -->
+<div class="tape-header">
+  <div class="tape-logo">⚠ CRIME SCENE — NEXUS</div>
+  <div class="tape-right">
+    <div class="streak-pill">🔥 <span id="streakNum">0</span> <span id="streakLbl">STREAK</span></div>
+    <button class="tape-btn dark" id="btnKO" onclick="setLang('ko')">KO</button>
+    <button class="tape-btn dark" id="btnEN" onclick="setLang('en')">EN</button>
+    <button class="tape-btn back" onclick="location.href='/page/hub.html'" id="backBtn">← HUB</button>
+  </div>
+</div>
+
+<!-- ══ 로딩 ══════════════════════════════════ -->
+<div class="fullscreen-state" id="loadingWrap">
+  <div class="loading-ring"></div>
+  <div class="loading-label" id="loadingText">LOADING CASE FILE...</div>
+</div>
+
+<!-- ══ 에러 ══════════════════════════════════ -->
+<div class="fullscreen-state" id="errorWrap" style="display:none;">
+  <div class="error-code">404</div>
+  <div class="error-title" id="errorTitle">CASE FILE NOT FOUND</div>
+  <div class="error-msg" id="errorMsg">서버에 연결할 수 없습니다.</div>
+  <button class="retry-btn" onclick="loadTodayCase()">RETRY</button>
+</div>
+
+<!-- ══ 메인 페이지 ═══════════════════════════ -->
+<div class="page" id="mainWrap" style="display:none;">
+
+  <!-- 수사 파일 탑 바 -->
+  <div class="file-bar">
+    <div class="file-bar-tab active">CASE FILE</div>
+    <div class="file-bar-tab" id="tabTimeline">TIMELINE</div>
+    <div class="file-bar-tab" id="tabEvidence">EVIDENCE</div>
+    <div class="file-bar-tab" id="tabSuspects">SUSPECTS</div>
+    <div class="file-bar-date" id="caseDate"></div>
+    <div class="att-bar">
+      <div class="att-label" id="attLabel">ATTEMPTS</div>
+      <div id="attDots" style="display:flex;gap:5px;"></div>
+    </div>
+  </div>
+
+  <!-- ═══ LEFT COLUMN ═══════════════════════ -->
+  <div>
+
+    <!-- 사건 개요 카드 -->
+    <div class="card card-red" style="animation-delay:.05s">
+      <div class="case-era-badge" id="caseEraBadge">CASE</div>
+      <div class="case-number" id="caseNum">CASE #000</div>
+      <div class="case-title-txt" id="caseTitle">—</div>
+      <div class="case-meta">
+        <div class="meta-cell">
+          <div class="meta-key" id="metaLocKey">LOCATION</div>
+          <div class="meta-val" id="caseLoc">—</div>
+        </div>
+        <div class="meta-cell">
+          <div class="meta-key" id="metaTimeKey">TIME OF DEATH</div>
+          <div class="meta-val" id="caseTime">—</div>
+        </div>
+        <div class="meta-cell">
+          <div class="meta-key" id="metaVicKey">VICTIM</div>
+          <div class="meta-val" id="caseVictim">—</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 시놉시스 -->
+    <div class="card" style="animation-delay:.1s">
+      <div class="sec-title" id="lblSynopsis">INCIDENT REPORT</div>
+      <div class="synopsis-text" id="synopsis">—</div>
+    </div>
+
+    <!-- 타임라인 -->
+    <div class="card" style="animation-delay:.15s">
+      <div class="sec-title" id="lblTimeline">MOVEMENT TIMELINE</div>
+      <div class="tl-wrap">
+        <div id="tlTable"></div>
+      </div>
+      <div class="tl-legend" id="tlLegend"></div>
+    </div>
+
+    <!-- 단서 -->
+    <div class="card card-tape" style="animation-delay:.2s">
+      <div class="sec-title" id="lblClues">EVIDENCE LOG</div>
+      <div id="clueList"></div>
+    </div>
+
+  </div><!-- /left -->
+
+  <!-- ═══ RIGHT COLUMN ══════════════════════ -->
+  <div class="suspects-panel">
+    <div class="panel-title" id="lblSuspects">SUSPECT LIST</div>
+    <div id="suspectList"></div>
+    <!-- 완료 박스 -->
+    <div class="played-box" id="playedBox">
+      <span class="played-icon">🚫</span>
+      <div class="played-title" id="playedTitle">CASE CLOSED</div>
+      <div class="played-sub" id="playedSub">NEXT CASE IN</div>
+      <div class="next-timer" id="nextTimer">--:--:--</div>
+      <div class="next-label" id="nextLabel">HOURS : MINUTES : SECONDS</div>
+    </div>
+  </div>
+
+</div><!-- /page -->
+
+<!-- ══ 결과 모달 ════════════════════════════ -->
+<div class="modal-ov" id="resultOv">
+  <div class="r-modal" id="rModal">
+    <div class="r-stamp"  id="rStamp"></div>
+    <div class="r-title"  id="rTitle"></div>
+    <div class="r-sub"    id="rSub"></div>
+    <div class="r-explain" id="rExplain"></div>
+    <div class="r-stats"  id="rStats"></div>
+    <button class="r-close-btn" id="rCloseBtn" onclick="closeResult()">CLOSE FILE</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ═══════════════════════════════════════════
+//  상태
+// ═══════════════════════════════════════════
+let lang       = localStorage.getItem('nexus_lang') || 'ko';
+let caseData   = null;
+let attUsed    = 0;
+const MAX_ATT  = 5;        // 단서 5개에 맞춰 시도 5번
+let revealed   = 1;
+let selectedId = null;
+let gameOver   = false;
+const eliminated = new Set();
+const token    = localStorage.getItem('nexus_token');
+
+// ═══════════════════════════════════════════
+//  i18n
+// ═══════════════════════════════════════════
+const S = {
+  ko: {
+    loadingText: 'CASE FILE 로드 중...',
+    backBtn: '← 허브',
+    streakLbl: '연속',
+    tabTimeline: '타임라인', tabEvidence: '단서', tabSuspects: '용의자',
+    metaLocKey: '장소', metaTimeKey: '사망 추정 시각', metaVicKey: '피해자',
+    lblSynopsis: '사건 개요', lblTimeline: '용의자 행적 타임라인',
+    lblClues: '수사 단서', lblSuspects: '용의자 목록',
+    attLabel: '시도',
+    legConf: '목격 확인', legUnv: '미확인 진술', legSus: '수상한 행적', legUnk: '행적 불명',
+    motive: '동기', alibi: '알리바이', flag: '특이사항',
+    accuseBtn: '이 인물을 범인으로 지목',
+    lockedText: '오답 시 공개',
+    rStampCorrect: 'SOLVED', rStampWrong: 'WRONG', rStampOver: 'UNSOLVED',
+    rTitleCorrect: '사건 해결!', rTitleWrong: '오답입니다', rTitleOver: '수사 실패',
+    rSubCorrect: '탁월한 추리였습니다. 범인을 정확히 지목했습니다.',
+    rSubWrong: n => `${n}번의 기회가 남았습니다. 새로운 단서를 확인하세요.`,
+    rSubOver: '범인을 놓쳤습니다. 내일 새로운 사건이 열립니다.',
+    rCloseBtn: '파일 닫기',
+    tries: '시도 횟수', streak: '연속 클리어',
+    playedTitle: 'CASE CLOSED', playedSub: '다음 사건까지',
+    nextLabel: '시간 : 분 : 초',
+    errorTitle: 'CASE FILE NOT FOUND',
+    newClue: '새 단서가 공개되었습니다. 타임라인을 다시 살펴보세요.',
+  },
+  en: {
+    loadingText: 'LOADING CASE FILE...',
+    backBtn: '← HUB',
+    streakLbl: 'STREAK',
+    tabTimeline: 'TIMELINE', tabEvidence: 'EVIDENCE', tabSuspects: 'SUSPECTS',
+    metaLocKey: 'LOCATION', metaTimeKey: 'TIME OF DEATH', metaVicKey: 'VICTIM',
+    lblSynopsis: 'INCIDENT REPORT', lblTimeline: 'MOVEMENT TIMELINE',
+    lblClues: 'EVIDENCE LOG', lblSuspects: 'SUSPECT LIST',
+    attLabel: 'ATTEMPTS',
+    legConf: 'Confirmed', legUnv: 'Unverified', legSus: 'Suspicious', legUnk: 'Unknown',
+    motive: 'MOTIVE', alibi: 'ALIBI', flag: 'NOTES',
+    accuseBtn: 'ACCUSE THIS SUSPECT',
+    lockedText: 'UNLOCKED ON WRONG ANSWER',
+    rStampCorrect: 'SOLVED', rStampWrong: 'WRONG', rStampOver: 'UNSOLVED',
+    rTitleCorrect: 'Case Solved!', rTitleWrong: 'Wrong Answer', rTitleOver: 'Case Unsolved',
+    rSubCorrect: 'Brilliant detective work. You identified the culprit.',
+    rSubWrong: n => `${n} attempt${n!==1?'s':''} remaining. Check the new evidence.`,
+    rSubOver: 'The culprit escaped. A new case opens tomorrow.',
+    rCloseBtn: 'CLOSE FILE',
+    tries: 'ATTEMPTS', streak: 'STREAK',
+    playedTitle: 'CASE CLOSED', playedSub: 'NEXT CASE IN',
+    nextLabel: 'HOURS : MINUTES : SECONDS',
+    errorTitle: 'CASE FILE NOT FOUND',
+    newClue: 'New evidence has been revealed. Re-examine the timeline.',
+  }
+};
+const t = k => S[lang][k] ?? k;
+
+function setLang(l) {
+  lang = l;
+  localStorage.setItem('nexus_lang', l);
+  applyLang();
+  if (caseData) renderAll();
+}
+
+function applyLang() {
+  document.getElementById('btnKO').style.opacity = lang==='ko' ? '1' : '0.45';
+  document.getElementById('btnEN').style.opacity = lang==='en' ? '1' : '0.45';
+  document.getElementById('streakLbl').textContent = t('streakLbl');
+  document.getElementById('backBtn').textContent   = t('backBtn');
+  document.getElementById('loadingText').textContent = t('loadingText');
+
+  const ids = ['tabTimeline','tabEvidence','tabSuspects',
+    'metaLocKey','metaTimeKey','metaVicKey',
+    'lblSynopsis','lblTimeline','lblClues','lblSuspects',
+    'attLabel','playedTitle','playedSub','nextLabel'];
+  ids.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = t(id);
+  });
+}
+
+// ═══════════════════════════════════════════
+//  데이터 로드
+// ═══════════════════════════════════════════
+async function loadTodayCase() {
+  document.getElementById('loadingWrap').style.display = 'flex';
+  document.getElementById('mainWrap').style.display    = 'none';
+  document.getElementById('errorWrap').style.display   = 'none';
+
+  try {
+    // 1) 서버 API 시도
+    let data;
+    try {
+      const res = await fetch('/api/puzzle/today');
+      data = await res.json();
+      if (!res.ok) throw new Error(data.message);
+      caseData = data.case;
+    } catch {
+      // 2) 로컬 JSON 폴백
+      const res2 = await fetch('/data/cases.json');
+      if (!res2.ok) throw new Error('cases.json 로드 실패');
+      const cases = await res2.json();
+      const idx   = Math.floor(Date.now() / 86400000) % cases.length;
+      caseData    = cases[idx];
+    }
+
+    // 로컬 진행 상황 복원
+    const todayKey = getTodayKey(caseData.caseId);
+    const cached   = JSON.parse(localStorage.getItem(todayKey) || 'null');
+    if (cached) {
+      attUsed  = cached.attUsed  || 0;
+      revealed = Math.min(cached.revealed || 1, (caseData.clues||[]).length);
+      gameOver = cached.gameOver || false;
+      (cached.eliminated || []).forEach(id => eliminated.add(id));
+    }
+
+    document.getElementById('loadingWrap').style.display = 'none';
+    document.getElementById('mainWrap').style.display    = 'grid';
+    applyLang();
+    renderAll();
+    loadStreak();
+    startCountdown();
+    if (gameOver) showPlayedBox();
+
+  } catch(err) {
+    document.getElementById('loadingWrap').style.display = 'none';
+    document.getElementById('errorWrap').style.display   = 'flex';
+    document.getElementById('errorTitle').textContent    = t('errorTitle');
+    document.getElementById('errorMsg').textContent      = err.message;
+  }
+}
+
+async function loadStreak() {
+  if (token) {
+    try {
+      const res  = await fetch('/api/puzzle/stats', { headers:{ Authorization:`Bearer ${token}` } });
+      const data = await res.json();
+      if (data.success && data.puzzle)
+        document.getElementById('streakNum').textContent = data.puzzle.streak || 0;
+      return;
+    } catch {}
+  }
+  document.getElementById('streakNum').textContent = getLocalStreak();
+}
+
+// ═══════════════════════════════════════════
+//  렌더링
+// ═══════════════════════════════════════════
+function renderAll() {
+  renderHeader();
+  renderTimeline();
+  renderClues();
+  renderSuspects();
+}
+
+function renderHeader() {
+  const c = caseData;
+  const now = new Date();
+  document.getElementById('caseDate').textContent =
+    `${now.getFullYear()}.${String(now.getMonth()+1).padStart(2,'0')}.${String(now.getDate()).padStart(2,'0')}`;
+  document.getElementById('caseNum').textContent   = `CASE #${String(c.caseId).padStart(3,'0')}`;
+  document.getElementById('caseTitle').textContent = c.title?.[lang]    || c.title?.ko    || '—';
+  document.getElementById('caseLoc').textContent   = c.location?.[lang] || c.location?.ko || '—';
+  document.getElementById('caseTime').textContent  = c.time?.[lang]     || c.time?.ko     || '—';
+  document.getElementById('caseVictim').textContent= c.victim?.[lang]   || c.victim?.ko   || '—';
+  document.getElementById('synopsis').textContent  = c.synopsis?.[lang] || c.synopsis?.ko || '—';
+
+  // 시대 배지
+  const eraMap = {
+    joseon:'조선시대', medieval_europe:'중세 유럽', modern:'현대', colonial_korea:'일제강점기',
+    victorian:'빅토리아', ancient_rome:'고대 로마', cold_war:'냉전', edo:'에도시대', other:'역사'
+  };
+  document.getElementById('caseEraBadge').textContent = eraMap[c.era] || c.era || 'CASE';
+
+  // 시도 점
+  const dots = document.getElementById('attDots');
+  dots.innerHTML = '';
+  for (let i = 0; i < MAX_ATT; i++) {
+    const d = document.createElement('div');
+    d.className = 'att-dot ' + (i < attUsed ? 'used' : 'remain');
+    dots.appendChild(d);
+  }
+}
+
+function renderTimeline() {
+  const c = caseData;
+  const el = document.getElementById('tlTable');
+  el.innerHTML = '';
+
+  // 헤더
+  const hrow = document.createElement('div');
+  hrow.className = 'tl-head-row';
+  (c.slots || []).forEach((s, i) => {
+    const th = document.createElement('div');
+    th.className = 'tl-head-cell' + (i === c.deathCol ? ' death-col' : '');
+    th.textContent = i === c.deathCol ? `${s} 💀` : s;
+    hrow.appendChild(th);
+  });
+  el.appendChild(hrow);
+
+  // 행
+  (c.timeline || []).forEach(row => {
+    const sus = (c.suspects || []).find(s => s.id === row.id);
+    const name = (sus?.name?.[lang] || sus?.name?.ko || row.id).split(' ')[0];
+    const div = document.createElement('div');
+    div.className = 'tl-row';
+    const nm = document.createElement('div');
+    nm.className = 'tl-name';
+    nm.textContent = name;
+    div.appendChild(nm);
+    const cells = document.createElement('div');
+    cells.className = 'tl-cells';
+    (row.cells || []).forEach((cell, i) => {
+      const td = document.createElement('div');
+      td.className = `tl-cell ${cell.s || 'unknown'}` + (i === c.deathCol ? ' death-zone' : '');
+      const tip = document.createElement('div');
+      tip.className = 'tl-tip';
+      tip.textContent = cell[lang] || cell.ko || '';
+      td.appendChild(tip);
+      cells.appendChild(td);
+    });
+    div.appendChild(cells);
+    el.appendChild(div);
+  });
+
+  // 범례
+  document.getElementById('tlLegend').innerHTML = `
+    <div class="leg-item"><div class="leg-dot confirmed"></div>${t('legConf')}</div>
+    <div class="leg-item"><div class="leg-dot unverified"></div>${t('legUnv')}</div>
+    <div class="leg-item"><div class="leg-dot suspicious"></div>${t('legSus')}</div>
+    <div class="leg-item"><div class="leg-dot unknown"></div>${t('legUnk')}</div>
+    <div class="leg-item" style="color:var(--red);font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:.08em;">💀 ${lang==='ko'?'사망 추정':'Est. TOD'}</div>`;
+}
+
+function renderClues() {
+  const list = document.getElementById('clueList');
+  list.innerHTML = '';
+  (caseData.clues || []).forEach((c, i) => {
+    if (i < revealed) {
+      list.innerHTML += `
+        <div class="clue-item">
+          <div class="clue-num">EV-${String(c.order).padStart(2,'0')}</div>
+          <div class="clue-text">${c[lang] || c.ko || ''}</div>
+        </div>`;
+    } else if (!gameOver) {
+      list.innerHTML += `
+        <div class="clue-locked">
+          <div class="clue-locked-num">EV-${String(c.order).padStart(2,'0')}</div>
+          <div class="clue-locked-text">🔒 ${t('lockedText')}</div>
+        </div>`;
+    }
+  });
+}
+
+function renderSuspects() {
+  const list = document.getElementById('suspectList');
+  list.innerHTML = '';
+  (caseData.suspects || []).forEach(s => {
+    const isOpen = selectedId === s.id;
+    const isElim = eliminated.has(s.id);
+    const card   = document.createElement('div');
+    card.className = `s-card${isOpen ? ' open' : ''}${isElim ? ' elim' : ''}`;
+    card.id = `sc-${s.id}`;
+    card.innerHTML = `
+      <div class="s-hdr">
+        <div class="s-id">${s.id}</div>
+        <div>
+          <div class="s-name">${s.name?.[lang] || s.name?.ko || '—'}</div>
+          <div class="s-job">${s.job?.[lang] || s.job?.ko || '—'}</div>
+        </div>
+        <div class="s-chev">▼</div>
+      </div>
+      <div class="s-detail">
+        <div class="d-row"><strong>${t('motive')}</strong>${s.motive?.[lang] || s.motive?.ko || ''}</div>
+        <div class="d-row"><strong>${t('alibi')}</strong>${s.alibi?.[lang] || s.alibi?.ko || ''}</div>
+        <div class="d-row flag"><strong>${t('flag')}</strong>${s.flag?.[lang] || s.flag?.ko || ''}</div>
+        <button class="accuse-btn" onclick="event.stopPropagation();accuseSuspect('${s.id}')">
+          ${t('accuseBtn')}
+        </button>
+      </div>`;
+    if (!isElim) {
+      card.addEventListener('click', () => { if (!gameOver) toggleCard(s.id); });
+    }
+    list.appendChild(card);
+  });
+}
+
+function toggleCard(id) {
+  selectedId = selectedId === id ? null : id;
+  renderSuspects();
+}
+
+// ═══════════════════════════════════════════
+//  범인 지목
+// ═══════════════════════════════════════════
+async function accuseSuspect(id) {
+  if (gameOver) return;
+  const headers = { 'Content-Type': 'application/json' };
+  if (token) headers['Authorization'] = `Bearer ${token}`;
+
+  let correct = false;
+  let explanation = null;
+
+  try {
+    const res  = await fetch('/api/puzzle/solve', {
+      method: 'POST', headers,
+      body: JSON.stringify({ caseId: caseData.caseId, answer: id, attempts: attUsed + 1 })
+    });
+    const data = await res.json();
+    correct     = data.correct;
+    explanation = data.explanation;
+  } catch {
+    // 오프라인 폴백: 로컬 비교
+    correct = (id === caseData.answer);
+    explanation = caseData.explanation;
+  }
+
+  if (correct) {
+    gameOver = true;
+    attUsed++;
+    const newStreak = getLocalStreak() + 1;
+    saveLocalStreak(newStreak);
+    document.getElementById('streakNum').textContent = newStreak;
+    saveLocal(true, explanation);
+    renderHeader();
+    showResult('correct', explanation);
+  } else {
+    attUsed++;
+    eliminated.add(id);
+    selectedId = null;
+    if (revealed < (caseData.clues || []).length) revealed++;
+    renderHeader();
+    renderClues();
+    renderSuspects();
+    saveLocalProgress();
+
+    if (attUsed >= MAX_ATT) {
+      gameOver = true;
+      saveLocal(false, explanation);
+      saveLocalStreak(0);
+      document.getElementById('streakNum').textContent = 0;
+      setTimeout(() => showResult('gameover', explanation || caseData.explanation), 450);
+    } else {
+      showResult('wrong', null);
+    }
+  }
+}
+
+// ═══════════════════════════════════════════
+//  결과 모달
+// ═══════════════════════════════════════════
+function showResult(type, expl) {
+  const modal = document.getElementById('rModal');
+  modal.className = `r-modal ${type}`;
+  document.getElementById('rStamp').textContent = t(`rStamp${type.charAt(0).toUpperCase()+type.slice(1)}`);
+  document.getElementById('rTitle').textContent = t(`rTitle${type.charAt(0).toUpperCase()+type.slice(1)}`);
+  document.getElementById('rCloseBtn').textContent = t('rCloseBtn');
+
+  const attLeft = MAX_ATT - attUsed;
+  if (type === 'correct') {
+    document.getElementById('rSub').textContent     = t('rSubCorrect');
+    document.getElementById('rExplain').textContent = expl?.[lang] || expl?.ko || '';
+    document.getElementById('rStats').innerHTML = `
+      <div class="r-stat"><div class="r-stat-val">${attUsed}</div><div class="r-stat-lbl">${t('tries')}</div></div>
+      <div class="r-stat"><div class="r-stat-val">${getLocalStreak()}</div><div class="r-stat-lbl">${t('streak')}</div></div>`;
+  } else if (type === 'wrong') {
+    document.getElementById('rSub').textContent     = t('rSubWrong')(attLeft);
+    document.getElementById('rExplain').textContent = t('newClue');
+    document.getElementById('rStats').innerHTML = '';
+  } else {
+    document.getElementById('rSub').textContent     = t('rSubOver');
+    document.getElementById('rExplain').textContent = expl?.[lang] || expl?.ko || '';
+    document.getElementById('rStats').innerHTML = '';
+  }
+  document.getElementById('resultOv').classList.add('show');
+}
+
+function closeResult() {
+  document.getElementById('resultOv').classList.remove('show');
+  if (gameOver) showPlayedBox();
+}
+
+function showPlayedBox() {
+  document.getElementById('playedBox').style.display = 'block';
+  document.getElementById('suspectList').style.display = 'none';
+}
+
+// ═══════════════════════════════════════════
+//  로컬 저장
+// ═══════════════════════════════════════════
+function getTodayKey(caseId) {
+  const d = new Date();
+  return `nexus_cs_${d.getFullYear()}_${d.getMonth()}_${d.getDate()}_${caseId}`;
+}
+function saveLocal(solved, expl) {
+  localStorage.setItem(getTodayKey(caseData.caseId), JSON.stringify({
+    solved, attUsed, revealed, gameOver: true,
+    eliminated: [...eliminated], explanation: expl || null,
+  }));
+}
+function saveLocalProgress() {
+  localStorage.setItem(getTodayKey(caseData.caseId), JSON.stringify({
+    solved: false, attUsed, revealed, gameOver: false,
+    eliminated: [...eliminated], explanation: null,
+  }));
+}
+function getLocalStreak() {
+  const date = localStorage.getItem('nxs_cs_streak_date');
+  const today = new Date().toDateString();
+  const yest  = new Date(Date.now()-86400000).toDateString();
+  if (date === today || date === yest) return parseInt(localStorage.getItem('nxs_cs_streak') || '0');
+  return 0;
+}
+function saveLocalStreak(s) {
+  localStorage.setItem('nxs_cs_streak', s);
+  localStorage.setItem('nxs_cs_streak_date', new Date().toDateString());
+}
+
+// ═══════════════════════════════════════════
+//  카운트다운
+// ═══════════════════════════════════════════
+function startCountdown() {
+  setInterval(() => {
+    const now  = new Date();
+    const tom  = new Date(now); tom.setDate(tom.getDate()+1); tom.setHours(0,0,0,0);
+    const diff = tom - now;
+    const h = Math.floor(diff/3600000);
+    const m = Math.floor((diff%3600000)/60000);
+    const s = Math.floor((diff%60000)/1000);
+    document.getElementById('nextTimer').textContent =
+      `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+  }, 1000);
+}
+
+// ═══════════════════════════════════════════
+//  토스트
+// ═══════════════════════════════════════════
+function showToast(msg) {
+  const el = document.getElementById('toast');
+  el.textContent = msg;
+  el.classList.add('show');
+  setTimeout(() => el.classList.remove('show'), 2600);
+}
+
+// ═══════════════════════════════════════════
+//  초기화
+// ═══════════════════════════════════════════
+applyLang();
+loadTodayCase();
+</script>
+</body>
+</html>
