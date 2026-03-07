@@ -12,6 +12,8 @@
     :root.light body::before{background-image:linear-gradient(rgba(0,153,168,0.06) 1px,transparent 1px),linear-gradient(90deg,rgba(0,153,168,0.06) 1px,transparent 1px);}
     :root.light header{background:rgba(240,242,248,0.9);}
     * {margin:0;padding:0;box-sizing:border-box;}
+    body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-serif;min-height:100vh;overflow-x:hidden;visibility:hidden;}
+    body.ready{visibility:visible;}
     body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(0,245,200,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(0,245,200,0.025) 1px,transparent 1px);background-size:60px 60px;animation:gridMove 25s linear infinite;pointer-events:none;}
     @keyframes gridMove{0%{background-position:0 0}100%{background-position:60px 60px}}
     .scanlines{position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.03) 2px,rgba(0,0,0,0.03) 4px);pointer-events:none;z-index:999;}
@@ -49,12 +51,14 @@
     .game-card{background:var(--surface);border:1px solid var(--border);border-radius:20px;overflow:hidden;transition:transform 0.3s,border-color 0.3s,box-shadow 0.3s;cursor:pointer;text-decoration:none;display:block;position:relative;}
     .game-card:hover{transform:translateY(-6px);}
     .game-card.chess:hover{border-color:var(--accent);box-shadow:0 20px 60px rgba(0,245,200,0.1);}
+    .game-card.puzzle:hover{border-color:#c8a96e;box-shadow:0 20px 60px rgba(200,169,110,0.12);}
     .game-card.rogue:hover{border-color:var(--accent2);box-shadow:0 20px 60px rgba(124,58,237,0.1);}
     .game-card.locked{cursor:default;opacity:0.7;}
     .game-card.locked:hover{transform:none;box-shadow:none;}
 
     .card-banner{height:180px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;}
     .chess .card-banner{background:linear-gradient(135deg,#0d1f2d 0%,#0a3d4f 50%,#051822 100%);}
+    .puzzle .card-banner{background:linear-gradient(135deg,#1a1208 0%,#2e1f0a 50%,#0e0b06 100%);}
     .rogue .card-banner{background:linear-gradient(135deg,#1a0a2e 0%,#2d1060 50%,#0f0520 100%);}
     .banner-icon{font-size:72px;filter:drop-shadow(0 0 30px rgba(0,245,200,0.4));animation:float 4s ease-in-out infinite;}
     .rogue .banner-icon{filter:drop-shadow(0 0 30px rgba(124,58,237,0.5));}
@@ -62,6 +66,7 @@
     .banner-particles{position:absolute;inset:0;overflow:hidden;}
     .particle{position:absolute;width:2px;height:2px;border-radius:50%;animation:rise linear infinite;}
     .chess .particle{background:var(--accent);}
+    .puzzle .particle{background:#c8a96e;}
     .rogue .particle{background:var(--accent2);}
     @keyframes rise{0%{transform:translateY(200px);opacity:0}10%{opacity:1}90%{opacity:1}100%{transform:translateY(-20px);opacity:0}}
     .card-status{position:absolute;top:16px;right:16px;font-family:'Orbitron',monospace;font-size:9px;letter-spacing:0.15em;padding:5px 10px;border-radius:6px;}
@@ -71,18 +76,24 @@
     .card-body{padding:28px;}
     .card-title{font-family:'Orbitron',monospace;font-size:22px;font-weight:700;margin-bottom:10px;}
     .chess .card-title{color:var(--accent);}
+    .puzzle .card-title{color:#e8c98a;}
     .rogue .card-title{color:var(--accent2);}
     .card-desc{color:var(--text-muted);font-size:14px;line-height:1.7;margin-bottom:24px;}
     .card-stats{display:flex;gap:24px;margin-bottom:24px;}
     .stat{display:flex;flex-direction:column;gap:2px;}
     .stat-value{font-family:'Orbitron',monospace;font-size:18px;font-weight:700;}
     .chess .stat-value{color:var(--accent);}
+    .puzzle .stat-value{color:#e8c98a;}
     .rogue .stat-value{color:var(--accent2);}
     .stat-label{font-size:11px;color:var(--text-muted);}
     .play-btn{width:100%;padding:14px;border-radius:10px;border:none;font-family:'Orbitron',monospace;font-size:12px;font-weight:700;letter-spacing:0.2em;cursor:pointer;transition:all 0.2s;}
     .chess .play-btn{background:linear-gradient(135deg,var(--accent),#00c9a7);color:var(--bg);}
     .chess .play-btn:hover{box-shadow:0 8px 24px rgba(0,245,200,0.35);transform:translateY(-1px);}
+    .puzzle .play-btn{background:linear-gradient(135deg,#c8a96e,#a07840);color:#0e0b06;}
+    .puzzle .play-btn:hover{box-shadow:0 8px 24px rgba(200,169,110,0.35);transform:translateY(-1px);}
     .rogue .play-btn{background:var(--surface2);color:var(--text-muted);border:1px solid var(--border);cursor:not-allowed;}
+    /* 퍼즐 스트릭 뱃지 */
+    .puzzle-streak{position:absolute;top:16px;left:16px;font-family:'Orbitron',monospace;font-size:10px;padding:5px 10px;border-radius:6px;background:rgba(200,169,110,0.15);color:#e8c98a;border:1px solid rgba(200,169,110,0.35);}
 
     .stats-section{padding:0 48px 80px;max-width:1200px;margin:0 auto;}
     .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
@@ -127,7 +138,7 @@
       <div class="section-label">GAME SELECT</div>
       <div class="games-grid">
 
-        <a class="game-card chess" href="/page/chess.html">
+        <a class="game-card chess" href="/pages/chess.html">
           <div class="card-banner">
             <div class="banner-particles" id="chessParticles"></div>
             <div class="banner-icon">♟</div>
@@ -147,6 +158,30 @@
               </div>
             </div>
             <button class="play-btn" id="chessPlayBtn"></button>
+          </div>
+        </a>
+
+        <a class="game-card puzzle" href="/page/puzzle.html">
+          <div class="card-banner">
+            <div class="banner-particles" id="puzzleParticles"></div>
+            <div class="banner-icon" style="filter:drop-shadow(0 0 30px rgba(200,169,110,0.5));">🔍</div>
+            <div class="card-status status-online" id="puzzleStatusBadge">● DAILY</div>
+            <div class="puzzle-streak" id="puzzleStreakBadge">🔥 0</div>
+          </div>
+          <div class="card-body">
+            <div class="card-title">DETECTIVE</div>
+            <p class="card-desc" id="puzzleDesc"></p>
+            <div class="card-stats">
+              <div class="stat">
+                <div class="stat-value" id="puzzleSolved">0</div>
+                <div class="stat-label" id="labelPuzzleSolved"></div>
+              </div>
+              <div class="stat">
+                <div class="stat-value" id="puzzleStreak">0</div>
+                <div class="stat-label" id="labelPuzzleStreak"></div>
+              </div>
+            </div>
+            <button class="play-btn" id="puzzlePlayBtn"></button>
           </div>
         </a>
 
@@ -213,10 +248,9 @@
   try {
     const user = JSON.parse(userStr);
     document.addEventListener('DOMContentLoaded', () => {
-      const nickEl   = document.getElementById('nicknameEl');
-      const avatarEl = document.getElementById('avatarEl');
-      if (nickEl)   nickEl.textContent   = user.nickname || 'Player';
-      if (avatarEl) avatarEl.textContent = (user.nickname || 'P')[0].toUpperCase();
+      document.getElementById('nicknameEl').textContent = user.nickname || 'Player';
+      document.getElementById('avatarEl').textContent   = (user.nickname || 'P')[0].toUpperCase();
+      document.body.classList.add('ready');
     });
   } catch(e) {
     localStorage.clear();
@@ -232,10 +266,13 @@ const STRINGS = {
     welcomeText:'WELCOME BACK', pageTitle:'어떤 게임을\n플레이할까요?', pageTitleAccent:'플레이',
     pageSubtitle:'게임을 선택하고 새로운 도전을 시작하세요.',
     chessDesc:'수천 년의 역사를 가진 전략 게임. 상대의 킹을 체크메이트하세요.',
+    puzzleDesc:'매일 새로운 살인사건. 용의자를 분석하고 범인을 지목하세요. 하루 1번만.',
     rogueDesc:'절차적으로 생성된 던전을 탐험하세요. 매 플레이마다 새로운 경험이 펼쳐집니다.',
     rogueBadge:'개발 중', labelOnline:'온라인 플레이어', labelMyWins:'내 승리',
     labelFloor:'최고 층수', labelRuns:'총 플레이',
-    chessPlayBtn:'게임 시작 →', roguePlayBtn:'곧 출시됩니다',
+    labelPuzzleSolved:'해결한 사건', labelPuzzleStreak:'연속 클리어',
+    chessPlayBtn:'게임 시작 →', roguePlayBtn:'곧 출시됩니다', puzzlePlayBtn:'수사 시작 →',
+    puzzlePlayedBtn:'오늘 완료 ✓',
     myStatsLabel:'MY STATS', labelTotalGames:'총 게임 수', labelTotalWins:'총 승리',
     labelWinRate:'승률', labelPlayDays:'플레이 일수', logoutBtn:'로그아웃',
   },
@@ -243,10 +280,13 @@ const STRINGS = {
     welcomeText:'WELCOME BACK', pageTitle:'What will you\nplay today?', pageTitleAccent:'play',
     pageSubtitle:'Choose a game and start a new challenge.',
     chessDesc:'A strategy game with thousands of years of history. Checkmate your opponent\'s king.',
+    puzzleDesc:'A new murder case every day. Analyze suspects and name the culprit. Once per day.',
     rogueDesc:'Explore procedurally generated dungeons. A new experience every run.',
     rogueBadge:'IN DEV', labelOnline:'Online players', labelMyWins:'My wins',
     labelFloor:'Best floor', labelRuns:'Total runs',
-    chessPlayBtn:'PLAY NOW →', roguePlayBtn:'COMING SOON',
+    labelPuzzleSolved:'Cases solved', labelPuzzleStreak:'Streak',
+    chessPlayBtn:'PLAY NOW →', roguePlayBtn:'COMING SOON', puzzlePlayBtn:'INVESTIGATE →',
+    puzzlePlayedBtn:'COMPLETED TODAY ✓',
     myStatsLabel:'MY STATS', labelTotalGames:'Total games', labelTotalWins:'Total wins',
     labelWinRate:'Win rate', labelPlayDays:'Days played', logoutBtn:'LOGOUT',
   }
@@ -265,12 +305,12 @@ function applyLang() {
     const raw = t('pageTitle'), accent = t('pageTitleAccent');
     titleEl.innerHTML = raw.split('\n').map(l => l.includes(accent) ? l.replace(accent,`<span>${accent}</span>`) : l).join('<br>');
   }
-  ['welcomeText','pageSubtitle','chessDesc','rogueDesc','rogueBadge','labelOnline','labelMyWins',
-   'labelFloor','labelRuns','chessPlayBtn','roguePlayBtn','myStatsLabel','labelTotalGames',
+  ['welcomeText','pageSubtitle','chessDesc','puzzleDesc','rogueDesc','rogueBadge','labelOnline','labelMyWins',
+   'labelFloor','labelRuns','labelPuzzleSolved','labelPuzzleStreak','chessPlayBtn','roguePlayBtn','myStatsLabel','labelTotalGames',
    'labelTotalWins','labelWinRate','labelPlayDays','logoutBtn'].forEach(k => set(k, k));
 }
 
-function setLang(l) { lang = l; localStorage.setItem('nexus_lang', l); applyLang(); }
+function setLang(l) { lang = l; localStorage.setItem('nexus_lang', l); applyLang(); loadPuzzleStats(); }
 
 // ══════════════════════════════════════════
 //  테마
@@ -331,9 +371,51 @@ document.addEventListener('DOMContentLoaded', () => {
   applyLang();
   applyTheme();
   makeParticles('chessParticles');
+  makeParticles('puzzleParticles');
   makeParticles('rogueParticles');
   loadStats();
+  loadPuzzleStats();
 });
+
+function loadPuzzleStats() {
+  // 스트릭
+  const streakDate = localStorage.getItem('nxs_streak_date');
+  const today      = new Date().toDateString();
+  const yesterday  = new Date(Date.now()-86400000).toDateString();
+  const streak     = (streakDate===today||streakDate===yesterday)
+    ? parseInt(localStorage.getItem('nxs_streak')||'0') : 0;
+
+  // 총 해결 수 (nxs_pz_ 키 순회)
+  let solved = 0;
+  for (let i=0; i<localStorage.length; i++) {
+    const k = localStorage.key(i);
+    if (k && k.startsWith('nexus_pz_')) {
+      try { const v = JSON.parse(localStorage.getItem(k)); if(v&&v.solved) solved++; } catch(e){}
+    }
+  }
+
+  document.getElementById('puzzleStreak').textContent = streak;
+  document.getElementById('puzzleSolved').textContent = solved;
+  document.getElementById('puzzleStreakBadge').textContent = `🔥 ${streak}`;
+
+  // 오늘 이미 풀었는지 확인 → 버튼 텍스트 변경
+  const d = new Date();
+  const todayKey = `nexus_pz_${d.getFullYear()}_${d.getMonth()}_${d.getDate()}`;
+  const todayResult = localStorage.getItem(todayKey);
+  const btn = document.getElementById('puzzlePlayBtn');
+  if (btn) {
+    if (todayResult) {
+      btn.textContent = t('puzzlePlayedBtn');
+      btn.style.background = 'var(--surface2)';
+      btn.style.color = '#e8c98a';
+      btn.style.border = '1px solid rgba(200,169,110,0.4)';
+      btn.style.cursor = 'default';
+      btn.onclick = e => e.preventDefault();
+    } else {
+      btn.textContent = t('puzzlePlayBtn');
+    }
+  }
+}
 </script>
 </body>
 </html>
