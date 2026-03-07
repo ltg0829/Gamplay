@@ -1,0 +1,137 @@
+[
+  {
+    caseId 20260310,
+    difficulty Hard,
+    era modern,
+    title { ko 백스테이지의 치명적인 축배, en The Fatal Toast Backstage },
+    location { ko 오페라 하우스 분장실, en Opera House Dressing Room },
+    victim { ko 소프라노 엘레나 (독살), en Soprano Elena (Poisoned) },
+    synopsis {
+      ko 공연 직후, 자신의 분장실에서 축하주를 마신 주연 배우 엘레나가 쓰러졌습니다. 잔에서는 즉사성 독물이 발견되었으나, 병은 미개봉 상태였고 분장실은 안에서 잠겨 있었습니다.,
+      en After the performance, lead soprano Elena collapsed after a celebratory drink in her dressing room. Poison was found in the glass, but the bottle was sealed and the room was locked from inside.
+    },
+    slots [2000, 2100, 2130, 2145, 2200],
+    suspects [
+      {
+        id A,
+        name { ko 라이벌 가수 소피아, en Rival Sophia },
+        motive { ko 엘레나 때문에 2인자로 밀려난 것에 대한 원한, en Grudge over being pushed to second place },
+        flag { ko 사건 전날 엘레나의 와인 잔을 닦는 모습이 목격됨, en Seen wiping Elena's glass the day before }
+      },
+      {
+        id B,
+        name { ko 매니저 마크, en Manager Mark },
+        motive { ko 엘레나의 거액 이적 계약을 막기 위함, en To stop Elena's expensive transfer contract },
+        flag { ko 분장실 보조 열쇠를 소지하고 있음, en Possesses a spare key to the dressing room }
+      },
+      {
+        id C,
+        name { ko 무대 감독 릭, en Stage Director Rick },
+        motive { ko 완벽주의적 성격으로 엘레나의 잦은 실수에 분노, en Anger over Elena's frequent mistakes },
+        flag { ko 특수 효과용 약품을 관리함, en Manages chemicals for special effects }
+      }
+    ],
+    clues [
+      { order 1, ko 독은 와인이 아니라 얼음 트레이 안의 얼음에 주입되어 있었습니다., en The poison was injected into the ice in the tray, not the wine. },
+      { order 2, ko 소피아는 공연 중 계속 무대 위에 있었으나, 인터미션 때 얼음 물을 요청했습니다., en Sophia was on stage throughout, but requested ice water during intermission. },
+      { order 3, ko 매니저 마크의 주머니에서 발견된 얼음 트레이 열쇠에 미세한 구멍이 뚫려 있습니다., en Small holes were found in the ice tray key in Mark's pocket. },
+      { order 4, ko 엘레나는 평소 상온의 와인만 마시지만, 오늘따라 유독 덥다며 얼음을 가득 채웠습니다., en Elena usually drinks room-temp wine but used lots of ice today due to the heat. },
+      { order 5, ko 릭은 오늘 공연 내내 무대 온도 조절 장치를 조작해 분장실 온도를 30도까지 올렸습니다., en Rick manipulated the thermostat to raise the dressing room temp to 30°C. }
+    ],
+    answer C,
+    explanation {
+      ko 진범은 무대 감독 릭입니다. 그는 평소 얼음을 먹지 않는 엘레나가 얼음을 찾게 만들기 위해 온도를 조절하는 환경 트릭을 썼습니다. 미리 독 얼음을 준비해둔 뒤 그녀가 스스로 독을 섭취하게 유도했습니다.,
+      en The culprit is Rick. He used an environmental trick by raising the temp to force Elena, who doesn't usually use ice, to use the poisoned ice he pre-set.
+    }
+  },
+  {
+    caseId 20260311,
+    difficulty Medium,
+    era victorian,
+    title { ko 그림자 없는 박물관 절도, en The Shadowless Museum Heist },
+    location { ko 런던 국립 박물관, en London National Museum },
+    victim { ko 아몬드 다이아몬드 (절도), en Almond Diamond (Stolen) },
+    synopsis {
+      ko 철통 보안 속에서 전시 중이던 전설의 다이아몬드가 사라졌습니다. 경보 장치는 울리지 않았고, 전시함의 유리는 깨지지 않은 채 그대로였습니다.,
+      en A legendary diamond vanished under heavy security. The alarm didn't sound, and the display glass remained intact.
+    },
+    slots [0000, 0100, 0200, 0300],
+    suspects [
+      {
+        id A,
+        name { ko 경비원 톰, en Guard Tom },
+        motive { ko 아픈 딸의 수술비 마련, en To pay for his daughter's surgery },
+        flag { ko 사건 당시 초소에서 졸고 있었다고 자백, en Confessed to dozing off during the shift }
+      },
+      {
+        id B,
+        name { ko 큐레이터 헬렌, en Curator Helen },
+        motive { ko 박물관의 재정 위기를 보험금으로 해결하려 함, en To solve financial crisis with insurance money },
+        flag { ko 전시함의 특수 설계도를 유일하게 알고 있음, en Only one who knows the display's design }
+      },
+      {
+        id C,
+        name { ko 수집가 블랙, en Collector Black },
+        motive { ko 개인 소장 욕구, en Personal desire for the collection },
+        flag { ko 어제 박물관 폐관 직전까지 전시실에 머무름, en Stayed in the gallery until closing yesterday }
+      }
+    ],
+    clues [
+      { order 1, ko 전시함 바닥에서 정교하게 깎인 투명한 유리 조각이 발견되었습니다., en Precision-cut clear glass shards were found on the display floor. },
+      { order 2, ko 헬렌의 기록에 따르면 오늘 아침 전시함 내부 습도가 평소보다 낮았습니다., en According to Helen's logs, the humidity inside the display was lower than usual. },
+      { order 3, ko 경비원 톰의 회중전등 배터리가 방전되어 있었고, 근처에 양초 잔해가 있습니다., en Tom's flashlight was dead, and candle wax was found nearby. },
+      { order 4, ko 전시함은 위가 아니라 '아래' 바닥을 통해서만 열 수 있는 구조입니다., en The display can only be opened through the floor underneath. },
+      { order 5, ko 블랙은 사실 숙련된 유리 세공사 출신이며, 그의 외투에서 얼음 조각용 도구가 발견되었습니다., en Black is a former glassblower, and ice-carving tools were found in his coat. }
+    ],
+    answer C,
+    explanation {
+      ko 진범은 수집가 블랙입니다. 그는 다이아몬드와 똑같이 생긴 '얼음 가짜'를 미리 만들어 바꿔치기했습니다. 시간이 지나 얼음이 녹으며 부피가 줄어들고 사라졌기 때문에 절도 순간에 경보가 울리지 않았습니다.,
+      en The culprit is Collector Black. He swapped the diamond with an ice replica. As the ice melted and shrank, it didn't trigger the pressure alarm during the theft.
+    }
+  },
+  {
+    caseId 20260312,
+    difficulty Hard,
+    era cold_war,
+    title { ko 코드네임 붉은 장미 유출, en Codename Red Rose Leak },
+    location { ko 베를린 첩보국 지하 기록실, en Berlin Intelligence Vault },
+    victim { ko 핵잠수함 설계도 (유출), en Nuclear Submarine Blueprints (Leaked) },
+    synopsis {
+      ko 일급 기밀이 담긴 마이크로필름이 유출되었습니다. 기록실 출입은 오직 3명의 고위 간부만 가능하며, 모든 소지품 검사를 거쳤음에도 필름은 사라졌습니다.,
+      en Top-secret microfilm was leaked. Only 3 high-ranking officials had access, and despite strict searches, the film vanished.
+    },
+    slots [0900, 1200, 1500, 1800],
+    suspects [
+      {
+        id A,
+        name { ko 대령 이바노프, en Colonel Ivanov },
+        motive { ko 가족이 적국에 인질로 잡혀 있음, en Family held hostage by the enemy },
+        flag { ko 최근 거액의 해외 송금 기록이 발견됨, en Large overseas wire transfers discovered recently }
+      },
+      {
+        id B,
+        name { ko 암호해독관 클라라, en Cryptographer Clara },
+        motive { ko 체제에 대한 불만과 자유 갈망, en Dissatisfaction with the regime and longing for freedom },
+        flag { ko 사건 당일 기록실에 가장 오래 머무름, en Stayed longest in the vault on the day of the incident }
+      },
+      {
+        id C,
+        name { ko 기록실장 한스, en Vault Keeper Hans },
+        motive { ko 진급 누락에 대한 보복, en Retaliation for being passed over for promotion },
+        flag { ko 기록실 내 CCTV의 사각지대를 알고 있음, en Knows the CCTV blind spots in the vault }
+      }
+    ],
+    clues [
+      { order 1, ko 나가는 길에 실시된 소지품 검사에서 아무것도 발견되지 않았습니다., en Nothing was found during the exit search of all personnel. },
+      { order 2, ko 기록실 안에는 고성능 카메라나 복사기가 없습니다., en No high-performance cameras or copiers exist inside the vault. },
+      { order 3, ko 클라라는 심한 감기로 인해 계속해서 손수건을 사용했습니다., en Clara used a handkerchief constantly due to a severe cold. },
+      { order 4, ko 마이크로필름은 열에 매우 취약하며 특정 용액에 닿으면 투명해집니다., en Microfilm is heat-sensitive and turns transparent when in contact with a specific solution. },
+      { order 5, ko 이바노프 대령의 만년필 잉크는 특수 제작된 '식용 가능'한 잉크였습니다., en Colonel Ivanov's fountain pen used specially crafted 'edible' ink. }
+    ],
+    answer A,
+    explanation {
+      ko 진범은 이바노프 대령입니다. 그는 마이크로필름을 잘게 쪼개어 특수 만년필 잉크와 섞은 뒤, 기록실 안에서 음료에 타서 '마셔버렸습니다'. 몸속에 숨겨 나가는 방식으로 모든 보안 검사를 통과했습니다.,
+      en The culprit is Colonel Ivanov. He shredded the microfilm, mixed it with edible ink, and 'drank' it inside the vault, bypassing all security searches by hiding it inside his body.
+    }
+  }
+]
