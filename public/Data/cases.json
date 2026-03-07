@@ -1,92 +1,65 @@
 [
   {
-    "caseId": 20260315,
-    "difficulty": "Very Hard",
-    "era": "modern_korea",
-    "title": { "ko": "펜트하우스: 무너진 유언", "en": "Penthouse: The Broken Will" },
-    "location": { "ko": "강남 초고층 빌딩 88층", "en": "88th Floor Gangnam Penthouse" },
-    "victim": { "ko": "자산가 박회장 (추락사)", "en": "Chairman Park (Fall)" },
+    "caseId": 20260317,
+    "difficulty": "Extreme",
+    "era": "modern",
+    "title": { "ko": "설원 위의 유령: KTX 404호의 비명", "en": "Ghost on Snow: KTX 404 Scream" },
+    "location": { "ko": "서울행 야간 고속열차 1호차", "en": "Night Express Train Car No.1" },
+    "victim": { "ko": "IT 기업가 강대표 (질식사)", "en": "CEO Kang (Suffocation)" },
     "synopsis": {
-      "ko": "박회장이 자신의 펜트하우스 테라스에서 추락했습니다. 현장에는 유서가 있었으나, 그는 평소 고소공포증이 심해 테라스 근처에도 가지 않았습니다. 당시 파티에는 5명의 지인이 있었습니다.",
-      "en": "Chairman Park fell from his penthouse terrace. A suicide note was found, but he had severe acrophobia and never went near the terrace. Five guests were present."
+      "ko": "폭설로 터널 안에 멈춰선 열차. 5분간의 갑작스러운 전차선 점검으로 전등이 꺼진 사이, 1등석의 강대표가 자신의 좌석에서 숨진 채 발견되었습니다. 문은 잠겨 있었고 옆 칸 승객들은 아무 소리도 듣지 못했습니다.",
+      "en": "A train stuck in a tunnel during a blizzard. During a 5-minute blackout for inspection, CEO Kang was found dead in his first-class seat. The door was locked, and neighbors heard nothing."
     },
-    "slots": [2100, 2130, 2200, 2215, 2230],
+    "slots": [2300, 2310, 2320, 2325, 2330],
     "suspects": [
       {
-        "id": "A", "name": { "ko": "비서 최씨", "en": "Secretary Choi" },
-        "motive": { "ko": "횡령 사실을 들켜 해고 위기", "en": "Risk of being fired for embezzlement" },
-        "alibi": { "ko": "22시 10분부터 30분간 주방에서 와인을 준비함", "en": "Prepared wine in the kitchen from 22:10 for 30 min" },
-        "flag": { "ko": "사건 직후 그의 정장 소매에서 미세한 콘크리트 가루 발견", "en": "Fine concrete dust found on his sleeve after the incident" }
+        "id": "A", "name": { "ko": "수행비서 정씨", "en": "Secretary Jung" },
+        "motive": { "ko": "강대표의 갑질과 비밀 장부 탈취 목적", "en": "Abuse of power and theft of secret ledger" },
+        "alibi": { "ko": "정전 당시 2호차 스낵바에서 커피를 사고 있었음", "en": "Buying coffee at the Car No.2 snack bar" },
+        "flag": { "ko": "그의 손목시계가 5분 느리게 맞춰져 있음", "en": "His wristwatch is set 5 minutes slow" }
       },
       {
-        "id": "B", "name": { "ko": "장남 박태준", "en": "Oldest Son Park" },
-        "motive": { "ko": "거액의 도박 빚으로 인한 상속 재산 필요", "en": "Needs inheritance due to gambling debt" },
-        "alibi": { "ko": "서재에서 아버지와 독대 후 22시경 정원으로 내려감", "en": "Left the study at 22:00 after meeting the victim" },
-        "flag": { "ko": "최근 아버지가 유언장을 수정하려 했다는 사실을 알고 있었음", "en": "Knew the victim was planning to revise the will" }
+        "id": "B", "name": { "ko": "기술자 최씨", "en": "Technician Choi" },
+        "motive": { "ko": "강대표의 회사가 자신의 특허를 도용함", "en": "CEO's company stole his patent" },
+        "alibi": { "ko": "전차선 점검을 위해 열차 끝 제어실에 있었음", "en": "At the control room for inspection" },
+        "flag": { "ko": "전기 제어반에 강제로 접근한 흔적이 발견됨", "en": "Traces of forced access to the electrical panel" }
       },
       {
-        "id": "C", "name": { "ko": "주치의 김박사", "en": "Dr. Kim" },
-        "motive": { "ko": "회장의 불치병 오진 사실이 탄로 날까 두려움", "en": "Fear of misdiagnosis of the victim's illness being leaked" },
-        "alibi": { "ko": "22시 15분에 다른 손님들과 거실에서 대화 중이었음", "en": "Chatting in the living room at 22:15 with other guests" },
-        "flag": { "ko": "가방 안에 강력한 신경안정제가 대량 포함되어 있음", "en": "Large amount of nerve stabilizers in his bag" }
+        "id": "C", "name": { "ko": "대학생 미나", "en": "Student Mina" },
+        "motive": { "ko": "과거 강대표의 사기 사건으로 가족이 파산함", "en": "Family bankrupt due to CEO's past scam" },
+        "alibi": { "ko": "자신의 좌석(1호차 5A)에서 잠들어 있었음", "en": "Asleep in her seat (Car 1, 5A)" },
+        "flag": { "ko": "그녀의 가방 안에서 낚싯줄과 접착테이프가 발견됨", "en": "Fishing line and adhesive tape found in her bag" }
       },
       {
-        "id": "D", "name": { "ko": "전 부인 이여사", "en": "Ex-wife Ms. Lee" },
-        "motive": { "ko": "최근 재산 분할 소송에서 패소", "en": "Lost a recent property division lawsuit" },
-        "alibi": { "ko": "화장실에 갔다가 화장을 고치는 데 20분간 머무름", "en": "Stayed in the powder room for 20 min to fix makeup" },
-        "flag": { "ko": "그녀의 구두 굽 하나가 부러져 있는 채로 발견됨", "en": "One of her shoe heels was found broken" }
+        "id": "D", "name": { "ko": "승무원 박씨", "en": "Attendant Park" },
+        "motive": { "ko": "강대표에게 거액의 빚을 지고 독촉받는 중", "en": "Heavy debt to the CEO and being pressured" },
+        "alibi": { "ko": "3호차에서 승객들의 민원을 처리하고 있었음", "en": "Handling passenger complaints in Car No.3" },
+        "flag": { "ko": "그는 모든 객실의 마스터키를 소지하고 있음", "en": "He possesses the master key for all cabins" }
       },
       {
-        "id": "E", "name": { "ko": "정치인 정의원", "en": "Assemblyman Jung" },
-        "motive": { "ko": "박회장이 가진 자신의 비리 장부를 회수해야 함", "en": "Needed to retrieve a ledger of his corruption" },
-        "alibi": { "ko": "전화 통화를 위해 소음이 없는 77층 빈 방으로 내려갔음", "en": "Went down to an empty room on 77th floor for a call" },
-        "flag": { "ko": "CCTV에 77층으로 내려가는 모습만 찍히고 올라오는 모습은 없음", "en": "CCTV shows him going down to 77th, but not coming up" }
+        "id": "E", "name": { "ko": "기자 노씨", "en": "Journalist No" },
+        "motive": { "ko": "강대표의 추문을 취재하다가 협박당함", "en": "Blackmailed while covering CEO's scandals" },
+        "alibi": { "ko": "통로에서 편집장과 통화 중이었다고 주장함", "en": "Claims to be on a call with his editor" },
+        "flag": { "ko": "그의 휴대폰 통화 기록에는 사건 시각에 발신 내역이 없음", "en": "No outgoing calls in his phone log during the incident" }
+      },
+      {
+        "id": "F", "name": { "ko": "노부인 한씨", "en": "Elderly Han" },
+        "motive": { "ko": "강대표가 자신의 땅을 강제로 매입함", "en": "CEO forcibly bought her land" },
+        "alibi": { "ko": "화장실에 계속 머물러 있었다고 말함", "en": "Claims she was in the restroom the whole time" },
+        "flag": { "ko": "평소 지팡이를 짚지만 사건 현장에는 지팡이 자국이 없음", "en": "Uses a cane, but no cane marks found at the scene" }
       }
     ],
     "clues": [
-      { "order": 1, "ko": "유서의 필체는 정교하지만, 박회장이 평소 쓰지 않는 만년필로 작성되었습니다.", "en": "The handwriting is precise but written with a pen the victim never used." },
-      { "order": 2, "ko": "최비서의 알리바이를 증명해줄 주방 직원은 당시 잠시 자리를 비웠습니다.", "en": "The kitchen staff who could prove Choi's alibi was briefly away." },
-      { "order": 3, "ko": "박회장의 사체 손톱 밑에서 회색 양복 옷감이 발견되었습니다.", "en": "Grey suit fabric was found under the victim's fingernails." },
-      { "order": 4, "ko": "정의원은 엘리베이터가 아닌 비상계단을 이용해 88층으로 다시 올라올 수 있었습니다.", "en": "Jung could have returned to the 88th floor via emergency stairs." },
-      { "order": 5, "ko": "사건 당시 펜트하우스 정전이 30초간 발생했으며, 이는 원격으로 제어되었습니다.", "en": "A 30-second power outage occurred, controlled remotely." }
-    ],
-    "answer": "A",
-    "explanation": {
-      "ko": "범인은 최비서입니다. 그는 회장의 공포증을 이용해 약물을 투여한 뒤 테라스로 유인했습니다. 정전 시간을 이용해 그를 밀어냈으며, 박회장이 저항하는 과정에서 최비서의 소매 옷감을 뜯어냈습니다. 회색 정장을 입은 사람은 최비서뿐이었습니다.",
-      "en": "The culprit is Choi. He drugged the victim and lured him to the terrace during a remote-controlled power outage. The victim tore a piece of Choi's grey suit during the struggle."
-    }
-  },
-  {
-    "caseId": 20260316,
-    "difficulty": "Hard",
-    "era": "joseon",
-    "title": { "ko": "사라진 어보의 비밀", "en": "Secret of the Vanished Royal Seal" },
-    "location": { "ko": "경복궁 근정전", "en": "Gyeongbokgung Palace" },
-    "victim": { "ko": "어보 (도난)", "en": "Royal Seal (Stolen)" },
-    "synopsis": {
-      "ko": "왕의 권위를 상징하는 어보가 하룻밤 사이에 사라졌습니다. 봉인된 상자는 그대로였으나 내부의 어보만 돌로 바뀌어 있었습니다. 보초는 6명이 섰습니다.",
-      "en": "The Royal Seal vanished overnight. The sealed box was intact, but the seal inside was replaced with a stone. Six guards were present."
-    },
-    "slots": [2300, 100, 300, 500],
-    "suspects": [
-      { "id": "A", "name": { "ko": "내관 이씨", "en": "Eunuch Lee" }, "alibi": { "ko": "자정까지 왕의 침소 밖을 지켰음", "en": "Guarded outside the King's chambers until midnight" } },
-      { "id": "B", "name": { "ko": "상궁 김씨", "en": "Court Lady Kim" }, "alibi": { "ko": "수랏간에서 밤새 탕약을 달였음", "en": "Brewed medicine in the kitchen all night" } },
-      { "id": "C", "name": { "ko": "호위무사 박씨", "en": "Guard Park" }, "alibi": { "ko": "근정전 앞마당을 순찰 중이었음", "en": "Patrolled the main courtyard" } },
-      { "id": "D", "name": { "ko": "기록관 한씨", "en": "Scribe Han" }, "alibi": { "ko": "집현전에서 상소문을 정리함", "en": "Organized petitions in the Hall of Worthies" } },
-      { "id": "E", "name": { "ko": "무녀 월향", "en": "Shaman Wol-hyang" }, "alibi": { "ko": "기도를 위해 사당에 머물렀음", "en": "Stayed in the shrine for prayer" } },
-      { "id": "F", "name": { "ko": "장인 장씨", "en": "Artisan Jang" }, "alibi": { "ko": "숙소에서 술에 취해 잠들었음", "en": "Slept drunk in the lodging" } }
-    ],
-    "clues": [
-      { "order": 1, "ko": "상자의 봉인용 촛농이 일반적인 것보다 더 빨리 굳는 특수 소재입니다.", "en": "The wax seal on the box is a special material that hardens faster than usual." },
-      { "order": 2, "ko": "사라진 어보와 똑같은 크기의 돌이 장인의 작업실 근처에서 발견되었습니다.", "en": "A stone of the same size as the seal was found near the artisan's workshop." },
-      { "order": 3, "ko": "상궁 김씨의 옷깃에서 봉인용 붉은 촛농 자국이 발견되었습니다.", "en": "Red wax stains were found on Court Lady Kim's collar." },
-      { "order": 4, "ko": "기록관 한씨는 사실 눈이 거의 보이지 않는 야맹증을 앓고 있습니다.", "en": "Scribe Han suffers from night blindness and can barely see." },
-      { "order": 5, "ko": "범인은 '열기'를 이용해 봉인을 훼손하지 않고 상자를 여는 방법을 썼습니다.", "en": "The culprit used heat to open the box without damaging the seal." }
+      { "order": 1, "ko": "강대표의 목에는 얇고 강한 선에 의한 자국이 남았습니다.", "en": "Thin, strong line marks found on the victim's neck." },
+      { "order": 2, "ko": "1호차 환기구 덮개가 살짝 열려 있으며, 그 안에 낚싯줄이 걸려 있습니다.", "en": "The vent cover in Car 1 is slightly open with fishing line caught inside." },
+      { "order": 3, "ko": "스낵바 직원은 비서 정씨가 커피를 주문할 때 이미 전등이 꺼진 상태였다고 증언합니다.", "en": "Staff testifies lights were already out when Jung ordered coffee." },
+      { "order": 4, "ko": "정전은 외부 고장이 아니라 열차 내부 제어반에서 수동으로 조작되었습니다.", "en": "The blackout was manually triggered from the internal control panel." },
+      { "order": 5, "ko": "비서 정씨와 기술자 최씨는 사실 대학 동창이며 최근 자주 연락한 사이입니다.", "en": "Secretary Jung and Technician Choi are college friends and in frequent contact." }
     ],
     "answer": "B",
     "explanation": {
-      "ko": "범인은 상궁 김씨입니다. 그녀는 탕약을 달인다는 핑계로 화로를 가져와 봉인된 촛농을 열로 살짝 녹여 어보를 꺼낸 뒤 다시 굳혔습니다. 김씨의 옷에 묻은 촛농이 결정적 증거입니다.",
-      "en": "The culprit is Court Lady Kim. She used a brazier, claiming to brew medicine, to slightly melt the wax seal and swap the item."
+      "ko": "범인은 기술자 최씨입니다. 그는 비서 정씨와 공모했습니다. 정씨가 알리바이를 만드는 동안 최씨는 제어반에서 정전을 일으켰고, 환기구와 낚싯줄을 이용한 '원거리 목조르기 트릭'을 사용했습니다. 최씨는 정비사라는 직업을 이용해 누구의 의심도 받지 않고 제어실에 머물며 범행을 저질렀습니다.",
+      "en": "The culprit is Choi. He conspired with Jung. While Jung made an alibi, Choi triggered the blackout and used a 'remote strangulation trick' via vents and fishing line. As a technician, he stayed in the control room without suspicion."
     }
   }
 ]
