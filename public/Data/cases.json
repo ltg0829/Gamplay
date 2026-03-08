@@ -5,535 +5,151 @@
     "crimeType": "murder",
     "method": "약물 과다 투여 위장 자연사",
     "title": { "ko": "약의 진실", "en": "The Truth of Medicine" },
-    "overview": { "ko": "요양원에서 전 국방장관이 의약품을 과다 복용해 사망했다. 자연사로 위장된 약물 살인 사건. 의료 기록상 정상이지만 약물 관리 로그에만 불일치가 있다. 야간 약물 담당자, 담당 의사, 요양원장 3명이 용의자로 지목되었으나, 진범은 30년 근속을 지키려던 약사였다.", "en": "A former Defense Minister died of drug overdose at a care facility. A medication murder disguised as natural death. Medical records appear normal, but drug management logs show discrepancies. Three suspects identified: night medication manager, attending doctor, facility director. But the real culprit is the pharmacist trying to protect 30 years of service." },
+    "overview": { "ko": "요양원에서 전 국방장관이 의약품을 과다 복용해 사망했다. 의료 기록상 정상이지만 약물 관리 로그에만 불일치가 있다. 30년 근속을 지키려던 약사의 범행이다.", "en": "A former Defense Minister died of drug overdose at a care facility. Medical records appear normal, but drug management logs show discrepancies. The pharmacist tried to protect 30 years of service." },
+    "caseOverview": { "ko": "전직 국방장관 최영수는 강남의 프리미엠 요양원에서 장기 요양 중이었습니다. 3월 15일 새벽, 야간 간호사가 회진 중 그를 발견했고 심장마비로 인한 사망으로 판정되었습니다. 하지만 혈액 검사에서 심장약의 농도가 정상의 150%로 나타났습니다. 약물 살인이었던 것입니다. 요양원의 약물 관리 시스템을 살펴보면, 모든 약품 투여가 기록되어 있고 의료진들도 모두 정상 절차를 따랐습니다. 그런데 약사의 개인 기록에만 미기록 항목이 있었습니다.", "en": "Former Defense Minister Choi Youngsoo was undergoing long-term care at a premium facility in Gangnam. On March 15th early morning, the night nurse found him during rounds—cardiac arrest. Blood tests showed his heart medication at 150% of normal. It was poisoning. The facility's medication management system shows all drugs properly recorded and all staff following procedures. Yet only the pharmacist's personal log contained unrecorded entries." },
     "location": { "ko": "서울 강남 프리미엄 요양원 VIP 병실", "en": "VIP Ward, Premium Care Facility, Gangnam Seoul" },
     "time": { "ko": "2026년 3월 15일 — 사망 추정 02:30~04:00", "en": "March 15, 2026 — TOD est. 02:30–04:00" },
     "victim": { "ko": "피해자: 최영수 (87세, 전 국방장관)", "en": "Victim: Choi Youngsoo (87, Former Defense Minister)" },
     "difficulty": "hard",
     "answer": "2",
-    "explanation": { 
-      "ko": "약사는 피해자가 처방받은 심장약의 복용 기록을 완벽하게 알고 있었고, 야간 약물 관리자로서 추가 투여 기회를 가졌습니다. 의료 기록상 과다 복용으로 보였지만, 실제로는 피해자가 약을 복용한 시간으로부터 정확히 24분 후에 약 1회분을 더 투여했습니다.",
-      "en": "The pharmacist had complete knowledge of the victim's prescription medication schedule and had the opportunity as the night medication manager to administer additional doses. Medical records appeared to show overdose, but he actually administered an additional dose exactly 24 minutes after the victim's normal medication time."
-    },
+    "explanation": { "ko": "약사는 30년의 근속을 지키려고 했습니다. 피해자가 약물 관리 부정행위를 발견하려 했기 때문입니다.", "en": "The pharmacist tried to protect 30 years of service. The victim was about to discover medication management misconduct." },
     "suspects": [
       {
         "id": "1",
-        "name": { "ko": "담당 의사 박준혁", "en": "Attending Physician Dr. Park Junhyeok" },
+        "name": { "ko": "담당 의사 박준혁", "en": "Dr. Park Junhyeok" },
         "job": { "ko": "요양원 내과의", "en": "Internal Medicine Doctor" },
-        "motive": { "ko": "피해자의 의료 기록 변경으로 인한 직업 위협", "en": "Career threat from victim's medical record alterations" },
-        "alibi": { "ko": "당직실에서 대기 중 — 간호사 증언 있음", "en": "On standby in duty room — nurse testimony" },
-        "flag": { "ko": "피해자의 혈액 샘플에서 의사가 처방한 약물이 100% 정상 범위 내", "en": "Victim's blood sample shows doctor-prescribed medication at 100% normal levels" }
+        "age": 52,
+        "motive": { "ko": "피해자의 의료 기록 변경 위협", "en": "Medical record threat" },
+        "alibi": { "ko": "당직실에서 대기 중", "en": "On standby in duty room" },
+        "flag": { "ko": "혈액에서 정상 범위 약물만 확인", "en": "Normal medication levels in blood" },
+        "interview": { "ko": "\"저는 매일 오후 6시부터 당직을 서고 있었습니다. 최 전 장관님의 상태는 매우 안정적이었습니다.\"", "en": "\"I was on duty from 6 PM. Mr. Choi was very stable.\"" }
       },
       {
         "id": "2",
         "name": { "ko": "약사 김지윤", "en": "Pharmacist Kim Jiyun" },
         "job": { "ko": "요양원 야간 약물 관리자", "en": "Night Medication Manager" },
-        "motive": { "ko": "피해자가 약물 관리 부정행위를 적발하려던 직전", "en": "Victim was about to report medication management misconduct" },
-        "alibi": { "ko": "약물실에서 일상적인 업무 중", "en": "Performing routine duties in medication room" },
-        "flag": { "ko": "약물함 관리자로서 개인 약물 기록만 존재", "en": "Only personal medication records exist as medication manager" }
+        "age": 48,
+        "motive": { "ko": "30년 근속 위협 — 약물 관리 부정행위 적발 직전", "en": "30-year career threatened — about to be exposed" },
+        "alibi": { "ko": "약물실에서 일상적 업무 중", "en": "Performing routine duties" },
+        "flag": { "ko": "개인 약물 기록에만 미기록 항목 존재", "en": "Unrecorded entry only in personal log" },
+        "interview": { "ko": "\"30년을 이곳에서 일했습니다. 저는 단지 규정대로 약을 관리했을 뿐입니다.\"", "en": "\"I've worked here 30 years. I simply followed protocol.\"" }
       },
       {
         "id": "3",
-        "name": { "ko": "요양원 원장 이용진", "en": "Facility Director Lee Yongjin" },
-        "job": { "ko": "프리미엄 요양원 경영진", "en": "Care Facility Executive" },
-        "motive": { "ko": "피해자의 유산 상속자 지목", "en": "Beneficiary of victim's estate" },
-        "alibi": { "ko": "인근 지방에 출장 중 — 호텔 CCTV 확인됨", "en": "On business trip to nearby province — hotel CCTV confirmed" },
-        "flag": { "ko": "출장 증명 완벽 — 물리적 범행 불가능", "en": "Perfect alibi — physical crime impossible" }
+        "name": { "ko": "요양원 원장 이용진", "en": "Director Lee Yongjin" },
+        "job": { "ko": "요양원 경영진", "en": "Facility Director" },
+        "age": 61,
+        "motive": { "ko": "피해자의 유산 상속", "en": "Inherit estate" },
+        "alibi": { "ko": "출장 중 — 호텔 CCTV 확인", "en": "On business trip — CCTV verified" },
+        "flag": { "ko": "완벽한 알리바이 — 물리적 불가능", "en": "Perfect alibi — impossible to be present" },
+        "interview": { "ko": "\"최 전 장관님은 우리 요양원의 특별한 고객이셨습니다.\"", "en": "\"Mr. Choi was a special client of ours.\"" }
+      },
+      {
+        "id": "4",
+        "name": { "ko": "야간 간호사 이서영", "en": "Night Nurse Lee Seoyoung" },
+        "job": { "ko": "요양원 야간 간호사", "en": "Night Nurse" },
+        "age": 35,
+        "motive": { "ko": "급여 체불과 근무 조건 불만", "en": "Wage complaints and poor conditions" },
+        "alibi": { "ko": "병동 순찰 중 — CCTV 확인되나 사각지대 있음", "en": "Ward rounds — CCTV confirmed but blind spots" },
+        "flag": { "ko": "약물 투여 권한 없음", "en": "No medication authority" },
+        "interview": { "ko": "\"최 전 장관님은 항상 친절하셨습니다. 새벽 2시쯤 회진했을 때도 편하게 주무시고 계셨어요.\"", "en": "\"Mr. Choi was always kind. When I checked at 2 AM, he was sleeping peacefully.\"" }
+      },
+      {
+        "id": "5",
+        "name": { "ko": "피해자의 아들 최준호", "en": "Son Choi Junho" },
+        "job": { "ko": "삼성전자 임원", "en": "Samsung Executive" },
+        "age": 58,
+        "motive": { "ko": "막대한 의료비 부담 — 매월 1천만 원", "en": "Heavy medical bills — 10M won monthly" },
+        "alibi": { "ko": "서울 자택 — 아내 증언", "en": "Home — wife's testimony" },
+        "flag": { "ko": "시설 출입 기록 없음", "en": "No facility access records" },
+        "interview": { "ko": "\"아버지는 치매가 심하셨고 의료비만 해도 천만 원이 넘었습니다.\"", "en": "\"Father had advanced dementia, medical bills exceeded 10M won monthly.\"" }
+      },
+      {
+        "id": "6",
+        "name": { "ko": "약물 배송원 정민호", "en": "Courier Jung Minho" },
+        "job": { "ko": "의약품 배송 직원", "en": "Pharmaceutical Courier" },
+        "age": 42,
+        "motive": { "ko": "약사와의 임금 체불 분쟁", "en": "Wage dispute with pharmacist" },
+        "alibi": { "ko": "아침에만 배송 — 배송 기록 있음", "en": "Only morning deliveries — records exist" },
+        "flag": { "ko": "야간 시설 출입 기록 없음", "en": "No night access records" },
+        "interview": { "ko": "\"그 약사와는 2년 전부터 돈 때문에 싸웠습니다. 하지만 저는 아침에만 들어갔습니다.\"", "en": "\"I've had disputes with the pharmacist for 2 years, but I only came in the morning.\"" }
       }
     ],
     "clues": [
       {
         "order": 1,
         "revealed": true,
-        "ko": "피해자의 혈중 약물 농도가 처방량의 150% — 자연사로 나타남",
-        "en": "Victim's blood drug concentration at 150% of prescribed dose — appears as natural death"
+        "ko": "혈중 약물 농도가 처방량의 150%",
+        "en": "Blood drug concentration at 150% of prescribed dose"
       },
       {
         "order": 2,
         "revealed": true,
-        "ko": "요양원 약물 배분 기록 상 피해자는 정상 용량만 받았음",
-        "en": "Care facility medication records show victim received only normal doses"
+        "ko": "약물 배분 기록 상 정상 용량만 기록됨",
+        "en": "Distribution records show only normal doses"
       },
       {
         "order": 3,
         "revealed": true,
-        "ko": "약사의 개인 약물 관리 로그에만 미기록 항목 발견 — 약 1회분 차이",
-        "en": "Unrecorded entry found only in pharmacist's personal medication log"
+        "ko": "약사의 개인 기록에만 미기록 항목",
+        "en": "Unrecorded entry only in pharmacist's personal log"
       },
       {
         "order": 4,
         "revealed": false,
-        "ko": "피해자의 핸드폰 기록: 약사에게 3일 전 '약물 관리 문제 알렸음' 메시지",
-        "en": "Victim's phone records: Message to pharmacist 3 days ago 'reported medication management issues'"
+        "ko": "피해자 핸드폰: 약사에게 '약물 관리 문제' 메시지",
+        "en": "Victim's phone: message about medication issues to pharmacist"
       },
       {
         "order": 5,
         "revealed": false,
-        "ko": "야간 카메라 분석: 약사가 사망 예상 시각 24분 전 피해자 병실 출입",
-        "en": "Night camera analysis: Pharmacist entered victim's room exactly 24 minutes before estimated death time"
+        "ko": "야간 카메라: 약사가 사망 24분 전 피해자 병실 출입",
+        "en": "Night camera: Pharmacist entered room 24 minutes before death"
       }
     ],
     "timeline": [
       {
         "id": "1",
+        "name": "박준혁",
         "cells": [
           { "ko": "당직 시작", "s": "confirmed" },
+          { "ko": "당직실 대기", "s": "confirmed" },
           { "ko": "약물실", "s": "unverified" },
-          { "ko": "당직실 복귀", "s": "confirmed" },
           { "ko": "사망 추정", "s": "death" },
-          { "ko": "시체 발견", "s": "confirmed" }
+          { "ko": "발견", "s": "confirmed" }
         ]
       },
       {
         "id": "2",
+        "name": "김지윤",
         "cells": [
           { "ko": "약물실 근무", "s": "confirmed" },
-          { "ko": "피해자 병실?", "s": "suspicious" },
-          { "ko": "약물실 복귀", "s": "unverified" },
+          { "ko": "약물 배분", "s": "confirmed" },
+          { "ko": "병실 출입?", "s": "suspicious" },
           { "ko": "사망 추정", "s": "death" },
           { "ko": "당직 계속", "s": "confirmed" }
         ]
       },
       {
         "id": "3",
+        "name": "이용진",
         "cells": [
           { "ko": "호텔 체크인", "s": "confirmed" },
-          { "ko": "회의 참석", "s": "confirmed" },
-          { "ko": "호텔 CCTV", "s": "confirmed" },
+          { "ko": "회의", "s": "confirmed" },
+          { "ko": "호텔 내", "s": "confirmed" },
           { "ko": "사망 추정", "s": "death" },
           { "ko": "호텔 내", "s": "confirmed" }
         ]
-      }
-    ],
-    "deathCol": 3
-  },
-  {
-    "caseId": "HARD-002",
-    "era": "modern",
-    "crimeType": "murder",
-    "method": "기술 조작 — 자동 운전 시스템 해킹",
-    "title": { "ko": "자동의 함정", "en": "Trap of Automation" },
-    "overview": { "ko": "IT 기업 CTO가 자신의 자동차에서 추락사로 사망했다. 초기 자살로 판단되었으나 난간 제3자 혈흔과 차량의 검은 상자 데이터 조작 흔적이 발견되었다. 기술자 출신인 보안 담당자만이 원격 자동차 제어 기술을 가지고 있었다. 그러나 완벽한 알리바이가 있어 보였다.", "en": "An IT company's CTO died in a car crash from a cliff. Initially ruled as suicide, but third-party blood traces on the railing and vehicle black box data manipulation were discovered. Only the security officer with technical background had the skills for remote vehicle control. But he had a perfect alibi." },
-    "location": { "ko": "서울 강남 압구정로 — 고급 자동차 추락", "en": "Apgujeong-ro, Gangnam Seoul — luxury car crash" },
-    "time": { "ko": "2026년 3월 20일 18:45 — 사망 추정 18:47", "en": "March 20, 2026 — TOD est. 18:47" },
-    "victim": { "ko": "피해자: 정민준 (52세, IT 기업 CTO)", "en": "Victim: Jung Minjun (52, CTO of IT Company)" },
-    "difficulty": "hard",
-    "answer": "2",
-    "explanation": { 
-      "ko": "보안 담당자는 피해자의 자동차 원격 조종 기술을 가지고 있었으며, 피해자가 자신의 기술 부정행위를 발견하려 했기 때문입니다. 자동차의 검은 상자 데이터에서 해킹 흔적은 지워졌지만, SSH 키 로그에서 원격 접근이 증명되었습니다.",
-      "en": "The security officer had remote vehicle manipulation technology and because the victim was about to discover his technical misconduct. While hacking traces were erased from the car's black box, remote access was proven by SSH key logs."
-    },
-    "suspects": [
-      {
-        "id": "1",
-        "name": { "ko": "자동차 정비사 박성호", "en": "Car Mechanic Park Sungho" },
-        "job": { "ko": "프리미엄 자동차 정비소 대표", "en": "Luxury Car Maintenance Shop Owner" },
-        "motive": { "ko": "피해자의 자동차 수리비 거부", "en": "Victim refused to pay car repair bill" },
-        "alibi": { "ko": "정비소에서 근무 중 — 직원들 증언 있음", "en": "Working at shop — employee testimony" },
-        "flag": { "ko": "원격 조작 기술 없음", "en": "No remote manipulation skills" }
       },
       {
-        "id": "2",
-        "name": { "ko": "보안 담당자 이준호", "en": "Security Officer Lee Junho" },
-        "job": { "ko": "피해자 회사 정보보안팀장", "en": "Company Information Security Team Lead" },
-        "motive": { "ko": "피해자가 기술 로그를 검토하려던 직전", "en": "Victim was about to review technical logs" },
-        "alibi": { "ko": "사무실에서 회의 중 — CCTV로 확인됨", "en": "In meeting at office — CCTV verified" },
-        "flag": { "ko": "자동차 원격 조작 기술 전문가", "en": "Expert in remote vehicle manipulation technology" }
-      },
-      {
-        "id": "3",
-        "name": { "ko": "피해자의 아내 정윤하", "en": "Victim's Wife Jung Yunha" },
-        "job": { "ko": "미술관 큐레이터", "en": "Museum Curator" },
-        "motive": { "ko": "피해자의 불륜 적발 직전", "en": "About to discover victim's infidelity" },
-        "alibi": { "ko": "미술관에서 근무 중 — CCTV 확인됨", "en": "Working at museum — CCTV verified" },
-        "flag": { "ko": "기술 지식 없음", "en": "Lacks technical knowledge" }
-      }
-    ],
-    "clues": [
-      {
-        "order": 1,
-        "revealed": true,
-        "ko": "자동차 검은 상자 데이터: 충돌 2초 전 자동 조종 장치 이상 감지",
-        "en": "Car black box data: Self-driving system malfunction detected 2 seconds before impact"
-      },
-      {
-        "order": 2,
-        "revealed": true,
-        "ko": "자동차 제어 컴퓨터에서 원격 접근 로그 모두 삭제 — 전문 기술로만 가능",
-        "en": "All remote access logs deleted from car control computer"
-      },
-      {
-        "order": 3,
-        "revealed": true,
-        "ko": "피해자의 노트북에서 '시스템 침입 기록' 폴더 발견",
-        "en": "Folder 'System Intrusion Records' found on victim's laptop"
-      },
-      {
-        "order": 4,
-        "revealed": false,
-        "ko": "보안 담당자의 SSH 키: 사망 당일 오후 3시 원격 접근 기록",
-        "en": "Security officer's SSH key: Remote access at 3PM on day of death"
-      },
-      {
-        "order": 5,
-        "revealed": false,
-        "ko": "개인 컴퓨터에서 피해자 자동차 모델 시뮬레이션 환경 발견",
-        "en": "Simulation environment for victim's car model found on personal computer"
-      }
-    ],
-    "timeline": [
-      {
-        "id": "1",
+        "id": "4",
+        "name": "이서영",
         "cells": [
-          { "ko": "정비소 개점", "s": "confirmed" },
-          { "ko": "직원 근무", "s": "confirmed" },
+          { "ko": "병동 순찰", "s": "confirmed" },
+          { "ko": "순찰 계속", "s": "confirmed" },
+          { "ko": "사각지대", "s": "suspicious" },
           { "ko": "사망 추정", "s": "death" },
-          { "ko": "정비소 영업", "s": "confirmed" },
-          { "ko": "폐점", "s": "confirmed" }
-        ]
-      },
-      {
-        "id": "2",
-        "cells": [
-          { "ko": "회의 시작", "s": "confirmed" },
-          { "ko": "회의 중", "s": "confirmed" },
-          { "ko": "사망 추정", "s": "death" },
-          { "ko": "회의 계속", "s": "confirmed" },
-          { "ko": "퇴근", "s": "confirmed" }
-        ]
-      },
-      {
-        "id": "3",
-        "cells": [
-          { "ko": "미술관 도착", "s": "confirmed" },
-          { "ko": "전시 관리", "s": "confirmed" },
-          { "ko": "사망 추정", "s": "death" },
-          { "ko": "전시 계속", "s": "confirmed" },
-          { "ko": "퇴근", "s": "confirmed" }
-        ]
-      }
-    ],
-    "deathCol": 2
-  },
-  {
-    "caseId": "HARD-003",
-    "era": "modern",
-    "crimeType": "murder",
-    "method": "교실 중독 — 향수병 접촉",
-    "title": { "ko": "교실의 향기", "en": "Scent in the Classroom" },
-    "overview": { "ko": "국제고등학교 화학 실험실에서 17세 학생이 사망했다. 초기 실험 사고로 보였으나 뒤통수 둔기 흔적이 발견되어 타살로 판정되었다. 화학 선생님이 가장 의심받았으나, 사건의 진범은 피해자의 실험 짝궁 학생이었다. 집단 따돌림에 대한 복수였다.", "en": "A 17-year-old student died in a high school chemistry lab. Initially appeared as an experiment accident, but blunt force trauma was found—ruled as murder. The chemistry teacher was most suspected, but the true culprit was the victim's lab partner. It was revenge for group bullying." },
-    "location": { "ko": "서울 강서 국제고등학교 화학 실험실", "en": "Chemistry Lab, International High School, Gangseo Seoul" },
-    "time": { "ko": "2026년 2월 28일 15:30 — 사망 추정 15:45", "en": "February 28, 2026 — TOD est. 15:45" },
-    "victim": { "ko": "피해자: 박지성 (17세, 국제고등학교 학생)", "en": "Victim: Park Jisung (17, International High School Student)" },
-    "difficulty": "hard",
-    "answer": "3",
-    "explanation": { 
-      "ko": "실험 짝궁 학생은 피해자의 집단 따돌림에 대한 보복을 계획했습니다. 향수 재충전 액체에 유독성 화학 물질을 혼합하여 피해자의 향수병에 넣었습니다. 일반인도 구매 가능한 제품이었기 때문에 화학 지식 없어도 사용 가능했습니다.",
-      "en": "The lab partner planned revenge for the victim's group bullying. She mixed toxic chemicals into fragrance refill liquid and put it in the victim's bottle. It was a product anyone could buy, requiring no chemistry knowledge."
-    },
-    "suspects": [
-      {
-        "id": "1",
-        "name": { "ko": "화학 선생님 이준호", "en": "Chemistry Teacher Lee Junho" },
-        "job": { "ko": "국제고등학교 화학 선생님", "en": "High School Chemistry Teacher" },
-        "motive": { "ko": "피해자가 화학 부정행위를 적발하려던 직전", "en": "Victim was about to expose chemistry misconduct" },
-        "alibi": { "ko": "실험실에서 수업 중 — 여러 학생 목격", "en": "Teaching in lab — witnessed by multiple students" },
-        "flag": { "ko": "향수 성분이 전혀 다름", "en": "Fragrance components completely different" }
-      },
-      {
-        "id": "2",
-        "name": { "ko": "실험실 조교 김민서", "en": "Lab Assistant Kim Minseo" },
-        "job": { "ko": "국제고등학교 화학 실험실 조교", "en": "Chemistry Lab Assistant" },
-        "motive": { "ko": "선생님을 보호하기 위해 피해자의 폭로 방지", "en": "Protecting teacher by preventing victim's exposure" },
-        "alibi": { "ko": "실험실에서 기자재 정리 중 — 학생들 목격", "en": "Organizing equipment in lab — witnessed by students" },
-        "flag": { "ko": "실험실 약품 접근 권한 있음", "en": "Has lab chemical access" }
-      },
-      {
-        "id": "3",
-        "name": { "ko": "피해자의 실험 짝궁 최해인", "en": "Victim's Lab Partner Choi Haein" },
-        "job": { "ko": "국제고등학교 학생", "en": "High School Student" },
-        "motive": { "ko": "피해자의 집단 따돌림에 대한 복수", "en": "Revenge for victim's group bullying" },
-        "alibi": { "ko": "교실에서 수업 중 — 반 친구들 증언", "en": "In classroom during class — classmates' testimony" },
-        "flag": { "ko": "향수 재충전액은 대형 마트 제품 — 누구나 구매 가능", "en": "Fragrance refill is supermarket product — anyone can buy" }
-      }
-    ],
-    "clues": [
-      {
-        "order": 1,
-        "revealed": true,
-        "ko": "피해자의 향수병에서 유독성 화학 성분 검출",
-        "en": "Toxic chemical components detected in victim's fragrance bottle"
-      },
-      {
-        "order": 2,
-        "revealed": true,
-        "ko": "선생님의 개인 향수 성분 분석 — 피해자 병과 전혀 일치하지 않음",
-        "en": "Teacher's fragrance completely different from victim's bottle"
-      },
-      {
-        "order": 3,
-        "revealed": true,
-        "ko": "피해자 향수병의 독극물은 시중 제품 기반",
-        "en": "Toxic substance based on commercial product"
-      },
-      {
-        "order": 4,
-        "revealed": false,
-        "ko": "최해인의 가방에서 향수 재충전액 병 발견 — 구매 영수증도 발견",
-        "en": "Fragrance refill bottle found in Choi's bag — purchase receipt found"
-      },
-      {
-        "order": 5,
-        "revealed": false,
-        "ko": "카톡 기록: 최근 심각한 따돌림 메시지 다수 — 피해자가 자살 언급",
-        "en": "KakaoTalk: Multiple bullying messages — victim mentions suicide"
-      }
-    ],
-    "timeline": [
-      {
-        "id": "1",
-        "cells": [
-          { "ko": "수업 진행", "s": "confirmed" },
-          { "ko": "실험 진행", "s": "confirmed" },
-          { "ko": "사망 추정", "s": "death" },
-          { "ko": "응급차", "s": "confirmed" },
-          { "ko": "병원", "s": "confirmed" }
-        ]
-      },
-      {
-        "id": "2",
-        "cells": [
-          { "ko": "조교 근무", "s": "confirmed" },
-          { "ko": "기자재 정리", "s": "confirmed" },
-          { "ko": "사망 추정", "s": "death" },
-          { "ko": "응급차", "s": "confirmed" },
-          { "ko": "병원", "s": "confirmed" }
-        ]
-      },
-      {
-        "id": "3",
-        "cells": [
-          { "ko": "교실 수업", "s": "confirmed" },
-          { "ko": "쉬는시간", "s": "suspicious" },
-          { "ko": "사망 추정", "s": "death" },
-          { "ko": "응급차", "s": "confirmed" },
-          { "ko": "병원", "s": "confirmed" }
-        ]
-      }
-    ],
-    "deathCol": 2
-  },
-  {
-    "caseId": "HARD-004",
-    "era": "modern",
-    "crimeType": "fraud",
-    "method": "투자 사기 — 음성 편집 기술",
-    "title": { "ko": "목소리의 함정", "en": "Trap of Voice" },
-    "overview": { "ko": "투자회사의 거짓 투자 공시로 190명의 투자자가 450억 원을 잃었다. 회장의 음성으로 들리는 공시가 배포되었으나, 음성 분석 결과 실제 회장의 목소리였다. 진실은 회장 비서가 도청 장치로 녹음된 부동산 투자 회의를 편집하여 거짓 공시처럼 만들었던 것이다.", "en": "190 investors lost ₩45B through false investment announcements. Announcements using the chairman's voice were distributed, but voice analysis revealed it was the actual chairman's voice. The truth was that the chairman's secretary edited an illegally recorded real estate meeting into false announcements." },
-    "location": { "ko": "서울 여의도 국제 금융 센터", "en": "International Finance Center, Yeouido Seoul" },
-    "time": { "ko": "2026년 3월 1일~10일 (사기 실행 기간)", "en": "March 1–10, 2026 (fraud execution period)" },
-    "victim": { "ko": "피해자: 190명의 투자자 / 피해액: 450억 원", "en": "Victims: 190 investors / Damage: ₩45B" },
-    "difficulty": "hard",
-    "answer": "1",
-    "explanation": { 
-      "ko": "비서는 회장의 목소리를 충분히 녹음할 기회가 있었고, 불법 도청 장치로 녹음된 음성을 편집하여 거짓 공시로 만들었습니다. 딥페이크가 아닌 실제 음성을 기술적으로 편집한 것입니다.",
-      "en": "The secretary had ample opportunity to record the chairman's voice and edited illegally recorded voice through surveillance devices into false announcements. It was real voice technically edited, not deepfake."
-    },
-    "suspects": [
-      {
-        "id": "1",
-        "name": { "ko": "회장 비서 박민지", "en": "Chairman's Secretary Park Minji" },
-        "job": { "ko": "투자회사 회장 비서", "en": "Investment Company Chairman's Secretary" },
-        "motive": { "ko": "회장의 감봉 처분으로 인한 경제적 어려움", "en": "Economic hardship from chairman's salary cut" },
-        "alibi": { "ko": "사무실에서 일상적 업무 중", "en": "Performing routine office duties" },
-        "flag": { "ko": "도청 장치 설치자 — 불법 녹음 접근", "en": "Surveillance device installer — access to illegal recording" }
-      },
-      {
-        "id": "2",
-        "name": { "ko": "투자팀 임원 조재훈", "en": "Investment Team Director Jo Jaehun" },
-        "job": { "ko": "투자회사 투자팀 임원", "en": "Investment Team Executive" },
-        "motive": { "ko": "성과급 부족 — 거짓 공시로 실적 상승", "en": "Insufficient bonus — boost results through false announcements" },
-        "alibi": { "ko": "해외 출장 중 — 호텔 CCTV 확인됨", "en": "On overseas business trip — hotel CCTV verified" },
-        "flag": { "ko": "음성 편집 기술 없음", "en": "No voice editing skills" }
-      },
-      {
-        "id": "3",
-        "name": { "ko": "회장 김동현", "en": "Chairman Kim Donghyun" },
-        "job": { "ko": "투자회사 회장", "en": "Investment Company Chairman" },
-        "motive": { "ko": "유동성 위기 극복", "en": "Overcoming liquidity crisis" },
-        "alibi": { "ko": "회장실에서 비서와 함께 — 비서 증언", "en": "In office with secretary — secretary testimony" },
-        "flag": { "ko": "회장은 거짓 내용을 몰랐음", "en": "Chairman unaware of false content" }
-      }
-    ],
-    "clues": [
-      {
-        "order": 1,
-        "revealed": true,
-        "ko": "투자 공시 음성: 정상 음성이지만 문장 자연성에 어색함",
-        "en": "Investment announcement voice: slightly unnatural sentence flow"
-      },
-      {
-        "order": 2,
-        "revealed": true,
-        "ko": "음성 분석: 실제 회장의 목소리 100% 일치 — 딥페이크 아님",
-        "en": "Voice analysis: 100% actual chairman's voice — not deepfake"
-      },
-      {
-        "order": 3,
-        "revealed": true,
-        "ko": "회장 사무실 도청 장치(불법) 발견",
-        "en": "Illegal surveillance device found in chairman's office"
-      },
-      {
-        "order": 4,
-        "revealed": false,
-        "ko": "비서의 노트북에서 음성 편집 소프트웨어 흔적 + 부동산 회의 파일",
-        "en": "Voice editing software traces + real estate meeting file on secretary's laptop"
-      },
-      {
-        "order": 5,
-        "revealed": false,
-        "ko": "실제 부동산 회의 음성과 공시 음성 비교 — 같은 음성, 다른 내용",
-        "en": "Real estate meeting vs announcement voice — same voice, different content"
-      }
-    ],
-    "timeline": [
-      {
-        "id": "1",
-        "cells": [
-          { "ko": "사무실 근무", "s": "confirmed" },
-          { "ko": "음성 편집?", "s": "suspicious" },
-          { "ko": "공시 제출", "s": "suspicious" },
-          { "ko": "사기 적발", "s": "confirmed" },
-          { "ko": "체포", "s": "confirmed" }
-        ]
-      },
-      {
-        "id": "2",
-        "cells": [
-          { "ko": "해외 출장", "s": "confirmed" },
-          { "ko": "호텔 내", "s": "confirmed" },
-          { "ko": "회의", "s": "confirmed" },
-          { "ko": "사기 적발", "s": "confirmed" },
-          { "ko": "귀국", "s": "confirmed" }
-        ]
-      },
-      {
-        "id": "3",
-        "cells": [
-          { "ko": "회장실", "s": "confirmed" },
-          { "ko": "경영 활동", "s": "confirmed" },
-          { "ko": "회의", "s": "confirmed" },
-          { "ko": "사기 적발", "s": "confirmed" },
-          { "ko": "소환", "s": "confirmed" }
-        ]
-      }
-    ],
-    "deathCol": -1
-  },
-  {
-    "caseId": "HARD-005",
-    "era": "modern",
-    "crimeType": "murder",
-    "method": "간접 독살 — 병원 수액 조작",
-    "title": { "ko": "흰색의 죽음", "en": "Death in White" },
-    "overview": { "ko": "전직 검사가 종합병원 중환자실에서 의문의 심장마비로 사망했다. 의료 기록상 모든 것이 정상이었지만, 혈청 칼륨 수치가 비정상적으로 높았다. 당직 의사, 야간 간호사, 피해자의 딸 중 누가 이 완벽한 범죄를 저지른 것일까?", "en": "A retired prosecutor died of mysterious cardiac arrest in a hospital ICU. All medical records appeared normal, but serum potassium levels were abnormally high. Which of the on-call doctor, night nurse, or victim's daughter committed this perfect crime?" },
-    "location": { "ko": "서울 서초 대형 종합병원 중환자실", "en": "ICU, Major General Hospital, Seocho Seoul" },
-    "time": { "ko": "2026년 3월 10일 03:00~05:00 — 사망 추정 04:45", "en": "March 10, 2026 — TOD est. 04:45" },
-    "victim": { "ko": "피해자: 권태호 (68세, 전직 검사)", "en": "Victim: Kwon Taeho (68, Retired Prosecutor)" },
-    "difficulty": "hard",
-    "answer": "2",
-    "explanation": { 
-      "ko": "간호사는 피해자의 수액 주입을 담당했고, 칼륨 성분을 수액에 혼합하여 심장 마비를 유발했습니다. 피해자의 전 남편과 새로운 관계를 시작했고, 피해자의 딸이 유산을 잃게 될 위기가 동기였습니다.",
-      "en": "The nurse was responsible for the victim's IV infusion and mixed potassium into the saline to cause cardiac arrest. She started a new relationship with the victim's ex-husband, and the victim's daughter facing loss of inheritance was the motive."
-    },
-    "suspects": [
-      {
-        "id": "1",
-        "name": { "ko": "당직 의사 박진호", "en": "On-call Doctor Park Jinho" },
-        "job": { "ko": "종합병원 중환자실 의사", "en": "Hospital ICU Doctor" },
-        "motive": { "ko": "피해자가 의료 사고를 고소하려던 직전", "en": "Victim was about to sue for medical malpractice" },
-        "alibi": { "ko": "당직실에서 대기 중 — 간호사 증언", "en": "On standby in duty room — nurse testimony" },
-        "flag": { "ko": "의사는 수액 조작 기술이 없음", "en": "Doctor lacks IV manipulation skills" }
-      },
-      {
-        "id": "2",
-        "name": { "ko": "야간 간호사 정혜은", "en": "Night Nurse Jung Hyeeun" },
-        "job": { "ko": "종합병원 중환자실 야간 간호사", "en": "Hospital ICU Night Nurse" },
-        "motive": { "ko": "피해자의 전 남편과의 신관계 시작 — 딸이 경쟁자", "en": "New relationship with victim's ex-husband — daughter is rival" },
-        "alibi": { "ko": "중환자실에서 근무 — CCTV 확인됨", "en": "Working in ICU — CCTV verified" },
-        "flag": { "ko": "간호사만이 수액 조작 기술 보유", "en": "Only nurse has IV manipulation skills" }
-      },
-      {
-        "id": "3",
-        "name": { "ko": "피해자의 딸 권민지", "en": "Victim's Daughter Kwon Minji" },
-        "job": { "ko": "의학 전공 대학생", "en": "Medical Student" },
-        "motive": { "ko": "상속 유산 박탈 위협 — 새 여자친구에게 재산 이동", "en": "Loss of inheritance — assets going to new girlfriend" },
-        "alibi": { "ko": "자택에 있었음 — 병원 출입 기록 없음", "en": "Was at home — no hospital access records" },
-        "flag": { "ko": "의학 지식은 있으나 현장 접근 불가", "en": "Has medical knowledge but no site access" }
-      }
-    ],
-    "clues": [
-      {
-        "order": 1,
-        "revealed": true,
-        "ko": "피해자의 혈청 칼륨 수치 과다 — 심장 마비 원인",
-        "en": "Victim's serum potassium elevated — cause of cardiac arrest"
-      },
-      {
-        "order": 2,
-        "revealed": true,
-        "ko": "의료 기록상 수액에 칼륨 투여 기록 없음",
-        "en": "Medical records show no potassium in IV"
-      },
-      {
-        "order": 3,
-        "revealed": true,
-        "ko": "중환자실 약품 로그: 칼륨 1앰플 미기록 소실",
-        "en": "ICU medicine log: One potassium ampule unaccounted for"
-      },
-      {
-        "order": 4,
-        "revealed": false,
-        "ko": "간호사의 휴대폰: 피해자 전 남편과의 친밀한 메시지",
-        "en": "Nurse's phone: Intimate messages with victim's ex-husband"
-      },
-      {
-        "order": 5,
-        "revealed": false,
-        "ko": "의료 기록: 간호사 정혜은이 유일하게 수액 교체 — 04:15분",
-        "en": "Medical records: Only nurse changed IV — at 04:15"
-      }
-    ],
-    "timeline": [
-      {
-        "id": "1",
-        "cells": [
-          { "ko": "당직 시작", "s": "confirmed" },
-          { "ko": "수액 서명", "s": "unverified" },
-          { "ko": "당직실", "s": "confirmed" },
-          { "ko": "사망 추정", "s": "death" },
-          { "ko": "응급 처치", "s": "confirmed" }
-        ]
-      },
-      {
-        "id": "2",
-        "cells": [
-          { "ko": "중환자실 근무", "s": "confirmed" },
-          { "ko": "수액 교체?", "s": "suspicious" },
-          { "ko": "약물 투여?", "s": "suspicious" },
-          { "ko": "사망 추정", "s": "death" },
-          { "ko": "응급 처치", "s": "confirmed" }
-        ]
-      },
-      {
-        "id": "3",
-        "cells": [
-          { "ko": "자택", "s": "unverified" },
-          { "ko": "자택", "s": "unverified" },
-          { "ko": "자택", "s": "unverified" },
-          { "ko": "사망 추정", "s": "death" },
-          { "ko": "병원 방문", "s": "confirmed" }
+          { "ko": "응급 대응", "s": "confirmed" }
         ]
       }
     ],

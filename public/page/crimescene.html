@@ -290,6 +290,65 @@ body::after {
   font-style: italic;
 }
 
+/* ── 사건 개요 ────────────────────────────── */
+.case-overview {
+  background: linear-gradient(135deg, rgba(240,198,10,.05) 0%, rgba(192,57,43,.02) 100%);
+  border: 2px solid var(--border2);
+  border-left: 4px solid var(--tape);
+  border-radius: 4px;
+  padding: 20px 24px;
+  margin-bottom: 20px;
+  animation: fadeSlideUp .5s ease both;
+}
+.case-overview h3 {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 11px;
+  letter-spacing: .35em;
+  color: var(--tape2);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  display: flex; align-items: center; gap: 10px;
+}
+.case-overview h3::after {
+  content: ''; flex: 1; height: 1px;
+  background: repeating-linear-gradient(90deg, var(--border2) 0px, var(--border2) 4px, transparent 4px, transparent 8px);
+}
+.overview-text {
+  font-size: 16px;
+  line-height: 2;
+  color: var(--text);
+  font-style: italic;
+  opacity: .95;
+}
+
+/* ── 용의자 인터뷰 ────────────────────────── */
+.interview-section {
+  margin-top: 12px;
+  padding: 14px;
+  background: var(--surface2);
+  border-left: 3px solid var(--red2);
+  border-radius: 2px;
+  display: none;
+}
+.interview-section.show { display: block; animation: slideDown .3s ease; }
+@keyframes slideDown { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: translateY(0); } }
+.interview-label {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 9px;
+  color: var(--red2);
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.interview-text {
+  font-size: 15px;
+  line-height: 1.9;
+  color: var(--text-muted);
+  font-style: italic;
+}
+.interview-text::before { content: '"'; color: var(--red2); margin-right: 4px; }
+.interview-text::after { content: '"'; color: var(--red2); margin-left: 4px; }
+
 /* ── 시놉시스 ────────────────────────────── */
 .synopsis-text {
   font-size: 19px;
@@ -936,6 +995,9 @@ body::after {
       </div>
     </div>
 
+    <!-- 사건 개요 -->
+    <div id="caseOverviewContainer"></div>
+
     <!-- 시놉시스 -->
     <div class="card" style="animation-delay:.1s">
       <div class="sec-title" id="lblSynopsis">INCIDENT REPORT</div>
@@ -1152,6 +1214,7 @@ async function loadStreak() {
 //  렌더링
 // ═══════════════════════════════════════════
 function renderAll() {
+  renderOverview();
   renderHeader();
   renderTimeline();
   renderClues();
@@ -1185,6 +1248,22 @@ function renderHeader() {
     d.className = 'att-dot ' + (i < attUsed ? 'used' : 'remain');
     dots.appendChild(d);
   }
+}
+
+function renderOverview() {
+  const c = caseData;
+  const overviewText = c.caseOverview?.[lang] || c.caseOverview?.ko || '';
+  
+  if (!overviewText) return;
+  
+  const container = document.getElementById('caseOverviewContainer');
+  if (!container) return;
+  
+  container.innerHTML = `
+    <div class="case-overview">
+      <h3>사건 개요</h3>
+      <p class="overview-text">${overviewText}</p>
+    </div>`;
 }
 
 function renderTimeline() {
@@ -1279,6 +1358,12 @@ function renderSuspects() {
         <div class="d-row"><strong>${t('motive')}</strong>${s.motive?.[lang] || s.motive?.ko || ''}</div>
         <div class="d-row"><strong>${t('alibi')}</strong>${s.alibi?.[lang] || s.alibi?.ko || ''}</div>
         <div class="d-row flag"><strong>${t('flag')}</strong>${s.flag?.[lang] || s.flag?.ko || ''}</div>
+        ${s.interview ? `
+        <div class="interview-section show">
+          <div class="interview-label">인터뷰</div>
+          <div class="interview-text">${s.interview?.[lang] || s.interview?.ko || ''}</div>
+        </div>
+        ` : ''}
         <button class="accuse-btn" onclick="event.stopPropagation();accuseSuspect('${s.id}')">
           ${t('accuseBtn')}
         </button>
