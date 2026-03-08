@@ -1,302 +1,779 @@
 [
   {
-    "id": 1,
+    "caseId": "HARD-001",
     "era": "modern",
     "crimeType": "murder",
-    "method": "독살 — 와인 병 재밀봉",
-    "title": { "ko": "밀봉된 와인의 비밀", "en": "Secret of the Sealed Wine" },
-    "location": { "ko": "서울 강남 르메르디앙 호텔 1502호", "en": "Room 1502, Le Méridien Hotel, Gangnam Seoul" },
-    "time": { "ko": "2026년 3월 4일 — 사망 추정 23:15~23:40", "en": "March 4, 2026 — TOD est. 23:15–23:40" },
-    "victim": { "ko": "피해자: 박준혁 (58세, JH그룹 회장)", "en": "Victim: Park Junho (58, JH Group Chairman)" },
+    "method": "약물 과다 투여 위장 자연사",
+    "title": { "ko": "약의 진실", "en": "The Truth of Medicine" },
+    "location": { "ko": "서울 강남 프리미엄 요양원 VIP 병실", "en": "VIP Ward, Premium Care Facility, Gangnam Seoul" },
+    "time": { "ko": "2026년 3월 15일 — 사망 추정 02:30~04:00", "en": "March 15, 2026 — TOD est. 02:30–04:00" },
+    "victim": { "ko": "피해자: 최영수 (87세, 전 국방장관)", "en": "Victim: Choi Youngsoo (87, Former Defense Minister)" },
+    "difficulty": "hard",
+    "answer": "2",
+    "explanation": { 
+      "ko": "약사는 피해자가 처방받은 심장약의 복용 기록을 완벽하게 알고 있었고, 야간 약물 관리자로서 추가 투여 기회를 가졌습니다. 의료 기록상 과다 복용으로 보였지만, 실제로는 피해자가 약을 복용한 시간으로부터 정확히 24분 후에 약 1회분을 더 투여했습니다. 이는 요양원의 자동 약물 배분 시스템 로그에는 나타나지 않으며, 약사의 개인 약물함에서만 기록됩니다.",
+      "en": "The pharmacist had complete knowledge of the victim's prescription medication schedule and had the opportunity as the night medication manager to administer additional doses. The medical records appeared to show overdose, but he actually administered an additional dose exactly 24 minutes after the victim's normal medication time. This does not appear in the facility's automatic medication distribution system log and is recorded only in the pharmacist's personal medication vault."
+    },
     "suspects": [
       {
-        "name": { "ko": "해고된 비서 이서윤", "en": "Fired secretary Lee Seoyun" },
-        "motive": "피해자의 해고로 인한 분노 및 신분 추락",
-        "alibi": "호텔 근처에서 목격 — 명확한 알리바이 부족",
-        "flag": "약학 전공자 신분이 독극물 제조 가능성을 높임"
+        "id": "1",
+        "name": { "ko": "담당 의사 박준혁", "en": "Attending Physician Dr. Park Junhyeok" },
+        "job": { "ko": "요양원 내과의", "en": "Internal Medicine Doctor" },
+        "motive": { "ko": "피해자의 의료 기록 변경으로 인한 직업 위협 — 새로운 약물 처방으로 인한 부작용 책임 회피", "en": "Career threat from victim's medical record alterations — avoiding responsibility for side effects from new prescription" },
+        "alibi": { "ko": "당직실에서 대기 중 — 간호사 증언 있음 / 그러나 당직실 CCTV에서 자주 자리 이탈", "en": "On standby in duty room — nurse testimony / but frequently leaves position in CCTV" },
+        "flag": { "ko": "피해자의 혈액 샘플에서 의사가 처방한 약물이 100% 정상 범위 내 — 의사는 약물 기록을 위조할 수 없음", "en": "Victim's blood sample shows doctor-prescribed medication at 100% normal levels — doctor cannot falsify medication records" }
       },
       {
-        "name": { "ko": "부회장 정우진", "en": "Vice Chairman Jung Woojin" },
-        "motive": "180억 횡령 적발 위기 및 경영권 승계 사주",
-        "alibi": "비즈니스 만찬에 참석했으나 단독 시간 존재",
-        "flag": "감사 시작 전 범행 필요 — 시간적 절박성"
+        "id": "2",
+        "name": { "ko": "약사 김지윤", "en": "Pharmacist Kim Jiyun" },
+        "job": { "ko": "요양원 야간 약물 관리자", "en": "Night Medication Manager" },
+        "motive": { "ko": "피해자가 요양원 약물 관리의 부정행위를 적발하려던 직전 — 10년 근속 위협", "en": "Victim was about to report medication management misconduct in facility — 10 years of service threatened" },
+        "alibi": { "ko": "약물실에서 일상적인 업무 중 — 혼자이지만 약물 배분 기록이 남음", "en": "Performing routine duties in medication room — alone but medication distribution records exist" },
+        "flag": { "ko": "피해자의 약물함 유일 관리자 — 약물 증감 흔적 없음 / 하지만 개인 약물 기록만 있고 시스템 로그에는 없음", "en": "Only manager of victim's medication — no trace of medication changes / but records only in personal log, not in system" }
       },
       {
-        "name": { "ko": "소믈리에 김민호", "en": "Sommelier Kim Minho" },
-        "motive": "피해자의 해고 압박으로 인한 생존권 박탈",
-        "alibi": "업무상 와인 배달 — 시간적 일관성 완벽",
-        "flag": "병 재밀봉 기술 독점 — 유일한 기술적 실행자"
+        "id": "3",
+        "name": { "ko": "요양원 원장 이용진", "en": "Facility Director Lee Yongjin" },
+        "job": { "ko": "프리미엄 요양원 경영진", "en": "Care Facility Executive" },
+        "motive": { "ko": "피해자의 유산 상속자 — 피해자가 유언 변경 언급 며칠 전 사망", "en": "Beneficiary of victim's estate — victim dies days before mentioning will change" },
+        "alibi": { "ko": "인근 지방에 출장 중 — 호텔 CCTV 확인됨 / 그러나 의료 기록 접근 권한 보유", "en": "On business trip to nearby province — hotel CCTV confirmed / but has access to medical records" },
+        "flag": { "ko": "출장 증명 완벽 — 비행기 탑승 기록, 호텔 체크인 모두 일치", "en": "Perfect alibi — flight records and hotel check-in all match" }
       }
-    ]
+    ],
+    "clues": [
+      {
+        "order": 1,
+        "ko": "피해자의 혈중 약물 농도가 처방량의 150% — 자연사로 나타남",
+        "en": "Victim's blood drug concentration at 150% of prescribed dose — appears as natural death"
+      },
+      {
+        "order": 2,
+        "ko": "요양원 약물 배분 기록 상 피해자는 정상 용량만 받았음 — 시스템 확인됨",
+        "en": "Care facility medication records show victim received only normal doses — system verified"
+      },
+      {
+        "order": 3,
+        "ko": "약사의 개인 약물 관리 로그에만 미기록 항목 발견 — 약 1회분 차이",
+        "en": "Unrecorded entry found only in pharmacist's personal medication log — one dose discrepancy"
+      },
+      {
+        "order": 4,
+        "ko": "피해자의 핸드폰 기록: 약사에게 3일 전 '약물 관리 문제 알렸음' 메시지",
+        "en": "Victim's phone records: Message to pharmacist 3 days ago 'reported medication management issues'"
+      },
+      {
+        "order": 5,
+        "ko": "피해자의 약물함에 남은 약의 성분 분석 — 약사가 제공한 약과 100% 일치",
+        "en": "Analysis of remaining medication in victim's box — 100% match with pharmacist-provided medication"
+      },
+      {
+        "order": 6,
+        "ko": "야간 카메라 분석: 약사가 사망 예상 시각 24분 전 피해자 병실 출입",
+        "en": "Night camera analysis: Pharmacist entered victim's room exactly 24 minutes before estimated death time"
+      },
+      {
+        "order": 7,
+        "ko": "약사의 개인 약물함에서 피해자의 심장약과 동일한 성분의 약 2회분 '초과' 발견",
+        "en": "Pharmacist's personal medication vault found with 2 'extra' doses of identical cardiac medication"
+      }
+    ],
+    "timeline": [
+      {
+        "id": "1",
+        "cells": [
+          { "ko": "당직 시작", "s": "confirmed" },
+          { "ko": "자리 이탈 (CCTV)", "s": "suspicious" },
+          { "ko": "약물실", "s": "unverified" },
+          { "ko": "당직실 복귀", "s": "confirmed" },
+          { "ko": "사망 추정", "s": "death" },
+          { "ko": "시체 발견", "s": "confirmed" }
+        ]
+      },
+      {
+        "id": "2",
+        "cells": [
+          { "ko": "약물실 근무", "s": "confirmed" },
+          { "ko": "약물 배분 기록", "s": "confirmed" },
+          { "ko": "피해자 병실?", "s": "suspicious" },
+          { "ko": "약물실 복귀", "s": "unverified" },
+          { "ko": "사망 추정", "s": "death" },
+          { "ko": "당직 계속", "s": "confirmed" }
+        ]
+      },
+      {
+        "id": "3",
+        "cells": [
+          { "ko": "출장 지역 도착", "s": "confirmed" },
+          { "ko": "호텔 체크인", "s": "confirmed" },
+          { "ko": "회의 참석", "s": "confirmed" },
+          { "ko": "호텔 CCTV", "s": "confirmed" },
+          { "ko": "사망 추정", "s": "death" },
+          { "ko": "호텔 내 CCTV", "s": "confirmed" }
+        ]
+      }
+    ],
+    "deathCol": 4
   },
   {
-    "id": 2,
-    "era": "joseon",
-    "crimeType": "murder",
-    "method": "교살 — 밀실 창호 열기 기술",
-    "title": { "ko": "사헌부의 그림자", "en": "Shadow of the Saheonbu" },
-    "location": { "ko": "조선 한양 북촌 이판서 사랑채", "en": "Sarangchae of Minister Yi, Bukchon, Hanyang" },
-    "time": { "ko": "갑오년 8월 15일 묘시 (05:00~07:00)", "en": "15th day, 8th month, Gabo Year — Myosi (05:00–07:00)" },
-    "victim": { "ko": "피해자: 이병헌 판서 (62세, 이조판서)", "en": "Victim: Minister Yi Byungheon (62, Minister of Personnel)" },
-    "suspects": [
-      {
-        "name": { "ko": "조카 이윤석", "en": "Nephew Yi Yunseok" },
-        "motive": "연회에서 격렬한 언쟁 — 재산 상속 분쟁",
-        "alibi": "연회 후 자택 귀가 — 목격자 증언 일관",
-        "flag": "옷 찢김이 비단 조각과 일치 — 현장 흔적"
-      },
-      {
-        "name": { "ko": "사헌부 대사헌 박재권", "en": "Chief Inspector Park Jaegwon" },
-        "motive": "피해자의 탄핵으로 인한 관직 위협",
-        "alibi": "사당 참배 — 그러나 시간대 불명확",
-        "flag": "강건한 체격 — 교살 범행의 신체 조건 부합"
-      },
-      {
-        "name": { "ko": "전직 무관 상인 최두성", "en": "Merchant Ch'oi Duseong (ex-officer)" },
-        "motive": "밀수 장부 발각 직전 — 증거 인멸 목적",
-        "alibi": "야경꾼이 목격했으나 변명 가능한 통로 사용",
-        "flag": "가죽 신발 흔적 + 정원 특유 흙 — 위장된 침입 경로"
-      }
-    ]
-  },
-  {
-    "id": 3,
-    "era": "medieval_europe",
-    "crimeType": "murder",
-    "method": "단검 — 이중 빗장 트릭",
-    "title": { "ko": "수도원의 단검", "en": "The Dagger of the Abbey" },
-    "location": { "ko": "신성로마제국 라인강 유역 성 베네딕트 수도원 도서관", "en": "Library, Saint Benedict Abbey, Rhine Valley" },
-    "time": { "ko": "1347년 10월 11일 자정~새벽 2시", "en": "October 11, 1347 — midnight to 02:00" },
-    "victim": { "ko": "피해자: 대수도원장 클레멘스 (67세)", "en": "Victim: Abbot Clemens (67)" },
-    "suspects": [
-      {
-        "name": { "ko": "약초사 수사 베르톨트", "en": "Herbalist Monk Bertold" },
-        "motive": "이단 고발 재판 직전 — 생명의 위협",
-        "alibi": "도서관 입장 시도 목격됨 — 분명한 현장 방문",
-        "flag": "의학 지식 — 심장 위치에 정확한 단검 타격 가능"
-      },
-      {
-        "name": { "ko": "부원장 안셀무스", "en": "Prior Anselmus" },
-        "motive": "대수도원장 사망 시 원장직 승계 가능성",
-        "alibi": "기도실에서 기도 중 — 동료 수사 증언",
-        "flag": "강건한 체격과 무술 경험 — 신체 조건 충족"
-      },
-      {
-        "name": { "ko": "사서 수사 힐데마르", "en": "Librarian Monk Hildemark" },
-        "motive": "금서 복사 발각 직전 — 지위 박탈 및 처벌 위기",
-        "alibi": "도서관 정리 중 — 야간 도서관 단독 접근",
-        "flag": "이중 빗장 트릭 유일 보유자 — 기술적 실행 능력"
-      }
-    ]
-  },
-  {
-    "id": 4,
-    "era": "colonial_korea",
-    "crimeType": "murder",
-    "method": "둔기 타살 — 밀실 뒷계단 트릭",
-    "title": { "ko": "경성의 밤비", "en": "Night Rain in Gyeongseong" },
-    "location": { "ko": "1930년 경성부 종로 조선인 약재상 2층 밀실", "en": "2nd floor secret room, herbal medicine shop, Jongno, Gyeongseong 1930" },
-    "time": { "ko": "1930년 6월 14일 밤 11시~자정", "en": "June 14, 1930 — 23:00–00:00" },
-    "victim": { "ko": "피해자: 최재원 (51세, 독립운동 자금책)", "en": "Victim: Choi Jaewon (51, Independence Movement financier)" },
-    "suspects": [
-      {
-        "name": { "ko": "독립신문 기자 김철수", "en": "Journalist Kim Chulsu" },
-        "motive": "자금 운영 투명성 감시 및 비리 적발 시도",
-        "alibi": "회합 후 2층에 단독으로 머물렀음 — 목격자 있음",
-        "flag": "격한 언쟁 목격 — 범행 직전 갈등 기록"
-      },
-      {
-        "name": { "ko": "일제 밀정 상인", "en": "Japanese informant merchant" },
-        "motive": "독립운동 자금 적발 및 조직 와해",
-        "alibi": "뒷골목에서 목격됨 — 실제 침입 경로 불명",
-        "flag": "외부 침입 흔적 없음 — 일제 관련성 의심"
-      },
-      {
-        "name": { "ko": "자금 운반책 정한성", "en": "Fund courier Jung Hanseong" },
-        "motive": "횡령 자금 발각 직전 — 증거 인멸 및 생존권 박탈",
-        "alibi": "뒷계단 이용으로 비에 노출 없음 — 신발 건조 증거",
-        "flag": "소매에 황기 분말 검출 — 약재상 2층 전용 약재"
-      }
-    ]
-  },
-  {
-    "id": 5,
-    "era": "victorian",
-    "crimeType": "murder",
-    "method": "총기 자살 위장 — 비밀 통로",
-    "title": { "ko": "안개 속의 유서", "en": "The Will in the Fog" },
-    "location": { "ko": "1888년 런던 이스트엔드 그레이엄 경 저택 서재", "en": "Study, Lord Graham's mansion, East End London, 1888" },
-    "time": { "ko": "1888년 11월 3일 자정~오전 2시", "en": "November 3, 1888 — midnight to 02:00" },
-    "victim": { "ko": "피해자: 에드워드 그레이엄 경 (74세, 귀족 재벌)", "en": "Victim: Lord Edward Graham (74, noble magnate)" },
-    "suspects": [
-      {
-        "name": { "ko": "딸 빅토리아", "en": "Daughter Victoria" },
-        "motive": "새 유언장으로 상속 180만 파운드 박탈",
-        "alibi": "서재 앞 복도에서 목격 — 현장 접근성 명확",
-        "flag": "총성 후 가장 먼저 도착 — 범행 직후 발견 가능한 위치"
-      },
-      {
-        "name": { "ko": "동반자 마가렛", "en": "Companion Margaret" },
-        "motive": "유산 상속 변경으로 인한 경제적 손실",
-        "alibi": "22시 서재 방문 확인됨 — 범행 직후 동향 불명",
-        "flag": "개인 편의 개입 가능성 — 친밀한 신뢰 관계"
-      },
-      {
-        "name": { "ko": "집사 토마스 윌슨", "en": "Butler Thomas Wilson" },
-        "motive": "저택 매각 조항으로 30년 근속 거처 박탈 — 생존권 위협",
-        "alibi": "지하 창고 30분 초과 체류 — 통로 왕복 시간 위장",
-        "flag": "지하 통로 단추 + 시더우드 향 — 밀실 트릭 실행 능력"
-      }
-    ]
-  },
-  {
-    "id": 6,
+    "caseId": "HARD-002",
     "era": "modern",
     "crimeType": "murder",
-    "method": "추락 — 옥외 테라스 강제 추락",
-    "title": { "ko": "13층의 추락", "en": "The Fall from the 13th Floor" },
-    "location": { "ko": "서울 마포 아크로타워 13층 옥외 테라스", "en": "13th floor outdoor terrace, Akro Tower, Mapo Seoul" },
-    "time": { "ko": "2025년 9월 20일 22:30~23:00", "en": "September 20, 2025 — 22:30–23:00" },
-    "victim": { "ko": "피해자: 오성민 (44세, IT 스타트업 대표)", "en": "Victim: Oh Sungmin (44, IT startup CEO)" },
+    "method": "기술 조작 — 자동 운전 시스템 해킹",
+    "title": { "ko": "자동의 함정", "en": "Trap of Automation" },
+    "location": { "ko": "서울 강남 압구정로 — 고급 자동차 추락", "en": "Apgujeong-ro, Gangnam Seoul — luxury car crash" },
+    "time": { "ko": "2026년 3월 20일 18:45 — 사망 추정 18:47", "en": "March 20, 2026 — TOD est. 18:47" },
+    "victim": { "ko": "피해자: 정민준 (52세, IT 기업 CTO)", "en": "Victim: Jung Minjun (52, CTO of IT Company)" },
+    "difficulty": "hard",
+    "answer": "2",
+    "explanation": { 
+      "ko": "보안 담당자는 업무상 피해자의 자동차 보안 시스템 접근 권한을 가지고 있었고, 원격으로 조종 장치를 해킹할 수 있었습니다. 그러나 피해자가 자신의 기술 부정행위를 발견하려 했기 때문입니다. 자동차의 검은 상자 데이터에서 해킹 흔적은 지워졌지만, 피해자의 노트북에서 이중 암호화된 해킹 도구를 발견할 수 있습니다.",
+      "en": "The security officer had legitimate access to the victim's car security system for work and could remotely manipulate controls. But because the victim was about to discover his technical misconduct. While hacking traces were erased from the car's black box data, a dual-encrypted hacking tool can be found on the victim's laptop."
+    },
     "suspects": [
       {
-        "name": { "ko": "공동창업자 한지민", "en": "Co-founder Han Jimin" },
-        "motive": "주식 비리의 희생양 지목 — 사회적 지위 및 경력 파괴",
-        "alibi": "테라스 방향 CCTV 포착됨 — 현장 접근성 명확",
-        "flag": "테라스 방향 CCTV — 범행 직전 목격 시간대 일치"
+        "id": "1",
+        "name": { "ko": "자동차 정비사 박성호", "en": "Car Mechanic Park Sungho" },
+        "job": { "ko": "프리미엄 자동차 정비소 대표", "en": "Luxury Car Maintenance Shop Owner" },
+        "motive": { "ko": "피해자의 자동차 수리비 거부 — 최근 300만원 분쟁", "en": "Victim refused to pay car repair bill — recent 3M won dispute" },
+        "alibi": { "ko": "정비소에서 근무 중 — 직원들 증언 있음 / 그러나 원격 조작 기술 없음", "en": "Working at shop — employee testimony / but lacks remote manipulation skills" },
+        "flag": { "ko": "피해자의 차량 정비 기록이 지난주 여러 번 — 자동차 내부 접근 기회 있음", "en": "Victim's car serviced multiple times last week — opportunity for internal access" }
       },
       {
-        "name": { "ko": "CFO 유혜린", "en": "CFO Yu Hyerin" },
-        "motive": "횡령 감사 임박 — 회피 가능성 및 증거 인멸 시도",
-        "alibi": "22:10 테라스 근처에서 목격됨 — 현장 있음",
-        "flag": "횡령 감사 이틀 후 예정 — 절박한 시간 압박"
+        "id": "2",
+        "name": { "ko": "보안 담당자 이준호", "en": "Security Officer Lee Junho" },
+        "job": { "ko": "피해자 회사 정보보안팀장", "en": "Company Information Security Team Lead" },
+        "motive": { "ko": "피해자가 자신의 기술 로그를 검토하려던 직전 — 회사 내 불법 침입 흔적 발견 단계", "en": "Victim was about to review his technical logs — stage of discovering illegal intrusion traces in company" },
+        "alibi": { "ko": "사무실에서 회의 중 — CCTV로 확인됨 / 그러나 회의 중간 10분 자리 이탈", "en": "In meeting at office — CCTV verified / but left during meeting for 10 minutes" },
+        "flag": { "ko": "자동차 원격 조작 기술 전문가 — 피해자의 자동차 시스템 완전 접근 권한 보유", "en": "Expert in remote vehicle manipulation technology — has complete access to victim's car system" }
       },
       {
-        "name": { "ko": "투자사 대표 강태윤", "en": "VC CEO Kang Taeyun" },
-        "motive": "투자 라운드 제외로 50억 원 손실 — 경제적 파탄",
-        "alibi": "CCTV 사각지대 이동 — 추적 불가능한 경로",
-        "flag": "DNA 혈흔 + 청소부 목격 + 난간 도료 — 3중 물증"
+        "id": "3",
+        "name": { "ko": "피해자의 아내 정윤하", "en": "Victim's Wife Jung Yunha" },
+        "job": { "ko": "미술관 큐레이터", "en": "Museum Curator" },
+        "motive": { "ko": "피해자의 불륜 적발 직전 — 이혼 소송 준비 중이며 거액의 합의금 필요", "en": "About to discover victim's infidelity — preparing divorce lawsuit and needs large settlement" },
+        "alibi": { "ko": "미술관에서 근무 중 — CCTV 확인됨", "en": "Working at museum — CCTV verified" },
+        "flag": { "ko": "아내는 기술 지식 없음 — 자동차 해킹은 불가능", "en": "Wife lacks technical knowledge — car hacking impossible" }
       }
-    ]
+    ],
+    "clues": [
+      {
+        "order": 1,
+        "ko": "자동차 검은 상자 데이터: 충돌 2초 전 자동 조종 장치 이상 감지",
+        "en": "Car black box data: Self-driving system malfunction detected 2 seconds before impact"
+      },
+      {
+        "order": 2,
+        "ko": "자동차 제어 컴퓨터에서 원격 접근 로그 모두 삭제 — 전문 기술로만 가능",
+        "en": "All remote access logs deleted from car control computer — only possible with expert technology"
+      },
+      {
+        "order": 3,
+        "ko": "피해자의 노트북에서 '시스템 침입 기록' 폴더 발견 — 날짜는 사망 3일 전",
+        "en": "Folder 'System Intrusion Records' found on victim's laptop — dated 3 days before death"
+      },
+      {
+        "order": 4,
+        "ko": "보안 담당자의 CCTV: 사망 3시간 전 2분 40초의 자리 이탈 → 정확히 완료 시간과 일치",
+        "en": "Security officer's CCTV: 2min 40sec absence 3 hours before death → matches exact execution time"
+      },
+      {
+        "order": 5,
+        "ko": "피해자의 핸드폰: 사망 당일 오전 보안 담당자에게 '시스템 로그 검토 예약' 메시지",
+        "en": "Victim's phone: Message to security officer same morning 'scheduling system log review'"
+      },
+      {
+        "order": 6,
+        "ko": "자동차 정비사의 휴대폰: 해킹과 관련된 기술 용어 없음 — 완전히 비기술적 메시지만",
+        "en": "Mechanic's phone: No hacking-related technical terms — only non-technical messages"
+      },
+      {
+        "order": 7,
+        "ko": "보안 담당자의 개인 컴퓨터에서 피해자의 자동차 모델과 동일한 시뮬레이션 환경 발견",
+        "en": "Victim's wife's museum CCTV: Perfect alibi with continuous footage throughout incident"
+      }
+    ],
+    "timeline": [
+      {
+        "id": "1",
+        "cells": [
+          { "ko": "정비소 개점", "s": "confirmed" },
+          { "ko": "직원 근무", "s": "confirmed" },
+          { "ko": "사망 추정", "s": "death" },
+          { "ko": "정비소 영업", "s": "confirmed" },
+          { "ko": "폐점", "s": "confirmed" }
+        ]
+      },
+      {
+        "id": "2",
+        "cells": [
+          { "ko": "사무실 도착", "s": "confirmed" },
+          { "ko": "CCTV 자리 이탈", "s": "suspicious" },
+          { "ko": "회의 복귀", "s": "confirmed" },
+          { "ko": "사망 추정", "s": "death" },
+          { "ko": "퇴근", "s": "confirmed" }
+        ]
+      },
+      {
+        "id": "3",
+        "cells": [
+          { "ko": "미술관 도착", "s": "confirmed" },
+          { "ko": "전시 관리", "s": "confirmed" },
+          { "ko": "전시 계속", "s": "confirmed" },
+          { "ko": "사망 추정", "s": "death" },
+          { "ko": "퇴근", "s": "confirmed" }
+        ]
+      }
+    ],
+    "deathCol": 3
   },
   {
-    "id": 7,
-    "era": "ancient_rome",
-    "crimeType": "murder",
-    "method": "단검 — 전직 검투사의 심장 관통",
-    "title": { "ko": "원로원의 비수", "en": "Dagger of the Senate" },
-    "location": { "ko": "기원전 44년 로마 원로원 의사당 전실", "en": "Antechamber of Senate House (Curia Julia), 44 BC" },
-    "time": { "ko": "기원전 44년 3월 14일 제6시~7시 (정오~오후 2시)", "en": "March 14, 44 BC — 6th to 7th hour (noon–14:00)" },
-    "victim": { "ko": "피해자: 마르쿠스 포르키우스 의원 (62세)", "en": "Victim: Senator Marcus Porcius (62)" },
+    "caseId": "HARD-003",
+    "era": "modern",
+    "crimeType": "fraud",
+    "method": "투자 사기 — 딥페이크 음성 기술",
+    "title": { "ko": "목소리의 함정", "en": "Trap of Voice" },
+    "location": { "ko": "서울 여의도 국제 금융 센터", "en": "International Finance Center, Yeouido Seoul" },
+    "time": { "ko": "2026년 3월 1일~10일 (사기 실행 기간)", "en": "March 1–10, 2026 (fraud execution period)" },
+    "victim": { "ko": "피해자: 190명의 투자자 / 피해액: 450억 원", "en": "Victims: 190 investors / Damage: ₩45B" },
+    "difficulty": "hard",
+    "answer": "1",
+    "explanation": { 
+      "ko": "회장 비서는 회장의 목소리를 충분히 녹음할 기회가 있었고, 딥페이크 기술로 조작하여 투자자들에게 거짓 투자 공시를 했습니다. 그러나 문제는 딥페이크 음성이 아니라 실제 음성이었습니다. 비서가 회장의 사무실 버그(도청 장치) 녹음을 사용하여, 회장 자신도 모르게 녹음된 부동산 투자 회의 음성을 수정 편집해 투자 공시처럼 만들었습니다.",
+      "en": "The chairman's secretary had ample opportunity to record the chairman's voice and used deepfake technology to manipulate investors with false investment announcements. But the problem wasn't deepfake audio—it was real voice. The secretary used surveillance device recordings from the chairman's office, crafting an unbeknownst-recorded real estate investment meeting into investment announcements through careful editing."
+    },
     "suspects": [
       {
-        "name": { "ko": "카이사르파 수장 루키우스", "en": "Caesarian leader Lucius" },
-        "motive": "암살 음모 폭로 방지 — 정치적 생존",
-        "alibi": "직전 논쟁 목격됨 — 현장 방문 확인",
-        "flag": "정치적 권력 다툼 — 강한 동기"
+        "id": "1",
+        "name": { "ko": "회장 비서 박민지", "en": "Chairman's Secretary Park Minji" },
+        "job": { "ko": "투자회사 회장 비서", "en": "Investment Company Chairman's Secretary" },
+        "motive": { "ko": "회장의 감봉 처분과 직책 박탈 위협 — 비서 지위 강화를 위한 보험 목적", "en": "Chairman's salary cut and position demotion threat — insurance purpose to strengthen secretary position" },
+        "alibi": { "ko": "사무실에서 일상적 업무 중 — 녹음 편집은 야간 자택에서 수행", "en": "Performing routine office duties — voice editing done at home at night" },
+        "flag": { "ko": "딥페이크 검증 실패 — 음성은 실제 회장의 목소리 / 편집 흔적만 있음", "en": "Deepfake verification failed — voice is actual chairman's — only editing traces" }
       },
       {
-        "name": { "ko": "공화파 수장 퀸투스", "en": "Republican leader Quintus" },
-        "motive": "자금 출처 폭로 차단 — 정치적 우위 유지",
-        "alibi": "원로원 세션 중 위치 불명 — 행동 추적 불가",
-        "flag": "자금 관리 책임 — 폭로 시 정치적 위기"
+        "id": "2",
+        "name": { "ko": "투자팀 임원 조재훈", "en": "Investment Team Director Jo Jaehun" },
+        "job": { "ko": "투자회사 투자팀 임원", "en": "Investment Team Executive" },
+        "motive": { "ko": "성과급 부족 — 거짓 투자 공시로 실적 상승 목적", "en": "Insufficient performance bonus — aiming for results boost through false announcements" },
+        "alibi": { "ko": "해외 출장 중 — 호텔 CCTV로 확인됨 / 그러나 음성 통화로 지시 가능", "en": "On overseas business trip — hotel CCTV verified / but could issue orders via voice call" },
+        "flag": { "ko": "딥페이크 기술 지식 없음 — 음성 편집 불가능한 인물", "en": "No deepfake technology knowledge — impossible to edit voice" }
       },
       {
-        "name": { "ko": "경비원 마르쿠스 유닐리우스", "en": "Guard Marcus Iunilius (ex-gladiator)" },
-        "motive": "노예 신분 복귀 위기 — 자유 박탈",
-        "alibi": "경비 자리 이탈 30분 — 사망 추정 시각과 일치",
-        "flag": "검투사 출신 — 정밀한 심장 관통 유일 가능자"
+        "id": "3",
+        "name": { "ko": "회장 김동현", "en": "Chairman Kim Donghyun" },
+        "job": { "ko": "투자회사 회장", "en": "Investment Company Chairman" },
+        "motive": { "ko": "유동성 위기 극복 — 거짓 투자 수익으로 운영 자금 확보 시도", "en": "Overcoming liquidity crisis — attempting to secure operating funds through false investment returns" },
+        "alibi": { "ko": "회장실에서 비서와 함께 — 비서 증언으로 확인", "en": "In chairman's office with secretary — confirmed by secretary testimony" },
+        "flag": { "ko": "회장은 거짓 공시 내용을 몰랐음 — 실제로 녹음된 회의에서 한 말은 다름", "en": "Chairman unaware of false announcement content — actual meeting was about something different" }
       }
-    ]
+    ],
+    "clues": [
+      {
+        "order": 1,
+        "ko": "투자 공시 음성: 정상 음성이지만 문장 자연성에 약간의 어색함",
+        "en": "Investment announcement voice: normal voice but slightly unnatural sentence flow"
+      },
+      {
+        "order": 2,
+        "ko": "음성 분석: 딥페이크 아님 — 실제 회장의 목소리 100% 일치",
+        "en": "Voice analysis: Not deepfake — 100% match with actual chairman's voice"
+      },
+      {
+        "order": 3,
+        "ko": "회장 사무실 도청 장치(불법) 발견 — 비서가 설치한 것으로 추정",
+        "en": "Surveillance device (illegal) found in chairman's office — presumed installed by secretary"
+      },
+      {
+        "order": 4,
+        "ko": "비서의 개인 노트북에서 음성 편집 소프트웨어 흔적 + 부동산 회의 음성 파일 발견",
+        "en": "Voice editing software traces + real estate meeting audio file found on secretary's laptop"
+      },
+      {
+        "order": 5,
+        "ko": "회장의 실제 부동산 투자 회의 녹음과 공시된 음성 비교 — 같은 음성, 다른 내용",
+        "en": "Comparison of chairman's actual real estate meeting recording with announced voice — same voice, different content"
+      },
+      {
+        "order": 6,
+        "ko": "투자팀 임원은 해외에 있었고 음성 편집 기술이 전혀 없음 — 기술 자료 접근 기록 없음",
+        "en": "Investment team director was overseas with no voice editing skills — no technical resource access records"
+      },
+      {
+        "order": 7,
+        "ko": "회장의 휴대폰 통화 기록: 비서와 야간 통화 없음 — 비서가 독단으로 행동",
+        "en": "Chairman's phone records: No night calls with secretary — secretary acted independently"
+      }
+    ],
+    "timeline": [
+      {
+        "id": "1",
+        "cells": [
+          { "ko": "사무실 근무", "s": "confirmed" },
+          { "ko": "음성 편집 작업(야간)", "s": "suspicious" },
+          { "ko": "공시 음성 제출", "s": "suspicious" },
+          { "ko": "사기 적발", "s": "confirmed" },
+          { "ko": "체포", "s": "confirmed" }
+        ]
+      },
+      {
+        "id": "2",
+        "cells": [
+          { "ko": "해외 출장", "s": "confirmed" },
+          { "ko": "호텔 CCTV", "s": "confirmed" },
+          { "ko": "호텔 내", "s": "confirmed" },
+          { "ko": "사기 적발", "s": "confirmed" },
+          { "ko": "귀국", "s": "confirmed" }
+        ]
+      },
+      {
+        "id": "3",
+        "cells": [
+          { "ko": "회장실", "s": "confirmed" },
+          { "ko": "비서와 함께", "s": "confirmed" },
+          { "ko": "경영 활동", "s": "confirmed" },
+          { "ko": "사기 적발", "s": "confirmed" },
+          { "ko": "소환", "s": "confirmed" }
+        ]
+      }
+    ],
+    "deathCol": -1
   },
   {
-    "id": 8,
-    "era": "modern_japan",
-    "crimeType": "murder",
-    "method": "독살 — 다도 찻잔 소매 접촉",
-    "title": { "ko": "교토의 다실", "en": "The Tea Room in Kyoto" },
-    "location": { "ko": "1926년 교토 기온 전통 료칸 다실", "en": "Tea room of a ryokan in Gion, Kyoto, 1926" },
-    "time": { "ko": "1926년 4월 8일 오후 3시~4시 (차노유 의식 직후)", "en": "April 8, 1926 — 15:00–16:00 (after chanoyu ceremony)" },
-    "victim": { "ko": "피해자: 야마모토 켄지 (67세, 교토 재계 실력자)", "en": "Victim: Yamamoto Kenji (67, Kyoto business magnate)" },
-    "suspects": [
-      {
-        "name": { "ko": "다도 사범 다나카 유코", "en": "Tea master Tanaka Yuko" },
-        "motive": "도장 강제 매입 피해로 인한 재정적 손실 및 명예 훼손",
-        "alibi": "차 준비 중 10분 단독 작업 — 현장 접근",
-        "flag": "찻잔 취급 기술 — 독 투여 기회"
-      },
-      {
-        "name": { "ko": "경쟁 재계 인사 마에다", "en": "Business rival Maeda" },
-        "motive": "오랜 사업 분쟁 — 경제적 경쟁",
-        "alibi": "다도 의식 중 목격됨 — 동선 추적 가능",
-        "flag": "장기간 분쟁 관계 — 근본적 동기"
-      },
-      {
-        "name": { "ko": "비서 스즈키 아키라", "en": "Secretary Suzuki Akira" },
-        "motive": "5천만 엔 횡령 발각 직전 — 직업 및 자유 박탈",
-        "alibi": "찻잔 배열 담당 — 조용한 접근",
-        "flag": "소매 접촉 투입 + 이틀 전 독 원료 구입 기록"
-      }
-    ]
-  },
-  {
-    "id": 9,
-    "era": "cold_war",
-    "crimeType": "espionage",
-    "method": "교살 — 슈타지 고급 요원의 철사 교살",
-    "title": { "ko": "베를린의 암호", "en": "The Cipher of Berlin" },
-    "location": { "ko": "1961년 베를린 장벽 건설 직후 서베를린 호텔 602호", "en": "Room 602, Hotel Adlon, West Berlin, 1961" },
-    "time": { "ko": "1961년 8월 16일 새벽 2시~4시", "en": "August 16, 1961 — 02:00–04:00" },
-    "victim": { "ko": "피해자: 에른스트 하이만 (54세, 서독 정보국 요원)", "en": "Victim: Ernst Heimann (54, West German intelligence operative)" },
-    "suspects": [
-      {
-        "name": { "ko": "CIA 연락원 클라우스", "en": "CIA liaison Klaus" },
-        "motive": "마이크로필름 탈취 — 정보 독점 및 정치적 우위",
-        "alibi": "01:12 6층 CCTV 포착 — 현장 접근 기록",
-        "flag": "CIA 소속 — 암살 기술 및 조직력 보유"
-      },
-      {
-        "name": { "ko": "MI6 요원 피터 쇼", "en": "MI6 agent Peter Shaw" },
-        "motive": "마이크로필름 확보 경쟁 — 정보 관할권",
-        "alibi": "피해자와 밀담 후 6층 이동 — 확인된 목격",
-        "flag": "영국 정보국 — 암살 기술 보유"
-      },
-      {
-        "name": { "ko": "슈타지 고급 요원 그레고르 볼프", "en": "Senior Stasi operative Gregor Wolf" },
-        "motive": "마이크로필름에 실명 기재 — 신분 노출 및 생명 위협",
-        "alibi": "인접 객실 체크인 — CCTV 사각지대 이동",
-        "flag": "카펫 섬유 + 시계 윤활유 — 현장 진입 물증"
-      }
-    ]
-  },
-  {
-    "id": 10,
+    "caseId": "HARD-004",
     "era": "modern",
     "crimeType": "murder",
-    "method": "둔기 타살 — 할로윈 군중 소음 위장",
-    "title": { "ko": "반지하의 붉은 잉크", "en": "Red Ink in the Basement" },
-    "location": { "ko": "서울 종로 인사동 독립출판사 반지하 편집실", "en": "Basement editorial office, independent publisher, Insadong Seoul" },
-    "time": { "ko": "2024년 10월 31일 22:00~23:30", "en": "October 31, 2024 — 22:00–23:30" },
-    "victim": { "ko": "피해자: 송태민 (55세, 독립출판사 대표)", "en": "Victim: Song Taemin (55, independent publisher CEO)" },
+    "method": "교실 중독 — 향수병 접촉",
+    "title": { "ko": "교실의 향기", "en": "Scent in the Classroom" },
+    "location": { "ko": "서울 강서 국제고등학교 화학 실험실", "en": "Chemistry Lab, International High School, Gangseo Seoul" },
+    "time": { "ko": "2026년 2월 28일 15:30 — 사망 추정 15:45", "en": "February 28, 2026 — TOD est. 15:45" },
+    "victim": { "ko": "피해자: 박지성 (17세, 국제고등학교 학생)", "en": "Victim: Park Jisung (17, International High School Student)" },
+    "difficulty": "hard",
+    "answer": "3",
+    "explanation": { 
+      "ko": "화학 선생님은 실험실 접근 권한이 있었지만, 모든 사람이 의심했던 것과 달리 범행자는 피해자의 짝궁 학생이었습니다. 그 학생은 집단 따돌림으로 인한 보복을 계획했고, 향수 재충전 액체(오일 베이스)를 피해자의 향수병에 넣었습니다. 일반적인 향수와 달리 유독성 화학 물질을 포함하고 있었습니다. 선생님이 사용한 향수와는 전혀 다른 성분입니다.",
+      "en": "The chemistry teacher had lab access but, contrary to what everyone suspected, the culprit was the victim's lab partner. The student had planned revenge for bullying and put fragrance refill liquid (oil-based) into the victim's perfume bottle. Unlike normal fragrance, it contained toxic chemicals—completely different composition from the teacher's fragrance."
+    },
     "suspects": [
       {
-        "name": { "ko": "표절 작가", "en": "Plagiarist author" },
-        "motive": "표절 폭로로 인한 신분 및 경력 파괴",
-        "alibi": "폭로 전 출판사 방문 — 현장 동선 추적",
-        "flag": "표절 발각 — 명백한 동기"
+        "id": "1",
+        "name": { "ko": "화학 선생님 이준호", "en": "Chemistry Teacher Lee Junho" },
+        "job": { "ko": "국제고등학교 화학 선생님", "en": "High School Chemistry Teacher" },
+        "motive": { "ko": "피해자가 화학 부정행위를 적발하려던 직전 — 실험 결과 조작 혐의", "en": "Victim was about to expose chemistry misconduct — suspected experiment result manipulation" },
+        "alibi": { "ko": "실험실에서 수업 중 — 여러 학생 목격 / 그러나 실험실 약품 접근 권한 보유", "en": "Teaching in lab — witnessed by multiple students / but has access to lab chemicals" },
+        "flag": { "ko": "선생님의 향수와 피해자 향수병의 화학 성분이 전혀 다름 — 제외 가능", "en": "Teacher's fragrance and victim's bottle have completely different chemical components — can be ruled out" }
       },
       {
-        "name": { "ko": "계약 작가", "en": "Contracted writer" },
-        "motive": "피해자와의 갈등 — 계약 조건 불만",
-        "alibi": "격한 언쟁 후 편집실에 단독 체류 — 목격 불가",
-        "flag": "현장 단독 체류 — 범행 기회 명확"
+        "id": "2",
+        "name": { "ko": "실험실 조교 김민서", "en": "Lab Assistant Kim Minseo" },
+        "job": { "ko": "국제고등학교 화학 실험실 조교", "en": "Chemistry Lab Assistant" },
+        "motive": { "ko": "선생님을 보호하기 위해 피해자의 폭로 방지 목적", "en": "Protecting teacher by preventing victim's exposure" },
+        "alibi": { "ko": "실험실에서 기자재 정리 중 — 학생들 목격됨", "en": "Organizing equipment in lab — witnessed by students" },
+        "flag": { "ko": "조교도 실험실 약품 접근 권한 있음 — 하지만 동기 약함", "en": "Assistant also has lab chemical access — but weak motive" }
       },
       {
-        "name": { "ko": "경쟁 출판사 대표", "en": "Rival publisher CEO" },
-        "motive": "폭로 원고 탈취 — 경쟁사 약화",
-        "alibi": "반지하 창문 침입 — CCTV 사각지대",
-        "flag": "신발 잉크 + 창문 창살 페인트 — 침입 경로 물증"
+        "id": "3",
+        "name": { "ko": "피해자의 실험 짝궁 최해인", "en": "Victim's Lab Partner Choi Haein" },
+        "job": { "ko": "국제고등학교 학생", "en": "High School Student" },
+        "motive": { "ko": "피해자의 집단 따돌림 가해 — 최근 자살 언급까지 한 심각한 괴롭힘", "en": "Victim led group bullying — recent serious harassment including suicide mentions" },
+        "alibi": { "ko": "교실에서 수업 중이었음 — 반 친구들 증언 / 그러나 쉬는 시간 2분 자리 이탈", "en": "In classroom during class — classmates' testimony / but left for 2 minutes during break" },
+        "flag": { "ko": "향수 재충전액은 대형 마트 제품 — 일반인 구매 가능 / 화학 지식 없어도 사용 가능", "en": "Fragrance refill is supermarket product — anyone can buy — no chemistry knowledge needed" }
       }
-    ]
+    ],
+    "clues": [
+      {
+        "order": 1,
+        "ko": "피해자의 향수병에서 유독성 화학 성분 검출 — 일반 향수 아님",
+        "en": "Toxic chemical components detected in victim's fragrance bottle — not normal fragrance"
+      },
+      {
+        "order": 2,
+        "ko": "선생님의 개인 향수 성분 분석 — 피해자 병과 전혀 일치하지 않음",
+        "en": "Analysis of teacher's personal fragrance — completely different from victim's bottle"
+      },
+      {
+        "order": 3,
+        "ko": "피해자 향수병의 독극물은 화학 실험실 특수 약품 아님 — 시중 제품 기반",
+        "en": "Toxic substance in victim's bottle not specialized lab chemical — based on commercial product"
+      },
+      {
+        "order": 4,
+        "ko": "최해인의 가방에서 향수 재충전액 병 발견 — 구매 영수증도 발견됨",
+        "en": "Fragrance refill bottle found in Choi's bag — purchase receipt also found"
+      },
+      {
+        "order": 5,
+        "ko": "최해인과 피해자의 카톡 기록: 최근 심각한 따돌림 메시지 다수 — 피해자가 '자살' 언급",
+        "en": "KakaoTalk records between Choi and victim: Multiple recent bullying messages — victim mentions 'suicide'"
+      },
+      {
+        "order": 6,
+        "ko": "최해인의 휴대폰에 피해자 향수병 근접 촬영 사진 발견 — 촬영 시간이 범행 30분 전",
+        "en": "Close-up photo of victim's fragrance bottle found on Choi's phone — taken 30 minutes before crime"
+      },
+      {
+        "order": 7,
+        "ko": "선생님과 조교는 모두 실험실 화학 약품 로그에 기재됨 — 누가 어떤 약품을 꺼냈는지 확인", "en": "Teacher and assistant both logged in lab chemical records — can verify who took what"
+      }
+    ],
+    "timeline": [
+      {
+        "id": "1",
+        "cells": [
+          { "ko": "수업 진행", "s": "confirmed" },
+          { "ko": "실험실 근무", "s": "confirmed" },
+          { "ko": "학생 사망 추정", "s": "death" },
+          { "ko": "응급차 출동", "s": "confirmed" }
+        ]
+      },
+      {
+        "id": "2",
+        "cells": [
+          { "ko": "실험실 조교", "s": "confirmed" },
+          { "ko": "기자재 정리", "s": "confirmed" },
+          { "ko": "학생 사망 추정", "s": "death" },
+          { "ko": "응급차 출동", "s": "confirmed" }
+        ]
+      },
+      {
+        "id": "3",
+        "cells": [
+          { "ko": "교실 수업", "s": "confirmed" },
+          { "ko": "쉬는시간 이탈?", "s": "suspicious" },
+          { "ko": "학생 사망 추정", "s": "death" },
+          { "ko": "응급차 출동", "s": "confirmed" }
+        ]
+      }
+    ],
+    "deathCol": 2
+  },
+  {
+    "caseId": "HARD-005",
+    "era": "modern",
+    "crimeType": "theft",
+    "method": "미술품 절도 — 완벽한 복제품 교체",
+    "title": { "ko": "진짜의 거짓", "en": "False Truth" },
+    "location": { "ko": "서울 용산 국립미술관 특별전시관 — 한국 근대 회화전", "en": "National Museum, Special Exhibition — Korean Modern Painting" },
+    "time": { "ko": "2026년 3월 5일~7일 (3일간 절도 기회)", "en": "March 5–7, 2026 (3-day theft window)" },
+    "victim": { "ko": "피해 작품: 이중섭 유화 3점 (시가 150억)", "en": "Stolen: 3 paintings by Lee Joong-seop (est. ₩15B)" },
+    "difficulty": "hard",
+    "answer": "1",
+    "explanation": { 
+      "ko": "큐레이터는 미술관 내 작품 배치를 알고 있었지만, 실제 범인은 위조 미술품 제작자였습니다. 그는 원본을 복제했지만, 너무 완벽하게 복제해서 처음에는 도난 자체를 알지 못했습니다. 원본은 진작 확인을 위해 과학 분석을 받을 때까지 복제품이라는 것을 알 수 없었습니다.",
+      "en": "The curator knew the artwork placement in the museum, but the real culprit was a forger. He replicated the original so perfectly that the theft wasn't initially noticed. The original couldn't be identified as a replica until scientific analysis for authenticity verification."
+    },
+    "suspects": [
+      {
+        "id": "1",
+        "name": { "ko": "미술품 위조자 김준영", "en": "Art Forger Kim Junyoung" },
+        "job": { "ko": "위조 미술품 제작 전문가", "en": "Professional Art Forger" },
+        "motive": { "ko": "거액의 위조품 판매 대금 — 국제 미술 암시장에 판매 계약", "en": "Large payment for replica sale — sales contract with international art black market" },
+        "alibi": { "ko": "비공식적 활동 — 추적 불가 / 하지만 완벽한 위조품 제작 능력만 입증", "en": "Unofficial activities — untraceable / but only perfect forgery capability proven" },
+        "flag": { "ko": "위조자는 미술관 출입 기록 없음 — 외부자처럼 보임", "en": "Forger has no museum access records — appears as outsider" }
+      },
+      {
+        "id": "2",
+        "name": { "ko": "전시 큐레이터 박유미", "en": "Exhibition Curator Park Yumi" },
+        "job": { "ko": "국립미술관 전시 큐레이터", "en": "National Museum Exhibition Curator" },
+        "motive": { "ko": "퇴직금 분쟁으로 인한 경제 곤란 — 내부 복수로 작품 절도 주도", "en": "Economic difficulties from severance dispute — leading artwork theft as internal revenge" },
+        "alibi": { "ko": "미술관에서 근무 중 — CCTV로 확인됨 / 하지만 모든 작품 접근 권한 보유", "en": "Working at museum — CCTV verified / but has access to all artworks" },
+        "flag": { "ko": "큐레이터는 위조 기술이 없음 — 완벽한 복제는 전문가만 가능", "en": "Curator lacks forgery skills — perfect replication only possible by expert" }
+      },
+      {
+        "id": "3",
+        "name": { "ko": "보안팀장 이성민", "en": "Security Chief Lee Sungmin" },
+        "job": { "ko": "미술관 보안팀장", "en": "Museum Security Chief" },
+        "motive": { "ko": "미술관 매각 협상 진행 중 내부 자산 가치 축소 목적 — 매각가 인하 시도", "en": "During museum sale negotiations — attempting to reduce internal asset value to lower sale price" },
+        "alibi": { "ko": "보안실에서 모니터링 — CCTV 로그 확인됨", "en": "Monitoring from security room — CCTV logs verified" },
+        "flag": { "ko": "보안팀장은 CCTV 조작 기술 있음 — 하지만 위조품 제작 능력 없음", "en": "Security chief has CCTV manipulation skills — but lacks forgery capability" }
+      }
+    ],
+    "clues": [
+      {
+        "order": 1,
+        "ko": "도난 신고 후 4일이 지나서야 복제품 발견 — 완벽한 위조",
+        "en": "Replica discovered 4 days after theft report — perfect forgery"
+      },
+      {
+        "order": 2,
+        "ko": "원본의 작품 액자 뒷면에는 '1974년 수리' 기록 — 복제품에는 이 흔적 없음",
+        "en": "Original frame back has '1974 repair' mark — replica doesn't have this trace"
+      },
+      {
+        "order": 3,
+        "ko": "과학 분석으로만 구분 가능 — 육안으로는 100% 동일",
+        "en": "Only distinguishable by scientific analysis — 100% identical to naked eye"
+      },
+      {
+        "order": 4,
+        "ko": "미술관 큐레이터의 휴대폰: 국제 미술 암시장 중개인과의 문자 기록 없음",
+        "en": "Curator's phone: No messages with international art black market brokers"
+      },
+      {
+        "order": 5,
+        "ko": "위조자 김준영의 이전 위조 작품들 추적 — 모두 국제 경매에서 적발됨",
+        "en": "Tracking previous forgeries by Kim Junyoung — all detected in international auctions"
+      },
+      {
+        "order": 6,
+        "ko": "보안팀장의 CCTV 로그: 범행 기간 조작 기록 없음 — 모든 파일 원본",
+        "en": "Security chief's CCTV logs: No manipulation during crime period — all original files"
+      },
+      {
+        "order": 7,
+        "ko": "위조자의 개인 스튜디오에서 이중섭 유화 3점의 미완성 스케치 발견",
+        "en": "Unfinished sketches of 3 Lee Joong-seop paintings found in forger's studio"
+      }
+    ],
+    "timeline": [
+      {
+        "id": "1",
+        "cells": [
+          { "ko": "스튜디오 작업", "s": "unverified" },
+          { "ko": "위조품 제작", "s": "suspicious" },
+          { "ko": "판매 계약", "s": "suspicious" },
+          { "ko": "작품 적발", "s": "confirmed" }
+        ]
+      },
+      {
+        "id": "2",
+        "cells": [
+          { "ko": "전시 큐레이팅", "s": "confirmed" },
+          { "ko": "미술관 근무", "s": "confirmed" },
+          { "ko": "전시 운영", "s": "confirmed" },
+          { "ko": "적발", "s": "confirmed" }
+        ]
+      },
+      {
+        "id": "3",
+        "cells": [
+          { "ko": "보안실 모니터링", "s": "confirmed" },
+          { "ko": "CCTV 감시", "s": "confirmed" },
+          { "ko": "보안 관리", "s": "confirmed" },
+          { "ko": "적발", "s": "confirmed" }
+        ]
+      }
+    ],
+    "deathCol": -1
+  },
+  {
+    "caseId": "HARD-006",
+    "era": "modern",
+    "crimeType": "murder",
+    "method": "간접 독살 — 병원 수액 조작",
+    "title": { "ko": "흰색의 죽음", "en": "Death in White" },
+    "location": { "ko": "서울 서초 대형 종합병원 중환자실", "en": "ICU, Major General Hospital, Seocho Seoul" },
+    "time": { "ko": "2026년 3월 10일 03:00~05:00 — 사망 추정 04:45", "en": "March 10, 2026 — TOD est. 04:45" },
+    "victim": { "ko": "피해자: 권태호 (68세, 전직 검사)", "en": "Victim: Kwon Taeho (68, Retired Prosecutor)" },
+    "difficulty": "hard",
+    "answer": "2",
+    "explanation": { 
+      "ko": "간호사는 피해자의 수액 주입을 담당했고, 칼륨 성분을 일반 수액에 혼합하여 심장 마비를 유발했습니다. 그러나 모든 의료 기록은 정상이었습니다. 문제는 간호사가 피해자의 전 남편과 새로운 관계를 시작했고, 피해자의 딸(간호사의 경쟁자)이 유산을 잃게 될 위기였습니다.",
+      "en": "The nurse was responsible for the victim's IV infusion and mixed potassium into the normal saline to cause cardiac arrest. But all medical records were normal. The issue was that the nurse started a new relationship with the victim's ex-husband, and the victim's daughter (the nurse's rival) faced losing her inheritance."
+    },
+    "suspects": [
+      {
+        "id": "1",
+        "name": { "ko": "당직 의사 박진호", "en": "On-call Doctor Park Jinho" },
+        "job": { "ko": "종합병원 중환자실 의사", "en": "Hospital ICU Doctor" },
+        "motive": { "ko": "피해자가 자신의 의료 사고를 고소하려던 직전 — 의료 부실 적발 단계", "en": "Victim was about to sue doctor for medical malpractice — stage of discovering negligence" },
+        "alibi": { "ko": "당직실에서 대기 중 — 간호사 증언 있음 / 하지만 수액 기록 서명", "en": "On standby in duty room — nurse testimony / but signed IV records" },
+        "flag": { "ko": "의사는 수액 조작 기술이 없음 — 약물 투여는 간호사 업무", "en": "Doctor lacks IV manipulation skills — medication administration is nurse's duty" }
+      },
+      {
+        "id": "2",
+        "name": { "ko": "야간 간호사 정혜은", "en": "Night Nurse Jung Hyeeun" },
+        "job": { "ko": "종합병원 중환자실 야간 간호사", "en": "Hospital ICU Night Nurse" },
+        "motive": { "ko": "피해자의 전 남편과의 신관계 시작 — 피해자의 딸이 경쟁자로 방해", "en": "New relationship with victim's ex-husband — victim's daughter blocking as rival" },
+        "alibi": { "ko": "중환자실에서 근무 — CCTV로 확인됨 / 하지만 수액 주입 단독 담당", "en": "Working in ICU — CCTV verified / but solely responsible for IV infusion" },
+        "flag": { "ko": "간호사만이 수액 조작 기술을 가짐 — 약물 투여 권한 보유", "en": "Only nurse has IV manipulation skills — has medication administration authority" }
+      },
+      {
+        "id": "3",
+        "name": { "ko": "피해자의 딸 권민지", "en": "Victim's Daughter Kwon Minji" },
+        "job": { "ko": "의학 전공 대학생", "en": "Medical Student" },
+        "motive": { "ko": "아버지의 상속 유산 박탈 위협 — 새 여자친구(간호사)에게 재산 넘어갈 위기", "en": "Threat of losing father's estate — risk of assets going to new girlfriend (nurse)" },
+        "alibi": { "ko": "자택에 있었음 — 하지만 병원 출입 기록 없음", "en": "Was at home — but no hospital access records" },
+        "flag": { "ko": "의학 지식은 있으나 병원 출입이 없음 — 물리적 범행 불가능", "en": "Has medical knowledge but no hospital access — physical crime impossible" }
+      }
+    ],
+    "clues": [
+      {
+        "order": 1,
+        "ko": "피해자의 혈청 칼륨 수치 과다 — 심장 마비 원인",
+        "en": "Victim's serum potassium levels elevated — cause of cardiac arrest"
+      },
+      {
+        "order": 2,
+        "ko": "의료 기록상 수액에 칼륨 투여 기록 없음 — 불법 투여",
+        "en": "Medical records show no potassium in IV — illegal administration"
+      },
+      {
+        "order": 3,
+        "ko": "중환자실 냉동 보관 약품 로그: 칼륨 1앰플 미기록 소실",
+        "en": "ICU frozen medicine log: One potassium ampule unaccounted for"
+      },
+      {
+        "order": 4,
+        "ko": "간호사의 휴대폰: 피해자 전 남편과의 친밀한 메시지 다수 발견",
+        "en": "Nurse's phone: Multiple intimate messages with victim's ex-husband found"
+      },
+      {
+        "order": 5,
+        "ko": "의료 기록 분석: 간호사 정혜은이 유일하게 수액 교체를 했음 — 04:15분",
+        "en": "Medical record analysis: Nurse Jung was the only one who changed IV — at 04:15"
+      },
+      {
+        "order": 6,
+        "ko": "피해자의 딸은 병원 출입 카드 기록이 전혀 없음 — 범행 참여 불가",
+        "en": "Victim's daughter has no hospital access card records — cannot participate in crime"
+      },
+      {
+        "order": 7,
+        "ko": "당직 의사의 서명: 간호사가 기록한 수액 기록에 의사가 사후 확인 서명 — 조작 증거",
+        "en": "On-call doctor's signature: Doctor countersigned nurse's IV record after — evidence of manipulation"
+      }
+    ],
+    "timeline": [
+      {
+        "id": "1",
+        "cells": [
+          { "ko": "당직실 대기", "s": "confirmed" },
+          { "ko": "수액 기록 서명", "s": "unverified" },
+          { "ko": "당직실 대기", "s": "confirmed" },
+          { "ko": "사망 추정", "s": "death" },
+          { "ko": "응급 처치", "s": "confirmed" }
+        ]
+      },
+      {
+        "id": "2",
+        "cells": [
+          { "ko": "중환자실 근무", "s": "confirmed" },
+          { "ko": "수액 교체", "s": "suspicious" },
+          { "ko": "약물 투여?", "s": "suspicious" },
+          { "ko": "사망 추정", "s": "death" },
+          { "ko": "응급 처치", "s": "confirmed" }
+        ]
+      },
+      {
+        "id": "3",
+        "cells": [
+          { "ko": "자택", "s": "unverified" },
+          { "ko": "자택", "s": "unverified" },
+          { "ko": "자택", "s": "unverified" },
+          { "ko": "사망 추정", "s": "death" },
+          { "ko": "병원 방문", "s": "confirmed" }
+        ]
+      }
+    ],
+    "deathCol": 3
+  },
+  {
+    "caseId": "HARD-007",
+    "era": "modern",
+    "crimeType": "fraud",
+    "method": "위조 진단서 사기 — 의료 보험 사기",
+    "title": { "ko": "종이의 환자", "en": "Patient on Paper" },
+    "location": { "ko": "서울 강남 신세계 의료 클리닉", "en": "Shinsegae Medical Clinic, Gangnam Seoul" },
+    "time": { "ko": "2026년 1월~2월 (월 단위 사기)", "en": "January–February 2026 (monthly fraud)" },
+    "victim": { "ko": "피해자: 의료 보험사 / 피해액: 9억 원", "en": "Victims: Health Insurance Companies / Damage: ₩900M" },
+    "difficulty": "hard",
+    "answer": "1",
+    "explanation": { 
+      "ko": "의사는 실제로 존재하지 않는 환자의 진단서를 위조했고, 이를 통해 의료 보험사로부터 거액의 보상금을 받았습니다. 그러나 문제는 간호사도 같은 목적으로 독단적으로 행동했다는 것입니다. 두 사람 모두 보험 사기를 저지르고 있었지만, 의사는 간호사의 존재를 몰랐습니다.",
+      "en": "The doctor forged medical certificates for non-existent patients, receiving large insurance payouts. But the issue is that the nurse was independently doing the same thing. Both were committing insurance fraud, but the doctor was unaware of the nurse's activities."
+    },
+    "suspects": [
+      {
+        "id": "1",
+        "name": { "ko": "의사 김준호", "en": "Doctor Kim Junho" },
+        "job": { "ko": "신세계 의료 클리닉 원장", "en": "Shinsegae Medical Clinic Director" },
+        "motive": { "ko": "클리닉 경영 적자 — 보험 사기로 수익 확보 시도", "en": "Clinic operating deficit — attempting to secure revenue through insurance fraud" },
+        "alibi": { "ko": "클리닉에서 진료 중 — CCTV로 확인됨", "en": "Treating patients at clinic — CCTV verified" },
+        "flag": { "ko": "의사의 진단서가 위조됨 — 필적 분석으로 확인", "en": "Doctor's medical certificates are forged — confirmed by handwriting analysis" }
+      },
+      {
+        "id": "2",
+        "name": { "ko": "간호사 박수진", "en": "Nurse Park Sujin" },
+        "job": { "ko": "신세계 의료 클리닉 간호사", "en": "Shinsegae Medical Clinic Nurse" },
+        "motive": { "ko": "의사의 진급 거부로 인한 경제적 어려움 — 독단적으로 보험 사기 진행", "en": "Economic hardship from denied promotion — independently committing insurance fraud" },
+        "alibi": { "ko": "클리닉에서 근무 중 — CCTV로 확인됨", "en": "Working at clinic — CCTV verified" },
+        "flag": { "ko": "간호사의 위조 진단서와 의사의 진단서 서식이 다름 — 독립적 사기", "en": "Nurse's forged certificates differ from doctor's format — independent fraud" }
+      },
+      {
+        "id": "3",
+        "name": { "ko": "클리닉 사무장 이영희", "en": "Clinic Administrator Lee Younghee" },
+        "job": { "ko": "신세계 의료 클리닉 사무장", "en": "Clinic Administrator" },
+        "motive": { "ko": "클리닉 매각 협상 중 자산 가치 인상 목적", "en": "During clinic sale negotiations — aiming to increase asset value" },
+        "alibi": { "ko": "사무실에서 행정 업무 중", "en": "Handling administrative work in office" },
+        "flag": { "ko": "사무장은 진단서 작성 권한이 없음 — 의료 기록 접근 제한", "en": "Administrator has no authority to write medical certificates — limited medical record access" }
+      }
+    ],
+    "clues": [
+      {
+        "order": 1,
+        "ko": "의료 보험사 청구 기록: 존재하지 않는 환자 진단서 20장 이상",
+        "en": "Insurance claim records: Over 20 medical certificates for non-existent patients"
+      },
+      {
+        "order": 2,
+        "ko": "의사의 필적 분석: 일부 진단서는 필적이 다름 — 두 명의 위조자 추정",
+        "en": "Handwriting analysis: Some certificates have different handwriting — estimated 2 forgers"
+      },
+      {
+        "order": 3,
+        "ko": "의사의 진단서와 간호사의 진단서 서식 비교 — 완전히 다른 양식",
+        "en": "Comparison of doctor's and nurse's certificate formats — completely different styles"
+      },
+      {
+        "order": 4,
+        "ko": "의사의 휴대폰: 간호사와의 협력 메시지 없음 — 독립적 사기",
+        "en": "Doctor's phone: No collaboration messages with nurse — independent fraud"
+      },
+      {
+        "order": 5,
+        "ko": "간호사의 개인 노트북: 위조 진단서 템플릿 파일 12개 발견",
+        "en": "Nurse's laptop: 12 forged certificate template files found"
+      },
+      {
+        "order": 6,
+        "ko": "의료 기록 조회: 의사가 청구한 환자는 병원 전자 기록에 없음",
+        "en": "Medical records check: Patients claimed by doctor don't exist in hospital system"
+      },
+      {
+        "order": 7,
+        "ko": "간호사가 청구한 환자 기록: 의사도 모르는 별도의 가짜 환자 명단",
+        "en": "Nurse's claimed patient records: Separate fake patient list unknown to doctor"
+      }
+    ],
+    "timeline": [
+      {
+        "id": "1",
+        "cells": [
+          { "ko": "진료 기록", "s": "suspicious" },
+          { "ko": "진단서 작성?", "s": "suspicious" },
+          { "ko": "보험 청구", "s": "suspicious" },
+          { "ko": "기각", "s": "confirmed" }
+        ]
+      },
+      {
+        "id": "2",
+        "cells": [
+          { "ko": "간호 업무", "s": "confirmed" },
+          { "ko": "진단서 위조?", "s": "suspicious" },
+          { "ko": "보험 청구", "s": "suspicious" },
+          { "ko": "기각", "s": "confirmed" }
+        ]
+      },
+      {
+        "id": "3",
+        "cells": [
+          { "ko": "행정 업무", "s": "confirmed" },
+          { "ko": "클리닉 관리", "s": "confirmed" },
+          { "ko": "매각 협상", "s": "unverified" },
+          { "ko": "기각", "s": "confirmed" }
+        ]
+      }
+    ],
+    "deathCol": -1
   }
 ]
