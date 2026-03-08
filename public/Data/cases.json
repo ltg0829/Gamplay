@@ -1,65 +1,852 @@
 [
   {
-    "caseId": 20260317,
-    "difficulty": "Extreme",
+    "id": 1,
     "era": "modern",
-    "title": { "ko": "설원 위의 유령: KTX 404호의 비명", "en": "Ghost on Snow: KTX 404 Scream" },
-    "location": { "ko": "서울행 야간 고속열차 1호차", "en": "Night Express Train Car No.1" },
-    "victim": { "ko": "IT 기업가 강대표 (질식사)", "en": "CEO Kang (Suffocation)" },
+    "crimeType": "murder",
+    "method": "독살 — 와인 병 재밀봉",
+    "title": { "ko": "밀봉된 와인의 비밀", "en": "Secret of the Sealed Wine" },
+    "location": { "ko": "서울 강남 르메르디앙 호텔 1502호", "en": "Room 1502, Le Méridien Hotel, Gangnam Seoul" },
+    "time": { "ko": "2026년 3월 4일 — 사망 추정 23:15~23:40", "en": "March 4, 2026 — TOD est. 23:15–23:40" },
+    "victim": { "ko": "피해자: 박준혁 (58세, JH그룹 회장)", "en": "Victim: Park Junho (58, JH Group Chairman)" },
     "synopsis": {
-      "ko": "폭설로 터널 안에 멈춰선 열차. 5분간의 갑작스러운 전차선 점검으로 전등이 꺼진 사이, 1등석의 강대표가 자신의 좌석에서 숨진 채 발견되었습니다. 문은 잠겨 있었고 옆 칸 승객들은 아무 소리도 듣지 못했습니다.",
-      "en": "A train stuck in a tunnel during a blizzard. During a 5-minute blackout for inspection, CEO Kang was found dead in his first-class seat. The door was locked, and neighbors heard nothing."
+      "ko": "JH그룹 회장 박준혁이 강남 5성급 호텔 1502호에서 숨진 채 발견되었다. 객실은 이중 잠금 상태, 창문은 외부 시건 장치로 봉쇄. 국과수 감정 결과 사인은 룸서비스 와인에 투입된 희귀 합성 독극물로 확인됐다. 당일 피해자는 비즈니스 만찬을 열었으며 총 5인이 접촉했다. 해고된 비서가 제약학 전공자이고 당일 호텔 주변에서 목격되어 가장 의심받고 있으며, 감사를 앞두고 180억 횡령 의혹을 받는 부회장도 강한 동기를 가진다. 그러나 와인을 직접 배달한 소믈리에는 피해자에게 해고 압박을 받았고 병 재밀봉 기술을 유일하게 아는 인물이다.",
+      "en": "JH Group Chairman Park Junho was found dead in Room 1502. The room was double-locked and all windows secured externally. Forensics confirmed poisoning via rare synthetic compound in room-service wine. Five individuals had contact that day. A fired secretary with pharmacology background is prime suspect, and a vice chairman with embezzlement motive is also under scrutiny. However, the sommelier who delivered the wine — fired under victim's pressure and the only one who knows the bottle re-sealing technique — is the true culprit."
     },
-    "slots": [2300, 2310, 2320, 2325, 2330],
-    "suspects": [
-      {
-        "id": "A", "name": { "ko": "수행비서 정씨", "en": "Secretary Jung" },
-        "motive": { "ko": "강대표의 갑질과 비밀 장부 탈취 목적", "en": "Abuse of power and theft of secret ledger" },
-        "alibi": { "ko": "정전 당시 2호차 스낵바에서 커피를 사고 있었음", "en": "Buying coffee at the Car No.2 snack bar" },
-        "flag": { "ko": "그의 손목시계가 5분 느리게 맞춰져 있음", "en": "His wristwatch is set 5 minutes slow" }
-      },
-      {
-        "id": "B", "name": { "ko": "기술자 최씨", "en": "Technician Choi" },
-        "motive": { "ko": "강대표의 회사가 자신의 특허를 도용함", "en": "CEO's company stole his patent" },
-        "alibi": { "ko": "전차선 점검을 위해 열차 끝 제어실에 있었음", "en": "At the control room for inspection" },
-        "flag": { "ko": "전기 제어반에 강제로 접근한 흔적이 발견됨", "en": "Traces of forced access to the electrical panel" }
-      },
-      {
-        "id": "C", "name": { "ko": "대학생 미나", "en": "Student Mina" },
-        "motive": { "ko": "과거 강대표의 사기 사건으로 가족이 파산함", "en": "Family bankrupt due to CEO's past scam" },
-        "alibi": { "ko": "자신의 좌석(1호차 5A)에서 잠들어 있었음", "en": "Asleep in her seat (Car 1, 5A)" },
-        "flag": { "ko": "그녀의 가방 안에서 낚싯줄과 접착테이프가 발견됨", "en": "Fishing line and adhesive tape found in her bag" }
-      },
-      {
-        "id": "D", "name": { "ko": "승무원 박씨", "en": "Attendant Park" },
-        "motive": { "ko": "강대표에게 거액의 빚을 지고 독촉받는 중", "en": "Heavy debt to the CEO and being pressured" },
-        "alibi": { "ko": "3호차에서 승객들의 민원을 처리하고 있었음", "en": "Handling passenger complaints in Car No.3" },
-        "flag": { "ko": "그는 모든 객실의 마스터키를 소지하고 있음", "en": "He possesses the master key for all cabins" }
-      },
-      {
-        "id": "E", "name": { "ko": "기자 노씨", "en": "Journalist No" },
-        "motive": { "ko": "강대표의 추문을 취재하다가 협박당함", "en": "Blackmailed while covering CEO's scandals" },
-        "alibi": { "ko": "통로에서 편집장과 통화 중이었다고 주장함", "en": "Claims to be on a call with his editor" },
-        "flag": { "ko": "그의 휴대폰 통화 기록에는 사건 시각에 발신 내역이 없음", "en": "No outgoing calls in his phone log during the incident" }
-      },
-      {
-        "id": "F", "name": { "ko": "노부인 한씨", "en": "Elderly Han" },
-        "motive": { "ko": "강대표가 자신의 땅을 강제로 매입함", "en": "CEO forcibly bought her land" },
-        "alibi": { "ko": "화장실에 계속 머물러 있었다고 말함", "en": "Claims she was in the restroom the whole time" },
-        "flag": { "ko": "평소 지팡이를 짚지만 사건 현장에는 지팡이 자국이 없음", "en": "Uses a cane, but no cane marks found at the scene" }
-      }
-    ],
-    "clues": [
-      { "order": 1, "ko": "강대표의 목에는 얇고 강한 선에 의한 자국이 남았습니다.", "en": "Thin, strong line marks found on the victim's neck." },
-      { "order": 2, "ko": "1호차 환기구 덮개가 살짝 열려 있으며, 그 안에 낚싯줄이 걸려 있습니다.", "en": "The vent cover in Car 1 is slightly open with fishing line caught inside." },
-      { "order": 3, "ko": "스낵바 직원은 비서 정씨가 커피를 주문할 때 이미 전등이 꺼진 상태였다고 증언합니다.", "en": "Staff testifies lights were already out when Jung ordered coffee." },
-      { "order": 4, "ko": "정전은 외부 고장이 아니라 열차 내부 제어반에서 수동으로 조작되었습니다.", "en": "The blackout was manually triggered from the internal control panel." },
-      { "order": 5, "ko": "비서 정씨와 기술자 최씨는 사실 대학 동창이며 최근 자주 연락한 사이입니다.", "en": "Secretary Jung and Technician Choi are college friends and in frequent contact." }
-    ],
-    "answer": "B",
-    "explanation": {
-      "ko": "범인은 기술자 최씨입니다. 그는 비서 정씨와 공모했습니다. 정씨가 알리바이를 만드는 동안 최씨는 제어반에서 정전을 일으켰고, 환기구와 낚싯줄을 이용한 '원거리 목조르기 트릭'을 사용했습니다. 최씨는 정비사라는 직업을 이용해 누구의 의심도 받지 않고 제어실에 머물며 범행을 저질렀습니다.",
-      "en": "The culprit is Choi. He conspired with Jung. While Jung made an alibi, Choi triggered the blackout and used a 'remote strangulation trick' via vents and fishing line. As a technician, he stayed in the control room without suspicion."
-    }
+    "answer_hint": "소믈리에 (가장 결백해 보이는 인물 — 업무상 행동으로 위장)",
+    "misdirect": "해고된 비서 (약학 전공, 호텔 인근 목격) / 부회장 (180억 횡령, 경영권 승계)",
+    "twist": "소믈리에는 업무상 배달이라 타임라인이 confirmed로 가득. 재밀봉 기술을 아는 유일한 인물임이 clue 4~5에서 드러남"
+  },
+  {
+    "id": 2,
+    "era": "joseon",
+    "crimeType": "murder",
+    "method": "교살 — 밀실 창호 열기 기술",
+    "title": { "ko": "사헌부의 그림자", "en": "Shadow of the Saheonbu" },
+    "location": { "ko": "조선 한양 북촌 이판서 사랑채", "en": "Sarangchae of Minister Yi, Bukchon, Hanyang" },
+    "time": { "ko": "갑오년 8월 15일 묘시 (05:00~07:00)", "en": "15th day, 8th month, Gabo Year — Myosi (05:00–07:00)" },
+    "victim": { "ko": "피해자: 이병헌 판서 (62세, 이조판서)", "en": "Victim: Minister Yi Byungheon (62, Minister of Personnel)" },
+    "synopsis": {
+      "ko": "이조판서 이병헌이 북촌 자택 사랑채에서 목이 졸려 숨진 채 발견되었다. 문은 안쪽 걸쇠로 잠겨 있었고 외부 침입 흔적도 없었다. 피해자의 손에는 '배신자는 성가대 안에 있다'고 적힌 양피지 조각이 쥐어져 있었다. 연회에서 격렬히 언쟁한 조카와 옷 찢김이 일치하는 비단 조각이 결정적 증거처럼 보이며, 사당 참배 알리바이가 불성립된 사헌부 대사헌도 동선이 의심스럽다. 그러나 당야 야경꾼의 목격과 피해자 짐에서 발견된 장부는 전직 무관 출신 상인을 진범으로 가리킨다.",
+      "en": "Minister Yi was found strangled in his locked sarangchae. A torn parchment reading 'the traitor is within the choir' was clutched in his hand. His nephew who argued publicly and the chief inspector with a false alibi draw strong suspicion. But a merchant ex-officer — spotted by the night watchman and found with the victim's ledger — is the true culprit."
+    },
+    "answer_hint": "전직 무관 출신 상인 (밀수 장부 압수 목적)",
+    "misdirect": "조카 (비단 조각 일치, 공개 언쟁) / 사헌부 대사헌 (알리바이 불성립, 강건한 체격)",
+    "twist": "창호 열기 기술로 안에서 잠근 것처럼 위장. 상인의 가죽 신발 흔적과 정원 특유 흙이 clue 4~5에서 진범 확정"
+  },
+  {
+    "id": 3,
+    "era": "medieval_europe",
+    "crimeType": "murder",
+    "method": "단검 — 이중 빗장 트릭",
+    "title": { "ko": "수도원의 단검", "en": "The Dagger of the Abbey" },
+    "location": { "ko": "신성로마제국 라인강 유역 성 베네딕트 수도원 도서관", "en": "Library, Saint Benedict Abbey, Rhine Valley" },
+    "time": { "ko": "1347년 10월 11일 자정~새벽 2시", "en": "October 11, 1347 — midnight to 02:00" },
+    "victim": { "ko": "피해자: 대수도원장 클레멘스 (67세)", "en": "Victim: Abbot Clemens (67)" },
+    "synopsis": {
+      "ko": "흑사병이 라인강을 휩쓸던 1347년, 격리 중인 수도원의 대수도원장이 도서관에서 단검에 찔려 숨졌다. 도서관은 철제 빗장으로 안쪽이 잠겨 있었고 창문 모두 쇠창살. 피해자 손에는 '배신자는 성가대 안에 있다'는 양피지가 쥐어져 있었다. 이단 치료법으로 종교재판을 앞둔 약초사 수사는 도서관 입장 시도가 목격됐고 동선이 수상하다. 부원장 수사도 차기 원장 자리를 빼앗길 위기여서 의심받는다. 그러나 도서관 열쇠 관리자이자 필사사인 사서 수사만이 이중 빗장 트릭을 알고 있었고, 금서 복사 발각 직전이었다.",
+      "en": "In a plague-isolated abbey, the Abbot was found stabbed in a double-bolted library. The herbalist monk facing inquisition and the Prior fearing demotion draw strong suspicion. But the librarian monk — sole keeper of the double-bolt trick and facing expulsion for copying banned books — is the true culprit."
+    },
+    "answer_hint": "사서 수사 힐데마르 (이중 빗장 트릭 유일 보유, 금서 복사 발각 위기)",
+    "misdirect": "약초사 수사 베르톨트 (이단 고발 위기, 도서관 입장 시도) / 부원장 안셀무스 (원장직 박탈 위기)",
+    "twist": "이중 빗장 트릭으로 외부에서 잠근 것처럼 위장. 금니 잉크 발자국과 수도복 혈흔이 clue 4~5에서 진범 확정"
+  },
+  {
+    "id": 4,
+    "era": "colonial_korea",
+    "crimeType": "murder",
+    "method": "둔기 타살 — 밀실 뒷계단 트릭",
+    "title": { "ko": "경성의 밤비", "en": "Night Rain in Gyeongseong" },
+    "location": { "ko": "1930년 경성부 종로 조선인 약재상 2층 밀실", "en": "2nd floor secret room, herbal medicine shop, Jongno, Gyeongseong 1930" },
+    "time": { "ko": "1930년 6월 14일 밤 11시~자정", "en": "June 14, 1930 — 23:00–00:00" },
+    "victim": { "ko": "피해자: 최재원 (51세, 독립운동 자금책)", "en": "Victim: Choi Jaewon (51, Independence Movement financier)" },
+    "synopsis": {
+      "ko": "경성 약재상 대표 최재원이 가게 2층 비밀 방에서 머리를 맞아 숨진 채 발견됐다. 비 오는 밤이라 외부 발자국 없음. 피해자는 독립운동 자금을 관리하던 인물로 당일 밤 비밀 회합이 있었다. 회합 중 격한 언쟁을 벌이고 2층에 홀로 남은 언론인이 가장 강력한 용의자로 보인다. 일제 밀정 신분의 상인도 뒷골목에서 목격됐다. 그러나 자금 횡령이 발각 직전인 운반책 상인이 뒷계단으로 2층에 진입했고, 비 오는 밤 신발이 젖지 않은 것이 결정적 증거다.",
+      "en": "In 1930 Gyeongseong, a secret independence movement financier was bludgeoned in a locked 2nd-floor room during a rainy night. A journalist who argued and stayed alone on the 2nd floor, and a Japanese informant spotted outside, draw suspicion. But the fund courier facing embezzlement exposure — whose shoes were dry on a rainy night — is the true culprit, having used the secret back staircase."
+    },
+    "answer_hint": "자금 운반책 정한성 (뒷계단 이동, 비 오는 날 건조한 신발)",
+    "misdirect": "독립신문 기자 김철수 (언쟁 후 단독 2층 체류) / 일제 밀정 (뒷골목 목격)",
+    "twist": "비 오는 날 신발 미젖음 = 실내 이동 증명. 약재상 2층 전용 황기 분말이 소매에서 검출"
+  },
+  {
+    "id": 5,
+    "era": "victorian",
+    "crimeType": "murder",
+    "method": "총기 자살 위장 — 비밀 통로",
+    "title": { "ko": "안개 속의 유서", "en": "The Will in the Fog" },
+    "location": { "ko": "1888년 런던 이스트엔드 그레이엄 경 저택 서재", "en": "Study, Lord Graham's mansion, East End London, 1888" },
+    "time": { "ko": "1888년 11월 3일 자정~오전 2시", "en": "November 3, 1888 — midnight to 02:00" },
+    "victim": { "ko": "피해자: 에드워드 그레이엄 경 (74세, 귀족 재벌)", "en": "Victim: Lord Edward Graham (74, noble magnate)" },
+    "synopsis": {
+      "ko": "런던 그레이엄 경이 자택 서재에서 총기 사망. 자살로 위장됐으나 화약 잔여물 미검출 및 총구 각도 불일치로 타살 확인. 새 유언장으로 유산 180만 파운드를 잃게 된 딸이 서재 앞 복도에서 목격됐고 총성 후 가장 먼저 도착해 가장 의심스럽다. 동반자 마가렛도 22시 서재 방문이 확인됐다. 그러나 저택 매각 조항으로 거처를 잃게 된 30년 근속 집사가 지하 비밀 통로를 통해 범행하고 지하 창고 30분 초과 체류로 알리바이를 위장했다.",
+      "en": "Lord Graham found shot dead in his study, staged as suicide. His daughter spotted near the study and first to arrive after the shot, plus his companion who visited the study at 22:00, draw suspicion. But the 30-year butler — losing his home to the estate sale clause — used a secret underground passage and disguised his alibi with an extended cellar visit."
+    },
+    "answer_hint": "집사 토마스 윌슨 (지하 통로 이용, 저택 상속 약속 파기 통보)",
+    "misdirect": "딸 빅토리아 (상속 180만 파운드 박탈, 복도 목격, 가장 빠른 도착) / 동반자 마가렛 (22시 서재 방문)",
+    "twist": "지하 통로 단추 발견 + 서재 전용 시더우드 향 + 집사 초과 체류 20분 = 통로 왕복 시간 일치"
+  },
+  {
+    "id": 6,
+    "era": "modern",
+    "crimeType": "murder",
+    "method": "추락 — 옥외 테라스 강제 추락",
+    "title": { "ko": "13층의 추락", "en": "The Fall from the 13th Floor" },
+    "location": { "ko": "서울 마포 아크로타워 13층 옥외 테라스", "en": "13th floor outdoor terrace, Akro Tower, Mapo Seoul" },
+    "time": { "ko": "2025년 9월 20일 22:30~23:00", "en": "September 20, 2025 — 22:30–23:00" },
+    "victim": { "ko": "피해자: 오성민 (44세, IT 스타트업 대표)", "en": "Victim: Oh Sungmin (44, IT startup CEO)" },
+    "synopsis": {
+      "ko": "스타트업 대표가 자사 사옥 13층 테라스에서 추락사. 초기 자살로 판단됐으나 난간 제3자 혈흔과 재킷의 손가락 멍이 타살을 확인. 공동창업자는 주식 비리의 희생양으로 지목될 위기여서 동기가 강하고 테라스 방향 CCTV 포착도 됐다. CFO는 횡령 감사를 앞두고 테라스 근처에서 22:10 목격됐다. 그러나 신규 투자 라운드에서 배제되어 50억이 날아갈 위기인 투자사 대표가 청소부 목격, CCTV 사각지대 이동, DNA 일치 혈흔으로 진범임이 드러난다.",
+      "en": "A startup CEO fell from a 13th-floor terrace in what appeared to be suicide. The co-founder facing blame for stock fraud and the CFO spotted near the terrace at 22:10 draw suspicion. But the VC CEO — losing ₩5B from being cut from the funding round — is identified by janitor witness, CCTV blind spot movement, and DNA-matched blood on the railing."
+    },
+    "answer_hint": "투자사 대표 강태윤 (DNA 혈흔, 청소부 목격, CCTV 사각지대)",
+    "misdirect": "공동창업자 한지민 (희생양 지목 위기, 테라스 방향 CCTV) / CFO 유혜린 (횡령 감사, 22:10 테라스 근처)",
+    "twist": "피해자 손톱 피부 DNA + 난간 도료 잔여물 + 신발 혈액으로 3중 물증 수렴"
+  },
+  {
+    "id": 7,
+    "era": "ancient_rome",
+    "crimeType": "murder",
+    "method": "단검 — 전직 검투사의 심장 관통",
+    "title": { "ko": "원로원의 비수", "en": "Dagger of the Senate" },
+    "location": { "ko": "기원전 44년 로마 원로원 의사당 전실", "en": "Antechamber of Senate House (Curia Julia), 44 BC" },
+    "time": { "ko": "기원전 44년 3월 14일 제6시~7시 (정오~오후 2시)", "en": "March 14, 44 BC — 6th to 7th hour (noon–14:00)" },
+    "victim": { "ko": "피해자: 마르쿠스 포르키우스 의원 (62세)", "en": "Victim: Senator Marcus Porcius (62)" },
+    "synopsis": {
+      "ko": "카이사르 암살 전날, 원로원 전실에서 의원이 단 한 번의 정확한 심장 관통으로 숨졌다. 피해자는 암살 음모를 알고 폭로 직전이었다. 피해자와 직전 격렬히 논쟁한 카이사르파 수장이 가장 의심스럽고, 공화파 자금 출처 폭로를 막으려는 공화파 수장도 강한 동기를 가진다. 그러나 전직 검투사 출신 경비원만이 이 정도의 정밀한 심장 관통이 가능하며, 노예 신분 복귀 위기가 동기이고 경비 자리 이탈 30분이 사망 추정 시각과 일치한다.",
+      "en": "The day before Caesar's assassination, a senator was killed with a single precise heart thrust in the Senate antechamber. The Caesarian faction leader who had just argued with the victim, and the Republican leader with motive to silence him, draw suspicion. But only the former gladiator guard — facing return to slavery — had the precision for such a strike, and his 30-minute post desertion matches the TOD exactly."
+    },
+    "answer_hint": "경비원 마르쿠스 유닐리우스 (전직 검투사, 노예 복귀 위기, 30분 자리 이탈)",
+    "misdirect": "카이사르파 수장 루키우스 (직전 언쟁) / 공화파 수장 퀸투스 (자금 폭로 방지)",
+    "twist": "검투사급 심장 관통 + 단검 혈흔 제거 + 피해자 튜닉 섬유 검출로 진범 확정"
+  },
+  {
+    "id": 8,
+    "era": "modern_japan",
+    "crimeType": "murder",
+    "method": "독살 — 다도 찻잔 소매 접촉",
+    "title": { "ko": "교토의 다실", "en": "The Tea Room in Kyoto" },
+    "location": { "ko": "1926년 교토 기온 전통 료칸 다실", "en": "Tea room of a ryokan in Gion, Kyoto, 1926" },
+    "time": { "ko": "1926년 4월 8일 오후 3시~4시 (차노유 의식 직후)", "en": "April 8, 1926 — 15:00–16:00 (after chanoyu ceremony)" },
+    "victim": { "ko": "피해자: 야마모토 켄지 (67세, 교토 재계 실력자)", "en": "Victim: Yamamoto Kenji (67, Kyoto business magnate)" },
+    "synopsis": {
+      "ko": "교토 료칸 다도 의식 직후 피해자만 사망. 찻잔에 아코니틴 독이 검출됐다. 다도 사범은 준비 시간 10분 동안 단독으로 찻잔을 취급했고 도장 강제 매입 피해자여서 의심받는다. 경쟁 재계 인사도 오랜 사업 분쟁으로 동기가 있다. 그러나 5천만 엔 횡령이 발각 직전인 피해자 비서가 의식 중 찻잔을 배열하다 소매로 독을 접촉 투입했고, 이틀 전 아코니틴 원료 구입 기록이 진범을 가리킨다.",
+      "en": "Only the victim died after a Kyoto tea ceremony. Aconitine was detected in his tea bowl. The tea master with a 10-minute solo setup and grudge against the victim, and a business rival with longstanding dispute, draw suspicion. But the victim's secretary — facing exposure of ¥50M embezzlement — secretly applied poison via sleeve contact during the ceremony, confirmed by herb purchase records from two days prior."
+    },
+    "answer_hint": "비서 스즈키 아키라 (소매 접촉 투입, 구입 기록, 횡령 폭로 위기)",
+    "misdirect": "다도 사범 다나카 유코 (단독 준비, 강제 매입 동기) / 경쟁 재계 인사 마에다 (오랜 분쟁)",
+    "twist": "소매에서 아코니틴 잔여물 + 빈 유리병 + 구입 기록 + 피해자 일기 '스즈키 고발 예정'"
+  },
+  {
+    "id": 9,
+    "era": "cold_war",
+    "crimeType": "espionage",
+    "method": "교살 — 슈타지 고급 요원의 철사 교살",
+    "title": { "ko": "베를린의 암호", "en": "The Cipher of Berlin" },
+    "location": { "ko": "1961년 베를린 장벽 건설 직후 서베를린 호텔 602호", "en": "Room 602, Hotel Adlon, West Berlin, 1961" },
+    "time": { "ko": "1961년 8월 16일 새벽 2시~4시", "en": "August 16, 1961 — 02:00–04:00" },
+    "victim": { "ko": "피해자: 에른스트 하이만 (54세, 서독 정보국 요원)", "en": "Victim: Ernst Heimann (54, West German intelligence operative)" },
+    "synopsis": {
+      "ko": "베를린 장벽 건설 직후, 탈주자 명단 마이크로필름을 보유한 서독 요원이 호텔에서 철사 교살됐다. CIA 연락원 언론인이 01:12에 6층 복도에서 포착되어 가장 의심스럽고, MI6 요원도 피해자와 밀담 후 6층으로 이동했다. 그러나 마이크로필름에 자신의 실명이 적힌 슈타지 고급 요원이 바로 옆 방에 체크인하고 피해자 방 앞에서 2분 정지 후 CCTV 사각지대로 사라졌으며, 702호 카펫 섬유와 시계 윤활유가 그의 현장 진입을 입증한다.",
+      "en": "In post-Wall Berlin, a West German agent carrying a defector microfilm was wire-strangled in his hotel room. A CIA-linked journalist captured on 6th floor CCTV at 01:12 and an MI6 operative who moved to the 6th floor after a private meeting draw suspicion. But the senior Stasi operative in the adjacent room — whose own name is on the microfilm — disappeared into a CCTV blind spot after pausing outside the victim's door, confirmed by carpet fibers and watch lubricant from the crime scene."
+    },
+    "answer_hint": "슈타지 고급 요원 그레고르 볼프 (실명 은폐 절박, 인접 객실, 카펫 섬유)",
+    "misdirect": "CIA 연락원 클라우스 (01:12 6층 CCTV) / MI6 요원 피터 쇼 (밀담 후 6층 이동, 조기 퇴장)",
+    "twist": "도청 장치 + 4시간 전 선착 체크인 + 602호 전용 카펫 섬유 + 시계 윤활유"
+  },
+  {
+    "id": 10,
+    "era": "modern",
+    "crimeType": "murder",
+    "method": "둔기 타살 — 할로윈 군중 소음 위장",
+    "title": { "ko": "반지하의 붉은 잉크", "en": "Red Ink in the Basement" },
+    "location": { "ko": "서울 종로 인사동 독립출판사 반지하 편집실", "en": "Basement editorial office, independent publisher, Insadong Seoul" },
+    "time": { "ko": "2024년 10월 31일 22:00~23:30", "en": "October 31, 2024 — 22:00–23:30" },
+    "victim": { "ko": "피해자: 송태민 (55세, 독립출판사 대표)", "en": "Victim: Song Taemin (55, independent publisher CEO)" },
+    "synopsis": {
+      "ko": "할로윈 밤, 표절 폭로 출판을 앞둔 출판사 대표가 반지하 편집실에서 둔기에 맞아 숨졌다. 현장은 붉은 잉크로 뒤덮여 처음엔 혈흔으로 오인됐다. 명백한 동기를 가진 표절 작가와 격한 언쟁 후 편집실에 홀로 남은 계약 작가가 강력한 용의자다. 그러나 편집실 반지하 창문을 통해 몰래 진입한 경쟁 출판사 대표가 폭로 원고를 탈취하고 철재 잉크 통으로 범행했으며, 신발 잉크 흔적과 창문 창살 페인트가 진범을 가리킨다.",
+      "en": "On Halloween night, the CEO of an independent publisher was bludgeoned in his basement office amid Halloween crowd noise that masked his screams. A plagiarist author and a contracted writer who stayed alone after an argument draw suspicion. But a rival publisher who secretly entered through the basement window to steal the exposé manuscript — confirmed by shoe ink traces and window paint transfer — is the true culprit."
+    },
+    "answer_hint": "경쟁 출판사 대표 (반지하 창문 침입, 신발 잉크, 원고 탈취 목적)",
+    "misdirect": "표절 작가 (폭로 대상, 출판사 방문 기록) / 계약 작가 (언쟁 후 단독 체류)",
+    "twist": "할로윈 군중 = 비명 차단 + 반지하 특유 창살 페인트 + 신발 밑창 잉크 패턴"
+  },
+  {
+    "id": 11,
+    "era": "modern",
+    "crimeType": "theft",
+    "method": "미술품 절도 — 경보 우회 내부 공모",
+    "title": { "ko": "사라진 모네", "en": "The Missing Monet" },
+    "location": { "ko": "서울 용산 국립현대미술관 특별전시관", "en": "Special exhibition hall, MMCA, Yongsan Seoul" },
+    "time": { "ko": "2025년 2월 14일 폐관 후 22:00~00:00", "en": "February 14, 2025 — 22:00–00:00 after closing" },
+    "victim": { "ko": "피해자 없음 / 피해 작품: 모네 수련 연작 (시가 380억)", "en": "No victim / Stolen: Monet Water Lilies series (est. ₩38B)" },
+    "synopsis": {
+      "ko": "국립현대미술관 특별전에서 모네 수련 연작 3점이 폐관 후 사라졌다. 경보 시스템은 작동하지 않았다. 전시 브로커 출신 외부 용의자가 반출 루트를 알고 있고 전날 미술관을 방문했다는 점에서 강하게 의심받는다. 보안팀장도 당일 야간 근무지를 이탈한 것이 확인됐다. 그러나 작품 배치와 경보 시스템 비밀번호를 모두 아는 전시 큐레이터가 퇴직금 분쟁 중이었으며 폐관 후 30분 잔류 사실이 은폐됐고 개인 차량 트렁크에서 액자 파편이 발견된다.",
+      "en": "Three Monet paintings vanished from MMCA after closing hours. Security alarms were disabled. An art broker with knowledge of the export route and a security team leader who abandoned his post draw suspicion. But the exhibition curator — in a severance dispute and the only one knowing both painting placement and security passwords — concealed a 30-minute after-hours stay, confirmed by frame fragments in her car trunk."
+    },
+    "answer_hint": "전시 큐레이터 (경보 비밀번호 + 배치 파악, 퇴직금 분쟁, 액자 파편)",
+    "misdirect": "전시 브로커 (반출 루트 파악, 전날 방문) / 보안팀장 (야간 근무지 이탈)",
+    "twist": "경보 로그 삭제 흔적 (큐레이터 계정) + 30분 잔류 + 액자 파편 수지 성분 일치"
+  },
+  {
+    "id": 12,
+    "era": "renaissance",
+    "crimeType": "theft",
+    "method": "보석 절도 — 연회 중 교체 트릭",
+    "title": { "ko": "메디치의 루비", "en": "The Medici Ruby" },
+    "location": { "ko": "1492년 피렌체 메디치 궁전 대연회장", "en": "Grand banquet hall, Medici Palace, Florence, 1492" },
+    "time": { "ko": "1492년 4월 3일 연회 중 20:00~23:00", "en": "April 3, 1492 — during banquet, 20:00–23:00" },
+    "victim": { "ko": "피해자 없음 / 피해 물품: 메디치 가문 루비 원석 (시가 불명)", "en": "No victim / Stolen: Medici family ruby gemstone (priceless)" },
+    "synopsis": {
+      "ko": "로렌초 데 메디치 사후 첫 연회에서 가보 루비 원석이 사라졌다. 피렌체 최고의 보석 감정사가 연회 중 보석함 근처에서 두 차례 목격됐고 교체 기술로 유명해 최우선 용의자다. 적대 가문의 파치 귀족도 가문의 보복을 위해 잠입했다는 제보가 있다. 그러나 메디치 가문 전속 화가 겸 공방 운영자가 연회 직전 보석함 유리 수리를 담당했고, 정교한 모조품을 제작해 실물을 미리 교체해둔 후 연회가 들키울 기회로 삼았다.",
+      "en": "During the first banquet after Lorenzo de Medici's death, the heirloom ruby vanished. The finest gem appraiser — spotted twice near the jewel case and known for substitution tricks — is the prime suspect. A Pazzi noble seeking vengeance is also suspected. But the court painter who repaired the jewel case glass just before the banquet had already substituted the gem with a replica, confirmed by workshop pigment traces on the case."
+    },
+    "answer_hint": "메디치 전속 화가 (유리 수리로 선접근, 모조품 제작 기술, 공방 안료)",
+    "misdirect": "보석 감정사 (연회 중 목격, 교체 기술) / 파치 귀족 (가문 보복 동기, 잠입 제보)",
+    "twist": "유리 수리 시 실물 교체 → 연회 혼잡을 연막으로 활용. 모조품 안료가 화가 공방 특유 성분"
+  },
+  {
+    "id": 13,
+    "era": "joseon",
+    "crimeType": "theft",
+    "method": "국새 절도 — 환관 내부 공모",
+    "title": { "ko": "사라진 어보", "en": "The Vanished Royal Seal" },
+    "location": { "ko": "조선 중기 경복궁 내전 어보 보관소", "en": "Royal seal storage, Gyeongbokgung Inner Palace, mid-Joseon" },
+    "time": { "ko": "경술년 3월 초하루 (야간)", "en": "1st day, 3rd month, Gyeongseul Year — nighttime" },
+    "victim": { "ko": "피해 물품: 왕실 어보 (玉璽) / 부관 1명 사망", "en": "Stolen: Royal jade seal / One guard killed" },
+    "synopsis": {
+      "ko": "경복궁 어보 보관소에서 왕실 옥새가 사라지고 경비 부관 한 명이 살해됐다. 궁 외부 출입이 가능한 역관 출신 밀수꾼이 어보 반출 루트를 알고 있어 주요 용의자다. 야간 당직 교대 중 자리를 이탈한 내금위 장교도 의심받는다. 그러나 어보 보관소 열쇠를 관리하는 내시 상선이 경쟁 환관 세력에 복수하기 위해 어보를 외부로 넘겼으며, 새 자물쇠로 교체된 흔적과 장갑 재질 섬유가 진범을 가리킨다.",
+      "en": "The royal jade seal vanished from Gyeongbokgung's inner treasury, and a guard was killed. A smuggler with palace export knowledge and an Inner Guard officer who abandoned his post during shift change draw suspicion. But the senior eunuch who held the treasury keys — acting for rival faction revenge — passed the seal to an outside agent, confirmed by replaced lock evidence and glove fibers."
+    },
+    "answer_hint": "내시 상선 (열쇠 관리, 파벌 복수, 자물쇠 교체 + 장갑 섬유)",
+    "misdirect": "역관 출신 밀수꾼 (반출 루트 파악) / 내금위 장교 (야간 자리 이탈)",
+    "twist": "자물쇠 교체는 사전 계획의 증거. 장갑 섬유 재질이 내시 전용 복식 소재와 일치"
+  },
+  {
+    "id": 14,
+    "era": "modern",
+    "crimeType": "fraud",
+    "method": "유언장 위조 — 공증인 매수",
+    "title": { "ko": "두 장의 유언장", "en": "Two Last Wills" },
+    "location": { "ko": "서울 서초 대형 법무법인 / 유서 작성 병실", "en": "Major law firm, Seocho Seoul / hospital room" },
+    "time": { "ko": "2025년 8월~10월 (위조 실행 추정)", "en": "August–October 2025 (forgery window)" },
+    "victim": { "ko": "피해자: 최영수 (81세, 건설그룹 창업주)", "en": "Victim: Choi Youngsoo (81, construction group founder)" },
+    "synopsis": {
+      "ko": "건설그룹 창업주 사망 후 유언장이 두 버전 존재하는 것이 밝혀졌다. 나중 버전은 장남에게 전 재산을 몰아주는 내용. 병원 입원 기간 피해자를 자주 방문한 차남이 위조본을 작성했다는 의혹을 받으며, 공증인과 친분도 확인됐다. 피해자의 개인 변호사도 위임 남용이 의심된다. 그러나 장남이 자신에게 유리한 버전을 만들기 위해 공증인을 매수했고, 서명 필압 분석과 공증인 계좌 입금 기록이 진범을 가리킨다.",
+      "en": "After a construction magnate's death, two versions of his will emerged — the later one leaving everything to the eldest son. The second son who visited frequently and had ties to the notary is suspected of forgery. The personal attorney is also under scrutiny. But the eldest son — who bribed the notary to create the favorable version — is confirmed by signature pressure analysis and notary bank transfer records."
+    },
+    "answer_hint": "장남 최민준 (자신에게 유리한 위조, 공증인 매수, 계좌 이체)",
+    "misdirect": "차남 최진수 (병실 방문, 공증인 친분) / 개인 변호사 (위임 남용 의혹)",
+    "twist": "서명 필압 분석 + 공증인 2,000만 원 수수 + 장남 명의 계좌 이체"
+  },
+  {
+    "id": 15,
+    "era": "goryeo",
+    "crimeType": "murder",
+    "method": "독화살 — 사냥터 혼전 위장",
+    "title": { "ko": "왕실 사냥의 비밀", "en": "Secret of the Royal Hunt" },
+    "location": { "ko": "고려 개경 인근 왕실 사냥터", "en": "Royal hunting grounds near Gaekyeong, Goryeo Dynasty" },
+    "time": { "ko": "고려 고종 23년 가을 — 왕실 사냥 중", "en": "Autumn, 23rd year of King Gojong, Goryeo — during royal hunt" },
+    "victim": { "ko": "피해자: 김윤후 장군 (50세, 왕실 호위 무장)", "en": "Victim: General Kim Yunhu (50, royal military escort)" },
+    "synopsis": {
+      "ko": "왕실 사냥 중 호위 무장이 화살에 맞아 숨졌다. 빗나간 사냥 화살로 처리됐으나 화살촉에서 독성 물질 검출. 피해자와 영지 분쟁 중인 귀족 무장이 당일 사냥에 참가했고 활 솜씨가 뛰어나 의심받는다. 몽골계 무관도 피해자와 충돌 후 사냥 중 행방이 불명확하다. 그러나 왕실 독성 약재를 관리하는 내의원 의관이 피해자의 전 스승으로서 지식 이전을 거부당한 원한을 품었고, 화살촉 독 성분이 내의원 전용 약재임이 clue 5에서 드러난다.",
+      "en": "During a royal hunt, the military escort was killed by an arrow — ruled accidental until a toxin was found on the arrowhead. A rival noble knight with land disputes and a Mongol-origin officer who clashed with the victim draw suspicion. But the royal physician — the victim's former mentor, denied knowledge transfer — is revealed as the culprit when the arrowhead toxin matches the exclusive royal dispensary compound."
+    },
+    "answer_hint": "내의원 의관 (독 성분 제조, 원한, 내의원 전용 약재 일치)",
+    "misdirect": "귀족 무장 (영지 분쟁, 당일 참가, 활 솜씨) / 몽골계 무관 (충돌 후 행방 불명)",
+    "twist": "독화살은 사냥 혼전 위장에 최적 — 의관은 사냥에 참가하지 않아 알리바이 완벽해 보임. clue 5에서 내의원 전용 성분이 역설적으로 의관을 가리킴"
+  },
+  {
+    "id": 16,
+    "era": "wild_west",
+    "crimeType": "murder",
+    "method": "총기 타살 — 밀폐 광산 갱도 내부",
+    "title": { "ko": "실버 크릭의 마지막 총성", "en": "Last Shot at Silver Creek" },
+    "location": { "ko": "1882년 네바다 실버 크릭 은광 제3 갱도", "en": "Shaft 3, Silver Creek silver mine, Nevada, 1882" },
+    "time": { "ko": "1882년 7월 19일 21:00~22:30", "en": "July 19, 1882 — 21:00–22:30" },
+    "victim": { "ko": "피해자: 제이크 핸슨 (44세, 은광 소유주)", "en": "Victim: Jake Hansen (44, silver mine owner)" },
+    "synopsis": {
+      "ko": "은광 소유주가 갱도 내부에서 총에 맞아 숨진 채 발견됐다. 갱도는 입구 하나뿐이고 당일 밤 5명만 입장했다. 전 파트너는 광산 지분 사기 피해로 복수 동기가 뚜렷하고 갱도 내에서 목격됐다. 현상금 사냥꾼 출신도 피해자의 전 부하라 갱도 구조를 잘 안다. 그러나 광산 측량사가 갱도 비밀 출구를 유일하게 알고 있었고, 광산 지분 위조 서류를 피해자가 발견했기 때문에 입을 막을 필요가 있었으며, 비밀 출구 통과 흔적이 clue 4~5에서 드러난다.",
+      "en": "The silver mine owner was shot inside a single-exit shaft. Only five people entered that night. A former partner with fraud grievances and an ex-bounty hunter familiar with the shaft both draw suspicion. But the mine surveyor — the only one who knew a secret exit tunnel and whose forged land documents the victim had just discovered — is confirmed by passage traces through the hidden exit."
+    },
+    "answer_hint": "광산 측량사 (비밀 출구 독점 지식, 위조 서류 발각 위기)",
+    "misdirect": "전 파트너 (지분 사기 복수 동기, 갱도 목격) / 현상금 사냥꾼 (갱도 구조 파악)",
+    "twist": "비밀 출구 = 완벽한 알리바이처럼 보임. 측량사는 갱도를 일찍 나온 것처럼 보이지만 비밀 출구로 재진입"
+  },
+  {
+    "id": 17,
+    "era": "ottoman",
+    "crimeType": "murder",
+    "method": "교살 — 하렘 내부 밀실",
+    "title": { "ko": "톱카피의 비단 끈", "en": "The Silk Cord of Topkapı" },
+    "location": { "ko": "16세기 오스만 제국 톱카피 궁전 하렘 내전", "en": "Harem inner chamber, Topkapı Palace, Ottoman Empire, 16th century" },
+    "time": { "ko": "히즈라력 952년 라마단 월 15일 야반 (02:00~04:00)", "en": "15th night of Ramadan, 952 AH — 02:00–04:00" },
+    "victim": { "ko": "피해자: 하렘 제2 카딘 술레이마 (31세)", "en": "Victim: Second Kadın Suleima (31), harem consort" },
+    "synopsis": {
+      "ko": "술탄의 제2 카딘이 하렘 내전에서 비단 끈으로 교살됐다. 내전은 안에서 잠겨 있었고 하렘 내부 인물만 진입 가능. 제1 카딘이 왕위 계승 경쟁에서 제2 카딘을 제거하려 했다는 제보가 있고 하렘 내 가장 강한 영향력을 가진다. 하렘 수석 환관도 피해자에게 뇌물 수수 사실이 발각돼 위기였다. 그러나 피해자의 측근 시녀가 피해자의 비밀 편지를 빼돌린 후 입을 막기 위해 범행했고, 비단 끈 재질이 시녀 전용 복식 소재임이 clue 5에서 드러난다.",
+      "en": "The sultan's second consort was strangled with a silk cord in her locked inner chamber — accessible only to harem insiders. The first consort with succession rivalry and the head eunuch with bribery exposure both draw suspicion. But the victim's personal handmaiden — who stole the victim's secret correspondence and then silenced her — is confirmed when the silk cord material matches her exclusive uniform fabric."
+    },
+    "answer_hint": "수석 시녀 파티마 (비밀 편지 탈취 후 입막음, 비단 끈 재질)",
+    "misdirect": "제1 카딘 하피제 (계승 경쟁, 하렘 최고 영향력) / 수석 환관 (뇌물 발각 위기)",
+    "twist": "시녀는 피해자의 심복으로 아무도 의심하지 않음. 비단 끈은 시녀 제복 허리띠와 동일 제직"
+  },
+  {
+    "id": 18,
+    "era": "modern",
+    "crimeType": "murder",
+    "method": "익사 위장 — 리조트 수영장",
+    "title": { "ko": "수면 아래의 진실", "en": "Truth Beneath the Surface" },
+    "location": { "ko": "제주 해안 럭셔리 리조트 실내 수영장", "en": "Indoor pool, luxury coastal resort, Jeju" },
+    "time": { "ko": "2024년 8월 10일 23:30~00:30", "en": "August 10, 2024 — 23:30–00:30" },
+    "victim": { "ko": "피해자: 윤상호 (52세, 부동산 디벨로퍼)", "en": "Victim: Yoon Sangho (52, real estate developer)" },
+    "synopsis": {
+      "ko": "리조트 실내 수영장에서 부동산 디벨로퍼가 익사한 채 발견됐다. 초기 음주 익사로 처리됐으나 뒤통수 둔기 흔적으로 타살 확인. 사업 파트너는 500억 투자 손실로 피해자를 원망하고 당일 밤 풀사이드에서 목격됐다. 피해자의 전 부인은 이혼 소송 중 재산분할 불만이 크다. 그러나 리조트 수영장 시설 담당 직원이 당일 야간 혼자 점검 작업 중이었고, 피해자에게 해고 협박을 받았으며 점검 일지에 허위 서명을 남겼다.",
+      "en": "A real estate developer drowned in a resort indoor pool — initially ruled accidental until blunt force trauma to the back of the head was found. A business partner with a ₩50B loss grudge spotted at poolside, and the victim's ex-wife in a divorce dispute both draw suspicion. But the resort pool maintenance worker — threatened with dismissal and alone during the late-night inspection — left falsified log signatures that confirm he was present."
+    },
+    "answer_hint": "수영장 시설 담당 직원 (야간 단독 근무, 해고 협박, 허위 점검 일지)",
+    "misdirect": "사업 파트너 (500억 손실, 풀사이드 목격) / 전 부인 (재산분할 분쟁)",
+    "twist": "야간 점검 직원은 아무도 의심 안 함 — 허위 일지가 오히려 현장 존재를 증명"
+  },
+  {
+    "id": 19,
+    "era": "jazz_age",
+    "crimeType": "murder",
+    "method": "독살 — 칵테일 교체",
+    "title": { "ko": "금주령 시대의 독배", "en": "Poison in the Prohibition Era" },
+    "location": { "ko": "1928년 뉴욕 맨해튼 지하 스피크이지 클럽", "en": "Underground speakeasy club, Manhattan New York, 1928" },
+    "time": { "ko": "1928년 11월 22일 자정~오전 1시", "en": "November 22, 1928 — midnight to 01:00" },
+    "victim": { "ko": "피해자: 프랭크 마렐로 (55세, 이탈리아계 갱단 보스)", "en": "Victim: Frank Marello (55, Italian-American mob boss)" },
+    "synopsis": {
+      "ko": "금주령 시대 뉴욕, 갱단 보스가 자신의 비밀 클럽에서 독이 든 칵테일로 숨졌다. 경쟁 아일랜드계 갱단 두목이 영역 다툼으로 강력한 동기를 가지고 당일 밤 클럽을 방문했다. 피해자의 부관은 갱단 내 권력 이동을 노렸다. 그러나 칵테일을 제조한 바텐더가 피해자에게 밀주 제조비를 착취당하고 있었으며, 특정 손님 잔에만 독을 넣는 방법을 알고 자신의 칵테일 셰이커에 독 잔여물이 남아 있다.",
+      "en": "In Prohibition-era New York, a mob boss died of a poisoned cocktail in his own speakeasy. The rival Irish gang leader with territory disputes visited that night, and the victim's underboss eyeing a power shift both draw suspicion. But the bartender — extorted for bootleg recipes and the only one who knows how to target a specific guest's glass — is confirmed when poison residue is found in his personal cocktail shaker."
+    },
+    "answer_hint": "바텐더 지미 코너 (셰이커 독 잔여물, 밀주 착취, 잔 타겟 기술)",
+    "misdirect": "아일랜드 갱 두목 패디 (영역 다툼, 당일 방문) / 부관 루치 (권력 이동 야심)",
+    "twist": "갱단 보스 암살은 내부자만 가능 — 바텐더는 완전히 배경화면 같은 존재. 셰이커 내부 독 잔여물이 반박 불가 증거"
+  },
+  {
+    "id": 20,
+    "era": "ancient_rome",
+    "crimeType": "theft",
+    "method": "신전 보물 절도 — 사제 내부 공모",
+    "title": { "ko": "베스타의 불꽃", "en": "Flame of Vesta" },
+    "location": { "ko": "기원전 63년 로마 베스타 신전 보물 창고", "en": "Vesta Temple treasury, Rome, 63 BC" },
+    "time": { "ko": "기원전 63년 6월 — 축제 전야 야간", "en": "June, 63 BC — night before Vestalia festival" },
+    "victim": { "ko": "피해 물품: 베스타 신전 황금 공물 (로마 국고급 가치)", "en": "Stolen: Golden votive offerings of Vesta Temple (state treasury value)" },
+    "synopsis": {
+      "ko": "베스타 신전 축제 전야, 황금 공물이 사라졌다. 전임 수석 베스탈이 신전 반출 루트를 알고 있고 최근 강제 퇴직으로 원한을 가진다. 신전 금고 열쇠를 복사했다는 제보를 받은 전직 사제도 의심받는다. 그러나 현직 수석 베스탈이 신전 내부 보관 방식을 바꾸는 척하며 사전에 공물을 이동시켰고, 자신의 추종 사제를 통해 반출했으며, 공물 보관 기록의 잉크 성분이 현직 수석 베스탈 전용 필기 도구와 일치한다.",
+      "en": "On the eve of Vestalia, the golden offerings vanished. A former head Vestal with forced retirement grievances knows the export routes, and an ex-priest reportedly caught copying vault keys draws suspicion. But the current head Vestal — who rearranged the treasury as a cover, moved the offerings in advance, and used a loyal acolyte for export — is confirmed when the ink on the altered storage records matches her exclusive writing instrument."
+    },
+    "answer_hint": "현직 수석 베스탈 클라우디아 (기록 조작, 추종 사제 이용, 잉크 성분)",
+    "misdirect": "전임 수석 베스탈 (반출 루트 파악, 강제 퇴직 원한) / 전직 사제 (열쇠 복사 제보)",
+    "twist": "현직자는 아무도 의심 안 함 — 보관 방식 변경이 오히려 절도의 위장. 잉크 성분이 결정적"
+  },
+  {
+    "id": 21,
+    "era": "modern",
+    "crimeType": "arson",
+    "method": "방화 — 전기 패널 조작 위장",
+    "title": { "ko": "새벽 세 시의 불꽃", "en": "Flames at Three in the Morning" },
+    "location": { "ko": "인천 남동공단 정밀부품 제조공장", "en": "Precision parts manufacturing plant, Namdong Industrial Complex, Incheon" },
+    "time": { "ko": "2025년 1월 8일 03:00~04:30", "en": "January 8, 2025 — 03:00–04:30" },
+    "victim": { "ko": "피해자 없음 (야간 근무자 3명 대피 성공) / 공장 전소", "en": "No casualties (3 night workers evacuated) / Factory destroyed" },
+    "synopsis": {
+      "ko": "정밀부품 공장이 새벽에 전소됐다. 전기 패널 과부하로 인한 사고로 처리될 뻔했으나 가속제 성분 검출로 방화 확인. 최근 납품 계약 박탈로 원한을 품은 거래처 대표가 가장 강한 동기를 가지고 당일 저녁 공장 인근에서 목격됐다. 해고된 전직 공장장도 설비 구조를 완전히 파악한다. 그러나 공장주 자신이 800억 공장 보험금을 노리고 설비 전문 직원을 이용해 방화를 지시했으며, 보험 계약 시점과 공장주 본인의 해외 출장 알리바이가 허위임이 clue 4~5에서 드러난다.",
+      "en": "A precision parts factory burned down, nearly ruled accidental until accelerant was found. A business partner whose contract was revoked and a fired plant manager with layout knowledge draw suspicion. But the factory owner himself — orchestrating the arson through a technical employee to claim ₩80B in insurance — is confirmed when the insurance contract timing and his alleged overseas alibi are both exposed as false."
+    },
+    "answer_hint": "공장주 김대호 (보험금 목적, 위장 출장 알리바이, 직원 사주)",
+    "misdirect": "거래처 대표 (납품 박탈 원한, 인근 목격) / 전직 공장장 (설비 구조 파악, 해고 앙심)",
+    "twist": "공장주는 해외 출장 중이라 알리바이 완벽해 보임 → 항공권 위조 + 대리인 체크인 + 보험 계약 3개월 전 특약 추가"
+  },
+  {
+    "id": 22,
+    "era": "colonial_korea",
+    "crimeType": "arson",
+    "method": "방화 — 인쇄소 납 활자 녹임",
+    "title": { "ko": "불탄 활자판", "en": "The Burned Type" },
+    "location": { "ko": "1919년 경성부 수표교 인근 독립신문 인쇄소", "en": "Independence newspaper print shop near Supyogyo, Gyeongseong, 1919" },
+    "time": { "ko": "1919년 3월 1일 직후 — 3월 2일 새벽 2시~4시", "en": "Just after March 1st movement — March 2nd, 02:00–04:00" },
+    "victim": { "ko": "피해자: 이재복 (47세, 인쇄소 소장)", "en": "Victim: Yi Jaebok (47, print shop director)" },
+    "synopsis": {
+      "ko": "3·1운동 직후 독립신문 인쇄소가 불타고 소장이 사망했다. 일제 헌병대 방화로 의심됐으나 내부 가속제 배치 패턴이 외부 침입과 불일치. 인쇄소 운영자금을 횡령하다 발각된 회계 담당이 의심받고, 인쇄소 이권을 노리는 친일파 사업가도 동기가 있다. 그러나 독립운동 자금책으로 이중 신분을 유지하던 인쇄공이 비밀 회합 장소로 쓰이던 인쇄소가 일제에 노출될 위기에 처하자 증거 인멸을 위해 스스로 불을 질렀고 소장이 미처 탈출하지 못했다.",
+      "en": "A print shop connected to the independence movement burned after the March 1st protests. Japanese military arson was suspected, but internal accelerant patterns contradicted outside entry. A bookkeeper caught embezzling and a pro-Japanese businessman eyeing the press both draw suspicion. But a printer who maintained a double identity as an independence fund agent — fearing the shop's use as a secret meeting place had been exposed to the Japanese — set the fire himself to destroy evidence, and the director failed to escape."
+    },
+    "answer_hint": "인쇄공 박윤식 (이중 신분, 증거 인멸 방화, 내부 가속제 배치 패턴)",
+    "misdirect": "회계 담당 최봉수 (횡령 발각, 동기) / 친일파 사업가 홍재원 (이권 목적)",
+    "twist": "가장 충직한 독립운동 동지가 공동체를 지키려다 소장을 희생시킨 비극적 반전"
+  },
+  {
+    "id": 23,
+    "era": "modern",
+    "crimeType": "kidnapping",
+    "method": "납치 — 위장 구호 단체",
+    "title": { "ko": "자선의 가면", "en": "The Mask of Charity" },
+    "location": { "ko": "서울 마포 국제구호 NGO 사무실 / 인질 감금 장소 미상", "en": "International relief NGO office, Mapo Seoul / unknown detention site" },
+    "time": { "ko": "2024년 11월 3일~10일 (납치 7일간)", "en": "November 3–10, 2024 (7-day kidnapping)" },
+    "victim": { "ko": "피해자: 정수현 (41세, NGO 대표)", "en": "Victim: Jung Soohyun (41, NGO director)" },
+    "synopsis": {
+      "ko": "국제구호 NGO 대표가 실종됐다가 7일 후 감금 상태로 발견됐다. 피해자가 발표 예정이던 부패 보고서 대상 기업의 임원이 가장 유력한 납치 의뢰자로 지목됐다. 경쟁 NGO 대표도 피해자가 자신의 횡령을 알고 있었다. 그러나 피해자의 부대표가 NGO 후원금을 횡령하다 감사가 시작되자, 감사를 막기 위해 피해자를 납치하고 후원자 명부를 탈취하려 했으며 감금 장소의 임대 계약서 서명이 진범을 가리킨다.",
+      "en": "An NGO director was kidnapped and found confined a week later. A corporate executive targeted in the victim's upcoming corruption report, and a rival NGO director the victim had evidence against, draw suspicion. But the victim's own deputy — who had embezzled donor funds and triggered an audit — kidnapped the director to halt the investigation and steal the donor list, confirmed by rental contract signatures for the detention site."
+    },
+    "answer_hint": "부대표 강민재 (감사 중단 목적, 감금 장소 임대 서명)",
+    "misdirect": "기업 임원 신동훈 (부패 보고서 대상) / 경쟁 NGO 대표 (횡령 폭로 위기)",
+    "twist": "가장 신뢰받는 부대표가 배신자. 임대 계약 위조 시도했으나 서명 필압 분석으로 발각"
+  },
+  {
+    "id": 24,
+    "era": "cold_war",
+    "crimeType": "kidnapping",
+    "method": "납치 — 위장 망명 작전",
+    "title": { "ko": "프라하의 이중 첩자", "en": "Double Agent in Prague" },
+    "location": { "ko": "1968년 체코슬로바키아 프라하 봄 직후 서독 대사관 인근", "en": "Near West German Embassy, Prague, Czechoslovakia, 1968 (after Prague Spring)" },
+    "time": { "ko": "1968년 9월 4일 밤 (소련 침공 직후)", "en": "Night of September 4, 1968 (shortly after Soviet invasion)" },
+    "victim": { "ko": "피해자: 루돌프 노박 (39세, 체코 반소련 과학자)", "en": "Victim: Rudolf Novák (39, Czech anti-Soviet scientist)" },
+    "synopsis": {
+      "ko": "소련 침공 직후 프라하에서 서방 망명을 시도하던 체코 과학자가 실종됐다. CIA 연락원 외교관이 망명 작전을 사전에 유출했다는 의혹을 받고, 소련계 KGB 요원이 과학자를 추적하고 있었다. 그러나 과학자의 망명을 도운 것처럼 보이던 체코 지하저항 조직원이 실제로는 이중 첩자였으며, 조직원의 라디오 송신 기록과 소련 군사 암호와의 교신이 진범임을 드러낸다.",
+      "en": "A Czech scientist attempting defection to the West vanished just after the Soviet invasion. A CIA-linked diplomat suspected of leaking the operation, and a KGB agent trailing the scientist, draw suspicion. But the Czech underground resistance member who appeared to help with the defection was actually a double agent — confirmed by his radio transmission logs showing coded exchanges with Soviet military frequencies."
+    },
+    "answer_hint": "체코 저항 조직원 야로슬라프 (이중 첩자, 라디오 교신 기록)",
+    "misdirect": "CIA 연락원 외교관 (작전 유출 의혹) / KGB 요원 (과학자 추적)",
+    "twist": "가장 신뢰받던 저항 동지가 이중 첩자 — 라디오 교신 주파수와 소련 군사 코드 일치"
+  },
+  {
+    "id": 25,
+    "era": "modern",
+    "crimeType": "murder",
+    "method": "자살 위장 — 약물 과다 투여",
+    "title": { "ko": "유서 없는 자살", "en": "Suicide Without a Note" },
+    "location": { "ko": "서울 강북 유명 뮤지션 자택 작업실", "en": "Home studio of a prominent musician, Gangbuk Seoul" },
+    "time": { "ko": "2025년 4월 22일 새벽 1시~3시", "en": "April 22, 2025 — 01:00–03:00" },
+    "victim": { "ko": "피해자: 박하늘 (38세, 인디 뮤지션)", "en": "Victim: Park Haneul (38, indie musician)" },
+    "synopsis": {
+      "ko": "인디 뮤지션이 자택 작업실에서 약물 과다 투여로 숨진 채 발견됐다. 자살로 처리됐으나 약물 주입 각도와 혈중 농도 패턴이 타살을 시사. 전 매니저가 음악 저작권 수익 횡령으로 피해자와 법적 분쟁 중이었고 당일 밤 자택 근처 목격됐다. 오랜 라이벌 뮤지션도 표절 시비로 원한 관계다. 그러나 피해자가 새로 지정한 음악 유산 수혜자인 사촌이 보험금과 저작권 수익 전부를 노렸고, 작업실 출입 코드를 알고 있으며 투여된 약물이 사촌의 처방전과 동일 성분이다.",
+      "en": "An indie musician was found dead of apparent drug overdose in his home studio — ruled suicide until drug injection angle and blood concentration patterns suggested murder. A former manager in copyright dispute and a rival musician with plagiarism grudge both draw suspicion. But the musician's cousin — newly designated as the sole musical estate beneficiary — wanted the insurance payout and royalty income, had the studio access code, and the drug matches the cousin's own prescription."
+    },
+    "answer_hint": "사촌 박주영 (유산 수혜자 지정, 출입 코드, 처방전 동일 약물)",
+    "misdirect": "전 매니저 (저작권 분쟁, 당일 근처 목격) / 라이벌 뮤지션 (표절 원한)",
+    "twist": "유산 수혜자 지정은 사망 2주 전 → 동기 발생 시점 + 처방전 약물 = 결정적 이중 증거"
+  },
+  {
+    "id": 26,
+    "era": "edo",
+    "crimeType": "murder",
+    "method": "단도 — 야간 도장 밀실",
+    "title": { "ko": "달빛 아래의 단도", "en": "Dagger Under Moonlight" },
+    "location": { "ko": "에도 중기 교토 유명 검도 도장 수련실", "en": "Training hall of a renowned kendo dojo, Kyoto, mid-Edo period" },
+    "time": { "ko": "분세이 3년 (1820년) 9월 17일 인시 (03:00~05:00)", "en": "17th day, 9th month, Bunsei 3 (1820) — Inshi (03:00–05:00)" },
+    "victim": { "ko": "피해자: 무사시 류 도장주 다케나카 켄신 (61세)", "en": "Victim: Dojo Master Takenaka Kenshin (61), Musashi-Ryu school" },
+    "synopsis": {
+      "ko": "에도 교토 최고의 검도 도장주가 야간 수련실에서 단도로 살해됐다. 수련실은 안쪽에서 잠겨 있었고 창문에 빗장. 도장 계승을 두고 도장주와 갈등을 빚어온 수석 제자가 가장 의심받으며 당일 밤 도장 인근에서 목격됐다. 경쟁 도장주도 영역 분쟁으로 동기가 있다. 그러나 도장주의 고령 회계 담당 노인이 도장 자금을 30년간 횡령해왔고 발각이 임박하자 비밀 통로를 이용해 범행 후 잠금 트릭으로 밀실을 만들었으며, 노인의 기모노 소매 혈흔이 clue 5에서 드러난다.",
+      "en": "The master of Kyoto's finest kendo dojo was stabbed in a locked training room. The head disciple in a succession dispute spotted near the dojo, and a rival dojo master with territorial grievances, draw suspicion. But the dojo's elderly bookkeeper — embezzling funds for 30 years and facing imminent exposure — used a secret passage and a lock trick to create the locked room, confirmed by bloodstains on the sleeve of his kimono."
+    },
+    "answer_hint": "노년 회계 담당 이치베 (30년 횡령, 비밀 통로, 기모노 혈흔)",
+    "misdirect": "수석 제자 하야시 류노스케 (계승 갈등, 인근 목격) / 경쟁 도장주 (영역 분쟁)",
+    "twist": "가장 나이 많고 소심해 보이는 노인이 진범 — 30년 비밀이 한순간에 드러날 위기"
+  },
+  {
+    "id": 27,
+    "era": "modern",
+    "crimeType": "fraud",
+    "method": "투자 사기 — 알고리즘 트레이딩 조작",
+    "title": { "ko": "제로섬 게임", "en": "Zero Sum Game" },
+    "location": { "ko": "서울 여의도 헤지펀드 운용사 / 수사 배경", "en": "Hedge fund management firm, Yeouido Seoul" },
+    "time": { "ko": "2024년 6월~11월 (사기 기간)", "en": "June–November 2024 (fraud period)" },
+    "victim": { "ko": "피해자: 투자자 220명 / 피해액 380억 원", "en": "Victims: 220 investors / ₩38B damages" },
+    "synopsis": {
+      "ko": "헤지펀드 운용사가 알고리즘 트레이딩으로 380억 원을 편취했다. 펀드 운용 총괄 이사가 고수익을 보장한 허위 운용 보고서를 작성해 투자자를 모집했다는 의혹을 받는다. 외부 감사인도 허위 감사 보고서를 발행한 것으로 의심된다. 그러나 IT 시스템 개발 담당자가 실제 알고리즘 조작 코드를 심어 수익률 데이터를 위조했고, 개인 계좌로 이익을 실시간 이전했으며 코드 커밋 로그와 이체 타임스탬프가 일치한다.",
+      "en": "A hedge fund firm defrauded 220 investors of ₩38B through algorithmic trading. The investment director suspected of false performance reports and an external auditor suspected of signing off on fraudulent audits both draw suspicion. But the IT developer who embedded code to falsify performance data and transferred profits to a personal account in real time is confirmed by code commit logs matching the transfer timestamps."
+    },
+    "answer_hint": "IT 시스템 개발 담당자 이승우 (알고리즘 조작, 코드 커밋 로그, 이체 타임스탬프)",
+    "misdirect": "펀드 운용 이사 (허위 보고서 작성 의혹) / 외부 감사인 (허위 감사 서명)",
+    "twist": "IT 개발자는 범행 도구 자체 — 이사와 감사인은 피해자이자 공범처럼 보이지만 사실 속은 것"
+  },
+  {
+    "id": 28,
+    "era": "modern",
+    "crimeType": "murder",
+    "method": "독살 — 캡슐 약 교체",
+    "title": { "ko": "처방전의 함정", "en": "The Prescription Trap" },
+    "location": { "ko": "서울 서초 대형 종합병원 VIP 병동 / 피해자 자택", "en": "VIP ward, major general hospital, Seocho Seoul / victim's home" },
+    "time": { "ko": "2025년 7월 1일~3일 (3일간 서서히 중독)", "en": "July 1–3, 2025 (gradual poisoning over 3 days)" },
+    "victim": { "ko": "피해자: 유재원 (72세, 제약그룹 회장)", "en": "Victim: Yoo Jaewon (72, pharmaceutical group chairman)" },
+    "synopsis": {
+      "ko": "제약그룹 회장이 퇴원 후 자택에서 3일 만에 사망했다. 처방된 심장약에 독성 물질이 추가된 것이 부검으로 확인됐다. 유산 상속에서 배제된 서자가 강력한 동기를 가지고 퇴원 전날 병동을 방문했다. 경쟁 제약회사 임원도 피해자가 내부 비리를 폭로할 예정이어서 의심받는다. 그러나 주치의가 처방전을 위조해 독성 물질을 심장약 캡슐에 주입했으며, 병원 약국 재고 기록과 주치의 처방전 수정 이력이 진범을 가리킨다.",
+      "en": "A pharmaceutical chairman died 3 days after discharge — autopsy confirmed a toxin added to his prescription heart medication. An illegitimate son excluded from inheritance who visited the ward the day before discharge, and a rival pharma executive facing whistleblower exposure, draw suspicion. But the attending physician who forged prescriptions to inject toxin into the capsules is confirmed by pharmacy inventory records and prescription edit logs."
+    },
+    "answer_hint": "주치의 오병훈 (처방전 위조, 캡슐 주입, 재고 기록 불일치)",
+    "misdirect": "서자 유민준 (상속 배제, 병동 방문) / 경쟁사 임원 (비리 폭로 위기)",
+    "twist": "주치의는 오히려 최초 발견자이자 사망 진단서 작성자 — 3일 지연 독살로 퇴원 후 자연사처럼 위장"
+  },
+  {
+    "id": 29,
+    "era": "goryeo",
+    "crimeType": "theft",
+    "method": "왕실 유물 절도 — 지하 통로 이용",
+    "title": { "ko": "청자의 행방", "en": "Whereabouts of the Celadon" },
+    "location": { "ko": "고려 강화도 피란 왕궁 왕실 유물 보관고", "en": "Royal artifact storage, Ganghwa Island royal palace, Goryeo" },
+    "time": { "ko": "고종 19년 (1232년) 겨울 — 몽골 침입 혼란 중", "en": "Winter, 19th year of Goryeo King Gojong (1232) — during Mongol invasion chaos" },
+    "victim": { "ko": "피해 물품: 고려 왕실 청자 20점 (국보급)", "en": "Stolen: 20 pieces of royal Goryeo celadon (national treasure grade)" },
+    "synopsis": {
+      "ko": "몽골 침입으로 강화도로 피란 중 왕실 청자 20점이 사라졌다. 몽골군의 약탈로 처리됐으나 보관고 봉인이 내부에서 해제된 흔적 발견. 피란 혼란 중 이익을 노리는 고려 상인이 반출 경로를 파악했다는 제보가 있다. 호위 무관도 교대 중 자리를 이탈했다. 그러나 왕실 유물 관리 내관이 몽골 침입을 기회로 삼아 개인 창고로 옮겨놨고, 내관의 개인 거처 인근에서 청자 파편이 발견된다.",
+      "en": "During the Mongol invasion evacuation to Ganghwa Island, 20 royal celadon pieces vanished — ruled as Mongol plunder until the seal was found broken from inside. A Goryeo merchant known to have mapped the export route, and a guard officer who abandoned his post during the chaos, draw suspicion. But the royal artifact custodian eunuch who used the invasion as cover to move the pieces to his private storage is confirmed when celadon fragments are found near his quarters."
+    },
+    "answer_hint": "왕실 유물 관리 내관 (내부 봉인 해제, 개인 창고 이동, 파편 발견)",
+    "misdirect": "고려 상인 (반출 경로 파악) / 호위 무관 (교대 중 자리 이탈)",
+    "twist": "몽골 침입 혼란 = 완벽한 위장 기회. 내관은 평소 가장 충직한 관리처럼 보임"
+  },
+  {
+    "id": 30,
+    "era": "modern",
+    "crimeType": "espionage",
+    "method": "기술 유출 — 내부자 USB 반출",
+    "title": { "ko": "반도체의 배신", "en": "Betrayal in Silicon" },
+    "location": { "ko": "경기도 화성 반도체 설계 연구소", "en": "Semiconductor design research institute, Hwaseong, Gyeonggi" },
+    "time": { "ko": "2025년 3월~5월 (유출 기간)", "en": "March–May 2025 (leak period)" },
+    "victim": { "ko": "피해자: 연구소 / 피해 내용: 차세대 반도체 설계 원본", "en": "Victim: research institute / Content: next-gen semiconductor design files" },
+    "synopsis": {
+      "ko": "차세대 반도체 설계 파일이 경쟁국으로 유출됐다. 최근 중국계 기업에서 스카우트 제안을 받은 수석 연구원이 가장 강하게 의심받는다. 연구소 보안 시스템 담당자도 외부 접속 기록이 있다. 그러나 인사팀 담당자가 퇴직자 USB 반납 절차를 관리하면서 반납 처리된 USB를 복구해 핵심 파일을 복사했고, 반납 로그 조작 흔적과 디지털 포렌식 복구 파일이 진범을 가리킨다.",
+      "en": "Next-gen semiconductor design files were leaked to a foreign competitor. A lead researcher who received a Chinese firm recruitment offer, and a security system manager with anomalous external access logs, draw suspicion. But the HR manager — who recovered files from supposedly returned USBs during the retirement process — is confirmed by tampered return logs and forensically recovered files."
+    },
+    "answer_hint": "인사팀 담당자 강지현 (퇴직자 USB 복구, 반납 로그 조작, 포렌식 파일)",
+    "misdirect": "수석 연구원 (스카우트 제안 수령) / 보안 시스템 담당자 (외부 접속 기록)",
+    "twist": "인사팀은 보안 감사 대상에서 제외됨 → 가장 사각지대. USB 반납 로그 조작이 역설적으로 발각 단서"
+  },
+  {
+    "id": 31,
+    "era": "modern",
+    "crimeType": "murder",
+    "method": "교통사고 위장 — 브레이크 오일 제거",
+    "title": { "ko": "검은 빙판 위의 살인", "en": "Murder on Black Ice" },
+    "location": { "ko": "강원도 평창 산간 국도 / 피해자 차량 전복 현장", "en": "Mountain highway, Pyeongchang Gangwon / victim's vehicle rollover site" },
+    "time": { "ko": "2025년 1월 15일 새벽 3시", "en": "January 15, 2025 — 03:00" },
+    "victim": { "ko": "피해자: 임수진 (49세, 환경부 고위 공무원)", "en": "Victim: Im Sujin (49, senior Environment Ministry official)" },
+    "synopsis": {
+      "ko": "환경 감사를 앞둔 고위 공무원이 산간 국도에서 교통사고로 사망했다. 빙판길 사고로 처리됐으나 브레이크 오일이 의도적으로 제거된 것이 확인됐다. 피해자가 부정부패를 내사 중이던 건설사 임원이 가장 강한 동기를 가지고 피해자 차량 주차장이 찍힌 블랙박스 영상에 등장한다. 피해자의 전 상사도 비위 연루로 의심받는다. 그러나 피해자 차량을 정기 점검한 정비사가 건설사로부터 수백만 원을 받고 범행에 가담했으며, 정비소 CCTV 사각지대 작업 시간과 계좌 입금이 일치한다.",
+      "en": "A senior official facing audit died in what appeared to be a mountain road accident — until brake fluid was found deliberately drained. A construction executive under the victim's corruption probe who appears in parking lot dashcam footage, and a former superior implicated in misconduct, draw suspicion. But the mechanic who performed the vehicle's regular inspection — paid by the construction firm — is confirmed by CCTV blind spot work timing and bank transfers."
+    },
+    "answer_hint": "차량 정비사 문기철 (브레이크 오일 제거, CCTV 사각지대, 계좌 수수)",
+    "misdirect": "건설사 임원 (부패 내사 대상, 블랙박스 등장) / 전 상사 (비위 연루)",
+    "twist": "정비사는 사주받은 하수인 — 의뢰자가 아닌 실행자임을 밝히는 게 핵심. 계좌 이체가 연결 고리"
+  },
+  {
+    "id": 32,
+    "era": "modern",
+    "crimeType": "murder",
+    "method": "독살 — 향수병 독 주입",
+    "title": { "ko": "향기로운 죽음", "en": "A Fragrant Death" },
+    "location": { "ko": "파리 국제 향수 박람회 VIP 라운지 / 서울 귀국 후 사망", "en": "VIP lounge, Paris International Perfume Expo / died after returning to Seoul" },
+    "time": { "ko": "2025년 5월 8일 파리 박람회 → 5월 10일 서울 자택 사망", "en": "May 8, 2025 Paris expo → died at Seoul home May 10" },
+    "victim": { "ko": "피해자: 한소정 (44세, 국내 1위 뷰티 브랜드 대표)", "en": "Victim: Han Sojeong (44, CEO of top Korean beauty brand)" },
+    "synopsis": {
+      "ko": "파리 향수 박람회에 참가한 뷰티 브랜드 대표가 귀국 이틀 후 사망했다. 박람회 현장에서 받은 선물용 향수병에서 피부 흡수형 독성 물질이 검출됐다. 경쟁 브랜드 대표가 박람회에서 표적으로 접근한 것이 목격됐고, 전 파트너는 브랜드 매각 분쟁 중이다. 그러나 피해자의 수석 디자이너가 디자인 도용 소송을 당하고 있었으며, 박람회 VIP 선물을 직접 포장한 인물임이 전시 스태프 명단으로 확인된다.",
+      "en": "A beauty brand CEO died two days after returning from a Paris perfume expo — a gift perfume bottle contained a transdermal toxin. A rival brand CEO who made targeted contact at the expo, and a former partner in a brand sale dispute, draw suspicion. But the victim's head designer — facing a design plagiarism lawsuit and confirmed by expo staff records to have personally packaged the VIP gifts — is the true culprit."
+    },
+    "answer_hint": "수석 디자이너 박지우 (VIP 선물 포장 담당, 도용 소송 피해, 전시 스태프 명단)",
+    "misdirect": "경쟁 브랜드 대표 (박람회 접근 목격) / 전 파트너 (매각 분쟁)",
+    "twist": "귀국 후 2일 지연 사망 = 독성 흡수 시간. 선물 포장 담당 기록이 결정적"
+  },
+  {
+    "id": 33,
+    "era": "modern",
+    "crimeType": "murder",
+    "method": "익사 — 스쿠버 산소통 조작",
+    "title": { "ko": "산호초 아래의 침묵", "en": "Silence Beneath the Coral" },
+    "location": { "ko": "괌 해양 리조트 다이빙 스팟 수심 30m", "en": "Dive spot, 30m depth, marine resort, Guam" },
+    "time": { "ko": "2024년 7월 4일 오전 10:00~11:30 (다이빙 중)", "en": "July 4, 2024 — 10:00–11:30 (during dive)" },
+    "victim": { "ko": "피해자: 이현준 (46세, 스타트업 공동창업자)", "en": "Victim: Lee Hyunjun (46, startup co-founder)" },
+    "synopsis": {
+      "ko": "괌 다이빙 중 스타트업 공동창업자가 익사했다. 산소통 결함으로 처리됐으나 밸브가 의도적으로 조작된 것이 확인됐다. 피해자와 지분 분쟁 중인 다른 공동창업자가 당일 다이빙에 함께 참가했고 수중에서 피해자와 단둘이 있었다. 다이브마스터도 산소통을 가장 마지막에 점검했다. 그러나 피해자의 이전 스타트업에서 특허를 도용당한 전직 기술 파트너가 다이빙 강사 자격을 위장하고 리조트에 취업해 산소통 밸브를 조작했다.",
+      "en": "A startup co-founder drowned during a Guam dive — ruled equipment failure until deliberate valve tampering was confirmed. A co-founder in a shares dispute who was alone underwater with the victim, and the divemaster who last inspected the tank, draw suspicion. But a former technical partner whose patent was stolen — who disguised himself as a certified dive instructor and got hired at the resort specifically to tamper with the tank valve — is the true culprit."
+    },
+    "answer_hint": "위장 취업 전직 파트너 김태수 (다이빙 강사 위장, 특허 도용 원한, 밸브 조작 기회)",
+    "misdirect": "공동창업자 (지분 분쟁, 수중 단독 목격) / 다이브마스터 (마지막 점검자)",
+    "twist": "리조트 취업 = 사전 계획된 범행. 위장 자격증 + 다이빙 교육 기록 불일치가 clue 4~5"
+  },
+  {
+    "id": 34,
+    "era": "modern",
+    "crimeType": "fraud",
+    "method": "신원 도용 — 딥페이크 활용",
+    "title": { "ko": "가짜 목소리", "en": "The Fake Voice" },
+    "location": { "ko": "서울 종로 프라이빗 뱅킹 센터 / 온라인 금융 거래", "en": "Private banking center, Jongno Seoul / online financial transactions" },
+    "time": { "ko": "2025년 9월~10월 (신원 도용 기간)", "en": "September–October 2025 (identity theft period)" },
+    "victim": { "ko": "피해자: 조영철 (67세, 전직 대기업 회장) / 피해액 230억", "en": "Victim: Jo Youngcheol (67, former conglomerate chairman) / ₩23B damages" },
+    "synopsis": {
+      "ko": "은퇴한 대기업 회장의 명의로 230억이 인출됐다. AI 딥페이크 음성으로 은행 직원을 속인 것이 확인됐다. 피해자의 전 비서가 회장 목소리 녹음 파일에 접근했다는 사실이 드러나 가장 의심받는다. IT 컨설턴트도 딥페이크 기술 보유자로 의심된다. 그러나 피해자의 가족 주치의가 정기 건강 상담 중 충분한 녹음을 확보했고, 의료 데이터 접근을 통해 보안 질문 답변까지 입수해 딥페이크를 완성했으며, 통화 메타데이터가 진범을 가리킨다.",
+      "en": "₩23B was withdrawn in the name of a retired chairman using AI deepfake voice. The victim's former secretary — known to have accessed voice recordings — and an IT consultant with deepfake capability both draw suspicion. But the family physician — who accumulated sufficient recordings during health consultations and obtained security question answers through medical records — is confirmed by call metadata linking to his office devices."
+    },
+    "answer_hint": "가족 주치의 이명석 (상담 중 녹음 확보, 의료 기록으로 보안 답변, 통화 메타데이터)",
+    "misdirect": "전 비서 (녹음 파일 접근) / IT 컨설턴트 (딥페이크 기술 보유)",
+    "twist": "의사-환자 신뢰 관계를 악용. 의료 기록 = 신원 도용에 필요한 모든 정보가 담긴 보고"
+  },
+  {
+    "id": 35,
+    "era": "medieval_europe",
+    "crimeType": "theft",
+    "method": "성물 절도 — 성지순례자 위장",
+    "title": { "ko": "산티아고의 성작", "en": "The Chalice of Santiago" },
+    "location": { "ko": "1215년 스페인 산티아고 데 콤포스텔라 대성당 성물 보관소", "en": "Cathedral treasury, Santiago de Compostela, Spain, 1215" },
+    "time": { "ko": "1215년 7월 25일 산티아고 축일 새벽 (성지순례 절정기)", "en": "Dawn of July 25, 1215 — Feast of Saint James, peak pilgrimage season" },
+    "victim": { "ko": "피해 물품: 성 야고보 성작 (은제 도금 성배)", "en": "Stolen: Chalice of Saint James (silver-gilt holy grail)" },
+    "synopsis": {
+      "ko": "축일 새벽, 대성당 성물 보관소에서 성작이 사라졌다. 수백 명의 순례자 중 과거 성물 절도 전력이 있는 이탈리아 상인이 축일 직전 성당을 방문했고 가장 의심받는다. 성당 경비원도 축일 혼잡 중 자리를 이탈했다. 그러나 프랑스 출신 수도사가 순례자로 위장해 3주 전 도착, 성물 보관소 열쇠를 복사해두었으며 성물 복제품을 사전에 제작해 교체했다. 복제품 성작의 은 성분이 파리 공방 특유 합금임이 clue 5에서 드러난다.",
+      "en": "On the Feast of Saint James, the holy chalice vanished from the cathedral treasury. An Italian merchant with prior relic theft convictions who visited just before the feast, and a guard who abandoned his post during festival chaos, draw suspicion. But a French monk disguised as a pilgrim — who arrived 3 weeks earlier, copied the treasury key, and pre-made a replica for substitution — is confirmed when the replica's silver composition matches a distinctive Paris workshop alloy."
+    },
+    "answer_hint": "프랑스 수도사 기욤 (3주 전 잠입, 열쇠 복사, 복제품 제작, 파리 합금)",
+    "misdirect": "이탈리아 상인 (절도 전력, 직전 방문) / 성당 경비원 (자리 이탈)",
+    "twist": "순례자 위장 3주 사전 잠입 = 치밀한 장기 계획. 복제품이 너무 정교해 처음엔 도난 사실도 몰랐음"
+  },
+  {
+    "id": 36,
+    "era": "modern",
+    "crimeType": "murder",
+    "method": "독살 — 수면 주사 후 낙사 위장",
+    "title": { "ko": "옥상의 이방인", "en": "Stranger on the Rooftop" },
+    "location": { "ko": "부산 해운대 고급 아파트 옥상 / 32층", "en": "Rooftop, luxury apartment, Haeundae Busan / 32nd floor" },
+    "time": { "ko": "2025년 3월 11일 새벽 2시~4시", "en": "March 11, 2025 — 02:00–04:00" },
+    "victim": { "ko": "피해자: 최도윤 (55세, 부산 부동산 재벌)", "en": "Victim: Choi Doyun (55, Busan real estate magnate)" },
+    "synopsis": {
+      "ko": "부산 고급 아파트 옥상에서 부동산 재벌이 추락사했다. 자살로 처리됐으나 혈중 수면 마취제와 주사 흔적이 발견되어 타살 확인. 미공개 정보로 건물 분양가를 폭등시킨 투기 수사 대상 투자 컨설턴트가 당일 밤 아파트 1층에서 목격됐다. 피해자의 사업 파트너도 내부 비리 폭로 위기로 의심받는다. 그러나 피해자에게 수면제를 처방한 내과 전문의가 피해자의 위협으로 의료 면허 취소 직전이었으며, 처방량을 초과하는 수면제 재고 부족이 clue 4~5에서 드러난다.",
+      "en": "A real estate tycoon fell from a rooftop — ruled suicide until sedative traces and injection marks confirmed murder. An investment consultant under investigation for insider trading spotted on the ground floor that night, and a business partner facing fraud exposure, draw suspicion. But the victim's internist — facing license revocation under the victim's threats — is confirmed when pharmacy records show a surplus prescription of sedatives matching the blood concentration."
+    },
+    "answer_hint": "내과 전문의 정대준 (면허 취소 위기, 처방 초과 수면제 재고 부족)",
+    "misdirect": "투자 컨설턴트 (투기 수사 대상, 당일 1층 목격) / 사업 파트너 (내부 비리 폭로 위기)",
+    "twist": "의사는 피해자를 살려야 할 입장이지만 오히려 그 관계가 접근을 용이하게 함. 처방 기록이 역설적 증거"
+  },
+  {
+    "id": 37,
+    "era": "victorian",
+    "crimeType": "theft",
+    "method": "다이아몬드 절도 — 박람회 혼잡 위장",
+    "title": { "ko": "수정궁의 유리 파편", "en": "Glass Shards of the Crystal Palace" },
+    "location": { "ko": "1851년 런던 만국박람회 수정궁 보석 전시관", "en": "Jewel exhibition hall, Crystal Palace, Great Exhibition, London, 1851" },
+    "time": { "ko": "1851년 5월 8일 박람회 개막 혼잡 중", "en": "May 8, 1851 — during opening day crowds" },
+    "victim": { "ko": "피해 물품: 인도 코이누르 다이아몬드 복제 전시품 (실물 전시로 혼동 유도)", "en": "Stolen: Indian Koh-i-Noor diamond display piece (confused with the real gem)" },
+    "synopsis": {
+      "ko": "만국박람회 개막일 혼잡 속에서 전시 다이아몬드가 사라졌다. 인도계 귀족이 코이누르의 반환을 주장하며 박람회에서 시위를 벌였고 가장 의심받는다. 전문 소매치기 단도 박람회 현장에서 적발됐다. 그러나 전시관 설계 건축가가 전시 케이스 개폐 구조를 설계하면서 비밀 레버를 숨겨두었고, 개막 혼잡을 이용해 유리 케이스를 개방한 후 복제품을 가져갔으며 자신의 설계 도면이 물증이 된다.",
+      "en": "On the chaotic opening day of the Great Exhibition, a displayed diamond vanished. An Indian noble protesting the Koh-i-Noor's return and a professional pickpocket caught at the venue draw suspicion. But the exhibition hall architect — who designed a hidden lever in the display case structure — exploited the opening day crowd to open the case and take the piece, confirmed by his original design blueprints showing the concealed mechanism."
+    },
+    "answer_hint": "전시관 건축가 찰스 펜튼 (숨겨진 레버 설계, 케이스 개방 기술, 설계 도면)",
+    "misdirect": "인도계 귀족 (반환 시위, 박람회 접근) / 전문 소매치기 (현장 적발)",
+    "twist": "건축가는 전시관 설계자로 오히려 경비 강화를 도운 인물처럼 보임. 비밀 레버가 역설적 자기 고발"
+  },
+  {
+    "id": 38,
+    "era": "modern",
+    "crimeType": "murder",
+    "method": "독살 — 수제 초콜릿 선물",
+    "title": { "ko": "달콤한 독", "en": "Sweet Poison" },
+    "location": { "ko": "서울 성북 대학교 총장 집무실 / 공식 취임 기념 선물", "en": "University president's office, Seongbuk Seoul / official inauguration gift" },
+    "time": { "ko": "2025년 2월 28일 취임 기념 리셉션 후 3일 내 사망", "en": "February 28, 2025 — died within 3 days of inauguration reception" },
+    "victim": { "ko": "피해자: 한재승 (62세, 사립대학 총장)", "en": "Victim: Han Jaeseung (62, private university president)" },
+    "synopsis": {
+      "ko": "취임 리셉션에서 받은 수제 초콜릿을 먹고 대학 총장이 사흘 후 사망했다. 독성 물질이 초콜릿 내부에서 검출됐다. 총장 취임으로 기존 보직을 잃은 전임 교무처장이 수제 초콜릿 생산자와 친분이 있고 리셉션에 참가해 의심받는다. 총장 선임에 반발한 교수회 대표도 공개 반대 의사를 표명했다. 그러나 총장이 결재한 부정 입학 수사를 앞두고 있던 입학처장이 수제 초콜릿 포장지에 자신의 지문을 남기지 않은 것이 역으로 clue 4~5에서 의심을 키운다.",
+      "en": "A university president died three days after eating handmade chocolates from his inauguration reception. Toxins were found inside. The former academic affairs director who lost his position and had connections to the chocolate maker, and a faculty council representative who publicly opposed the appointment, draw suspicion. But the admissions director — facing investigation for fraudulent admissions authorized by the very president — is revealed when the deliberate absence of his fingerprints on the packaging becomes suspicious in clues 4–5."
+    },
+    "answer_hint": "입학처장 김현동 (부정 입학 수사 대상, 지문 고의 배제, 초콜릿 주문 기록)",
+    "misdirect": "전임 교무처장 (보직 박탈, 생산자 친분) / 교수회 대표 (공개 반대)",
+    "twist": "지문이 없다는 것 자체가 증거 — 장갑 착용 포장 흔적이 clue 5에서 발견됨"
+  },
+  {
+    "id": 39,
+    "era": "modern",
+    "crimeType": "kidnapping",
+    "method": "납치 — 구인 광고 위장",
+    "title": { "ko": "취업 면접의 함정", "en": "The Job Interview Trap" },
+    "location": { "ko": "서울 강서 위장 사무실 / 인질 감금 장소 미상", "en": "Fake office, Gangseo Seoul / unknown detention site" },
+    "time": { "ko": "2025년 10월 7일 오후 2시~6시 (납치 실행)", "en": "October 7, 2025 — 14:00–18:00 (kidnapping executed)" },
+    "victim": { "ko": "피해자: 장수아 (29세, 생명과학 연구원)", "en": "Victim: Jang Sua (29, life sciences researcher)" },
+    "synopsis": {
+      "ko": "생명과학 연구원이 온라인 구인 광고를 보고 면접을 보러 갔다가 실종됐다. 피해자의 전 남자친구가 접근 금지 명령을 받은 전력이 있고 피해자 SNS를 추적했다는 제보로 최우선 용의자가 됐다. 피해자의 연구 데이터를 탐내는 경쟁 연구소도 의심받는다. 그러나 제약회사 임원이 피해자가 개발 중인 특허 배양 기술을 강탈하기 위해 위장 구인 광고를 내고 사설 경호업체를 동원했으며, 구인 광고 IP 주소와 사무실 임대 계약이 진범을 가리킨다.",
+      "en": "A life sciences researcher vanished after responding to an online job listing for an interview. An ex-boyfriend with a restraining order who was stalking her social media, and a rival research institute coveting her data, draw suspicion. But a pharma executive — who posted a fake job listing and hired a private security firm to seize her proprietary cell culture technology — is confirmed when the listing's IP address and fake office lease are traced back to him."
+    },
+    "answer_hint": "제약회사 임원 노승환 (위장 구인 광고 IP, 사무실 임대, 기술 강탈 목적)",
+    "misdirect": "전 남자친구 (접근 금지 전력, SNS 추적) / 경쟁 연구소 (데이터 탈취 동기)",
+    "twist": "구인 광고 = 완벽한 접촉 위장. IP 추적과 법인 임대 계약이 이중 물증"
+  },
+  {
+    "id": 40,
+    "era": "joseon",
+    "crimeType": "murder",
+    "method": "독살 — 약재 처방 조작",
+    "title": { "ko": "어의의 두 얼굴", "en": "Two Faces of the Royal Physician" },
+    "location": { "ko": "조선 후기 창덕궁 약방 / 세자 처소", "en": "Royal dispensary and Crown Prince's quarters, Changdeokgung Palace, late Joseon" },
+    "time": { "ko": "정조 7년 (1783년) 3월 — 세자 의문사", "en": "3rd month, 7th year of King Jeongjo (1783) — suspicious Crown Prince death" },
+    "victim": { "ko": "피해자: 조선 왕세자 (17세)", "en": "Victim: Joseon Crown Prince (17)" },
+    "synopsis": {
+      "ko": "17세 왕세자가 갑작스러운 열병으로 사망했다. 처방된 탕약에서 독성 식물 성분이 검출됐다. 노론 세력의 핵심 인물이 세자 견제를 위해 어의를 압박했다는 증언이 나와 가장 의심받는다. 세자의 교육을 담당한 스승도 세력 다툼에 연루 의혹이 있다. 그러나 어의 자신이 독성 약재를 처방하면서 노론 대신의 협박에 못 이겨 범행했고, 탕약 재료 수령 기록과 독성 식물 재배지 출입 일지가 어의를 직접 가리킨다.",
+      "en": "A 17-year-old Crown Prince died of sudden fever — until a toxic plant compound was found in his prescribed herbal decoction. A powerful Noron faction leader accused of pressuring the royal physician, and the Crown Prince's tutor suspected of factional scheming, draw suspicion. But the royal physician himself — coerced by the Noron minister but who physically administered the poison — is confirmed by herb procurement records and toxic plant cultivation access logs."
+    },
+    "answer_hint": "어의 (독성 약재 처방, 탕약 재료 수령 기록, 식물 재배지 출입)",
+    "misdirect": "노론 대신 (압박 배후, 세자 견제 동기) / 세자 스승 (세력 다툼 연루)",
+    "twist": "배후와 실행자를 분리하는 것이 핵심 — 어의는 피해자이자 가해자. 물리적 행위자를 증명하는 기록이 결정적"
+  },
+  {
+    "id": 41,
+    "era": "modern",
+    "crimeType": "murder",
+    "method": "교살 — 온라인 게임 오프라인 만남 위장",
+    "title": { "ko": "레이드의 끝에서", "en": "At the End of the Raid" },
+    "location": { "ko": "경기도 수원 PC방 / 근처 공원", "en": "PC bang and nearby park, Suwon, Gyeonggi" },
+    "time": { "ko": "2025년 5월 30일 자정~01:30", "en": "May 30, 2025 — midnight to 01:30" },
+    "victim": { "ko": "피해자: 김민호 (27세, 프로 스트리머)", "en": "Victim: Kim Minho (27, professional game streamer)" },
+    "synopsis": {
+      "ko": "유명 게임 스트리머가 오프라인 팬 미팅 후 공원에서 교살됐다. 피해자가 온라인에서 공개 비방한 경쟁 스트리머가 당일 밤 같은 PC방에 있었던 것이 CCTV로 확인되어 가장 의심받는다. 피해자에게 사기를 당한 팬도 격분한 메시지를 보낸 기록이 있다. 그러나 피해자의 소속사 매니저가 스트리밍 수익 횡령 발각을 막기 위해 팬 미팅을 이용해 범행 기회를 만들었으며, 매니저 전화기의 위치 데이터가 공원 현장을 가리킨다.",
+      "en": "A game streamer was strangled in a park after an offline fan meeting. A rival streamer publicly defamed by the victim who was captured on CCTV at the same PC bang that night, and a defrauded fan with angry message records, draw suspicion. But the victim's talent agency manager — who orchestrated the fan meeting to create a murder opportunity and conceal streaming revenue embezzlement — is confirmed by location data from his phone placing him at the park."
+    },
+    "answer_hint": "소속사 매니저 정우성 (수익 횡령, 팬 미팅 기획, 위치 데이터)",
+    "misdirect": "경쟁 스트리머 (공개 비방, 같은 PC방 CCTV) / 사기 피해 팬 (격분 메시지)",
+    "twist": "매니저는 팬 미팅 기획자 → 피해자 동선을 완전 통제. 위치 데이터가 알리바이 주장을 깨뜨림"
+  },
+  {
+    "id": 42,
+    "era": "ancient_rome",
+    "crimeType": "fraud",
+    "method": "유언 위조 — 인장 복제",
+    "title": { "ko": "인장의 비밀", "en": "The Secret of the Signet" },
+    "location": { "ko": "기원전 50년 로마 공화정 말기 귀족 저택 / 법무관 청사", "en": "Late Republic Roman nobleman's villa and praetor's office, 50 BC" },
+    "time": { "ko": "기원전 50년 — 유언 검인 분쟁 기간", "en": "50 BC — during will probate dispute" },
+    "victim": { "ko": "피해자: 유산 정당 상속인 루키아 (35세, 귀족 딸)", "en": "Victim: Lucia (35), legitimate noble heiress" },
+    "synopsis": {
+      "ko": "로마 귀족 마르쿠스의 사후 유언장이 두 개 발견됐다. 나중 유언장은 딸 루키아 대신 입양 아들에게 전 재산을 주는 내용. 루키아는 위조를 주장했지만 당장 물증이 없다. 마르쿠스의 해방 노예 출신 회계 관리인이 입양 아들과 친분이 있고 인장 접근이 가능해 가장 의심받는다. 법무관 서기도 검인 절차를 부당하게 처리했다는 의혹이 있다. 그러나 입양 아들이 장인 밀랍 세공사를 통해 인장을 복제했고, 세공사 작업실에서 복제 인장 잔재가 발견된다.",
+      "en": "Two wills emerged after the death of Roman nobleman Marcus — the later one leaving everything to his adopted son instead of his daughter Lucia. The freed slave accountant with signet access and ties to the adopted son, and a praetor's clerk suspected of improper probate handling, draw suspicion. But the adopted son — who had the seal replicated through a wax craftsman — is confirmed when replica seal residue is found in the craftsman's workshop."
+    },
+    "answer_hint": "입양 아들 가이우스 (인장 복제 의뢰, 밀랍 세공사 잔재)",
+    "misdirect": "해방 노예 회계 관리인 (인장 접근, 친분) / 법무관 서기 (부당 처리 의혹)",
+    "twist": "입양 아들은 표면적으로 합법적 수혜자 — 세공사 작업실이 의외의 결정적 현장"
+  },
+  {
+    "id": 43,
+    "era": "modern",
+    "crimeType": "arson",
+    "method": "방화 — 전시 도록 은폐 목적",
+    "title": { "ko": "재가 된 기억", "en": "Memories Turned to Ash" },
+    "location": { "ko": "서울 종로 사립 민속박물관", "en": "Private folk museum, Jongno Seoul" },
+    "time": { "ko": "2024년 12월 3일 폐관 후 22:00~00:00", "en": "December 3, 2024 — 22:00–00:00 after closing" },
+    "victim": { "ko": "피해 없음 (무인 폐관 후) / 전시 도록 및 수장고 전소", "en": "No casualties (after closing) / exhibition catalog and storage destroyed" },
+    "synopsis": {
+      "ko": "사립 민속박물관 수장고가 폐관 후 전소됐다. 방화로 확인됐으며 주로 도록 보관소가 집중적으로 소훼됐다. 박물관 측과 소장품 반환 분쟁 중인 유족이 기록 말소 목적으로 방화했다는 의혹을 받는다. 경쟁 박물관 관계자도 전시 독점 계약을 방해할 동기가 있다. 그러나 박물관 큐레이터가 특정 소장품의 위조 감정서를 도록에 첨부했고 그것이 곧 공개될 예정이어서 도록 자체를 소멸시키기 위해 방화했으며, 가속제 구입 영수증이 큐레이터 명의다.",
+      "en": "A private folk museum's storage burned after closing — arson confirmed, with the exhibition catalog section most heavily burned. A grieving family in a collection return dispute suspected of destroying records, and a rival museum with contract sabotage motives, draw suspicion. But the museum's own curator — who had submitted fraudulent appraisal certificates for a specific piece, about to be publicly exposed — burned the catalog to destroy the evidence, confirmed by accelerant purchase receipts in the curator's name."
+    },
+    "answer_hint": "큐레이터 이지은 (위조 감정서 은폐 목적, 가속제 구입 영수증)",
+    "misdirect": "유족 (소장품 반환 분쟁, 기록 말소 동기) / 경쟁 박물관 (계약 방해)",
+    "twist": "방화로 증거를 지우려 했지만 영수증이라는 더 확실한 증거를 남김"
+  },
+  {
+    "id": 44,
+    "era": "modern",
+    "crimeType": "murder",
+    "method": "독살 — 반려동물 식품 주입",
+    "title": { "ko": "사랑하는 개의 밥그릇", "en": "The Dog Bowl" },
+    "location": { "ko": "서울 용산 반려동물 명품 식품 제조사 / 피해자 자택", "en": "Premium pet food manufacturer, Yongsan Seoul / victim's home" },
+    "time": { "ko": "2025년 4월~5월 (서서히 중독)", "en": "April–May 2025 (gradual poisoning)" },
+    "victim": { "ko": "피해자: 남궁혜 (58세, 반려동물 식품 그룹 회장)", "en": "Victim: Namgung Hye (58, premium pet food group chairwoman)" },
+    "synopsis": {
+      "ko": "반려동물 식품 그룹 회장이 한 달에 걸쳐 서서히 쇠약해지다 사망했다. 자연사로 처리됐으나 부검에서 산업용 독성 물질이 검출됐다. 독이 회장이 매일 직접 시식하는 신제품 샘플 사료에 소량씩 혼입됐다. 품질관리 부장이 리콜 책임을 회장에게 전가당한 원한으로 의심받는다. 경쟁사 스파이도 공장 내부에 잠입했다는 제보가 있다. 그러나 후계자로 지목되지 못한 장남이 생산 라인을 관리하며 샘플 배분 경로를 통제했고, 샘플 사료 배송 기록이 장남만 접근한 것을 보여준다.",
+      "en": "A premium pet food chairwoman was gradually poisoned over a month through the new product samples she personally taste-tested. The quality manager blamed for a recall, and a suspected rival company spy inside the factory, draw suspicion. But the eldest son — passed over as heir and managing the production line with control over sample distribution — is confirmed when sample distribution records show only his access."
+    },
+    "answer_hint": "장남 남궁민 (후계 배제, 샘플 배분 통제, 배송 기록 단독 접근)",
+    "misdirect": "품질관리 부장 (리콜 책임 전가, 원한) / 경쟁사 스파이 (공장 잠입 제보)",
+    "twist": "매일 시식하는 회장 습관을 이용한 장기 독살 계획 — 한 달에 걸쳐 소량 투여"
+  },
+  {
+    "id": 45,
+    "era": "modern",
+    "crimeType": "espionage",
+    "method": "산업 스파이 — 인공지능 모델 유출",
+    "title": { "ko": "모델의 무게", "en": "The Weight of the Model" },
+    "location": { "ko": "판교 AI 스타트업 / 클라우드 서버 로그 추적", "en": "AI startup, Pangyo / cloud server log tracking" },
+    "time": { "ko": "2025년 8월~9월 (유출 실행)", "en": "August–September 2025 (leak execution)" },
+    "victim": { "ko": "피해자: AI 스타트업 / 피해: LLM 학습 데이터 및 가중치 전체", "en": "Victim: AI startup / Content: full LLM training data and weights" },
+    "synopsis": {
+      "ko": "판교 AI 스타트업의 대규모 언어모델 학습 데이터 전체가 외부로 유출됐다. 중국계 벤처캐피탈이 투자 실사 중 데이터에 접근했고 이후 유사 모델을 출시했다는 정황으로 가장 의심받는다. 최근 이직한 전직 ML 엔지니어도 접근 권한을 가지고 있었다. 그러나 데이터 인프라 담당 시니어 개발자가 클라우드 IAM 권한을 조작해 외부 버킷으로 자동 복제 파이프라인을 구성했으며, 파이프라인 커밋 타임스탬프와 개발자 SSH 키가 일치한다.",
+      "en": "An AI startup's entire LLM training dataset was leaked. A Chinese VC that accessed data during due diligence and subsequently launched a similar model, and a recently departed ML engineer with prior access, draw suspicion. But the senior data infrastructure developer — who configured an external bucket auto-replication pipeline via manipulated cloud IAM permissions — is confirmed when the pipeline commit timestamp matches his SSH key activity."
+    },
+    "answer_hint": "데이터 인프라 개발자 홍성진 (IAM 조작, 자동 파이프라인 구성, SSH 키 타임스탬프)",
+    "misdirect": "중국계 VC (실사 접근, 유사 모델 출시) / 전직 ML 엔지니어 (접근 권한 보유)",
+    "twist": "파이프라인은 자동 실행 → 범행 후 흔적이 시스템 로그에 자동 기록. 가장 기술적인 사람이 가장 기술적인 방법으로 숨기려 함"
+  },
+  {
+    "id": 46,
+    "era": "joseon",
+    "crimeType": "fraud",
+    "method": "과거 시험 부정 — 답안지 교체",
+    "title": { "ko": "붓과 독", "en": "Brush and Poison" },
+    "location": { "ko": "조선 중기 한양 성균관 대과 시험장", "en": "Sungkyunkwan examination hall, Hanyang, mid-Joseon" },
+    "time": { "ko": "숙종 15년 (1689년) 봄 — 대과 시험 중", "en": "Spring, 15th year of King Sukjong (1689) — during civil service exam" },
+    "victim": { "ko": "피해자: 이준혁 (22세, 양반 수험생) — 답안 탈취당함 / 감독관 1인 사망", "en": "Victim: Yi Junhyeok (22, noble exam candidate) — answer stolen / one examiner killed" },
+    "synopsis": {
+      "ko": "대과 시험에서 한 수험생의 우수 답안지가 교체됐고, 이상을 발견한 감독관이 밀실에서 사망했다. 경쟁 수험생이 답안 교체 능력을 가진 자와 공모했다는 제보가 있다. 시험장 내부 관리자도 뇌물 수수 의혹이 있다. 그러나 과거 시험 감독 총관 자신이 자신의 아들을 급제시키기 위해 답안을 교체하고, 이를 발견한 감독관을 제거했으며, 붓 잉크 성분이 총관 전용 먹과 일치함이 clue 5에서 드러난다.",
+      "en": "During the civil service exam, a top candidate's answer scroll was swapped, and an examiner who noticed the discrepancy was found dead. A rival candidate suspected of collusion with an insider, and an exam hall manager under bribery suspicion, draw suspicion. But the chief examination supervisor — who swapped answers to advance his own son and then killed the examiner who discovered it — is confirmed when the ink composition on the substituted scroll matches his exclusive inkstick."
+    },
+    "answer_hint": "시험 감독 총관 (아들 급제 목적, 먹 잉크 성분, 감독관 제거)",
+    "misdirect": "경쟁 수험생 (공모 제보) / 시험장 내부 관리자 (뇌물 의혹)",
+    "twist": "최고 권위자가 시험을 지키는 척하며 직접 부정 — 총관의 먹이 자기 고발 증거"
+  },
+  {
+    "id": 47,
+    "era": "modern",
+    "crimeType": "murder",
+    "method": "방화 위장 살인 — 수면제 투여 후 화재",
+    "title": { "ko": "화재 전 수면", "en": "Sleep Before the Fire" },
+    "location": { "ko": "전남 여수 펜션 / 201호 객실", "en": "Room 201, pension, Yeosu, Jeonnam" },
+    "time": { "ko": "2024년 11월 15일 새벽 3시~5시", "en": "November 15, 2024 — 03:00–05:00" },
+    "victim": { "ko": "피해자: 오재훈 (53세, 지역 건설 조합장)", "en": "Victim: Oh Jaehoon (53, regional construction cooperative chairman)" },
+    "synopsis": {
+      "ko": "여수 펜션 화재로 조합장이 사망했다. 화재 사고로 처리됐으나 피해자 혈중 수면제 과다 및 화재 시작점이 침대 외부로 확인되어 타살 판정. 피해자의 공금 횡령 내사를 담당하던 감사 위원이 같은 펜션에 투숙했고 단독으로 목격됐다. 조합 이사도 권력 다툼 중이었다. 그러나 펜션 업주가 조합이 강제 수용하려던 자신의 토지 문제로 피해자를 원망했고, 직접 음료에 수면제를 넣을 수 있는 유일한 위치에 있었으며, 음료 잔 지문이 업주를 가리킨다.",
+      "en": "A cooperative chairman died in a pension fire — ruled arson-murder when sedative overdose in his blood and an external fire origin were confirmed. An auditor investigating the victim's embezzlement who was staying alone at the same pension, and a cooperative director in a power struggle, draw suspicion. But the pension owner — whose land the cooperative was forcibly acquiring — was the only one with direct access to the victim's drinks, and fingerprints on the drink glass confirm it."
+    },
+    "answer_hint": "펜션 업주 윤재원 (토지 강제 수용 원한, 음료 접근 유일, 지문)",
+    "misdirect": "감사 위원 (횡령 내사 담당, 단독 투숙) / 조합 이사 (권력 다툼)",
+    "twist": "업주는 피해자를 잠재운 후 객실 외부에서 화재 점화 — 알리바이 위장 목적"
+  },
+  {
+    "id": 48,
+    "era": "renaissance",
+    "crimeType": "murder",
+    "method": "독살 — 초상화 물감 비소",
+    "title": { "ko": "초상화의 독", "en": "Poison in the Portrait" },
+    "location": { "ko": "1498년 베네치아 귀족 저택 / 화가 작업실", "en": "Venetian noble villa and painter's workshop, Venice, 1498" },
+    "time": { "ko": "1498년 3월~5월 (서서히 중독)", "en": "March–May 1498 (gradual poisoning)" },
+    "victim": { "ko": "피해자: 베네치아 원로원 의원 조르조 카라파 (61세)", "en": "Victim: Venetian Senate member Giorgio Carrafa (61)" },
+    "synopsis": {
+      "ko": "베네치아 원로원 의원이 초상화 주문 후 3개월에 걸쳐 서서히 쇠약해지다 사망했다. 비소가 검출됐고 평소 초상화 작업실을 드나들며 물감에 노출됐다. 경쟁 원로원 의원이 표와 권력을 빼앗길 위기에서 화가를 사주했다는 제보가 있다. 조수 화가도 작업실에서 비소를 취급했다. 그러나 초상화를 주문한 화가의 후원자인 피해자 부인이 비소 가루를 물감에 혼합하도록 화가에게 지시했고, 후원 계약서에 부인의 특별 지시 조항이 남아 있다.",
+      "en": "A Venetian senator died gradually over 3 months after commissioning his portrait — arsenic detected after routine exposure to the workshop. A rival senator suspected of bribing the painter, and a workshop assistant who handled arsenic, draw suspicion. But the victim's wife — the painter's primary patron — who instructed the painter to mix arsenic powder into the paint is confirmed by a private instruction clause in the patronage contract."
+    },
+    "answer_hint": "피해자 부인 소피아 카라파 (후원 계약 특별 지시, 비소 혼합 명령)",
+    "misdirect": "경쟁 원로원 의원 (사주 제보) / 조수 화가 (비소 취급)",
+    "twist": "후원자가 작업 지시권을 이용 — 계약서 '특별 지시 조항'이 예술적 요구처럼 보이다가 비소 혼합 명령으로 드러남"
+  },
+  {
+    "id": 49,
+    "era": "modern",
+    "crimeType": "theft",
+    "method": "디지털 절도 — 딥페이크 CEO 사칭",
+    "title": { "ko": "목소리를 훔친 자", "en": "The Voice Thief" },
+    "location": { "ko": "서울 강남 글로벌 IT 기업 / 해외 법인 계좌", "en": "Global IT company, Gangnam Seoul / overseas corporate account" },
+    "time": { "ko": "2025년 7월 14일~16일 (3일간 실행)", "en": "July 14–16, 2025 (executed over 3 days)" },
+    "victim": { "ko": "피해자: 글로벌 IT 기업 / 피해액 120억 원 해외 이체", "en": "Victim: global IT company / ₩12B transferred overseas" },
+    "synopsis": {
+      "ko": "딥페이크 CEO 음성으로 재무팀을 속여 120억 원이 해외로 이체됐다. 최근 해고된 재무팀 직원이 내부 이체 절차를 알고 있고 CEO 음성 녹음에 접근 가능해 가장 의심받는다. 외부 보이스 피싱 조직도 유사 범행 전력이 있다. 그러나 재무팀 현직 팀장이 본인이 직접 이체 결재를 승인하면서 딥페이크 연락을 받은 척 연기했고, 이체 승인 로그와 팀장 개인 계좌 수취가 일치한다.",
+      "en": "₩12B was transferred overseas after a deepfake CEO voice call convinced the finance team. A recently fired finance employee who knew internal transfer procedures and had voice recording access, and an external vishing syndicate with similar prior offenses, draw suspicion. But the current finance team leader — who personally approved the transfer while pretending to receive a deepfake call — is confirmed when the approval log and deposits to his personal account match."
+    },
+    "answer_hint": "재무팀 팀장 백승호 (직접 이체 승인, 딥페이크 수신 연기, 개인 계좌 수취)",
+    "misdirect": "해고된 재무팀 직원 (내부 절차 파악, 녹음 접근) / 외부 보이스피싱 조직 (유사 전력)",
+    "twist": "외부 공격처럼 보였지만 내부자가 자작 — 이체 승인 로그에 본인 계정이 찍혀 있음"
+  },
+  {
+    "id": 50,
+    "era": "modern",
+    "crimeType": "murder",
+    "method": "독살 — 심장약 과다 투여 후 자연사 위장",
+    "title": { "ko": "마지막 회진", "en": "The Final Round" },
+    "location": { "ko": "서울 강남 대형 병원 VIP 특실 / 야간 회진 중", "en": "VIP special room, major hospital, Gangnam Seoul / during night rounds" },
+    "time": { "ko": "2025년 6월 2일 야간 회진 — 새벽 2시~3시", "en": "June 2, 2025 — night rounds, 02:00–03:00" },
+    "victim": { "ko": "피해자: 권태준 (79세, 전 국방장관)", "en": "Victim: Kwon Taejun (79, former Defense Minister)" },
+    "synopsis": {
+      "ko": "전 국방장관이 야간 회진 중 자연사한 것으로 처리됐다. 그러나 심장약 혈중 농도가 처방량의 4배로 확인되어 타살 판정. 피해자가 작성 중이던 군 비리 회고록 출판을 막으려는 전직 군 고위 인사가 가장 강한 외부 동기를 가진다. 담당 간호사도 약물 관리 실수 의혹이 있다. 그러나 야간 담당 인턴 의사가 회고록에 자신의 아버지가 연루됐다는 사실을 알고 마지막 회진에서 심장약을 과다 투여했으며, 인턴 의사의 투약 기록과 수기 차트 수정 흔적이 clue 4~5에서 진범을 가리킨다.",
+      "en": "A former Defense Minister died during night rounds — ruled natural death until blood concentration of cardiac medication was found at 4× the prescribed dose. A former senior military figure who wanted to suppress the victim's memoir implicating him, and a nurse suspected of medication mismanagement, draw suspicion. But the intern physician — who discovered his own father was implicated in the memoir — over-dosed the cardiac medication during the final rounds, confirmed by his medication records and handwritten chart alteration marks."
+    },
+    "answer_hint": "야간 인턴 의사 정민재 (아버지 연루, 투약 기록, 수기 차트 수정)",
+    "misdirect": "전직 군 고위 인사 (회고록 억압 동기) / 담당 간호사 (약물 관리 실수 의혹)",
+    "twist": "인턴 의사는 가장 의심받지 않는 위치 — 야간 단독 회진이라는 기회와 아버지 보호라는 절박한 동기의 교차점"
   }
 ]
