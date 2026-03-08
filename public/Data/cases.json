@@ -5,151 +5,151 @@
     "crimeType": "murder",
     "method": "약물 과다 투여 위장 자연사",
     "title": { "ko": "약의 진실", "en": "The Truth of Medicine" },
-    "overview": { "ko": "요양원에서 전 국방장관이 의약품을 과다 복용해 사망했다. 의료 기록상 정상이지만 약물 관리 로그에만 불일치가 있다. 30년 근속을 지키려던 약사의 범행이다.", "en": "A former Defense Minister died of drug overdose at a care facility. Medical records appear normal, but drug management logs show discrepancies. The pharmacist tried to protect 30 years of service." },
-    "caseOverview": { "ko": "전직 국방장관 최영수는 강남의 프리미엠 요양원에서 장기 요양 중이었습니다. 3월 15일 새벽, 야간 간호사가 회진 중 그를 발견했고 심장마비로 인한 사망으로 판정되었습니다. 하지만 혈액 검사에서 심장약의 농도가 정상의 150%로 나타났습니다. 약물 살인이었던 것입니다. 요양원의 약물 관리 시스템을 살펴보면, 모든 약품 투여가 기록되어 있고 의료진들도 모두 정상 절차를 따랐습니다. 그런데 약사의 개인 기록에만 미기록 항목이 있었습니다.", "en": "Former Defense Minister Choi Youngsoo was undergoing long-term care at a premium facility in Gangnam. On March 15th early morning, the night nurse found him during rounds—cardiac arrest. Blood tests showed his heart medication at 150% of normal. It was poisoning. The facility's medication management system shows all drugs properly recorded and all staff following procedures. Yet only the pharmacist's personal log contained unrecorded entries." },
+    "overview": { "ko": "전직 국방장관이 요양원에서 심장마비로 사망했다. 혈중 약물 농도는 150%였지만 모든 용의자들이 철저한 알리바이를 가지고 있다. 누가 범인인가?", "en": "A former Defense Minister died of cardiac arrest at a care facility. Drug concentration was at 150%, but all suspects have solid alibis. Who is the culprit?" },
+    "caseOverview": { "ko": "전직 국방장관 최영수(87세)는 강남의 프리미엄 요양원에서 3개월간 요양 중이었습니다. 3월 15일 새벽 2시 45분경, 야간 간호사 이서영이 정기 순찰 중 그가 반응이 없음을 발견했습니다. 즉시 응급 호출했고 30분 후 도착한 119에서 이미 사망 판정을 받았습니다. 초기 진단은 '노령으로 인한 심장마비'였습니다. 그러나 부검 결과 혈중 심장약 농도가 정상의 150%였습니다. 자연사가 아닌 '약물 살인'이었던 것입니다. 문제는 더 복잡했습니다. 요양원의 전자 약물 관리 시스템에는 정상 용량만 기록되어 있었고, CCTV와 접근 카드 기록도 모두 정상이었습니다. 모든 의료진이 정상 절차를 따랐고, 각자 완벽한 알리바이를 가지고 있었습니다. 그럼에도 누군가는 이 '완벽한 범죄'를 저질렀습니다.", "en": "Former Defense Minister Choi Youngsoo (87) was undergoing care at a premium facility for 3 months. On March 15th around 2:45 AM, night nurse Lee Seoyoung found him unresponsive during routine rounds. Emergency services arrived 30 minutes later and pronounced him dead. Initial diagnosis: 'cardiac arrest from old age.' But autopsy revealed blood heart medication concentration at 150% of normal. It was poisoning, not natural death. The problem was more complex: the electronic medication system showed only normal doses, CCTV and access cards showed nothing unusual, all staff followed protocol perfectly, and each had solid alibis. Yet someone committed this 'perfect crime.'" },
     "location": { "ko": "서울 강남 프리미엄 요양원 VIP 병실", "en": "VIP Ward, Premium Care Facility, Gangnam Seoul" },
-    "time": { "ko": "2026년 3월 15일 — 사망 추정 02:30~04:00", "en": "March 15, 2026 — TOD est. 02:30–04:00" },
+    "time": { "ko": "2026년 3월 15일 02:45 — 사망 추정 02:30~04:00", "en": "March 15, 2026 02:45 — TOD est. 02:30–04:00" },
     "victim": { "ko": "피해자: 최영수 (87세, 전 국방장관)", "en": "Victim: Choi Youngsoo (87, Former Defense Minister)" },
     "difficulty": "hard",
     "answer": "2",
-    "explanation": { "ko": "약사는 30년의 근속을 지키려고 했습니다. 피해자가 약물 관리 부정행위를 발견하려 했기 때문입니다.", "en": "The pharmacist tried to protect 30 years of service. The victim was about to discover medication management misconduct." },
+    "explanation": { "ko": "약사 김지윤은 처방 시간을 조작했습니다. 피해자는 실제로는 오전 8시에 약을 받지만, 약사가 전산 시스템에는 오전 9시로 입력했습니다. 그리고 실제 사망 시간 30분 전에 '응급 재투여'라는 명목으로 추가 약물을 투여했습니다. 의료 기록상 이것은 평상시 약물 관리의 일부처럼 보입니다. 핵심은 피해자가 최근 약사에게 '약물 관리 상황 감시'를 요청했다는 것입니다. 피해자는 약사가 다른 환자들의 약물을 횡령하고 있다고 의심했고, 이를 사실상 감시하고 있었습니다. 약사는 자신의 30년 경력이 끝나갈 것을 알았습니다.", "en": "Pharmacist Kim Jiyun manipulated the prescription time. The victim should have received medication at 8 AM, but she entered 9 AM in the system. Then 30 minutes before actual death, she administered 'emergency additional medication' under the guise of standard care. On medical records, this appears routine. The key: the victim had recently asked the pharmacist to 'monitor medication management.' The victim suspected the pharmacist was embezzling other patients' drugs and was essentially surveilling her. The pharmacist knew her 30-year career was ending." },
     "suspects": [
       {
         "id": "1",
         "name": { "ko": "담당 의사 박준혁", "en": "Dr. Park Junhyeok" },
         "job": { "ko": "요양원 내과의", "en": "Internal Medicine Doctor" },
         "age": 52,
-        "motive": { "ko": "피해자의 의료 기록 변경 위협", "en": "Medical record threat" },
-        "alibi": { "ko": "당직실에서 대기 중", "en": "On standby in duty room" },
-        "flag": { "ko": "혈액에서 정상 범위 약물만 확인", "en": "Normal medication levels in blood" },
-        "interview": { "ko": "\"저는 매일 오후 6시부터 당직을 서고 있었습니다. 최 전 장관님의 상태는 매우 안정적이었습니다.\"", "en": "\"I was on duty from 6 PM. Mr. Choi was very stable.\"" }
+        "motive": { "ko": "피해자가 의료 기록 부정행위 적발 위협 — 의료 실수 은폐", "en": "Victim threatened to expose medical fraud — covering up medical errors" },
+        "alibi": { "ko": "당직실에서 계속 대기 — 간호사들 증언, CCTV 확인", "en": "Continuously in duty room — nurse testimony, CCTV confirmed" },
+        "flag": { "ko": "의료 처방 기록으로는 정상 용량 — 직접 약물 투여 기록 없음", "en": "Medical prescription records show normal doses — no direct medication administration records" },
+        "interview": { "ko": "\"저는 밤 9시부터 새벽 6시까지 당직을 서고 있었습니다. 최 전 장관님의 약물 관리는 약사와 간호사가 담당하므로, 저는 의료 감시만 합니다. 의료 기록에 문제가 있다면 그건 관련 부서에 신고되어야 합니다.\"", "en": "\"I was on duty from 9 PM to 6 AM. Medication management was handled by the pharmacist and nurses—I only supervise medical care. If there were issues in records, it should have been reported.\"" }
       },
       {
         "id": "2",
         "name": { "ko": "약사 김지윤", "en": "Pharmacist Kim Jiyun" },
-        "job": { "ko": "요양원 야간 약물 관리자", "en": "Night Medication Manager" },
+        "job": { "ko": "요양원 약물 관리자", "en": "Medication Manager" },
         "age": 48,
-        "motive": { "ko": "30년 근속 위협 — 약물 관리 부정행위 적발 직전", "en": "30-year career threatened — about to be exposed" },
-        "alibi": { "ko": "약물실에서 일상적 업무 중", "en": "Performing routine duties" },
-        "flag": { "ko": "개인 약물 기록에만 미기록 항목 존재", "en": "Unrecorded entry only in personal log" },
-        "interview": { "ko": "\"30년을 이곳에서 일했습니다. 저는 단지 규정대로 약을 관리했을 뿐입니다.\"", "en": "\"I've worked here 30 years. I simply followed protocol.\"" }
+        "motive": { "ko": "피해자의 감시와 신고 위협 — 약물 횡령 혐의 적발 직전", "en": "Victim's surveillance and threat of reporting — about to expose drug embezzlement" },
+        "alibi": { "ko": "약물실과 약국 구역에서 근무 — 출입 카드 기록 일치, CCTV에 모습 확인", "en": "Working in medication room and pharmacy area — access card matches, seen on CCTV" },
+        "flag": { "ko": "약물실 출입은 기록되나 피해자 병실 출입 기록 없음 — 그러나 응급 재투여 권한은 있음", "en": "Pharmacy area access recorded but no victim's room entry — yet has emergency medication authority" },
+        "interview": { "ko": "\"최 전 장관님은 최근 제 약물 관리 방식에 대해 자주 질문하셨습니다. 하지만 저는 철저하게 규정을 따르고 있습니다. 제 기록과 시스템은 모두 일치합니다. 그 분이 돌아가신 것은 정말 슬픕니다.\"", "en": "\"Mr. Choi had been asking questions about my medication management methods recently. But I follow protocol strictly. My records and the system all match. His death is truly tragic.\"" }
       },
       {
         "id": "3",
         "name": { "ko": "요양원 원장 이용진", "en": "Director Lee Yongjin" },
-        "job": { "ko": "요양원 경영진", "en": "Facility Director" },
+        "job": { "ko": "프리미엄 요양원 대표", "en": "Facility Director" },
         "age": 61,
-        "motive": { "ko": "피해자의 유산 상속", "en": "Inherit estate" },
-        "alibi": { "ko": "출장 중 — 호텔 CCTV 확인", "en": "On business trip — CCTV verified" },
-        "flag": { "ko": "완벽한 알리바이 — 물리적 불가능", "en": "Perfect alibi — impossible to be present" },
-        "interview": { "ko": "\"최 전 장관님은 우리 요양원의 특별한 고객이셨습니다.\"", "en": "\"Mr. Choi was a special client of ours.\"" }
+        "motive": { "ko": "피해자의 유산 ($500만) — 또한 최근 의료 기관 점검 예정", "en": "Victim's estate ($5M) — also medical inspection coming soon" },
+        "alibi": { "ko": "그 밤 부산 출장 — 호텔 체크인 23:30, CCTV 확인, 컨시어지 목격 기록", "en": "Business trip to Busan that night — hotel check-in 11:30 PM, CCTV confirmed, concierge witnessed" },
+        "flag": { "ko": "출장 지방 호텔에서의 움직임이 모두 확인됨 — 물리적으로 불가능", "en": "All movements at Busan hotel confirmed — physically impossible to be present" },
+        "interview": { "ko": "\"최 전 장관님은 우리 시설의 가장 존경받는 고객 중 한 분이셨습니다. 그의 죽음은 요양원뿐만 아니라 저 개인에게도 큰 손실입니다. 저는 그 밤 부산에 있었고, 이는 모두 확인할 수 있습니다.\"", "en": "\"Mr. Choi was one of our most respected clients. His death is a loss not just to the facility but to me personally. I was in Busan that night—it's all verifiable.\"" }
       },
       {
         "id": "4",
         "name": { "ko": "야간 간호사 이서영", "en": "Night Nurse Lee Seoyoung" },
         "job": { "ko": "요양원 야간 간호사", "en": "Night Nurse" },
         "age": 35,
-        "motive": { "ko": "급여 체불과 근무 조건 불만", "en": "Wage complaints and poor conditions" },
-        "alibi": { "ko": "병동 순찰 중 — CCTV 확인되나 사각지대 있음", "en": "Ward rounds — CCTV confirmed but blind spots" },
-        "flag": { "ko": "약물 투여 권한 없음", "en": "No medication authority" },
-        "interview": { "ko": "\"최 전 장관님은 항상 친절하셨습니다. 새벽 2시쯤 회진했을 때도 편하게 주무시고 계셨어요.\"", "en": "\"Mr. Choi was always kind. When I checked at 2 AM, he was sleeping peacefully.\"" }
+        "motive": { "ko": "최근 해고 위협 — 피해자가 간호 부실 신고", "en": "Recent firing threat — victim reported nursing negligence" },
+        "alibi": { "ko": "병동 순찰 기록 — 1시간마다 기록, CCTV 사각지대 있으나 움직임 일치", "en": "Ward round records — hourly documented, CCTV blind spots but movements match" },
+        "flag": { "ko": "약물 투여 권한이 있으나, 약사 허가 없이는 불가능 — 약물실 출입 기록 없음", "en": "Has medication authority but impossible without pharmacist approval — no pharmacy access logs" },
+        "interview": { "ko": "\"최 전 장관님은 저에게 매우 엄격하셨습니다. 제 간호 스타일에 대해 자주 불평하셨고, 최근에는 제 근무 태도에 대해 보고하겠다고 말씀하셨습니다. 하지만 저는 그를 해치려고 생각한 적이 없습니다.\"", "en": "\"Mr. Choi was very strict with me. He often complained about my nursing style and recently said he'd report my work attitude. But I never wanted to harm him.\"" }
       },
       {
         "id": "5",
         "name": { "ko": "피해자의 아들 최준호", "en": "Son Choi Junho" },
-        "job": { "ko": "삼성전자 임원", "en": "Samsung Executive" },
+        "job": { "ko": "삼성전자 상무", "en": "Samsung EVP" },
         "age": 58,
-        "motive": { "ko": "막대한 의료비 부담 — 매월 1천만 원", "en": "Heavy medical bills — 10M won monthly" },
-        "alibi": { "ko": "서울 자택 — 아내 증언", "en": "Home — wife's testimony" },
-        "flag": { "ko": "시설 출입 기록 없음", "en": "No facility access records" },
-        "interview": { "ko": "\"아버지는 치매가 심하셨고 의료비만 해도 천만 원이 넘었습니다.\"", "en": "\"Father had advanced dementia, medical bills exceeded 10M won monthly.\"" }
+        "motive": { "ko": "상속 유산 ($500만) + 아버지와의 심각한 관계 단절", "en": "Inheritance ($5M) + severe estrangement from father" },
+        "alibi": { "ko": "서울 강남 자택에서 수면 중 — 아내 증언만 있음", "en": "Asleep at Gangnam home — only wife's testimony" },
+        "flag": { "ko": "의료 시스템에 접근 권한 없음 — 요양원 방문 기록 1개월 없음", "en": "No medical system access — no facility visits for 1 month" },
+        "interview": { "ko": "\"저는 아버지와 오래전부터 멀어져 있었습니다. 경제적인 갈등이 있었고... 그래서 이 의혹은 정말 억울합니다. 저는 그 밤 집에 있었고, 제 아내가 증명할 수 있습니다.\"", "en": "\"I've been distant from my father for a long time. We had financial conflicts... so this suspicion is truly unjust. I was home that night, and my wife can confirm it.\"" }
       },
       {
         "id": "6",
         "name": { "ko": "약물 배송원 정민호", "en": "Courier Jung Minho" },
-        "job": { "ko": "의약품 배송 직원", "en": "Pharmaceutical Courier" },
+        "job": { "ko": "의약품 배송 업체 직원", "en": "Pharmaceutical Courier" },
         "age": 42,
-        "motive": { "ko": "약사와의 임금 체불 분쟁", "en": "Wage dispute with pharmacist" },
-        "alibi": { "ko": "아침에만 배송 — 배송 기록 있음", "en": "Only morning deliveries — records exist" },
-        "flag": { "ko": "야간 시설 출입 기록 없음", "en": "No night access records" },
-        "interview": { "ko": "\"그 약사와는 2년 전부터 돈 때문에 싸웠습니다. 하지만 저는 아침에만 들어갔습니다.\"", "en": "\"I've had disputes with the pharmacist for 2 years, but I only came in the morning.\"" }
+        "motive": { "ko": "약사와의 오래된 금전 갈등 — 부당한 임금 삭감", "en": "Old financial dispute with pharmacist — unfair wage cuts" },
+        "alibi": { "ko": "그 날 밤 근무 없음 — 배송 기록 확인됨", "en": "No shift that night — delivery records verified" },
+        "flag": { "ko": "약사의 개인적 친구 — 약사가 그를 이용했을 가능성?", "en": "Pharmacist's personal friend — was pharmacist using him?" },
+        "interview": { "ko": "\"그 약사와는 돈 때문에 싸웠지만, 그렇다고 누군가를 해칠 일은 없습니다. 그 밤 저는 근무하지 않았습니다. 제 배송 일정을 보면 알 수 있습니다.\"", "en": "\"I fought with the pharmacist over money, but that doesn't mean I'd harm someone. I wasn't working that night—check my delivery schedule.\"" }
       }
     ],
     "clues": [
       {
         "order": 1,
         "revealed": true,
-        "ko": "혈중 약물 농도가 처방량의 150%",
-        "en": "Blood drug concentration at 150% of prescribed dose"
+        "ko": "혈중 심장약 농도 150% — 하지만 모든 시스템 기록은 정상 용량",
+        "en": "Blood heart medication at 150% — but all system records show normal doses"
       },
       {
         "order": 2,
         "revealed": true,
-        "ko": "약물 배분 기록 상 정상 용량만 기록됨",
-        "en": "Distribution records show only normal doses"
+        "ko": "약물 배분 시스템에는 처방 시간이 오전 9시로 기록 — 하지만 피해자의 일과표는 오전 8시",
+        "en": "System shows 9 AM medication — but victim's schedule shows 8 AM"
       },
       {
         "order": 3,
         "revealed": true,
-        "ko": "약사의 개인 기록에만 미기록 항목",
-        "en": "Unrecorded entry only in pharmacist's personal log"
+        "ko": "의료 기록에는 '응급 재투여' 항목이 있음 — 약사의 응급 권한으로 가능",
+        "en": "Medical records show 'emergency re-administration' — possible under pharmacist's emergency authority"
       },
       {
         "order": 4,
         "revealed": false,
-        "ko": "피해자 핸드폰: 약사에게 '약물 관리 문제' 메시지",
-        "en": "Victim's phone: message about medication issues to pharmacist"
+        "ko": "피해자의 비서실 메모: '약사의 약물 관리 감시 필요' — 피해자가 약사를 의심",
+        "en": "Victim's office memo: 'need to monitor pharmacist's medication management' — victim suspected pharmacist"
       },
       {
         "order": 5,
         "revealed": false,
-        "ko": "야간 카메라: 약사가 사망 24분 전 피해자 병실 출입",
-        "en": "Night camera: Pharmacist entered room 24 minutes before death"
+        "ko": "약사의 개인 약물함에서 미설명된 약물 부족 발견 — 다른 환자 약물 횡령 증거",
+        "en": "Pharmacist's personal medication vault shows unexplained shortage — evidence of embezzlement from other patients"
       }
     ],
     "timeline": [
       {
         "id": "1",
-        "name": "박준혁",
+        "name": "박준혁 (의사)",
         "cells": [
-          { "ko": "당직 시작", "s": "confirmed" },
-          { "ko": "당직실 대기", "s": "confirmed" },
-          { "ko": "약물실", "s": "unverified" },
-          { "ko": "사망 추정", "s": "death" },
-          { "ko": "발견", "s": "confirmed" }
+          { "ko": "당직 시작 (21:00)", "s": "confirmed" },
+          { "ko": "당직실 대기 (23:00~02:00)", "s": "confirmed" },
+          { "ko": "의료 모니터링 (02:00~03:00)", "s": "unverified" },
+          { "ko": "사망 추정 (02:30~04:00)", "s": "death" },
+          { "ko": "응급 처치 (04:15)", "s": "confirmed" }
         ]
       },
       {
         "id": "2",
-        "name": "김지윤",
+        "name": "김지윤 (약사)",
         "cells": [
-          { "ko": "약물실 근무", "s": "confirmed" },
-          { "ko": "약물 배분", "s": "confirmed" },
-          { "ko": "병실 출입?", "s": "suspicious" },
-          { "ko": "사망 추정", "s": "death" },
-          { "ko": "당직 계속", "s": "confirmed" }
+          { "ko": "약물실 근무 (22:00)", "s": "confirmed" },
+          { "ko": "약물 배분 (01:30~02:00)", "s": "suspicious" },
+          { "ko": "약물실 내 위치? (02:15~02:45)", "s": "unverified" },
+          { "ko": "사망 추정 (02:30~04:00)", "s": "death" },
+          { "ko": "업무 계속 (04:00)", "s": "confirmed" }
         ]
       },
       {
         "id": "3",
-        "name": "이용진",
+        "name": "이용진 (원장)",
         "cells": [
-          { "ko": "호텔 체크인", "s": "confirmed" },
-          { "ko": "회의", "s": "confirmed" },
-          { "ko": "호텔 내", "s": "confirmed" },
-          { "ko": "사망 추정", "s": "death" },
-          { "ko": "호텔 내", "s": "confirmed" }
+          { "ko": "부산 호텔 체크인 (23:30)", "s": "confirmed" },
+          { "ko": "호텔 로비 (01:00~02:00)", "s": "confirmed" },
+          { "ko": "호텔 방 내 (02:00~03:00)", "s": "unverified" },
+          { "ko": "사망 추정 (02:30~04:00)", "s": "death" },
+          { "ko": "호텔 조식 (07:00)", "s": "confirmed" }
         ]
       },
       {
         "id": "4",
-        "name": "이서영",
+        "name": "이서영 (간호사)",
         "cells": [
-          { "ko": "병동 순찰", "s": "confirmed" },
-          { "ko": "순찰 계속", "s": "confirmed" },
-          { "ko": "사각지대", "s": "suspicious" },
-          { "ko": "사망 추정", "s": "death" },
-          { "ko": "응급 대응", "s": "confirmed" }
+          { "ko": "병동 순찰 (01:00)", "s": "confirmed" },
+          { "ko": "기록된 순찰 (02:00)", "s": "suspicious" },
+          { "ko": "병동 순찰 (03:00)", "s": "confirmed" },
+          { "ko": "사망 추정 (02:30~04:00)", "s": "death" },
+          { "ko": "응급 신고 (02:45)", "s": "confirmed" }
         ]
       }
     ],
