@@ -2,24 +2,301 @@
   {
     "id": 1,
     "era": "modern",
-    "difficulty": "Extreme",
-    "title": { "ko": "1502호: 밀봉된 와인의 비극", "en": "The Tragedy of Sealed Wine" },
-    "location": { "ko": "서울 르메르디앙 호텔 펜트하우스", "en": "Le Méridien Penthouse, Seoul" },
-    "victim": { "ko": "박준혁 회장 (독살)", "en": "Chairman Park (Poisoned)" },
-    "synopsis": {
-      "ko": "이중 잠금된 호텔 객실에서 박회장이 숨진 채 발견되었습니다. 사인은 룸서비스 와인에 투입된 독극물이었으나, 병은 코르크와 캡슐까지 완벽히 밀봉된 상태였습니다.",
-      "en": "Chairman Park was found dead in a double-locked room. The cause was poisoned wine, yet the bottle appeared perfectly sealed with its cork and capsule intact."
-    },
+    "crimeType": "murder",
+    "method": "독살 — 와인 병 재밀봉",
+    "title": { "ko": "밀봉된 와인의 비밀", "en": "Secret of the Sealed Wine" },
+    "location": { "ko": "서울 강남 르메르디앙 호텔 1502호", "en": "Room 1502, Le Méridien Hotel, Gangnam Seoul" },
+    "time": { "ko": "2026년 3월 4일 — 사망 추정 23:15~23:40", "en": "March 4, 2026 — TOD est. 23:15–23:40" },
+    "victim": { "ko": "피해자: 박준혁 (58세, JH그룹 회장)", "en": "Victim: Park Junho (58, JH Group Chairman)" },
     "suspects": [
-      { "id": "A", "name": { "ko": "소믈리에 한씨", "en": "Sommelier Han" }, "alibi": { "ko": "23:15 배달 후 와인고에서 재고 정리 (전력 기록 없음)", "en": "Stocktaking in the cellar after 23:15 (No power usage recorded)" }, "flag": { "ko": "병 손상 없이 코르크를 뽑고 재밀봉하는 특수 장비 보유", "en": "Possesses a specialized tool to extract and re-seal corks" } },
-      { "id": "B", "name": { "ko": "비서 이씨", "en": "Secretary Lee" }, "alibi": { "ko": "호텔 인근 편의점 방문 (CCTV 조작 흔적)", "en": "Visited a nearby convenience store (CCTV tampered)" }, "flag": { "ko": "제약학 전공자로 희귀 독성 물질 배합 가능", "en": "Pharmacology major capable of mixing rare toxins" } },
-      { "id": "C", "name": { "ko": "부회장 김씨", "en": "Vice Chairman Kim" }, "alibi": { "ko": "호텔 바에서 양주를 마심 (바텐더 증언)", "en": "Drinking at the hotel bar (Bartender witness)" }, "flag": { "ko": "180억 횡령 장부를 피해자가 가지고 있었음", "en": "Victim held a ledger of his ₩18B embezzlement" } },
-      { "id": "D", "name": { "ko": "주방장 피에르", "en": "Chef Pierre" }, "alibi": { "ko": "주방 마감 후 직원들과 회식 중", "en": "Staff dinner after kitchen closing" }, "flag": { "ko": "투자 철회 통보를 받고 폐업 위기에 처함", "en": "Facing closure due to withdrawn investment" } },
-      { "id": "E", "name": { "ko": "보안팀장 강씨", "en": "Security Chief Kang" }, "alibi": { "ko": "보안실에서 모니터링 중이었다고 주장", "en": "Claimed to be monitoring in the security room" }, "flag": { "ko": "사건 직후 1502호 출입 로그를 수동으로 삭제함", "en": "Manually deleted 1502 entry logs after the event" } }
-    ],
-    "clues": [
-      { "order": 1, "ko": "와인병 캡슐 밑면에 미세한 접착제 흔적이 남아 있습니다.", "en": "Traces of superglue found at the base of the wine capsule." },
-      { "order": 2, "ko": "비서의 편의점 CCTV는 1시간 전 녹화본이 재생된 것입니다.", "en": "The secretary's CCTV footage was a pre-recorded loop from an hour earlier." },
-      { "order": 3, "ko": "와인고의 전력 사용량이 서빙 시간대부터 0이었습니다. 아무도 없었다는 증거입니다.", "en": "The cellar's power usage was zero during the alleged inventory time." },
-      { "order": 4, "ko": "보안팀장은 소믈리에로부터 거액의 도박 자금을 송금받았습니다.", "en": "The security chief received a large wire transfer from the sommelier." },
-      { "order": 5, "ko": "소믈리에가 사용한 '아소(Ah-So)' 오프너는 코르크에 구멍을 남기지 않습니다.",
+      {
+        "name": { "ko": "해고된 비서 이서윤", "en": "Fired secretary Lee Seoyun" },
+        "motive": "피해자의 해고로 인한 분노 및 신분 추락",
+        "alibi": "호텔 근처에서 목격 — 명확한 알리바이 부족",
+        "flag": "약학 전공자 신분이 독극물 제조 가능성을 높임"
+      },
+      {
+        "name": { "ko": "부회장 정우진", "en": "Vice Chairman Jung Woojin" },
+        "motive": "180억 횡령 적발 위기 및 경영권 승계 사주",
+        "alibi": "비즈니스 만찬에 참석했으나 단독 시간 존재",
+        "flag": "감사 시작 전 범행 필요 — 시간적 절박성"
+      },
+      {
+        "name": { "ko": "소믈리에 김민호", "en": "Sommelier Kim Minho" },
+        "motive": "피해자의 해고 압박으로 인한 생존권 박탈",
+        "alibi": "업무상 와인 배달 — 시간적 일관성 완벽",
+        "flag": "병 재밀봉 기술 독점 — 유일한 기술적 실행자"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "era": "joseon",
+    "crimeType": "murder",
+    "method": "교살 — 밀실 창호 열기 기술",
+    "title": { "ko": "사헌부의 그림자", "en": "Shadow of the Saheonbu" },
+    "location": { "ko": "조선 한양 북촌 이판서 사랑채", "en": "Sarangchae of Minister Yi, Bukchon, Hanyang" },
+    "time": { "ko": "갑오년 8월 15일 묘시 (05:00~07:00)", "en": "15th day, 8th month, Gabo Year — Myosi (05:00–07:00)" },
+    "victim": { "ko": "피해자: 이병헌 판서 (62세, 이조판서)", "en": "Victim: Minister Yi Byungheon (62, Minister of Personnel)" },
+    "suspects": [
+      {
+        "name": { "ko": "조카 이윤석", "en": "Nephew Yi Yunseok" },
+        "motive": "연회에서 격렬한 언쟁 — 재산 상속 분쟁",
+        "alibi": "연회 후 자택 귀가 — 목격자 증언 일관",
+        "flag": "옷 찢김이 비단 조각과 일치 — 현장 흔적"
+      },
+      {
+        "name": { "ko": "사헌부 대사헌 박재권", "en": "Chief Inspector Park Jaegwon" },
+        "motive": "피해자의 탄핵으로 인한 관직 위협",
+        "alibi": "사당 참배 — 그러나 시간대 불명확",
+        "flag": "강건한 체격 — 교살 범행의 신체 조건 부합"
+      },
+      {
+        "name": { "ko": "전직 무관 상인 최두성", "en": "Merchant Ch'oi Duseong (ex-officer)" },
+        "motive": "밀수 장부 발각 직전 — 증거 인멸 목적",
+        "alibi": "야경꾼이 목격했으나 변명 가능한 통로 사용",
+        "flag": "가죽 신발 흔적 + 정원 특유 흙 — 위장된 침입 경로"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "era": "medieval_europe",
+    "crimeType": "murder",
+    "method": "단검 — 이중 빗장 트릭",
+    "title": { "ko": "수도원의 단검", "en": "The Dagger of the Abbey" },
+    "location": { "ko": "신성로마제국 라인강 유역 성 베네딕트 수도원 도서관", "en": "Library, Saint Benedict Abbey, Rhine Valley" },
+    "time": { "ko": "1347년 10월 11일 자정~새벽 2시", "en": "October 11, 1347 — midnight to 02:00" },
+    "victim": { "ko": "피해자: 대수도원장 클레멘스 (67세)", "en": "Victim: Abbot Clemens (67)" },
+    "suspects": [
+      {
+        "name": { "ko": "약초사 수사 베르톨트", "en": "Herbalist Monk Bertold" },
+        "motive": "이단 고발 재판 직전 — 생명의 위협",
+        "alibi": "도서관 입장 시도 목격됨 — 분명한 현장 방문",
+        "flag": "의학 지식 — 심장 위치에 정확한 단검 타격 가능"
+      },
+      {
+        "name": { "ko": "부원장 안셀무스", "en": "Prior Anselmus" },
+        "motive": "대수도원장 사망 시 원장직 승계 가능성",
+        "alibi": "기도실에서 기도 중 — 동료 수사 증언",
+        "flag": "강건한 체격과 무술 경험 — 신체 조건 충족"
+      },
+      {
+        "name": { "ko": "사서 수사 힐데마르", "en": "Librarian Monk Hildemark" },
+        "motive": "금서 복사 발각 직전 — 지위 박탈 및 처벌 위기",
+        "alibi": "도서관 정리 중 — 야간 도서관 단독 접근",
+        "flag": "이중 빗장 트릭 유일 보유자 — 기술적 실행 능력"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "era": "colonial_korea",
+    "crimeType": "murder",
+    "method": "둔기 타살 — 밀실 뒷계단 트릭",
+    "title": { "ko": "경성의 밤비", "en": "Night Rain in Gyeongseong" },
+    "location": { "ko": "1930년 경성부 종로 조선인 약재상 2층 밀실", "en": "2nd floor secret room, herbal medicine shop, Jongno, Gyeongseong 1930" },
+    "time": { "ko": "1930년 6월 14일 밤 11시~자정", "en": "June 14, 1930 — 23:00–00:00" },
+    "victim": { "ko": "피해자: 최재원 (51세, 독립운동 자금책)", "en": "Victim: Choi Jaewon (51, Independence Movement financier)" },
+    "suspects": [
+      {
+        "name": { "ko": "독립신문 기자 김철수", "en": "Journalist Kim Chulsu" },
+        "motive": "자금 운영 투명성 감시 및 비리 적발 시도",
+        "alibi": "회합 후 2층에 단독으로 머물렀음 — 목격자 있음",
+        "flag": "격한 언쟁 목격 — 범행 직전 갈등 기록"
+      },
+      {
+        "name": { "ko": "일제 밀정 상인", "en": "Japanese informant merchant" },
+        "motive": "독립운동 자금 적발 및 조직 와해",
+        "alibi": "뒷골목에서 목격됨 — 실제 침입 경로 불명",
+        "flag": "외부 침입 흔적 없음 — 일제 관련성 의심"
+      },
+      {
+        "name": { "ko": "자금 운반책 정한성", "en": "Fund courier Jung Hanseong" },
+        "motive": "횡령 자금 발각 직전 — 증거 인멸 및 생존권 박탈",
+        "alibi": "뒷계단 이용으로 비에 노출 없음 — 신발 건조 증거",
+        "flag": "소매에 황기 분말 검출 — 약재상 2층 전용 약재"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "era": "victorian",
+    "crimeType": "murder",
+    "method": "총기 자살 위장 — 비밀 통로",
+    "title": { "ko": "안개 속의 유서", "en": "The Will in the Fog" },
+    "location": { "ko": "1888년 런던 이스트엔드 그레이엄 경 저택 서재", "en": "Study, Lord Graham's mansion, East End London, 1888" },
+    "time": { "ko": "1888년 11월 3일 자정~오전 2시", "en": "November 3, 1888 — midnight to 02:00" },
+    "victim": { "ko": "피해자: 에드워드 그레이엄 경 (74세, 귀족 재벌)", "en": "Victim: Lord Edward Graham (74, noble magnate)" },
+    "suspects": [
+      {
+        "name": { "ko": "딸 빅토리아", "en": "Daughter Victoria" },
+        "motive": "새 유언장으로 상속 180만 파운드 박탈",
+        "alibi": "서재 앞 복도에서 목격 — 현장 접근성 명확",
+        "flag": "총성 후 가장 먼저 도착 — 범행 직후 발견 가능한 위치"
+      },
+      {
+        "name": { "ko": "동반자 마가렛", "en": "Companion Margaret" },
+        "motive": "유산 상속 변경으로 인한 경제적 손실",
+        "alibi": "22시 서재 방문 확인됨 — 범행 직후 동향 불명",
+        "flag": "개인 편의 개입 가능성 — 친밀한 신뢰 관계"
+      },
+      {
+        "name": { "ko": "집사 토마스 윌슨", "en": "Butler Thomas Wilson" },
+        "motive": "저택 매각 조항으로 30년 근속 거처 박탈 — 생존권 위협",
+        "alibi": "지하 창고 30분 초과 체류 — 통로 왕복 시간 위장",
+        "flag": "지하 통로 단추 + 시더우드 향 — 밀실 트릭 실행 능력"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "era": "modern",
+    "crimeType": "murder",
+    "method": "추락 — 옥외 테라스 강제 추락",
+    "title": { "ko": "13층의 추락", "en": "The Fall from the 13th Floor" },
+    "location": { "ko": "서울 마포 아크로타워 13층 옥외 테라스", "en": "13th floor outdoor terrace, Akro Tower, Mapo Seoul" },
+    "time": { "ko": "2025년 9월 20일 22:30~23:00", "en": "September 20, 2025 — 22:30–23:00" },
+    "victim": { "ko": "피해자: 오성민 (44세, IT 스타트업 대표)", "en": "Victim: Oh Sungmin (44, IT startup CEO)" },
+    "suspects": [
+      {
+        "name": { "ko": "공동창업자 한지민", "en": "Co-founder Han Jimin" },
+        "motive": "주식 비리의 희생양 지목 — 사회적 지위 및 경력 파괴",
+        "alibi": "테라스 방향 CCTV 포착됨 — 현장 접근성 명확",
+        "flag": "테라스 방향 CCTV — 범행 직전 목격 시간대 일치"
+      },
+      {
+        "name": { "ko": "CFO 유혜린", "en": "CFO Yu Hyerin" },
+        "motive": "횡령 감사 임박 — 회피 가능성 및 증거 인멸 시도",
+        "alibi": "22:10 테라스 근처에서 목격됨 — 현장 있음",
+        "flag": "횡령 감사 이틀 후 예정 — 절박한 시간 압박"
+      },
+      {
+        "name": { "ko": "투자사 대표 강태윤", "en": "VC CEO Kang Taeyun" },
+        "motive": "투자 라운드 제외로 50억 원 손실 — 경제적 파탄",
+        "alibi": "CCTV 사각지대 이동 — 추적 불가능한 경로",
+        "flag": "DNA 혈흔 + 청소부 목격 + 난간 도료 — 3중 물증"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "era": "ancient_rome",
+    "crimeType": "murder",
+    "method": "단검 — 전직 검투사의 심장 관통",
+    "title": { "ko": "원로원의 비수", "en": "Dagger of the Senate" },
+    "location": { "ko": "기원전 44년 로마 원로원 의사당 전실", "en": "Antechamber of Senate House (Curia Julia), 44 BC" },
+    "time": { "ko": "기원전 44년 3월 14일 제6시~7시 (정오~오후 2시)", "en": "March 14, 44 BC — 6th to 7th hour (noon–14:00)" },
+    "victim": { "ko": "피해자: 마르쿠스 포르키우스 의원 (62세)", "en": "Victim: Senator Marcus Porcius (62)" },
+    "suspects": [
+      {
+        "name": { "ko": "카이사르파 수장 루키우스", "en": "Caesarian leader Lucius" },
+        "motive": "암살 음모 폭로 방지 — 정치적 생존",
+        "alibi": "직전 논쟁 목격됨 — 현장 방문 확인",
+        "flag": "정치적 권력 다툼 — 강한 동기"
+      },
+      {
+        "name": { "ko": "공화파 수장 퀸투스", "en": "Republican leader Quintus" },
+        "motive": "자금 출처 폭로 차단 — 정치적 우위 유지",
+        "alibi": "원로원 세션 중 위치 불명 — 행동 추적 불가",
+        "flag": "자금 관리 책임 — 폭로 시 정치적 위기"
+      },
+      {
+        "name": { "ko": "경비원 마르쿠스 유닐리우스", "en": "Guard Marcus Iunilius (ex-gladiator)" },
+        "motive": "노예 신분 복귀 위기 — 자유 박탈",
+        "alibi": "경비 자리 이탈 30분 — 사망 추정 시각과 일치",
+        "flag": "검투사 출신 — 정밀한 심장 관통 유일 가능자"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "era": "modern_japan",
+    "crimeType": "murder",
+    "method": "독살 — 다도 찻잔 소매 접촉",
+    "title": { "ko": "교토의 다실", "en": "The Tea Room in Kyoto" },
+    "location": { "ko": "1926년 교토 기온 전통 료칸 다실", "en": "Tea room of a ryokan in Gion, Kyoto, 1926" },
+    "time": { "ko": "1926년 4월 8일 오후 3시~4시 (차노유 의식 직후)", "en": "April 8, 1926 — 15:00–16:00 (after chanoyu ceremony)" },
+    "victim": { "ko": "피해자: 야마모토 켄지 (67세, 교토 재계 실력자)", "en": "Victim: Yamamoto Kenji (67, Kyoto business magnate)" },
+    "suspects": [
+      {
+        "name": { "ko": "다도 사범 다나카 유코", "en": "Tea master Tanaka Yuko" },
+        "motive": "도장 강제 매입 피해로 인한 재정적 손실 및 명예 훼손",
+        "alibi": "차 준비 중 10분 단독 작업 — 현장 접근",
+        "flag": "찻잔 취급 기술 — 독 투여 기회"
+      },
+      {
+        "name": { "ko": "경쟁 재계 인사 마에다", "en": "Business rival Maeda" },
+        "motive": "오랜 사업 분쟁 — 경제적 경쟁",
+        "alibi": "다도 의식 중 목격됨 — 동선 추적 가능",
+        "flag": "장기간 분쟁 관계 — 근본적 동기"
+      },
+      {
+        "name": { "ko": "비서 스즈키 아키라", "en": "Secretary Suzuki Akira" },
+        "motive": "5천만 엔 횡령 발각 직전 — 직업 및 자유 박탈",
+        "alibi": "찻잔 배열 담당 — 조용한 접근",
+        "flag": "소매 접촉 투입 + 이틀 전 독 원료 구입 기록"
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "era": "cold_war",
+    "crimeType": "espionage",
+    "method": "교살 — 슈타지 고급 요원의 철사 교살",
+    "title": { "ko": "베를린의 암호", "en": "The Cipher of Berlin" },
+    "location": { "ko": "1961년 베를린 장벽 건설 직후 서베를린 호텔 602호", "en": "Room 602, Hotel Adlon, West Berlin, 1961" },
+    "time": { "ko": "1961년 8월 16일 새벽 2시~4시", "en": "August 16, 1961 — 02:00–04:00" },
+    "victim": { "ko": "피해자: 에른스트 하이만 (54세, 서독 정보국 요원)", "en": "Victim: Ernst Heimann (54, West German intelligence operative)" },
+    "suspects": [
+      {
+        "name": { "ko": "CIA 연락원 클라우스", "en": "CIA liaison Klaus" },
+        "motive": "마이크로필름 탈취 — 정보 독점 및 정치적 우위",
+        "alibi": "01:12 6층 CCTV 포착 — 현장 접근 기록",
+        "flag": "CIA 소속 — 암살 기술 및 조직력 보유"
+      },
+      {
+        "name": { "ko": "MI6 요원 피터 쇼", "en": "MI6 agent Peter Shaw" },
+        "motive": "마이크로필름 확보 경쟁 — 정보 관할권",
+        "alibi": "피해자와 밀담 후 6층 이동 — 확인된 목격",
+        "flag": "영국 정보국 — 암살 기술 보유"
+      },
+      {
+        "name": { "ko": "슈타지 고급 요원 그레고르 볼프", "en": "Senior Stasi operative Gregor Wolf" },
+        "motive": "마이크로필름에 실명 기재 — 신분 노출 및 생명 위협",
+        "alibi": "인접 객실 체크인 — CCTV 사각지대 이동",
+        "flag": "카펫 섬유 + 시계 윤활유 — 현장 진입 물증"
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "era": "modern",
+    "crimeType": "murder",
+    "method": "둔기 타살 — 할로윈 군중 소음 위장",
+    "title": { "ko": "반지하의 붉은 잉크", "en": "Red Ink in the Basement" },
+    "location": { "ko": "서울 종로 인사동 독립출판사 반지하 편집실", "en": "Basement editorial office, independent publisher, Insadong Seoul" },
+    "time": { "ko": "2024년 10월 31일 22:00~23:30", "en": "October 31, 2024 — 22:00–23:30" },
+    "victim": { "ko": "피해자: 송태민 (55세, 독립출판사 대표)", "en": "Victim: Song Taemin (55, independent publisher CEO)" },
+    "suspects": [
+      {
+        "name": { "ko": "표절 작가", "en": "Plagiarist author" },
+        "motive": "표절 폭로로 인한 신분 및 경력 파괴",
+        "alibi": "폭로 전 출판사 방문 — 현장 동선 추적",
+        "flag": "표절 발각 — 명백한 동기"
+      },
+      {
+        "name": { "ko": "계약 작가", "en": "Contracted writer" },
+        "motive": "피해자와의 갈등 — 계약 조건 불만",
+        "alibi": "격한 언쟁 후 편집실에 단독 체류 — 목격 불가",
+        "flag": "현장 단독 체류 — 범행 기회 명확"
+      },
+      {
+        "name": { "ko": "경쟁 출판사 대표", "en": "Rival publisher CEO" },
+        "motive": "폭로 원고 탈취 — 경쟁사 약화",
+        "alibi": "반지하 창문 침입 — CCTV 사각지대",
+        "flag": "신발 잉크 + 창문 창살 페인트 — 침입 경로 물증"
+      }
+    ]
+  }
+]
