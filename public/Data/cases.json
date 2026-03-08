@@ -3,153 +3,1006 @@
     "caseId": "HARD-001",
     "era": "modern",
     "crimeType": "murder",
-    "method": "약물 과다 투여 위장 자연사",
-    "title": { "ko": "약의 진실", "en": "The Truth of Medicine" },
-    "overview": { "ko": "전직 국방장관이 요양원에서 심장마비로 사망했다. 혈중 약물 농도는 150%였지만 모든 용의자들이 철저한 알리바이를 가지고 있다. 누가 범인인가?", "en": "A former Defense Minister died of cardiac arrest at a care facility. Drug concentration was at 150%, but all suspects have solid alibis. Who is the culprit?" },
-    "caseOverview": { "ko": "전직 국방장관 최영수(87세)는 강남의 프리미엄 요양원에서 3개월간 요양 중이었습니다. 3월 15일 새벽 2시 45분경, 야간 간호사 이서영이 정기 순찰 중 그가 반응이 없음을 발견했습니다. 즉시 응급 호출했고 30분 후 도착한 119에서 이미 사망 판정을 받았습니다. 초기 진단은 '노령으로 인한 심장마비'였습니다. 그러나 부검 결과 혈중 심장약 농도가 정상의 150%였습니다. 자연사가 아닌 '약물 살인'이었던 것입니다. 문제는 더 복잡했습니다. 요양원의 전자 약물 관리 시스템에는 정상 용량만 기록되어 있었고, CCTV와 접근 카드 기록도 모두 정상이었습니다. 모든 의료진이 정상 절차를 따랐고, 각자 완벽한 알리바이를 가지고 있었습니다. 그럼에도 누군가는 이 '완벽한 범죄'를 저질렀습니다.", "en": "Former Defense Minister Choi Youngsoo (87) was undergoing care at a premium facility for 3 months. On March 15th around 2:45 AM, night nurse Lee Seoyoung found him unresponsive during routine rounds. Emergency services arrived 30 minutes later and pronounced him dead. Initial diagnosis: 'cardiac arrest from old age.' But autopsy revealed blood heart medication concentration at 150% of normal. It was poisoning, not natural death. The problem was more complex: the electronic medication system showed only normal doses, CCTV and access cards showed nothing unusual, all staff followed protocol perfectly, and each had solid alibis. Yet someone committed this 'perfect crime.'" },
-    "location": { "ko": "서울 강남 프리미엄 요양원 VIP 병실", "en": "VIP Ward, Premium Care Facility, Gangnam Seoul" },
-    "time": { "ko": "2026년 3월 15일 02:45 — 사망 추정 02:30~04:00", "en": "March 15, 2026 02:45 — TOD est. 02:30–04:00" },
-    "victim": { "ko": "피해자: 최영수 (87세, 전 국방장관)", "en": "Victim: Choi Youngsoo (87, Former Defense Minister)" },
+    "method": "독살 — 와인 병 재밀봉",
+    "title": {
+      "ko": "밀봉된 와인의 비밀",
+      "en": "Secret of the Sealed Wine"
+    },
+    "overview": {
+      "ko": "JH그룹 회장이 5성급 호텔 이중 잠금 객실에서 독살됐다. 부당 해고된 약학 전공 비서와 180억 횡령 부회장이 강력한 용의자로 지목된다. 그러나 룸서비스 와인을 직접 배달한 소믈리에는 아무도 의심하지 않는다.",
+      "en": "JH Group Chairman was poisoned in a double-locked hotel room. A fired pharmacology secretary and an embezzling vice chairman are prime suspects. But nobody suspects the sommelier who personally delivered the room-service wine."
+    },
+    "caseOverview": {
+      "ko": "JH그룹 회장 박준혁(58세)이 강남 르메르디앙 호텔 1502호에서 숨진 채 발견됐습니다. 객실은 이중 잠금 상태였고 창문은 외부 시건 장치로 완전히 봉쇄돼 있었습니다. 국과수 감정 결과 사인은 룸서비스 와인에 투입된 희귀 합성 독극물로 확인됐습니다.\n\n당일 피해자는 비즈니스 만찬을 열었으며 총 5인이 접촉했습니다. 6개월 전 부당 해고된 비서 강유진은 약학 전공자로, 당일 밤 호텔 주변에서 세 차례 목격됐습니다. 부회장 이철민은 이틀 후 예정된 감사에서 180억 원 횡령이 드러날 위기에 처해 있었습니다.\n\n그러나 수사관들이 간과한 인물이 있었습니다. 수석 소믈리에 정우진. 그는 코르크를 제거한 뒤 독극물을 주입하고 진공 재밀봉하는 기술을 보유한 유일한 인물이었습니다. 피해자는 그를 해고 압박하고 있었고, 해고되면 와인 재고 횡령으로 형사 처벌이 불가피했습니다.",
+      "en": "JH Group Chairman Park Junho (58) was found dead in Room 1502 of Le Méridien Hotel, Gangnam. The room was double-locked, all windows externally sealed. Forensics confirmed a rare synthetic toxin in the room-service wine.\n\nFive people had contact at the business dinner. Secretary Kang Yujin—fired six months ago and a pharmacology graduate—was spotted near the hotel three times that night. Vice Chairman Lee Cheolmin faced imminent exposure of ₩18B in embezzlement at an audit two days later.\n\nBut investigators overlooked Head Sommelier Jung Woojin—the only person with the skill to remove a cork, inject poison, and reseal the bottle with a vacuum tool. The victim had been pressuring him out, and termination would have triggered criminal charges for wine inventory theft."
+    },
+    "location": {
+      "ko": "서울 강남 르메르디앙 호텔 1502호",
+      "en": "Room 1502, Le Méridien Hotel, Gangnam Seoul"
+    },
+    "time": {
+      "ko": "2026년 3월 4일 — 사망 추정 23:15~23:40",
+      "en": "March 4, 2026 — TOD est. 23:15–23:40"
+    },
+    "victim": {
+      "ko": "피해자: 박준혁 (58세, JH그룹 회장)",
+      "en": "Victim: Park Junho (58, JH Group Chairman)"
+    },
     "difficulty": "hard",
-    "answer": "2",
-    "explanation": { "ko": "약사 김지윤은 처방 시간을 조작했습니다. 피해자는 실제로는 오전 8시에 약을 받지만, 약사가 전산 시스템에는 오전 9시로 입력했습니다. 그리고 실제 사망 시간 30분 전에 '응급 재투여'라는 명목으로 추가 약물을 투여했습니다. 의료 기록상 이것은 평상시 약물 관리의 일부처럼 보입니다. 핵심은 피해자가 최근 약사에게 '약물 관리 상황 감시'를 요청했다는 것입니다. 피해자는 약사가 다른 환자들의 약물을 횡령하고 있다고 의심했고, 이를 사실상 감시하고 있었습니다. 약사는 자신의 30년 경력이 끝나갈 것을 알았습니다.", "en": "Pharmacist Kim Jiyun manipulated the prescription time. The victim should have received medication at 8 AM, but she entered 9 AM in the system. Then 30 minutes before actual death, she administered 'emergency additional medication' under the guise of standard care. On medical records, this appears routine. The key: the victim had recently asked the pharmacist to 'monitor medication management.' The victim suspected the pharmacist was embezzling other patients' drugs and was essentially surveilling her. The pharmacist knew her 30-year career was ending." },
+    "answer": "4",
+    "explanation": {
+      "ko": "소믈리에 정우진은 15층 복도에서 31초간 와인 병을 조작해 독극물을 주입하고 진공 재밀봉했습니다. 업무 기록이 타임라인 전체를 채워 아무도 의심하지 않았습니다. 결정적 증거: 복도 CCTV 31초 정지 장면, 도구 가방에서 발견된 전문 진공 재밀봉 키트, 호텔 와인 재고 18병 누락.",
+      "en": "Sommelier Jung manipulated the bottle for 31 seconds in the corridor—injecting toxin then vacuum-resealing. His work records filled his entire timeline, drawing zero suspicion. Decisive evidence: 31-second CCTV freeze in corridor, professional vacuum re-sealing kit found in his tool bag, 18 missing bottles in hotel wine inventory."
+    },
     "suspects": [
       {
         "id": "1",
-        "name": { "ko": "담당 의사 박준혁", "en": "Dr. Park Junhyeok" },
-        "job": { "ko": "요양원 내과의", "en": "Internal Medicine Doctor" },
-        "age": 52,
-        "motive": { "ko": "피해자가 의료 기록 부정행위 적발 위협 — 의료 실수 은폐", "en": "Victim threatened to expose medical fraud — covering up medical errors" },
-        "alibi": { "ko": "당직실에서 계속 대기 — 간호사들 증언, CCTV 확인", "en": "Continuously in duty room — nurse testimony, CCTV confirmed" },
-        "flag": { "ko": "의료 처방 기록으로는 정상 용량 — 직접 약물 투여 기록 없음", "en": "Medical prescription records show normal doses — no direct medication administration records" },
-        "interview": { "ko": "\"저는 밤 9시부터 새벽 6시까지 당직을 서고 있었습니다. 최 전 장관님의 약물 관리는 약사와 간호사가 담당하므로, 저는 의료 감시만 합니다. 의료 기록에 문제가 있다면 그건 관련 부서에 신고되어야 합니다.\"", "en": "\"I was on duty from 9 PM to 6 AM. Medication management was handled by the pharmacist and nurses—I only supervise medical care. If there were issues in records, it should have been reported.\"" }
+        "name": {
+          "ko": "비서 강유진",
+          "en": "Secretary Kang Yujin"
+        },
+        "job": {
+          "ko": "전직 그룹 비서 (약학 전공)",
+          "en": "Former Executive Secretary (Pharmacology major)"
+        },
+        "age": 31,
+        "motive": {
+          "ko": "6개월 전 피해자에게 부당 해고 — 복수 동기 명확",
+          "en": "Wrongfully fired by victim 6 months ago — clear revenge motive"
+        },
+        "alibi": {
+          "ko": "친구 만남 주장 — 호텔 주변 3회 목격으로 신빙성 없음",
+          "en": "Claims meeting a friend — spotted near hotel 3 times, claim unverifiable"
+        },
+        "flag": {
+          "ko": "약학 전공으로 독극물 지식 보유 — 그러나 와인 병 자체에는 접근 기회 없음",
+          "en": "Pharmacology background means toxin knowledge — but had no access to the wine bottle itself"
+        },
+        "interview": {
+          "ko": "\"그 호텔 근처에 친구가 살아요. 저녁 약속이 있었을 뿐입니다. 회장님이 저를 해고한 건 맞지만... 솔직히 그 회사를 벗어난 게 다행이라고 생각하고 있어요. 독을 어디서 구하겠습니까. 저는 그런 사람이 아닙니다.\"",
+          "en": "\"A friend lives near that hotel. I just had dinner plans. Yes, he fired me, but honestly I'm relieved to be out of that company. Where would I even get poison? That's not who I am.\""
+        }
       },
       {
         "id": "2",
-        "name": { "ko": "약사 김지윤", "en": "Pharmacist Kim Jiyun" },
-        "job": { "ko": "요양원 약물 관리자", "en": "Medication Manager" },
-        "age": 48,
-        "motive": { "ko": "피해자의 감시와 신고 위협 — 약물 횡령 혐의 적발 직전", "en": "Victim's surveillance and threat of reporting — about to expose drug embezzlement" },
-        "alibi": { "ko": "약물실과 약국 구역에서 근무 — 출입 카드 기록 일치, CCTV에 모습 확인", "en": "Working in medication room and pharmacy area — access card matches, seen on CCTV" },
-        "flag": { "ko": "약물실 출입은 기록되나 피해자 병실 출입 기록 없음 — 그러나 응급 재투여 권한은 있음", "en": "Pharmacy area access recorded but no victim's room entry — yet has emergency medication authority" },
-        "interview": { "ko": "\"최 전 장관님은 최근 제 약물 관리 방식에 대해 자주 질문하셨습니다. 하지만 저는 철저하게 규정을 따르고 있습니다. 제 기록과 시스템은 모두 일치합니다. 그 분이 돌아가신 것은 정말 슬픕니다.\"", "en": "\"Mr. Choi had been asking questions about my medication management methods recently. But I follow protocol strictly. My records and the system all match. His death is truly tragic.\"" }
+        "name": {
+          "ko": "부회장 이철민",
+          "en": "Vice Chairman Lee Cheolmin"
+        },
+        "job": {
+          "ko": "JH그룹 부회장",
+          "en": "JH Group Vice Chairman"
+        },
+        "age": 54,
+        "motive": {
+          "ko": "이틀 후 감사에서 180억 횡령 적발 예정 — 회장이 직접 감사를 지시함",
+          "en": "₩18B embezzlement set to be exposed in 2 days — chairman personally ordered the audit"
+        },
+        "alibi": {
+          "ko": "만찬 21:30 퇴장 기록 — 이후 행적은 부인 증언만 있음",
+          "en": "Left dinner at 21:30 per records — only wife's testimony thereafter"
+        },
+        "flag": {
+          "ko": "만찬 중 와인 잔을 들었으나 와인 병 자체에는 접근하지 않음",
+          "en": "Held a wine glass at dinner but never touched the wine bottle itself"
+        },
+        "interview": {
+          "ko": "\"감사가 겁났던 건 사실입니다. 하지만 회장님을 해치는 것은 해결책이 아닙니다. 21시 30분에 나와서 곧장 집으로 갔습니다. 아내가 증명해 줄 겁니다. 제가 왜 이런 위험을 감수하겠습니까.\"",
+          "en": "\"Yes, I was scared of the audit. But harming the chairman is not a solution. I left at 9:30 and went straight home. My wife can confirm. Why would I take such a risk?\""
+        }
       },
       {
         "id": "3",
-        "name": { "ko": "요양원 원장 이용진", "en": "Director Lee Yongjin" },
-        "job": { "ko": "프리미엄 요양원 대표", "en": "Facility Director" },
-        "age": 61,
-        "motive": { "ko": "피해자의 유산 ($500만) — 또한 최근 의료 기관 점검 예정", "en": "Victim's estate ($5M) — also medical inspection coming soon" },
-        "alibi": { "ko": "그 밤 부산 출장 — 호텔 체크인 23:30, CCTV 확인, 컨시어지 목격 기록", "en": "Business trip to Busan that night — hotel check-in 11:30 PM, CCTV confirmed, concierge witnessed" },
-        "flag": { "ko": "출장 지방 호텔에서의 움직임이 모두 확인됨 — 물리적으로 불가능", "en": "All movements at Busan hotel confirmed — physically impossible to be present" },
-        "interview": { "ko": "\"최 전 장관님은 우리 시설의 가장 존경받는 고객 중 한 분이셨습니다. 그의 죽음은 요양원뿐만 아니라 저 개인에게도 큰 손실입니다. 저는 그 밤 부산에 있었고, 이는 모두 확인할 수 있습니다.\"", "en": "\"Mr. Choi was one of our most respected clients. His death is a loss not just to the facility but to me personally. I was in Busan that night—it's all verifiable.\"" }
+        "name": {
+          "ko": "비서실장 함윤아",
+          "en": "Chief of Staff Ham Yuna"
+        },
+        "job": {
+          "ko": "JH그룹 비서실장",
+          "en": "JH Group Chief of Staff"
+        },
+        "age": 45,
+        "motive": {
+          "ko": "피해자 사망 시 자신의 경쟁 후임 인사를 차단하고 자리 보전 가능",
+          "en": "Victim's death enables blocking a rival's promotion — power shift beneficiary"
+        },
+        "alibi": {
+          "ko": "만찬 21:00 퇴장 — 고속도로 하이패스 21:58 자택 근처 통과로 귀가 확인",
+          "en": "Left dinner at 21:00 — highway toll pass places her near home at 21:58"
+        },
+        "flag": {
+          "ko": "만찬 이후 호텔 퇴장이 기록으로 명확 — 와인 병에 접근할 기회 없음",
+          "en": "Hotel departure clearly recorded after dinner — no opportunity to access the wine bottle"
+        },
+        "interview": {
+          "ko": "\"21시 정각에 만찬을 나왔습니다. 하이패스 기록을 확인하시면 됩니다. 22시 전에 집 근처에 있었어요. 회장님이 돌아가시면 오히려 제 자리가 어떻게 될지 걱정입니다.\"",
+          "en": "\"I left the dinner at exactly 9 PM. Check my highway pass—I was near my home before 10. Honestly, I'm more worried about what happens to my position with the chairman gone.\""
+        }
       },
       {
         "id": "4",
-        "name": { "ko": "야간 간호사 이서영", "en": "Night Nurse Lee Seoyoung" },
-        "job": { "ko": "요양원 야간 간호사", "en": "Night Nurse" },
-        "age": 35,
-        "motive": { "ko": "최근 해고 위협 — 피해자가 간호 부실 신고", "en": "Recent firing threat — victim reported nursing negligence" },
-        "alibi": { "ko": "병동 순찰 기록 — 1시간마다 기록, CCTV 사각지대 있으나 움직임 일치", "en": "Ward round records — hourly documented, CCTV blind spots but movements match" },
-        "flag": { "ko": "약물 투여 권한이 있으나, 약사 허가 없이는 불가능 — 약물실 출입 기록 없음", "en": "Has medication authority but impossible without pharmacist approval — no pharmacy access logs" },
-        "interview": { "ko": "\"최 전 장관님은 저에게 매우 엄격하셨습니다. 제 간호 스타일에 대해 자주 불평하셨고, 최근에는 제 근무 태도에 대해 보고하겠다고 말씀하셨습니다. 하지만 저는 그를 해치려고 생각한 적이 없습니다.\"", "en": "\"Mr. Choi was very strict with me. He often complained about my nursing style and recently said he'd report my work attitude. But I never wanted to harm him.\"" }
+        "name": {
+          "ko": "소믈리에 정우진",
+          "en": "Sommelier Jung Woojin"
+        },
+        "job": {
+          "ko": "르메르디앙 호텔 수석 소믈리에",
+          "en": "Head Sommelier, Le Méridien Hotel"
+        },
+        "age": 38,
+        "motive": {
+          "ko": "피해자의 지시로 해고 압박 진행 중 — 해고 시 와인 재고 횡령으로 형사 처벌 불가피",
+          "en": "Termination pressure from victim — dismissal would trigger criminal charges for wine inventory theft"
+        },
+        "alibi": {
+          "ko": "룸서비스 배달 업무 기록으로 전 타임라인이 채워짐 — 아무도 의심하지 않음",
+          "en": "Room-service delivery records fill his entire timeline — drew zero suspicion"
+        },
+        "flag": {
+          "ko": "와인 병 재밀봉 기술을 보유한 유일한 인물 — 15층 복도 CCTV에서 31초 정지 구간 포착",
+          "en": "The only person with bottle re-sealing skill — 31-second stationary gap on 15F corridor CCTV"
+        },
+        "interview": {
+          "ko": "\"저는 그냥 배달을 했을 뿐입니다. 그 층을 수십 번 오갔어요. 회장님이 해고 압박을 주신 건 맞지만... 와인 재밀봉이요? 그건 소믈리에의 기본 기술이지만 저는 그날 그런 작업을 하지 않았습니다.\"",
+          "en": "\"I was just doing deliveries. I made dozens of trips to that floor. Yes, the chairman was pressuring me out, but... Re-sealing? That's basic technique, but I didn't do that that night.\""
+        }
       },
       {
         "id": "5",
-        "name": { "ko": "피해자의 아들 최준호", "en": "Son Choi Junho" },
-        "job": { "ko": "삼성전자 상무", "en": "Samsung EVP" },
-        "age": 58,
-        "motive": { "ko": "상속 유산 ($500만) + 아버지와의 심각한 관계 단절", "en": "Inheritance ($5M) + severe estrangement from father" },
-        "alibi": { "ko": "서울 강남 자택에서 수면 중 — 아내 증언만 있음", "en": "Asleep at Gangnam home — only wife's testimony" },
-        "flag": { "ko": "의료 시스템에 접근 권한 없음 — 요양원 방문 기록 1개월 없음", "en": "No medical system access — no facility visits for 1 month" },
-        "interview": { "ko": "\"저는 아버지와 오래전부터 멀어져 있었습니다. 경제적인 갈등이 있었고... 그래서 이 의혹은 정말 억울합니다. 저는 그 밤 집에 있었고, 제 아내가 증명할 수 있습니다.\"", "en": "\"I've been distant from my father for a long time. We had financial conflicts... so this suspicion is truly unjust. I was home that night, and my wife can confirm it.\"" }
-      },
-      {
-        "id": "6",
-        "name": { "ko": "약물 배송원 정민호", "en": "Courier Jung Minho" },
-        "job": { "ko": "의약품 배송 업체 직원", "en": "Pharmaceutical Courier" },
-        "age": 42,
-        "motive": { "ko": "약사와의 오래된 금전 갈등 — 부당한 임금 삭감", "en": "Old financial dispute with pharmacist — unfair wage cuts" },
-        "alibi": { "ko": "그 날 밤 근무 없음 — 배송 기록 확인됨", "en": "No shift that night — delivery records verified" },
-        "flag": { "ko": "약사의 개인적 친구 — 약사가 그를 이용했을 가능성?", "en": "Pharmacist's personal friend — was pharmacist using him?" },
-        "interview": { "ko": "\"그 약사와는 돈 때문에 싸웠지만, 그렇다고 누군가를 해칠 일은 없습니다. 그 밤 저는 근무하지 않았습니다. 제 배송 일정을 보면 알 수 있습니다.\"", "en": "\"I fought with the pharmacist over money, but that doesn't mean I'd harm someone. I wasn't working that night—check my delivery schedule.\"" }
+        "name": {
+          "ko": "호텔 총지배인 이현석",
+          "en": "Hotel GM Lee Hyunseok"
+        },
+        "job": {
+          "ko": "르메르디앙 호텔 총지배인",
+          "en": "General Manager, Le Méridien Hotel"
+        },
+        "age": 56,
+        "motive": {
+          "ko": "피해자가 호텔에 악평을 남기고 체인 계약 갱신에 개입 — 수천만 원 영업 손해",
+          "en": "Victim left scathing reviews and interfered with chain contract renewal — tens of millions in lost revenue"
+        },
+        "alibi": {
+          "ko": "전일 1층 연회 행사 진행 — 직원 10명 이상 동행 확인됨",
+          "en": "Managing a full-day banquet on the 1st floor — confirmed by 10+ staff throughout"
+        },
+        "flag": {
+          "ko": "사건 당시 1층 행사장에서 벗어나지 않음 — 다수의 목격자 존재",
+          "en": "Never left the 1st floor event hall during the incident window — multiple witnesses"
+        },
+        "interview": {
+          "ko": "\"피해자가 악평을 남긴 건 사실입니다. 하지만 저는 그날 저녁 내내 1층 연회장에 있었어요. 직원 10명이 넘게 함께 있었고요. 호텔에서 이런 일이 일어났다는 것 자체가 저에게는 악몽입니다.\"",
+          "en": "\"Yes, the victim left bad reviews. But I was in the ground-floor banquet hall all evening—over ten staff were with me the whole time. The fact that this happened in my hotel is already a nightmare for me.\""
+        }
       }
     ],
     "clues": [
       {
         "order": 1,
         "revealed": true,
-        "ko": "혈중 심장약 농도 150% — 하지만 모든 시스템 기록은 정상 용량",
-        "en": "Blood heart medication at 150% — but all system records show normal doses"
+        "ko": "와인 병 코르크에서 미세한 재삽입 흔적 발견 — 개봉 후 재밀봉된 것이 확실",
+        "en": "Micro re-insertion marks found on wine cork — bottle was definitively opened and resealed"
       },
       {
         "order": 2,
         "revealed": true,
-        "ko": "약물 배분 시스템에는 처방 시간이 오전 9시로 기록 — 하지만 피해자의 일과표는 오전 8시",
-        "en": "System shows 9 AM medication — but victim's schedule shows 8 AM"
+        "ko": "독극물이 와인과 동시에 흡수된 것으로 확인 — 잔이 아닌 병 자체에 투입됨",
+        "en": "Toxin confirmed absorbed simultaneously with wine — injected into the bottle, not the glass"
       },
       {
         "order": 3,
         "revealed": true,
-        "ko": "의료 기록에는 '응급 재투여' 항목이 있음 — 약사의 응급 권한으로 가능",
-        "en": "Medical records show 'emergency re-administration' — possible under pharmacist's emergency authority"
+        "ko": "15층 복도 CCTV — 소믈리에가 31초간 병을 들고 이동을 멈춤, 정상 배달 동선과 불일치",
+        "en": "15F corridor CCTV: sommelier stationary with bottle for 31 seconds — inconsistent with normal delivery route"
       },
       {
         "order": 4,
         "revealed": false,
-        "ko": "피해자의 비서실 메모: '약사의 약물 관리 감시 필요' — 피해자가 약사를 의심",
-        "en": "Victim's office memo: 'need to monitor pharmacist's medication management' — victim suspected pharmacist"
+        "ko": "소믈리에 도구 가방에서 전문 진공 와인 재밀봉 키트 발견 — 호텔 표준 장비가 아님",
+        "en": "Professional vacuum wine re-sealing kit found in sommelier's tool bag — not standard hotel equipment"
       },
       {
         "order": 5,
         "revealed": false,
-        "ko": "약사의 개인 약물함에서 미설명된 약물 부족 발견 — 다른 환자 약물 횡령 증거",
-        "en": "Pharmacist's personal medication vault shows unexplained shortage — evidence of embezzlement from other patients"
+        "ko": "호텔 와인 재고 감사 결과 소믈리에 관리 구역에서 18병 누락 — 장기 횡령이며 해고 시 형사처벌 불가피",
+        "en": "Hotel wine audit: 18 bottles missing from sommelier's zone — long-term theft, termination meant criminal charges"
       }
     ],
     "timeline": [
       {
         "id": "1",
-        "name": "박준혁 (의사)",
+        "name": "강유진 (전 비서)",
         "cells": [
-          { "ko": "당직 시작 (21:00)", "s": "confirmed" },
-          { "ko": "당직실 대기 (23:00~02:00)", "s": "confirmed" },
-          { "ko": "의료 모니터링 (02:00~03:00)", "s": "unverified" },
-          { "ko": "사망 추정 (02:30~04:00)", "s": "death" },
-          { "ko": "응급 처치 (04:15)", "s": "confirmed" }
+          {
+            "ko": "호텔 인근 첫 목격 (18:30)",
+            "s": "suspicious"
+          },
+          {
+            "ko": "호텔 인근 재목격 (20:15)",
+            "s": "suspicious"
+          },
+          {
+            "ko": "행방 불명 (21:00~23:00)",
+            "s": "unknown"
+          },
+          {
+            "ko": "사망 추정 시간대 (23:15~23:40)",
+            "s": "death"
+          },
+          {
+            "ko": "호텔 근처 3차 목격 (00:10)",
+            "s": "suspicious"
+          }
         ]
       },
       {
         "id": "2",
-        "name": "김지윤 (약사)",
+        "name": "이철민 (부회장)",
         "cells": [
-          { "ko": "약물실 근무 (22:00)", "s": "confirmed" },
-          { "ko": "약물 배분 (01:30~02:00)", "s": "suspicious" },
-          { "ko": "약물실 내 위치? (02:15~02:45)", "s": "unverified" },
-          { "ko": "사망 추정 (02:30~04:00)", "s": "death" },
-          { "ko": "업무 계속 (04:00)", "s": "confirmed" }
-        ]
-      },
-      {
-        "id": "3",
-        "name": "이용진 (원장)",
-        "cells": [
-          { "ko": "부산 호텔 체크인 (23:30)", "s": "confirmed" },
-          { "ko": "호텔 로비 (01:00~02:00)", "s": "confirmed" },
-          { "ko": "호텔 방 내 (02:00~03:00)", "s": "unverified" },
-          { "ko": "사망 추정 (02:30~04:00)", "s": "death" },
-          { "ko": "호텔 조식 (07:00)", "s": "confirmed" }
+          {
+            "ko": "만찬 참석 (19:00~21:30)",
+            "s": "confirmed"
+          },
+          {
+            "ko": "호텔 퇴장 (21:30)",
+            "s": "confirmed"
+          },
+          {
+            "ko": "이후 행적 미확인 (21:30~자정)",
+            "s": "unknown"
+          },
+          {
+            "ko": "사망 추정 시간대 (23:15~23:40)",
+            "s": "death"
+          },
+          {
+            "ko": "자택 귀가 주장 — 미확인",
+            "s": "unverified"
+          }
         ]
       },
       {
         "id": "4",
-        "name": "이서영 (간호사)",
+        "name": "정우진 (소믈리에)",
         "cells": [
-          { "ko": "병동 순찰 (01:00)", "s": "confirmed" },
-          { "ko": "기록된 순찰 (02:00)", "s": "suspicious" },
-          { "ko": "병동 순찰 (03:00)", "s": "confirmed" },
-          { "ko": "사망 추정 (02:30~04:00)", "s": "death" },
-          { "ko": "응급 신고 (02:45)", "s": "confirmed" }
+          {
+            "ko": "근무 시작 · 배달 반복 (18:00~)",
+            "s": "confirmed"
+          },
+          {
+            "ko": "복도 31초 정지 (22:38)",
+            "s": "unverified"
+          },
+          {
+            "ko": "1502호 와인 배달 (22:40)",
+            "s": "confirmed"
+          },
+          {
+            "ko": "사망 추정 시간대 (23:15~23:40)",
+            "s": "death"
+          },
+          {
+            "ko": "근무 종료 (23:50)",
+            "s": "confirmed"
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "name": "함윤아 (비서실장)",
+        "cells": [
+          {
+            "ko": "만찬 참석 (19:00~21:00)",
+            "s": "confirmed"
+          },
+          {
+            "ko": "호텔 퇴장 (21:02)",
+            "s": "confirmed"
+          },
+          {
+            "ko": "귀가 운전 중 (21:30)",
+            "s": "confirmed"
+          },
+          {
+            "ko": "사망 추정 시간대 (23:15~23:40)",
+            "s": "death"
+          },
+          {
+            "ko": "자택 도착 (21:58, 하이패스 확인)",
+            "s": "confirmed"
+          }
+        ]
+      }
+    ],
+    "deathCol": 3
+  },
+
+  {
+    "caseId": "HARD-002",
+    "era": "joseon",
+    "crimeType": "murder",
+    "method": "교살 — 밀실 창호 열기 기술",
+    "title": {
+      "ko": "사헌부의 그림자",
+      "en": "Shadow of the Saheonbu"
+    },
+    "overview": {
+      "ko": "이조판서가 안에서 잠긴 사랑채에서 교살됐다. 격렬히 언쟁한 조카와 알리바이가 불성립된 대사헌이 가장 의심스럽다. 그러나 전직 무관 출신 포목상만이 창호 열기 기술을 알고 밀수 장부에 실명이 올라 있다.",
+      "en": "The Minister of Personnel was strangled in a bolted sarangchae. His argumentative nephew and the Chief Inspector with a false alibi draw strong suspicion. But only the former-officer fabric merchant knows the window-bolt technique — and his real name is in the smuggling ledger."
+    },
+    "caseOverview": {
+      "ko": "이조판서 이병헌(62세)이 한양 북촌 자택 사랑채에서 목이 졸려 숨진 채 발견됐습니다. 문은 안쪽 걸쇠로 잠겨 있었고 창문에도 빗장이 걸려 있었으며 외부 침입 흔적은 전무했습니다.\n\n피해자의 손에는 '배신자는 장부 안에 있다'고 적힌 양피지 조각이 쥐어져 있었습니다. 전날 연회에서 조카 이재훈이 혼인 문제로 숙부와 격렬히 다퉜고, 그의 비단 조각이 현장에서 발견됐습니다. 대사헌 유성준은 새벽 사당 참배를 알리바이로 주장했지만 기록이 존재하지 않았습니다.\n\n수사망에서 완전히 빠진 인물이 있었습니다. 포목상 오재명 — 전직 무관 출신으로 군사 훈련 중 창호 열기 기술을 익혔고, 피해자가 관리하던 밀수 장부에 실명이 기재돼 있었습니다. 그 장부가 공개되면 전 재산을 잃고 관가에 끌려갈 것이 확실했습니다.",
+      "en": "Minister of Personnel Yi Byungheon (62) was found strangled in his sarangchae, Bukchon Hanyang. The door was bolted from inside, windows barred — no exterior entry signs whatsoever.\n\nA parchment in his hand read 'the traitor is within the ledger.' His nephew Yi Jaehun had argued fiercely over a marriage dispute the night before, and his silk fragment was found at the scene. Chief Inspector Yoo Sungjun claimed a dawn shrine visit as alibi, but no record existed.\n\nOne man escaped the investigation entirely: fabric merchant Oh Jaemyung — a former military officer who had learned the window-bolt manipulation technique during training, and whose real name appeared in the victim's secret smuggling ledger. If that ledger became public, he would lose everything."
+    },
+    "location": {
+      "ko": "조선 한양 북촌 이판서 사랑채",
+      "en": "Sarangchae of Minister Yi, Bukchon, Hanyang"
+    },
+    "time": {
+      "ko": "갑오년 8월 15일 묘시 (05:00~07:00)",
+      "en": "15th day, 8th month, Gabo Year — Myosi (05:00–07:00)"
+    },
+    "victim": {
+      "ko": "피해자: 이병헌 판서 (62세, 이조판서)",
+      "en": "Victim: Minister Yi Byungheon (62, Minister of Personnel)"
+    },
+    "difficulty": "hard",
+    "answer": "5",
+    "explanation": {
+      "ko": "포목상 오재명은 군사 훈련 중 익힌 창호 열기 기술로 바깥에서 창호 틀을 조작해 안쪽 걸쇠를 올렸습니다. 새벽 담장을 넘어 접근하고, 범행 후 창호를 다시 잠근 뒤 담장으로 탈출했습니다. 결정적 증거: 사랑채 정원 황토 발자국이 북촌 성벽 특유 성분과 일치했고, 오재명의 가죽 신발 밑창에서 동일 황토가 검출됐으며, 창고에서 밀수 장부 필사본이 발견됐습니다.",
+      "en": "Merchant Oh used the military window-bolt technique — manipulating the lattice from outside to lift the interior bar. He scaled the compound wall at dawn, committed the crime, re-secured the window, and escaped. Decisive evidence: garden footprints matched yellow clay unique to the northern city wall; the same clay was found on Oh's leather soles; and a copy of the smuggling ledger was found in his warehouse."
+    },
+    "suspects": [
+      {
+        "id": "1",
+        "name": {
+          "ko": "조카 이재훈",
+          "en": "Nephew Yi Jaehun"
+        },
+        "job": {
+          "ko": "성균관 유생 (이조판서 조카)",
+          "en": "Sungkyunkwan scholar, nephew of Minister Yi"
+        },
+        "age": 28,
+        "motive": {
+          "ko": "숙부가 혼인을 반대하고 가문 유산 상속까지 막으려 함",
+          "en": "Uncle opposed his marriage and was blocking his family inheritance"
+        },
+        "alibi": {
+          "ko": "연회 후 자택 귀가 주장 — 하인 증언 있으나 새벽 시간대는 미확인",
+          "en": "Claims returned home after banquet — servant testimony exists but dawn hours unverified"
+        },
+        "flag": {
+          "ko": "사랑채 비단 조각이 조카 옷 찢김과 일치 — 연회 언쟁 중 찢긴 것이라 주장",
+          "en": "Silk fragment at scene matches torn garment on nephew — claims it tore during the banquet argument"
+        },
+        "interview": {
+          "ko": "\"숙부님과 혼인 문제로 다퉜던 건 사실입니다. 하지만 연회 후 곧장 집에 돌아왔어요. 그 비단 조각은 언쟁 중에 찢어진 겁니다. 제가 사랑채 안에 들어간 건 숙부님 허락 없이는 한 번도 없었습니다.\"",
+          "en": "\"Yes, I argued with my uncle about my marriage. But I went straight home after the banquet. That silk fragment tore during the argument. I've never entered that room without my uncle's permission.\""
+        }
+      },
+      {
+        "id": "2",
+        "name": {
+          "ko": "사헌부 대사헌 유성준",
+          "en": "Chief Inspector Yoo Sungjun"
+        },
+        "job": {
+          "ko": "사헌부 대사헌 (정2품)",
+          "en": "Chief Inspector, Saheonbu (Junior 2nd Rank)"
+        },
+        "age": 55,
+        "motive": {
+          "ko": "피해자가 자신의 뇌물 수수를 파악하고 탄핵을 추진 중이었음",
+          "en": "Victim had uncovered his bribery and was actively pursuing impeachment"
+        },
+        "alibi": {
+          "ko": "새벽 사당 참배 주장 — 하인 1명 동행 진술 있으나 실제 참배 기록 없음",
+          "en": "Claims dawn shrine visit — one servant's testimony but no actual shrine visit record"
+        },
+        "flag": {
+          "ko": "체격이 건장하고 교살에 필요한 힘 보유 — 그러나 창호 열기 기술은 확인되지 않음",
+          "en": "Strong build capable of strangling — but no evidence of window-bolt manipulation technique"
+        },
+        "interview": {
+          "ko": "\"인시(03:00)부터 묘시(05:00)까지 조상 사당에 있었습니다. 참배는 남에게 알리지 않는 것이 예의라 하인 하나만 데려갔습니다. 이판서를 해칠 이유가 없습니다. 탄핵도 정당한 절차를 따라야 하는 것이지 않습니까.\"",
+          "en": "\"I was at the ancestral shrine from the 3rd to 5th hour. Ritual propriety means privacy — I brought only one servant. I had no reason to harm the Minister. Even impeachment must follow proper channels.\""
+        }
+      },
+      {
+        "id": "3",
+        "name": {
+          "ko": "연회 주최자 박대신",
+          "en": "Banquet Host Park Daesin"
+        },
+        "job": {
+          "ko": "공조판서 (피해자 동료 대신)",
+          "en": "Minister of Works, colleague of the victim"
+        },
+        "age": 60,
+        "motive": {
+          "ko": "피해자가 자신의 인사 청탁 기록을 공개하겠다고 협박했음",
+          "en": "Victim threatened to expose his illicit personnel appointment records"
+        },
+        "alibi": {
+          "ko": "연회 내내 손님 50명과 함께 — 복수 목격자, 새벽 귀가 후 하인 증언 확인",
+          "en": "With 50+ guests throughout the banquet — multiple witnesses, servants confirm his dawn return"
+        },
+        "flag": {
+          "ko": "연회 내내 자리를 지켜 이동 기회 없음 — 물리적으로 불가능",
+          "en": "Never left the banquet — no opportunity to move, physically impossible to have been present at scene"
+        },
+        "interview": {
+          "ko": "\"그날 밤 손님 50명을 접대했습니다. 자리를 뜰 수가 없었어요. 이판서와 인사 문제로 갈등이 있었던 건 사실이지만, 우리는 오랜 동료입니다. 이런 일이 벌어지다니 통탄스럽습니다.\"",
+          "en": "\"I was hosting 50 guests that night. I couldn't leave my seat. Yes, Minister Yi and I had disagreements over appointments, but we were long-time colleagues. This tragedy is deeply grievous to me.\""
+        }
+      },
+      {
+        "id": "4",
+        "name": {
+          "ko": "하인 김복동",
+          "en": "Servant Kim Bokdong"
+        },
+        "job": {
+          "ko": "이판서 자택 수석 하인",
+          "en": "Head servant of Minister Yi's household"
+        },
+        "age": 49,
+        "motive": {
+          "ko": "수년간 부당 대우를 받았고 신분 해방 요청이 거부됨",
+          "en": "Suffered years of mistreatment and had manumission request refused"
+        },
+        "alibi": {
+          "ko": "행랑채에서 취침 중 — 다른 하인 2명의 증언 있으나 새벽 이동은 감시 불가",
+          "en": "Asleep in servants' quarters — two other servants confirm but dawn movement was unmonitored"
+        },
+        "flag": {
+          "ko": "사랑채 걸쇠 구조는 알지만 창호 열기 기술 없음 — 내부 잠금이면 오히려 범인 불가",
+          "en": "Knows the bolt structure but lacks the window technique — internal bolting actually rules him out"
+        },
+        "interview": {
+          "ko": "\"행랑채에서 잤습니다. 봉출이와 막동이가 곁에 있었어요. 판서 어른이 그리 돌아가시다니... 신분 해방을 원했지만 이런 방식을 원한 게 아닙니다. 차라리 제가 의심받는 게 낫지 않겠습니까.\"",
+          "en": "\"I slept in the servants' quarters. Bongchul and Makdong were beside me. For the Minister to die like this... I wanted my freedom, but not this way. You might as well suspect me instead.\""
+        }
+      },
+      {
+        "id": "5",
+        "name": {
+          "ko": "포목상 오재명",
+          "en": "Fabric Merchant Oh Jaemyung"
+        },
+        "job": {
+          "ko": "한양 포목상 (전직 무관)",
+          "en": "Hanyang fabric merchant (former military officer)"
+        },
+        "age": 46,
+        "motive": {
+          "ko": "이판서 관리 밀수 장부에 실명 기재 — 장부 공개 시 전 재산과 자유 박탈",
+          "en": "His real name in the victim's smuggling ledger — exposure means loss of all assets and freedom"
+        },
+        "alibi": {
+          "ko": "새벽 포목상 개점 준비 주장 — 점원 1명 증언 있으나 묘시 일부 구간 이동 미확인",
+          "en": "Claims dawn shop preparation — one clerk's testimony but Myosi movement gap unverified"
+        },
+        "flag": {
+          "ko": "무관 훈련 중 창호 열기 기술 습득 — 신발 밑창에서 성벽 황토 성분 검출",
+          "en": "Learned window-bolt technique during military training — unusual yellow city-wall clay on shoe soles"
+        },
+        "interview": {
+          "ko": "\"새벽부터 가게 준비를 합니다. 점원 막쇠가 알고 있습니다. 이판서와는 포목을 납품한 상인과 고객 사이입니다. 장부가 어쩌고 하시는데, 저는 무슨 장부인지도 모릅니다.\"",
+          "en": "\"I start preparing my shop before dawn. My clerk Makchoe can verify that. With the Minister, we were simply supplier and customer. This ledger you keep mentioning — I don't even know what ledger you mean.\""
+        }
+      },
+      {
+        "id": "6",
+        "name": {
+          "ko": "주치의 정약전",
+          "en": "Physician Jeong Yagjeon"
+        },
+        "job": {
+          "ko": "한양 의원 — 피해자 주치의",
+          "en": "Hanyang physician — victim's personal doctor"
+        },
+        "age": 52,
+        "motive": {
+          "ko": "피해자가 자신의 처방 실수를 고발할 예정이었음 — 의원 면허 박탈 위기",
+          "en": "Victim was about to report a harmful prescription error — license revocation imminent"
+        },
+        "alibi": {
+          "ko": "인시(03:00~05:00) 다른 환자 왕진 기록 — 왕진 기록부와 환자 증언 모두 일치",
+          "en": "House call records show another patient visit during Insi (3–5 AM) — records and patient testimony both match"
+        },
+        "flag": {
+          "ko": "왕진 기록과 환자 증언이 완전히 일치 — 물리적 이동 불가능",
+          "en": "Records and testimony fully align — physically impossible to be at the scene"
+        },
+        "interview": {
+          "ko": "\"인시부터 묘시까지 도성 남쪽 황선생 댁에서 왕진 중이었습니다. 황선생이 증언해 주실 겁니다. 이판서의 처방 문제는 제 실수가 아닌 약재 품질 문제였습니다.\"",
+          "en": "\"From the 3rd to 5th hour I was attending Master Hwang south of the city walls. Master Hwang will vouch for me. The prescription issue was a herb quality problem, not my error.\""
+        }
+      }
+    ],
+    "clues": [
+      {
+        "order": 1,
+        "revealed": true,
+        "ko": "사랑채 창호는 안쪽 걸쇠로 잠겼으나 창호 틀 외부에서 미세한 조작 흔적 발견 — 외부 열기 가능성",
+        "en": "Window bar bolted from inside, but micro-manipulation marks on exterior lattice — external opening possible"
+      },
+      {
+        "order": 2,
+        "revealed": true,
+        "ko": "피해자 손의 메모 '배신자는 장부 안에 있다' — 피해자가 밀수 관련 정황을 조사하고 있었음",
+        "en": "Memo in victim's hand: 'the traitor is within the ledger' — victim was actively investigating smuggling records"
+      },
+      {
+        "order": 3,
+        "revealed": true,
+        "ko": "사랑채 정원 발자국에서 북촌 성벽 특유 황토 성분 검출 — 담장 경유 진입 경로 추정",
+        "en": "Garden footprints contain yellow clay unique to the northern city wall — entry via compound wall inferred"
+      },
+      {
+        "order": 4,
+        "revealed": false,
+        "ko": "오재명 가죽 신발 밑창에서 동일한 황토 성분 검출 — 새벽 담장 이동의 결정적 물증",
+        "en": "Identical yellow clay found on Oh Jaemyung's leather shoe soles — decisive evidence of dawn wall crossing"
+      },
+      {
+        "order": 5,
+        "revealed": false,
+        "ko": "오재명 창고에서 밀수 장부 필사본 발견 — 피해자가 조사하던 장부와 내용 완전히 일치",
+        "en": "Smuggling ledger copy found in Oh Jaemyung's warehouse — contents match the ledger the victim was investigating"
+      }
+    ],
+    "timeline": [
+      {
+        "id": "1",
+        "name": "이재훈 (조카)",
+        "cells": [
+          {
+            "ko": "연회 참석 · 언쟁 (21:00~23:00)",
+            "s": "confirmed"
+          },
+          {
+            "ko": "자택 귀가 주장 (23:30)",
+            "s": "unverified"
+          },
+          {
+            "ko": "새벽 행적 미확인 (03:00~07:00)",
+            "s": "unknown"
+          },
+          {
+            "ko": "사망 추정 시간대 (05:00~07:00)",
+            "s": "death"
+          },
+          {
+            "ko": "소식 듣고 달려옴 (08:30)",
+            "s": "confirmed"
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "name": "유성준 (대사헌)",
+        "cells": [
+          {
+            "ko": "연회 후 귀가 (22:00)",
+            "s": "confirmed"
+          },
+          {
+            "ko": "사당 참배 주장 (03:00~05:00)",
+            "s": "unverified"
+          },
+          {
+            "ko": "참배 기록 없음",
+            "s": "suspicious"
+          },
+          {
+            "ko": "사망 추정 시간대 (05:00~07:00)",
+            "s": "death"
+          },
+          {
+            "ko": "출근 (08:00)",
+            "s": "confirmed"
+          }
+        ]
+      },
+      {
+        "id": "5",
+        "name": "오재명 (포목상)",
+        "cells": [
+          {
+            "ko": "가게 마감 (20:00)",
+            "s": "confirmed"
+          },
+          {
+            "ko": "귀가 주장 (21:00~04:00)",
+            "s": "unverified"
+          },
+          {
+            "ko": "개점 준비 점원 목격 (06:00)",
+            "s": "confirmed"
+          },
+          {
+            "ko": "사망 추정 시간대 (05:00~07:00)",
+            "s": "death"
+          },
+          {
+            "ko": "가게 개점 (07:30)",
+            "s": "confirmed"
+          }
+        ]
+      },
+      {
+        "id": "4",
+        "name": "김복동 (하인)",
+        "cells": [
+          {
+            "ko": "저녁 취침 (22:00)",
+            "s": "confirmed"
+          },
+          {
+            "ko": "행랑채 취침 중 (00:00~05:00)",
+            "s": "unverified"
+          },
+          {
+            "ko": "기상 (06:00)",
+            "s": "confirmed"
+          },
+          {
+            "ko": "사망 추정 시간대 (05:00~07:00)",
+            "s": "death"
+          },
+          {
+            "ko": "사체 발견 보고 (07:10)",
+            "s": "confirmed"
+          }
+        ]
+      }
+    ],
+    "deathCol": 3
+  },
+
+  {
+    "caseId": "HARD-003",
+    "era": "medieval_europe",
+    "crimeType": "murder",
+    "method": "단검 — 이중 빗장 트릭",
+    "title": {
+      "ko": "수도원의 단검",
+      "en": "The Dagger of the Abbey"
+    },
+    "overview": {
+      "ko": "흑사병 격리 수도원에서 대수도원장이 이중 잠금 도서관 안에서 살해됐다. 이단 재판을 앞둔 약초사와 원장직을 노리는 부원장이 의심받는다. 그러나 이중 빗장 트릭을 알고 금서를 필사하다 발각 직전인 사서 수사가 아무도 보지 못한 범인이다.",
+      "en": "In a plague-quarantined abbey, the Abbot was murdered inside a double-locked library. The herbalist facing inquisition and the Prior eyeing the abbacy draw suspicion. But the librarian—who knows the double-bolt trick and is days from being caught copying banned texts—is the culprit nobody sees."
+    },
+    "caseOverview": {
+      "ko": "1347년, 흑사병이 라인강 유역을 휩쓸던 시절. 격리 중인 성 베네딕트 수도원의 대수도원장 클레멘스(67세)가 도서관에서 단검에 찔려 숨진 채 발견됐습니다. 도서관 문은 철제 이중 빗장으로 안쪽에서 잠겨 있었고 모든 창문은 쇠창살로 막혀 있었습니다.\n\n피해자의 손에는 '배신자는 성가대 안에 있다'고 쓰인 양피지 조각이 쥐어져 있었습니다. 이단 치료법을 연구하다 종교재판을 앞둔 약초사 수사 베르톨트는 전날 밤 도서관 입장을 시도하다 목격됐습니다. 차기 원장직을 두고 갈등 중인 부원장 안셀무스도 강한 동기를 가졌습니다.\n\n그러나 마지막으로 의심받아야 할 인물이 진범이었습니다. 사서 수사 힐데마르 — 이중 빗장 트릭을 직접 고안한 유일한 보유자였고, 금서 필사 행위가 원장에게 발각되기 직전이었습니다. 발각되면 파문과 추방이 확실한 상황이었습니다.",
+      "en": "In 1347, as the Black Death swept the Rhine Valley, Abbot Clemens (67) of the quarantined Saint Benedict Abbey was found stabbed in the library. The door was secured with iron double bolts from inside, all windows barred with iron grates.\n\nA parchment in his hand read 'the traitor is within the choir.' Herbalist Brother Berthold, facing inquisition for heretical medical research, had been seen attempting library entry the night before. Prior Anselm, in conflict over the upcoming abbacy, had strong motive.\n\nBut the last man anyone should suspect was the true culprit. Librarian Brother Hildemar — the sole inventor of the double-bolt trick — was days from being discovered for copying banned texts. Discovery meant certain excommunication and expulsion."
+    },
+    "location": {
+      "ko": "신성로마제국 라인강 유역 성 베네딕트 수도원 도서관",
+      "en": "Library, Saint Benedict Abbey, Rhine Valley, Holy Roman Empire"
+    },
+    "time": {
+      "ko": "1347년 10월 11일 자정~새벽 2시",
+      "en": "October 11, 1347 — midnight to 02:00"
+    },
+    "victim": {
+      "ko": "피해자: 대수도원장 클레멘스 (67세)",
+      "en": "Victim: Abbot Clemens (67)"
+    },
+    "difficulty": "hard",
+    "answer": "5",
+    "explanation": {
+      "ko": "사서 힐데마르는 자신이 고안한 쇠줄-지렛대 장치로 도서관 이중 빗장을 외부에서 내렸습니다. 원장을 도서관으로 유인해 단검으로 찌른 뒤, 같은 장치로 다시 이중 빗장을 걸어 완벽한 밀실을 만들었습니다. 결정적 증거: 수도복 소매에서 원장 혈흔과 금니 잉크가 혼합 검출됐고, 문틀 바닥에서 쇠줄 마찰 흔적이 그의 도구와 정확히 일치했습니다.",
+      "en": "Librarian Hildemar used his self-designed wire-and-lever mechanism to lower the double bolts from outside. He lured the Abbot into the library, stabbed him, then re-engaged the bolts from outside — creating a perfect locked room. Decisive evidence: mixed bloodstain and gold ink on his habit sleeve, and wire-friction marks on the door frame floor matching his maintenance tool exactly."
+    },
+    "suspects": [
+      {
+        "id": "1",
+        "name": {
+          "ko": "약초사 수사 베르톨트",
+          "en": "Brother Berthold, Herbalist"
+        },
+        "job": {
+          "ko": "성 베네딕트 수도원 약초사",
+          "en": "Herbalist monk, Saint Benedict Abbey"
+        },
+        "age": 44,
+        "motive": {
+          "ko": "이단 치료법 연구로 종교재판 직전 — 원장이 직접 고발 예정이었음",
+          "en": "Facing inquisition for heretical medical research — Abbot was personally going to report him"
+        },
+        "alibi": {
+          "ko": "약초실에서 기도 중이었다 주장 — 전날 밤 도서관 입장 시도 목격됨",
+          "en": "Claims praying in the herb room — was seen attempting library entry the previous night"
+        },
+        "flag": {
+          "ko": "독초 지식 보유 — 하지만 단검 범행과 이중 빗장 트릭은 무관, 도서관 입장 자체가 봉쇄됨",
+          "en": "Knows toxic herbs — but stabbing and double-bolt trick are unrelated, library access was physically blocked"
+        },
+        "interview": {
+          "ko": "\"약초실에서 기도하고 있었습니다. 도서관에 들어가려 한 건 사실이지만 금지된 의학서를 확인하기 위해서였습니다. 죄라면 지식을 추구한 것뿐입니다. 재판이 겁났던 건 맞지만 원장님을 해치지는 않았습니다.\"",
+          "en": "\"I was praying in the herb room. Yes, I tried to enter the library the night before, but only to consult a restricted medical text. My only sin is seeking knowledge. I was afraid of the inquisition — but I did not harm the Abbot.\""
+        }
+      },
+      {
+        "id": "2",
+        "name": {
+          "ko": "부원장 안셀무스",
+          "en": "Prior Anselm"
+        },
+        "job": {
+          "ko": "성 베네딕트 수도원 부원장",
+          "en": "Prior, Saint Benedict Abbey"
+        },
+        "age": 58,
+        "motive": {
+          "ko": "원장이 차기 원장직을 외부 수사에게 넘기려 한다는 소문이 돌고 있었음",
+          "en": "Rumor that the Abbot planned to pass the abbacy to an outside monk rather than him"
+        },
+        "alibi": {
+          "ko": "야간 성무일도 후 자기 방 귀환 주장 — 수사 2명이 성무일도 참석 확인, 이후 미확인",
+          "en": "Claims returned to room after Compline — two monks confirm Compline attendance, unverified after"
+        },
+        "flag": {
+          "ko": "체격이 건장하나 이중 빗장 트릭을 알지 못함 — 도서관 열쇠도 없음",
+          "en": "Strong build but no knowledge of the double-bolt trick — also lacks a library key"
+        },
+        "interview": {
+          "ko": "\"성무일도를 마치고 방으로 돌아왔습니다. 원장직 문제는 하느님의 뜻에 맡겨야 합니다. 클레멘스 원장님과 이견이 있었지만 수도 공동체의 미래에 관한 정당한 차이였습니다. 저는 그 문을 열 방법도 모릅니다.\"",
+          "en": "\"I returned to my room after Compline. The matter of succession belongs to God's will. Yes, I had disagreements with Abbot Clemens, but they were legitimate differences about our community's future. I don't even know how to open that door.\""
+        }
+      },
+      {
+        "id": "3",
+        "name": {
+          "ko": "총무 수사 콘라트",
+          "en": "Brother Konrad, Administrator"
+        },
+        "job": {
+          "ko": "수도원 살림 총무",
+          "en": "Abbey bursar and administrator"
+        },
+        "age": 51,
+        "motive": {
+          "ko": "원장이 재정 감사를 예고 — 콘라트의 소규모 횡령이 드러날 위기",
+          "en": "Abbot announced a financial audit — Konrad's small-scale embezzlement was at risk of exposure"
+        },
+        "alibi": {
+          "ko": "야간 창고 재고 점검 중 — 수사 1명 목격, 창고 기록 일치",
+          "en": "Performing night inventory in storage — one monk witnessed, storage records align"
+        },
+        "flag": {
+          "ko": "창고 구역에서 목격 — 이중 빗장 트릭 모름, 도서관 이동 시간 없음",
+          "en": "Seen in storage area — no knowledge of double-bolt trick, no time to reach library"
+        },
+        "interview": {
+          "ko": "\"창고에서 재고를 정리하고 있었습니다. 막시밀리아누스 수사가 봤습니다. 재정 감사가 겁났던 건 사실이지만 도서관 근처에도 가지 않았습니다. 이중 빗장이 뭔지도 잘 모릅니다.\"",
+          "en": "\"I was sorting inventory in the storage room. Brother Maximilianus saw me. Yes, I was nervous about the audit, but I never went near the library. I barely even know what a double-bolt mechanism is.\""
+        }
+      },
+      {
+        "id": "4",
+        "name": {
+          "ko": "고해 사제 마르코",
+          "en": "Father Marco, Confessor"
+        },
+        "job": {
+          "ko": "수도원 고해 담당 사제",
+          "en": "Confessor priest of the abbey"
+        },
+        "age": 63,
+        "motive": {
+          "ko": "원장이 자신의 고해 비밀을 외부에 발설했다는 의혹 — 종교적 배신감",
+          "en": "Victim allegedly revealed contents of a private confession — deep sense of religious betrayal"
+        },
+        "alibi": {
+          "ko": "야간 기도실에서 독경 중 — 새벽 성무일도까지 기도 기록 일치",
+          "en": "Reciting prayers in the oratory all night — prayer records consistent until dawn Vigils"
+        },
+        "flag": {
+          "ko": "고령에 체력 부족 — 단검 사용과 이중 빗장 트릭 모두 신체적으로 불가능",
+          "en": "Advanced age and poor physical condition — both stabbing and the bolt mechanism are physically impossible"
+        },
+        "interview": {
+          "ko": "\"기도실에서 밤새 독경했습니다. 원장님이 고해 비밀을 발설했다는 의혹은 있었지만... 저는 하느님의 법 아래에 있습니다. 복수는 제가 할 수 있는 일이 아닙니다.\"",
+          "en": "\"I was reciting prayers in the oratory all night. There were suspicions about revealed confessions, but... I am bound by God's law. Vengeance is not something I am capable of.\""
+        }
+      },
+      {
+        "id": "5",
+        "name": {
+          "ko": "사서 수사 힐데마르",
+          "en": "Brother Hildemar, Librarian"
+        },
+        "job": {
+          "ko": "성 베네딕트 수도원 사서",
+          "en": "Librarian monk, Saint Benedict Abbey"
+        },
+        "age": 39,
+        "motive": {
+          "ko": "금서 필사 행위가 원장에게 발각 직전 — 파문과 추방이 확실한 상황",
+          "en": "About to be caught copying banned texts by the Abbot — excommunication and expulsion certain"
+        },
+        "alibi": {
+          "ko": "밤새 도서관 관리 업무 주장 — 모든 타임라인이 도서관 관련 기록으로 채워져 있음",
+          "en": "Claims all-night library maintenance duties — entire timeline filled with library-related records"
+        },
+        "flag": {
+          "ko": "이중 빗장 트릭을 직접 고안한 유일한 보유자 — 수도복 소매에서 혈흔과 금니 잉크 혼합 검출",
+          "en": "Sole inventor and possessor of the double-bolt trick — mixed blood and gold ink found on his habit sleeve"
+        },
+        "interview": {
+          "ko": "\"도서관을 지키는 것이 제 소임입니다. 이중 빗장은 제가 보안을 위해 직접 고안한 것입니다. 금서요? 모든 서적을 관리하려면 내용을 파악해야 합니다. 그것은 직무 수행이었을 뿐입니다.\"",
+          "en": "\"Protecting the library is my duty. I devised the double-bolt myself for security purposes. Banned books? Managing all texts requires understanding their contents. It was simply part of my duties.\""
+        }
+      },
+      {
+        "id": "6",
+        "name": {
+          "ko": "외부 수사 루돌프",
+          "en": "Visiting Brother Rudolf"
+        },
+        "job": {
+          "ko": "쾰른 수도원 파견 수사 (흑사병 격리 합류)",
+          "en": "Visiting monk from Cologne Abbey (joined plague quarantine)"
+        },
+        "age": 35,
+        "motive": {
+          "ko": "원장이 불명확한 이유로 그를 쾰른으로 돌려보내려 했음 — 귀환 시 강등 확실",
+          "en": "Abbot was moving to send him back to Cologne for unclear reasons — certain demotion upon return"
+        },
+        "alibi": {
+          "ko": "외부 수사 격리 숙소 — 흑사병 격리 규정상 이동 불가, 다른 수사들 목격",
+          "en": "Confined to guest quarantine quarters — plague rules prohibit movement, other monks confirm"
+        },
+        "flag": {
+          "ko": "격리 구역 이탈 기록 없음 — 도서관 접근 자체가 물리적으로 봉쇄됨",
+          "en": "No quarantine departure recorded — library access physically sealed off by quarantine rules"
+        },
+        "interview": {
+          "ko": "\"격리 숙소에서 꼼짝도 할 수 없었습니다. 흑사병 격리 규정은 엄격합니다. 원장님이 저를 돌려보내시려 한 것은 사실이지만 그것은 신앙 수준 문제였을 것입니다. 그 도서관에는 한 번도 들어가 본 적 없습니다.\"",
+          "en": "\"I was confined to the guest quarters and couldn't move at all. Plague quarantine rules are strict. Yes, the Abbot was considering sending me back, but it must have been about my devotion. I've never even been inside that library.\""
+        }
+      }
+    ],
+    "clues": [
+      {
+        "order": 1,
+        "revealed": true,
+        "ko": "도서관 문이 안쪽에서 이중 빗장으로 잠겼으나 문틀 바닥에 금속 마찰 흔적 — 외부 조작 가능성 시사",
+        "en": "Library double-bolted from inside, but metal friction marks on door frame floor — suggests external manipulation"
+      },
+      {
+        "order": 2,
+        "revealed": true,
+        "ko": "피해자 손의 양피지 '배신자는 성가대 안에 있다' — 피해자가 범인의 신분을 알고 있었을 가능성",
+        "en": "Parchment in victim's hand: 'the traitor is within the choir' — victim may have known the culprit's identity"
+      },
+      {
+        "order": 3,
+        "revealed": true,
+        "ko": "도서관 책상에서 금서 필사 중인 양피지 발견 — 필사자가 급히 자리를 떠난 흔적",
+        "en": "Parchment with banned text copy found on library desk — copyist left in sudden haste"
+      },
+      {
+        "order": 4,
+        "revealed": false,
+        "ko": "힐데마르 수도복 소매에서 혈흔과 금니 잉크가 혼합 검출 — 금서 필사 중 범행이 이루어졌음을 시사",
+        "en": "Mixed bloodstain and gold ink found on Hildemar's habit sleeve — crime committed during a copying session"
+      },
+      {
+        "order": 5,
+        "revealed": false,
+        "ko": "문틀 마찰 흔적이 힐데마르 도서관 관리용 쇠줄 도구와 정확히 일치 — 이중 빗장 트릭 사용 확정",
+        "en": "Friction marks on door frame exactly match Hildemar's library maintenance wire tool — double-bolt trick confirmed"
+      }
+    ],
+    "timeline": [
+      {
+        "id": "1",
+        "name": "베르톨트 (약초사)",
+        "cells": [
+          {
+            "ko": "성무일도 참석 (21:00)",
+            "s": "confirmed"
+          },
+          {
+            "ko": "도서관 입장 시도 목격 (23:30)",
+            "s": "suspicious"
+          },
+          {
+            "ko": "약초실 기도 주장 (00:00~02:00)",
+            "s": "unverified"
+          },
+          {
+            "ko": "사망 추정 시간대 (00:00~02:00)",
+            "s": "death"
+          },
+          {
+            "ko": "새벽 성무일도 참석 (04:00)",
+            "s": "confirmed"
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "name": "안셀무스 (부원장)",
+        "cells": [
+          {
+            "ko": "성무일도 참석 (21:00)",
+            "s": "confirmed"
+          },
+          {
+            "ko": "귀방 주장 (21:30)",
+            "s": "unverified"
+          },
+          {
+            "ko": "새벽 행적 미확인 (00:00~02:00)",
+            "s": "unknown"
+          },
+          {
+            "ko": "사망 추정 시간대 (00:00~02:00)",
+            "s": "death"
+          },
+          {
+            "ko": "새벽 성무일도 참석 (04:00)",
+            "s": "confirmed"
+          }
+        ]
+      },
+      {
+        "id": "5",
+        "name": "힐데마르 (사서)",
+        "cells": [
+          {
+            "ko": "도서관 야간 업무 시작 (21:00)",
+            "s": "confirmed"
+          },
+          {
+            "ko": "도서관 내 필사 작업 (23:00~)",
+            "s": "confirmed"
+          },
+          {
+            "ko": "도서관 내 위치 주장 (00:00~02:00)",
+            "s": "unverified"
+          },
+          {
+            "ko": "사망 추정 시간대 (00:00~02:00)",
+            "s": "death"
+          },
+          {
+            "ko": "사체 발견 후 신고 (02:30)",
+            "s": "confirmed"
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "name": "콘라트 (총무)",
+        "cells": [
+          {
+            "ko": "저녁 창고 점검 (20:00)",
+            "s": "confirmed"
+          },
+          {
+            "ko": "재고 기록 작업 (22:00~23:00)",
+            "s": "confirmed"
+          },
+          {
+            "ko": "숙소 귀환 (23:30)",
+            "s": "confirmed"
+          },
+          {
+            "ko": "사망 추정 시간대 (00:00~02:00)",
+            "s": "death"
+          },
+          {
+            "ko": "새벽 성무일도 참석 (04:00)",
+            "s": "confirmed"
+          }
         ]
       }
     ],
