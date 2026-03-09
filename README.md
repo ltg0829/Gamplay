@@ -7,11 +7,13 @@ nexus-games/
 ├── server/
 │   └── index.js          # 백엔드 서버 (Express)
 ├── public/
+│   └── data/
+│       └── users.json         # 사용자 데이터 (자동 생성)
 │   ├── index.html         # 로그인 / 회원가입 페이지
 │   └── pages/
+│       ├── crimescene.html  
+│       ├── chess.html
 │       └── hub.html       # 메인 게임 허브
-├── data/
-│   └── users.json         # 사용자 데이터 (자동 생성)
 ├── package.json
 └── README.md
 ```
