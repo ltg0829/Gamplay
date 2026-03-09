@@ -19,7 +19,7 @@ const wss    = new WebSocket.Server({ server });
 
 const PORT       = process.env.PORT || 3000;
 const JWT_SECRET = process.env.JWT_SECRET || 'nexus-games-secret-change-in-production';
-const DB_PATH    = path.join(process.cwd(), 'data', 'users.json');
+const DB_PATH    = path.join(process.cwd(),'public', 'Data', 'users.json');
 
 // ── Middleware ────────────────────────────────────────
 app.use(express.json());
