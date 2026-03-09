@@ -19,11 +19,11 @@ const wss    = new WebSocket.Server({ server });
 
 const PORT       = process.env.PORT || 3000;
 const JWT_SECRET = process.env.JWT_SECRET || 'nexus-games-secret-change-in-production';
-const DB_PATH    = path.join(__dirname, '..', 'data', 'users.json');
+const DB_PATH    = path.join(process.cwd(), 'data', 'users.json');
 
 // ── Middleware ────────────────────────────────────────
 app.use(express.json());
-app.use(express.static(path.join(__dirname, '..', 'public')));
+app.use(express.static(path.join(process.cwd(), 'public')));
 
 // ── JSON DB ───────────────────────────────────────────
 function loadDB() {
@@ -131,14 +131,14 @@ app.post('/api/stats/update', authRequired, (req, res) => {
 });
 
 // SPA 페이지 라우팅
-app.get('/page/*', (req, res) => {
-  const file = path.join(__dirname, '..', 'public', req.path);
+app.get('/pages/*', (req, res) => {
+  const file = path.join(process.cwd(), 'public', req.path);
   res.sendFile(file, err => { if (err) res.status(404).send('Not found'); });
 });
 
 // catch-all — 로그인 페이지
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '..', 'public', 'index.html'));
+  res.sendFile(path.join(process.cwd(), 'public', 'index.html'));
 });
 
 // ════════════════════════════════════════════════════════
