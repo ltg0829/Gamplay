@@ -86,7 +86,7 @@
     .puzzle .stat-value{color:#e8c98a;}
     .rogue .stat-value{color:var(--accent2);}
     .stat-label{font-size:11px;color:var(--text-muted);}
-    .play-btn{width:100%;padding:14px;border-radius:10px;border:none;font-family:'Orbitron',monospace;font-size:12px;font-weight:700;letter-spacing:0.2em;cursor:pointer;transition:all 0.2s;}
+    .play-btn{display:block;width:100%;padding:14px;border-radius:10px;border:none;font-family:'Orbitron',monospace;font-size:12px;font-weight:700;letter-spacing:0.2em;cursor:pointer;transition:all 0.2s;text-align:center;box-sizing:border-box;}
     .chess .play-btn{background:linear-gradient(135deg,var(--accent),#00c9a7);color:var(--bg);}
     .chess .play-btn:hover{box-shadow:0 8px 24px rgba(0,245,200,0.35);transform:translateY(-1px);}
     .puzzle .play-btn{background:linear-gradient(135deg,#c8a96e,#a07840);color:#0e0b06;}
@@ -157,7 +157,7 @@
                 <div class="stat-label" id="labelMyWins"></div>
               </div>
             </div>
-            <button class="play-btn" id="chessPlayBtn"></button>
+            <div class="play-btn" id="chessPlayBtn"></div>
           </div>
         </a>
 
@@ -181,7 +181,7 @@
                 <div class="stat-label" id="labelPuzzleStreak"></div>
               </div>
             </div>
-            <button class="play-btn" id="puzzlePlayBtn"></button>
+            <div class="play-btn" id="puzzlePlayBtn"></div>
           </div>
         </a>
 
@@ -204,7 +204,7 @@
                 <div class="stat-label" id="labelRuns"></div>
               </div>
             </div>
-            <button class="play-btn" disabled id="roguePlayBtn"></button>
+            <div class="play-btn" disabled id="roguePlayBtn"></div>
           </div>
         </div>
 
@@ -410,7 +410,12 @@ function loadPuzzleStats() {
       btn.style.color = '#e8c98a';
       btn.style.border = '1px solid rgba(200,169,110,0.4)';
       btn.style.cursor = 'default';
-      btn.onclick = e => e.preventDefault();
+      // 이미 풀었을 때 카드(<a>) 클릭 막기
+      const card = btn.closest('a');
+      if (card) {
+        card.style.pointerEvents = 'none';
+        card.style.opacity = '0.75';
+      }
     } else {
       btn.textContent = t('puzzlePlayBtn');
     }
