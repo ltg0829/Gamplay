@@ -131,7 +131,7 @@ app.post('/api/stats/update', authRequired, (req, res) => {
 });
 
 // SPA 페이지 라우팅
-app.get('/pages/*', (req, res) => {
+app.get('/page/*', (req, res) => {
   const file = path.join(__dirname, '..', 'public', req.path);
   res.sendFile(file, err => { if (err) res.status(404).send('Not found'); });
 });
