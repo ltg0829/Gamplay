@@ -16,7 +16,7 @@ const JWT_SECRET = process.env.JWT_SECRET || 'nexus-secret-key';
 
 app.use(cors());
 app.use(express.json());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '..', 'public')));
 
 // ── MongoDB 연결 ──────────────────────────────────────
 mongoose.connect(process.env.MONGO_URI)
@@ -312,11 +312,11 @@ app.get('/api/puzzle/stats', authRequired, async (req, res) => {
 
 // 단수 /page/:file (기존 호환)
 app.get('/page/:file', (req, res) => {
-  const file = path.join(__dirname, 'public', 'page', req.params.file);
+  const file = path.join(__dirname, '..', 'public', 'page', req.params.file);
   res.sendFile(file, err => {
     if (err) {
       // public/pages/ 폴더도 fallback 탐색
-      const file2 = path.join(__dirname, 'public', 'pages', req.params.file);
+      const file2 = path.join(__dirname, '..', 'public', 'pages', req.params.file);
       res.sendFile(file2, err2 => { if (err2) res.status(404).send('Not found'); });
     }
   });
@@ -324,7 +324,7 @@ app.get('/page/:file', (req, res) => {
 
 // 복수 /pages/:file (chess.html, hub.html 등 실제 위치)
 app.get('/pages/:file', (req, res) => {
-  const file = path.join(__dirname, 'public', 'pages', req.params.file);
+  const file = path.join(__dirname, '..', 'public', 'pages', req.params.file);
   res.sendFile(file, err => { if (err) res.status(404).send('Not found'); });
 });
 
@@ -333,7 +333,7 @@ app.use('/api', (req, res) => {
 });
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  res.sendFile(path.join(__dirname, '..', 'public', 'index.html'));
 });
 
 // ════════════════════════════════════════════════════════
