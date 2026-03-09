@@ -1214,7 +1214,7 @@ function renderHeader() {
   document.getElementById('caseLoc').textContent   = c.location?.[lang] || c.location?.ko || '—';
   document.getElementById('caseTime').textContent  = c.time?.[lang]     || c.time?.ko     || '—';
   document.getElementById('caseVictim').textContent= c.victim?.[lang]   || c.victim?.ko   || '—';
-  document.getElementById('synopsis').textContent  = c.overview?.[lang] || c.overview?.ko || c.synopsis?.[lang] || c.synopsis?.ko || '—';
+  document.getElementById('synopsis').textContent  = c.caseOverview?.[lang] || c.caseOverview?.ko || c.synopsis?.[lang] || c.synopsis?.ko || '—';
 
   // 시대 배지
   const eraMap = {
