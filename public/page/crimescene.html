@@ -1145,7 +1145,7 @@ async function loadTodayCase() {
       caseData = data.case;
     } catch {
       // 2) 로컬 JSON 폴백
-      const res2 = await fetch('/data/cases.json');
+      const res2 = await fetch('/Data/cases.json');
       if (!res2.ok) throw new Error('cases.json 로드 실패');
       const cases = await res2.json();
       const idx   = Math.floor(Date.now() / 86400000) % cases.length;
