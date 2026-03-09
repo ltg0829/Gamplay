@@ -25,7 +25,6 @@
   --text-muted: #6a7a90;
   --text-dim:   #3a4a60;
   --paper:    #f5f0e8;
-  --font-main: 18px;
   --ink:      #1a1a2e;
 }
 * { margin:0; padding:0; box-sizing:border-box; }
@@ -34,8 +33,6 @@ html { scroll-behavior: smooth; }
 body {
   background: var(--bg);
   color: var(--text);
-  font-size: 23px;
-  line-height: 1.95;
   font-family: 'Crimson Text', Georgia, serif;
   min-height: 100vh;
   overflow-x: hidden;
@@ -256,7 +253,7 @@ body::after {
 }
 .case-title-txt {
   font-family: 'Special Elite', monospace;
-  font-size: clamp(28px, 4vw, 45px);
+  font-size: clamp(24px, 3.5vw, 40px);
   color: var(--text);
   line-height: 1.15;
   margin-bottom: 18px;
@@ -285,73 +282,14 @@ body::after {
 }
 .meta-val {
   font-family: 'Crimson Text', serif;
-  font-size: 17px;
+  font-size: 13px;
   color: var(--tape);
   font-style: italic;
 }
 
-/* ── 사건 개요 ────────────────────────────── */
-.case-overview {
-  background: linear-gradient(135deg, rgba(240,198,10,.05) 0%, rgba(192,57,43,.02) 100%);
-  border: 2px solid var(--border2);
-  border-left: 4px solid var(--tape);
-  border-radius: 4px;
-  padding: 20px 24px;
-  margin-bottom: 20px;
-  animation: fadeSlideUp .5s ease both;
-}
-.case-overview h3 {
-  font-family: 'Share Tech Mono', monospace;
-  font-size: 11px;
-  letter-spacing: .35em;
-  color: var(--tape2);
-  text-transform: uppercase;
-  margin-bottom: 12px;
-  display: flex; align-items: center; gap: 10px;
-}
-.case-overview h3::after {
-  content: ''; flex: 1; height: 1px;
-  background: repeating-linear-gradient(90deg, var(--border2) 0px, var(--border2) 4px, transparent 4px, transparent 8px);
-}
-.overview-text {
-  font-size: 16px;
-  line-height: 2;
-  color: var(--text);
-  font-style: italic;
-  opacity: .95;
-}
-
-/* ── 용의자 인터뷰 ────────────────────────── */
-.interview-section {
-  margin-top: 12px;
-  padding: 14px;
-  background: var(--surface2);
-  border-left: 3px solid var(--red2);
-  border-radius: 2px;
-  display: none;
-}
-.interview-section.show { display: block; animation: slideDown .3s ease; }
-@keyframes slideDown { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: translateY(0); } }
-.interview-label {
-  font-family: 'Share Tech Mono', monospace;
-  font-size: 9px;
-  color: var(--red2);
-  letter-spacing: .2em;
-  text-transform: uppercase;
-  margin-bottom: 6px;
-}
-.interview-text {
-  font-size: 15px;
-  line-height: 1.9;
-  color: var(--text-muted);
-  font-style: italic;
-}
-.interview-text::before { content: '"'; color: var(--red2); margin-right: 4px; }
-.interview-text::after { content: '"'; color: var(--red2); margin-left: 4px; }
-
 /* ── 시놉시스 ────────────────────────────── */
 .synopsis-text {
-  font-size: 19px;
+  font-size: 15px;
   line-height: 2.05;
   color: var(--text);
   opacity: .9;
@@ -496,8 +434,8 @@ body::after {
   letter-spacing: .1em;
 }
 .clue-text {
-  font-size: 18px;
-  line-height: 1.95;
+  font-size: 14px;
+  line-height: 1.85;
   color: var(--text);
   font-style: italic;
 }
@@ -598,7 +536,7 @@ body::after {
 }
 .s-name {
   font-family: 'Special Elite', monospace;
-  font-size: 18px;
+  font-size: 14px;
   color: var(--text);
   letter-spacing: .02em;
 }
@@ -627,8 +565,8 @@ body::after {
 .s-card.open .s-detail { display: block; }
 
 .d-row {
-  font-size: 17px;
-  line-height: 2;
+  font-size: 13px;
+  line-height: 1.9;
   color: var(--text-muted);
   margin-bottom: 4px;
   font-style: italic;
@@ -642,7 +580,51 @@ body::after {
   font-style: normal;
   text-transform: uppercase;
 }
-.d-row.flag { color: rgba(192,57,43,.9); }
+.d-row.flag-row  { color: rgba(192,57,43,.9); }
+.d-row.flag      { color: rgba(192,57,43,.9); } /* 하위 호환 */
+
+/* 증거 행 — 강조 */
+.d-row.evidence-row {
+  background: rgba(241,196,15,.06);
+  border-left: 3px solid var(--tape2);
+  padding: 6px 8px;
+  border-radius: 2px;
+  color: #e8d48b;
+  margin-bottom: 6px;
+}
+.d-row.evidence-row strong {
+  color: var(--tape2);
+  font-size: 9px;
+}
+
+/* 인터뷰 행 */
+.d-row.interview-row {
+  background: rgba(255,255,255,.03);
+  border-left: 3px solid rgba(127,140,141,.4);
+  padding: 6px 8px;
+  border-radius: 2px;
+  margin-bottom: 6px;
+}
+.d-row.interview-row strong {
+  color: rgba(189,195,199,.8);
+  font-size: 9px;
+}
+.interview-text {
+  display: block;
+  margin-top: 2px;
+  color: rgba(189,195,199,.75);
+  font-size: 12px;
+  line-height: 1.7;
+  font-style: italic;
+}
+
+/* 동기 행 */
+.d-row.motive-row  { color: rgba(231,76,60,.85); }
+.d-row.motive-row strong { color: rgba(231,76,60,.7); }
+
+/* 알리바이 행 */
+.d-row.alibi-row   { color: rgba(52,152,219,.9); }
+.d-row.alibi-row strong { color: rgba(52,152,219,.7); }
 
 .accuse-btn {
   display: none;
@@ -937,7 +919,7 @@ body::after {
     <div class="streak-pill">🔥 <span id="streakNum">0</span> <span id="streakLbl">STREAK</span></div>
     <button class="tape-btn dark" id="btnKO" onclick="setLang('ko')">KO</button>
     <button class="tape-btn dark" id="btnEN" onclick="setLang('en')">EN</button>
-    <button class="tape-btn back" onclick="location.href='/page/hub.html'" id="backBtn">← HUB</button>
+    <button class="tape-btn back" onclick="location.href='/pages/hub.html'" id="backBtn">← HUB</button>
   </div>
 </div>
 
@@ -994,9 +976,6 @@ body::after {
         </div>
       </div>
     </div>
-
-    <!-- 사건 개요 -->
-    <div id="caseOverviewContainer"></div>
 
     <!-- 시놉시스 -->
     <div class="card" style="animation-delay:.1s">
@@ -1079,7 +1058,8 @@ const S = {
     lblClues: '수사 단서', lblSuspects: '용의자 목록',
     attLabel: '시도',
     legConf: '목격 확인', legUnv: '미확인 진술', legSus: '수상한 행적', legUnk: '행적 불명',
-    motive: '동기', alibi: '알리바이', flag: '특이사항',
+    motive: '🔴 동기', alibi: '🔵 알리바이', flag: '⚠️ 특이사항',
+    evidence: '🔍 핵심 증거', interview: '💬 진술',
     accuseBtn: '이 인물을 범인으로 지목',
     lockedText: '오답 시 공개',
     rStampCorrect: 'SOLVED', rStampWrong: 'WRONG', rStampOver: 'UNSOLVED',
@@ -1104,7 +1084,8 @@ const S = {
     lblClues: 'EVIDENCE LOG', lblSuspects: 'SUSPECT LIST',
     attLabel: 'ATTEMPTS',
     legConf: 'Confirmed', legUnv: 'Unverified', legSus: 'Suspicious', legUnk: 'Unknown',
-    motive: 'MOTIVE', alibi: 'ALIBI', flag: 'NOTES',
+    motive: '🔴 MOTIVE', alibi: '🔵 ALIBI', flag: '⚠️ NOTES',
+    evidence: '🔍 KEY EVIDENCE', interview: '💬 STATEMENT',
     accuseBtn: 'ACCUSE THIS SUSPECT',
     lockedText: 'UNLOCKED ON WRONG ANSWER',
     rStampCorrect: 'SOLVED', rStampWrong: 'WRONG', rStampOver: 'UNSOLVED',
@@ -1164,7 +1145,7 @@ async function loadTodayCase() {
       caseData = data.case;
     } catch {
       // 2) 로컬 JSON 폴백
-      const res2 = await fetch('/Data/cases.json');
+      const res2 = await fetch('/data/cases.json');
       if (!res2.ok) throw new Error('cases.json 로드 실패');
       const cases = await res2.json();
       const idx   = Math.floor(Date.now() / 86400000) % cases.length;
@@ -1214,7 +1195,6 @@ async function loadStreak() {
 //  렌더링
 // ═══════════════════════════════════════════
 function renderAll() {
-  renderOverview();
   renderHeader();
   renderTimeline();
   renderClues();
@@ -1226,12 +1206,15 @@ function renderHeader() {
   const now = new Date();
   document.getElementById('caseDate').textContent =
     `${now.getFullYear()}.${String(now.getMonth()+1).padStart(2,'0')}.${String(now.getDate()).padStart(2,'0')}`;
-  document.getElementById('caseNum').textContent   = `CASE #${String(c.caseId).padStart(3,'0')}`;
+  const cidDisplay = /^\d+$/.test(String(c.caseId))
+    ? `CASE #${String(c.caseId).padStart(3,'0')}`
+    : `CASE ${c.caseId}`;
+  document.getElementById('caseNum').textContent = cidDisplay;
   document.getElementById('caseTitle').textContent = c.title?.[lang]    || c.title?.ko    || '—';
   document.getElementById('caseLoc').textContent   = c.location?.[lang] || c.location?.ko || '—';
   document.getElementById('caseTime').textContent  = c.time?.[lang]     || c.time?.ko     || '—';
   document.getElementById('caseVictim').textContent= c.victim?.[lang]   || c.victim?.ko   || '—';
-  document.getElementById('synopsis').textContent  = c.synopsis?.[lang] || c.synopsis?.ko || '—';
+  document.getElementById('synopsis').textContent  = c.overview?.[lang] || c.overview?.ko || c.synopsis?.[lang] || c.synopsis?.ko || '—';
 
   // 시대 배지
   const eraMap = {
@@ -1248,22 +1231,6 @@ function renderHeader() {
     d.className = 'att-dot ' + (i < attUsed ? 'used' : 'remain');
     dots.appendChild(d);
   }
-}
-
-function renderOverview() {
-  const c = caseData;
-  const overviewText = c.caseOverview?.[lang] || c.caseOverview?.ko || '';
-  
-  if (!overviewText) return;
-  
-  const container = document.getElementById('caseOverviewContainer');
-  if (!container) return;
-  
-  container.innerHTML = `
-    <div class="case-overview">
-      <h3>사건 개요</h3>
-      <p class="overview-text">${overviewText}</p>
-    </div>`;
 }
 
 function renderTimeline() {
@@ -1355,15 +1322,11 @@ function renderSuspects() {
         <div class="s-chev">▼</div>
       </div>
       <div class="s-detail">
-        <div class="d-row"><strong>${t('motive')}</strong>${s.motive?.[lang] || s.motive?.ko || ''}</div>
-        <div class="d-row"><strong>${t('alibi')}</strong>${s.alibi?.[lang] || s.alibi?.ko || ''}</div>
-        <div class="d-row flag"><strong>${t('flag')}</strong>${s.flag?.[lang] || s.flag?.ko || ''}</div>
-        ${s.interview ? `
-        <div class="interview-section show">
-          <div class="interview-label">인터뷰</div>
-          <div class="interview-text">${s.interview?.[lang] || s.interview?.ko || ''}</div>
-        </div>
-        ` : ''}
+        <div class="d-row motive-row"><strong>${t('motive')}</strong>${s.motive?.[lang] || s.motive?.ko || ''}</div>
+        <div class="d-row alibi-row"><strong>${t('alibi')}</strong>${s.alibi?.[lang] || s.alibi?.ko || ''}</div>
+        <div class="d-row flag-row"><strong>${t('flag')}</strong>${s.flag?.[lang] || s.flag?.ko || ''}</div>
+        ${(s.evidence?.[lang] || s.evidence?.ko) ? `<div class="d-row evidence-row"><strong>${t('evidence') || (lang==='ko'?'🔍 증거':'🔍 Evidence')}</strong>${s.evidence?.[lang] || s.evidence?.ko}</div>` : ''}
+        ${(s.interview?.[lang] || s.interview?.ko) ? `<div class="d-row interview-row"><strong>${t('interview') || (lang==='ko'?'💬 진술':'💬 Statement')}</strong><em class="interview-text">${s.interview?.[lang] || s.interview?.ko}</em></div>` : ''}
         <button class="accuse-btn" onclick="event.stopPropagation();accuseSuspect('${s.id}')">
           ${t('accuseBtn')}
         </button>

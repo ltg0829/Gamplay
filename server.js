@@ -162,11 +162,169 @@ app.get('/api/character/status', (req, res) => {
 });
 
 // ════════════════════════════════════════════════════════
+//  Case 스키마 (탐정 퍼즐)
+// ════════════════════════════════════════════════════════
+const caseSchema = new mongoose.Schema({
+  caseId:      { type: String, required: true, unique: true }, // "HARD-001" 형식
+  era:         String,
+  crimeType:   String,
+  method:      String,
+  difficulty:  String,
+  title:       { ko: String, en: String },
+  overview:    { ko: String, en: String },
+  caseOverview:{ ko: String, en: String },
+  location:    { ko: String, en: String },
+  time:        { ko: String, en: String },
+  victim:      { ko: String, en: String },
+  synopsis:    { ko: String, en: String }, // 구버전 호환
+  slots:       [String],                   // 구버전 호환
+  deathCol:    Number,
+  timeline: [{
+    id:   String,
+    name: String,
+    cells: [{ s: String, ko: String, en: String }]
+  }],
+  suspects: [{
+    id:        String,
+    name:      { ko: String, en: String },
+    job:       { ko: String, en: String },
+    age:       Number,
+    motive:    { ko: String, en: String },
+    alibi:     { ko: String, en: String },
+    flag:      { ko: String, en: String },
+    interview: { ko: String, en: String },
+    evidence:  { ko: String, en: String },
+  }],
+  clues: [{
+    order:    Number,
+    revealed: Boolean,
+    ko:       String,
+    en:       String,
+  }],
+  answer:      String,
+  explanation: { ko: String, en: String },
+  createdAt:   { type: Date, default: Date.now },
+});
+const Case = mongoose.model('Case', caseSchema);
+
+// User 스키마에 puzzle 필드 추가 (없으면 자동 생성)
+const puzzleStatsSchema = {
+  streak:        { type: Number, default: 0 },
+  lastSolvedDate:{ type: String, default: null },
+  totalSolved:   { type: Number, default: 0 },
+  history: [{
+    caseId:   Number,
+    solved:   Boolean,
+    attempts: Number,
+    date:     String,
+  }]
+};
+// User 모델에 puzzle 필드 동적 추가 (기존 스키마와 충돌 없이)
+if (!userSchema.paths['puzzle']) {
+  userSchema.add({ puzzle: { type: Object, default: {} } });
+}
+
+// ════════════════════════════════════════════════════════
+//  퍼즐 API
+// ════════════════════════════════════════════════════════
+
+// 오늘의 사건 반환 (answer 제외)
+app.get('/api/puzzle/today', async (req, res) => {
+  try {
+    const total = await Case.countDocuments();
+    if (total === 0) return res.status(404).json({ message: '사건 데이터가 없습니다.' });
+
+    // 날짜 기반 시드 — 전 세계 유저 동일 사건
+    const daysSinceEpoch = Math.floor(Date.now() / 86400000);
+    const idx = daysSinceEpoch % total;
+
+    // caseId 오름차순 정렬 후 idx번째 선택
+    const cases = await Case.find({}, { answer: 0 }).sort({ caseId: 1 });
+    const todayCase = cases[idx];
+
+    res.json({ success: true, case: todayCase, caseIndex: idx });
+  } catch (err) {
+    res.status(500).json({ message: '서버 오류', error: err.message });
+  }
+});
+
+// 정답 제출
+app.post('/api/puzzle/solve', authRequired, async (req, res) => {
+  try {
+    const { caseId, answer, attempts } = req.body;
+    const caseDoc = await Case.findOne({ caseId });
+    if (!caseDoc) return res.status(404).json({ message: '사건을 찾을 수 없습니다.' });
+
+    const correct = String(answer).trim() === String(caseDoc.answer).trim();
+    const today   = new Date().toISOString().slice(0, 10);
+
+    // 유저 퍼즐 기록 업데이트
+    const user = await User.findOne({ id: req.userId });
+    if (user) {
+      const puzzle  = user.puzzle || { streak: 0, lastSolvedDate: null, totalSolved: 0, history: [] };
+      const history = Array.isArray(puzzle.history) ? puzzle.history : [];
+
+      // 이미 오늘 제출했는지 확인
+      const alreadySolved = history.find(h => h.date === today && h.caseId === caseId);
+      if (!alreadySolved) {
+        if (correct) {
+          // 연속 클리어 계산
+          const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
+          puzzle.streak = (puzzle.lastSolvedDate === yesterday || puzzle.lastSolvedDate === today)
+            ? (puzzle.streak || 0) + 1 : 1;
+          puzzle.lastSolvedDate = today;
+          puzzle.totalSolved    = (puzzle.totalSolved || 0) + 1;
+        } else {
+          puzzle.streak = 0;
+        }
+        history.push({ caseId, solved: correct, attempts, date: today });
+        puzzle.history = history.slice(-100); // 최근 100개만 보관
+
+        await User.updateOne({ id: req.userId }, { $set: { puzzle } });
+      }
+    }
+
+    res.json({
+      success: true,
+      correct,
+      explanation: caseDoc.explanation,
+      answer: correct ? caseDoc.answer : null, // 정답 시에만 반환
+    });
+  } catch (err) {
+    res.status(500).json({ message: '서버 오류', error: err.message });
+  }
+});
+
+// 퍼즐 통계 조회
+app.get('/api/puzzle/stats', authRequired, async (req, res) => {
+  try {
+    const user = await User.findOne({ id: req.userId });
+    if (!user) return res.status(404).json({ message: '유저 없음' });
+    res.json({ success: true, puzzle: user.puzzle || {} });
+  } catch (err) {
+    res.status(500).json({ message: '서버 오류' });
+  }
+});
+
+// ════════════════════════════════════════════════════════
 //  페이지 라우트
 // ════════════════════════════════════════════════════════
 
+// 단수 /page/:file (기존 호환)
 app.get('/page/:file', (req, res) => {
   const file = path.join(__dirname, 'public', 'page', req.params.file);
+  res.sendFile(file, err => {
+    if (err) {
+      // public/pages/ 폴더도 fallback 탐색
+      const file2 = path.join(__dirname, 'public', 'pages', req.params.file);
+      res.sendFile(file2, err2 => { if (err2) res.status(404).send('Not found'); });
+    }
+  });
+});
+
+// 복수 /pages/:file (chess.html, hub.html 등 실제 위치)
+app.get('/pages/:file', (req, res) => {
+  const file = path.join(__dirname, 'public', 'pages', req.params.file);
   res.sendFile(file, err => { if (err) res.status(404).send('Not found'); });
 });
 
