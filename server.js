@@ -19,11 +19,11 @@ const wss    = new WebSocket.Server({ server });
 
 const PORT       = process.env.PORT || 3000;
 const JWT_SECRET = process.env.JWT_SECRET || 'nexus-games-secret-change-in-production';
-const DB_PATH    = path.join(__dirname, '..', 'public', 'Data', 'users.json');
+const DB_PATH    = path.join(__dirname, 'public', 'Data', 'users.json');
 
 // ── Middleware ────────────────────────────────────────
 app.use(express.json());
-app.use(express.static(path.join(__dirname, '..', 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // ── JSON DB ───────────────────────────────────────────
 function loadDB() {
@@ -54,7 +54,7 @@ app.get('/api/health', (_, res) => res.json({ status: 'ok', time: new Date().toI
 // 오늘의 케이스
 app.get('/api/puzzle/today', (req, res) => {
   try {
-    const casesPath = path.join(__dirname, '..', 'public', 'Data', 'cases.json');
+    const casesPath = path.join(__dirname, 'public', 'Data', 'cases.json');
     if (!fs.existsSync(casesPath)) return res.status(404).json({ message: 'cases.json 없음' });
     const raw   = JSON.parse(fs.readFileSync(casesPath, 'utf-8'));
     const cases = Array.isArray(raw) ? raw : (raw.cases || []);
@@ -70,7 +70,7 @@ app.get('/api/puzzle/today', (req, res) => {
 app.post('/api/puzzle/solve', (req, res) => {
   try {
     const { caseId, answer } = req.body;
-    const casesPath = path.join(__dirname, '..', 'public', 'Data', 'cases.json');
+    const casesPath = path.join(__dirname, 'public', 'Data', 'cases.json');
     const raw   = JSON.parse(fs.readFileSync(casesPath, 'utf-8'));
     const cases = Array.isArray(raw) ? raw : (raw.cases || []);
     const c     = cases.find(x => String(x.caseId) === String(caseId));
@@ -164,14 +164,14 @@ app.post('/api/stats/update', authRequired, (req, res) => {
 });
 
 // SPA 페이지 라우팅
-app.get('/pages/*', (req, res) => {
-  const file = path.join(__dirname, '..', 'public', req.path);
+app.get('/page/*', (req, res) => {
+  const file = path.join(__dirname, 'public', req.path);
   res.sendFile(file, err => { if (err) res.status(404).send('Not found'); });
 });
 
 // catch-all — 로그인 페이지
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '..', 'public', 'index.html'));
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 // ════════════════════════════════════════════════════════
