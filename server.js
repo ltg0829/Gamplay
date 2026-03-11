@@ -19,11 +19,11 @@ const wss    = new WebSocket.Server({ server });
 
 const PORT       = process.env.PORT || 3000;
 const JWT_SECRET = process.env.JWT_SECRET || 'nexus-games-secret-change-in-production';
-const DB_PATH    = path.join(process.cwd(),'public', 'Data', 'users.json');
+const DB_PATH    = path.join(__dirname, '..', 'data', 'users.json');
 
 // ── Middleware ────────────────────────────────────────
 app.use(express.json());
-app.use(express.static(path.join(process.cwd(), 'public')));
+app.use(express.static(path.join(__dirname, '..', 'public')));
 
 // ── JSON DB ───────────────────────────────────────────
 function loadDB() {
@@ -48,6 +48,37 @@ function authRequired(req, res, next) {
 
 // 서버 상태
 app.get('/api/health', (_, res) => res.json({ status: 'ok', time: new Date().toISOString() }));
+
+// 오늘의 케이스
+app.get('/api/puzzle/today', (req, res) => {
+  try {
+    const casesPath = path.join(process.cwd(), 'public', 'Data', 'cases.json');
+    if (!fs.existsSync(casesPath)) return res.status(404).json({ message: 'cases.json 없음' });
+    const raw   = JSON.parse(fs.readFileSync(casesPath, 'utf-8'));
+    const cases = Array.isArray(raw) ? raw : (raw.cases || []);
+    if (!cases.length) return res.status(404).json({ message: '사건 없음' });
+    const idx  = Math.floor(Date.now() / 86400000) % cases.length;
+    res.json({ case: cases[idx] });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
+
+// 정답 확인
+app.post('/api/puzzle/solve', (req, res) => {
+  try {
+    const { caseId, answer } = req.body;
+    const casesPath = path.join(process.cwd(), 'public', 'Data', 'cases.json');
+    const raw   = JSON.parse(fs.readFileSync(casesPath, 'utf-8'));
+    const cases = Array.isArray(raw) ? raw : (raw.cases || []);
+    const c     = cases.find(x => String(x.caseId) === String(caseId));
+    if (!c) return res.status(404).json({ message: '사건 없음' });
+    const correct = String(answer) === String(c.answer);
+    res.json({ correct, explanation: c.explanation || null });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
 
 // 중복 확인
 app.get('/api/check-duplicate', (req, res) => {
@@ -132,13 +163,13 @@ app.post('/api/stats/update', authRequired, (req, res) => {
 
 // SPA 페이지 라우팅
 app.get('/pages/*', (req, res) => {
-  const file = path.join(process.cwd(), 'public', req.path);
+  const file = path.join(__dirname, '..', 'public', req.path);
   res.sendFile(file, err => { if (err) res.status(404).send('Not found'); });
 });
 
 // catch-all — 로그인 페이지
 app.get('*', (req, res) => {
-  res.sendFile(path.join(process.cwd(), 'public', 'index.html'));
+  res.sendFile(path.join(__dirname, '..', 'public', 'index.html'));
 });
 
 // ════════════════════════════════════════════════════════
