@@ -628,6 +628,22 @@ body::after {
   line-height: 1.7;
   font-style: italic;
 }
+.interview-bubbles {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 4px;
+}
+.interview-bubble {
+  display: block;
+  font-style: italic;
+  font-size: 12px;
+  line-height: 1.6;
+  color: rgba(189,195,199,.8);
+  padding: 4px 10px;
+  border-left: 2px solid rgba(200,169,110,.4);
+  background: rgba(200,169,110,.05);
+}
 
 /* 동기 행 */
 .d-row.motive-row  { color: rgba(231,76,60,.85); }
@@ -1278,7 +1294,7 @@ function renderHeader() {
   const timeEl   = document.getElementById('caseTime');
   const timeCell = timeEl?.closest('.meta-cell');
   const timeVal  = c.time?.[lang] || c.time?.ko || '';
-  const estTimes = (c.estimatedDeathTime || []).map(t => t[lang] || t.ko || '').filter(Boolean);
+  const estTimes = (c.estimatedDeathTime || []).map(t => t.time || t[lang] || t.ko || '').filter(Boolean);
   if (timeVal) {
     timeEl.textContent = timeVal;
     if (timeCell) timeCell.style.display = '';
@@ -1289,9 +1305,11 @@ function renderHeader() {
     if (timeCell) timeCell.style.display = 'none';
   }
 
-  // victim: string 또는 {ko/en} 객체 모두 처리
+  // victim: string / {ko/en} / {ko, job} 모두 처리
   const vicRaw = c.victim;
-  const vicVal = typeof vicRaw === 'string' ? vicRaw : (vicRaw?.[lang] || vicRaw?.ko || '');
+  const vicName = typeof vicRaw === 'string' ? vicRaw : (vicRaw?.[lang] || vicRaw?.ko || '');
+  const vicJob  = vicRaw?.job || '';
+  const vicVal  = vicJob ? `${vicName}  ·  ${vicJob}` : vicName;
   const vicCell = document.getElementById('caseVictim')?.closest('.meta-cell');
   if (vicCell) vicCell.style.display = vicVal ? '' : 'none';
   if (vicVal) document.getElementById('caseVictim').textContent = vicVal;
@@ -1429,17 +1447,42 @@ function renderClues() {
     if (i < revealed) {
       list.innerHTML += `
         <div class="clue-item">
-          <div class="clue-num">EV-${String(c.order).padStart(2,'0')}</div>
+          <div class="clue-num">EV-${String(c.id || c.order || '?').padStart(2,'0')}</div>
           <div class="clue-text">${c.description || c[lang] || c.ko || ''}</div>
         </div>`;
     } else if (!gameOver) {
       list.innerHTML += `
         <div class="clue-locked">
-          <div class="clue-locked-num">EV-${String(c.order).padStart(2,'0')}</div>
+          <div class="clue-locked-num">EV-${String(c.id || c.order || '?').padStart(2,'0')}</div>
           <div class="clue-locked-text">🔒 ${t('lockedText')}</div>
         </div>`;
     }
   });
+}
+
+// interview 렌더링: string, 배열 모두 처리
+// 범용 텍스트 추출: string 직접 또는 {ko/en} 객체 모두 처리
+function txt(val) {
+  if (!val) return '';
+  if (typeof val === 'string') return val;
+  const lang = window._lang || 'ko';
+  return val[lang] || val.ko || val.en || '';
+}
+
+function renderInterview(interview) {
+  if (!interview) return '';
+  // 배열 직접: ["...", "..."]
+  // 객체 감싸기: { ko: ["..."], en: ["..."] }
+  // string: "..."
+  const val = Array.isArray(interview)
+    ? interview
+    : (interview[lang] || interview.ko || interview.en || interview);
+  if (Array.isArray(val)) {
+    return '<div class="interview-bubbles">' +
+      val.map(line => `<em class="interview-bubble">"${line}"</em>`).join('') +
+      '</div>';
+  }
+  return `<em class="interview-text">${val}</em>`;
 }
 
 // alibi 구조 렌더링 헬퍼
@@ -1476,17 +1519,17 @@ function renderSuspects() {
       <div class="s-hdr">
         <div class="s-id">${s.id}</div>
         <div>
-          <div class="s-name">${s.name?.[lang] || s.name?.ko || '—'}</div>
-          ${(s.job?.[lang] || s.job?.ko) ? `<div class="s-job">${s.job?.[lang] || s.job?.ko}</div>` : ''}
+          <div class="s-name">${txt(s.name) || '—'}</div>
+          ${(txt(s.job)) ? `<div class="s-job">${txt(s.job)}</div>` : ''}
         </div>
         <div class="s-chev">▼</div>
       </div>
       <div class="s-detail">
-        ${(s.motive?.[lang] || s.motive?.ko) ? `<div class="d-row motive-row"><strong>${t('motive')}</strong>${s.motive?.[lang] || s.motive?.ko}</div>` : ''}
+        ${(txt(s.motive)) ? `<div class="d-row motive-row"><strong>${t('motive')}</strong>${txt(s.motive)}</div>` : ''}
         ${s.alibi ? `<div class="d-row alibi-row"><strong>${t('alibi')}</strong>${renderAlibi(s.alibi)}</div>` : ''}
         ${(s.flag?.[lang] || s.flag?.ko) ? `<div class="d-row flag-row"><strong>${t('flag')}</strong>${s.flag?.[lang] || s.flag?.ko}</div>` : ''}
         ${(s.evidence?.[lang] || s.evidence?.ko) ? `<div class="d-row evidence-row"><strong>${t('evidence') || (lang==='ko'?'🔍 증거':'🔍 Evidence')}</strong>${s.evidence?.[lang] || s.evidence?.ko}</div>` : ''}
-        ${(s.interview?.[lang] || s.interview?.ko) ? `<div class="d-row interview-row"><strong>${t('interview') || (lang==='ko'?'💬 진술':'💬 Statement')}</strong><em class="interview-text">${s.interview?.[lang] || s.interview?.ko}</em></div>` : ''}
+        ${(s.interview) ? `<div class="d-row interview-row"><strong>${t('interview') || (lang==='ko'?'💬 진술':'💬 Statement')}</strong>${renderInterview(s.interview)}</div>` : ''}
         <button class="accuse-btn" onclick="event.stopPropagation();accuseSuspect('${s.id}')">
           ${t('accuseBtn')}
         </button>
@@ -1572,7 +1615,7 @@ function showResult(type, expl) {
   const attLeft = MAX_ATT - attUsed;
   if (type === 'correct') {
     document.getElementById('rSub').textContent     = t('rSubCorrect');
-    document.getElementById('rExplain').textContent = expl?.[lang] || expl?.ko || '';
+    document.getElementById('rExplain').textContent = typeof expl === 'string' ? expl : (expl?.[lang] || expl?.ko || '');
     document.getElementById('rStats').innerHTML = `
       <div class="r-stat"><div class="r-stat-val">${attUsed}</div><div class="r-stat-lbl">${t('tries')}</div></div>
       <div class="r-stat"><div class="r-stat-val">${getLocalStreak()}</div><div class="r-stat-lbl">${t('streak')}</div></div>`;
@@ -1582,7 +1625,7 @@ function showResult(type, expl) {
     document.getElementById('rStats').innerHTML = '';
   } else {
     document.getElementById('rSub').textContent     = t('rSubOver');
-    document.getElementById('rExplain').textContent = expl?.[lang] || expl?.ko || '';
+    document.getElementById('rExplain').textContent = typeof expl === 'string' ? expl : (expl?.[lang] || expl?.ko || '');
     document.getElementById('rStats').innerHTML = '';
   }
   document.getElementById('resultOv').classList.add('show');

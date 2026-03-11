@@ -1,217 +1,218 @@
 {
-  "cases": [
+  "caseId": "COMMUTE-001",
+  "title": {
+    "ko": "21시 23분의 엘리베이터",
+    "en": "The Elevator at 21:23"
+  },
+
+  "crimeType": "murder",
+  "method": "둔기 가격",
+
+  "victim": {
+    "ko": "윤태성",
+    "en": "Yoon Taesung",
+    "job": "스타트업 대표"
+  },
+
+  "caseOverview": {
+    "ko": "21시 30분 스타트업 사무실에서 대표 윤태성이 사망한 채 발견되었다. 건물 기록에 따르면 21:18에 엘리베이터가 14층에서 1층으로 내려갔고, 21:27에 다시 올라왔다. 또한 직원 중 한 명은 21:21에 근처 편의점에서 결제를 했다."
+  },
+
+  "estimatedDeathTime": [
     {
-      "caseId": "COMMUTE-001",
-      "era": "modern",
-      "crimeType": "murder",
-      "method": "둔기 가격",
-      "title": {
-        "ko": "21시 23분의 엘리베이터",
-        "en": "The Elevator at 21:23"
-      },
-      "overview": {
-        "ko": "스타트업 대표가 사무실에서 둔기에 맞아 사망했다. 사건 당시 건물에는 네 명의 직원만 남아 있었다.",
-        "en": "A startup CEO was killed by blunt force trauma in his office. Four employees remained in the building."
-      },
-      "caseOverview": {
-        "ko": "피해자는 21:30경 사무실에서 발견되었다. 건물 기록에 따르면 21:18에 엘리베이터가 14층에서 1층으로 내려갔고, 21:27에 다시 14층으로 올라왔다. 또한 직원 중 한 명은 21:21에 건물 근처 편의점에서 결제를 했다.",
-        "en": "The victim was found at 21:30. Elevator logs show it traveled from 14F to 1F at 21:18 and returned at 21:27. One employee made a purchase at a nearby convenience store at 21:21."
-      },
-      "victim": {
-        "ko": "윤태성 (38, 스타트업 대표)",
-        "en": "Yoon Taesung (38, CEO)"
-      },
-      "estimatedDeathTime": [
-        {
-          "source": "법의학",
-          "ko": "21:18 ~ 21:28",
-          "en": "21:18 ~ 21:28"
-        },
-        {
-          "source": "마지막 메신저 확인",
-          "ko": "21:22 이후 활동 없음",
-          "en": "No activity after 21:22"
-        }
-      ],
-      "suspects": [
-        {
-          "id": "1",
-          "name": {
-            "ko": "이준석",
-            "en": "Lee Junseok"
-          },
-          "job": {
-            "ko": "CTO",
-            "en": "CTO"
-          },
-          "motive": {
-            "ko": "지분 갈등",
-            "en": "Share dispute"
-          },
-          "alibi": {
-            "claim": "편의점 방문",
-            "details": [
-              {
-                "time": "21:21",
-                "event": "편의점 카드 결제"
-              },
-              {
-                "time": "21:19",
-                "event": "건물 출입문 카드 기록"
-              }
-            ]
-          }
-        },
-        {
-          "id": "2",
-          "name": {
-            "ko": "박서연",
-            "en": "Park Seoyeon"
-          },
-          "job": {
-            "ko": "디자이너",
-            "en": "Designer"
-          },
-          "motive": {
-            "ko": "해고 통보",
-            "en": "Recently fired"
-          },
-          "alibi": {
-            "claim": "화상회의",
-            "details": [
-              {
-                "time": "21:15 ~ 21:32",
-                "event": "회의 접속 기록"
-              }
-            ]
-          }
-        },
-        {
-          "id": "3",
-          "name": {
-            "ko": "김도윤",
-            "en": "Kim Doyun"
-          },
-          "job": {
-            "ko": "보안 관리자",
-            "en": "Security manager"
-          },
-          "motive": {
-            "ko": "보안 계약 문제",
-            "en": "Security contract issue"
-          },
-          "alibi": {
-            "claim": "서버실 점검",
-            "details": [
-              {
-                "time": "21:16",
-                "event": "서버실 카드 사용"
-              },
-              {
-                "time": "21:27",
-                "event": "서버실 로그아웃"
-              }
-            ]
-          }
-        },
-        {
-          "id": "4",
-          "name": {
-            "ko": "최민아",
-            "en": "Choi Mina"
-          },
-          "job": {
-            "ko": "마케팅 팀장",
-            "en": "Marketing lead"
-          },
-          "motive": {
-            "ko": "투자 계약 갈등",
-            "en": "Investment dispute"
-          },
-          "alibi": {
-            "claim": "휴게실 체류",
-            "details": [
-              {
-                "time": "21:17",
-                "event": "커피 머신 사용"
-              },
-              {
-                "time": "21:29",
-                "event": "와이파이 접속"
-              }
-            ]
-          }
-        }
-      ],
-      "clues": [
-        {
-          "order": 1,
-          "description": "엘리베이터 이동시간 45초"
-        },
-        {
-          "order": 2,
-          "description": "계단 이동시간 약 3분"
-        },
-        {
-          "order": 3,
-          "description": "편의점은 건물에서 1분 거리"
-        },
-        {
-          "order": 4,
-          "description": "복도 모션센서 21:23 작동"
-        },
-        {
-          "order": 5,
-          "description": "피해자 휴대폰 마지막 확인 21:22"
-        },
-        {
-          "order": 6,
-          "description": "범행 무기는 사무실 트로피"
-        }
-      ],
-      "timeline": [
-        {
-          "time": "21:10",
-          "event": "회의 종료"
-        },
-        {
-          "time": "21:17",
-          "event": "휴게실 커피 머신 사용"
-        },
-        {
-          "time": "21:18",
-          "event": "엘리베이터 14층 → 1층"
-        },
-        {
-          "time": "21:19",
-          "event": "건물 출입문 카드 기록"
-        },
-        {
-          "time": "21:21",
-          "event": "편의점 카드 결제"
-        },
-        {
-          "time": "21:22",
-          "event": "피해자 마지막 메시지 확인"
-        },
-        {
-          "time": "21:23",
-          "event": "복도 모션 센서 작동"
-        },
-        {
-          "time": "21:27",
-          "event": "엘리베이터 1층 → 14층"
-        },
-        {
-          "time": "21:30",
-          "event": "시신 발견"
-        }
-      ],
-      "answer": "1",
-      "explanation": {
-        "ko": "이준석은 21:21 편의점 결제 기록이 있지만, 21:18 엘리베이터로 내려간 뒤 살해 후 편의점에 갔다가 21:27 엘리베이터로 돌아오는 것이 시간상 가능하다.",
-        "en": "Lee Junseok could have used the elevator at 21:18, committed the murder, briefly visited the convenience store, and returned at 21:27."
-      }
+      "source": "법의학",
+      "time": "21:18 ~ 21:28"
+    },
+    {
+      "source": "휴대폰 기록",
+      "time": "21:22 이후 활동 없음"
     }
-  ]
+  ],
+
+  "timeline": [
+
+    {
+      "time": "21:10",
+      "event": "사무실 회의 종료"
+    },
+    {
+      "time": "21:17",
+      "event": "휴게실 커피 머신 사용"
+    },
+    {
+      "time": "21:18",
+      "event": "엘리베이터 14층 → 1층 이동"
+    },
+    {
+      "time": "21:19",
+      "event": "건물 출입문 카드 사용"
+    },
+    {
+      "time": "21:21",
+      "event": "편의점 카드 결제"
+    },
+    {
+      "time": "21:22",
+      "event": "피해자 마지막 메시지 확인"
+    },
+    {
+      "time": "21:23",
+      "event": "복도 모션 센서 작동"
+    },
+    {
+      "time": "21:27",
+      "event": "엘리베이터 1층 → 14층 이동"
+    },
+    {
+      "time": "21:30",
+      "event": "직원이 시신 발견"
+    }
+
+  ],
+
+  "clues": [
+
+    {
+      "id": "1",
+      "description": "엘리베이터 이동 시간은 약 45초"
+    },
+
+    {
+      "id": "2",
+      "description": "계단 이동은 약 3분"
+    },
+
+    {
+      "id": "3",
+      "description": "편의점은 건물에서 도보 1분 거리"
+    },
+
+    {
+      "id": "4",
+      "description": "복도 센서는 사람이 지나가면 작동한다"
+    },
+
+    {
+      "id": "5",
+      "description": "범행 무기는 사무실 트로피"
+    }
+
+  ],
+
+  "suspects": [
+
+    {
+      "id": "1",
+      "name": "이준석",
+      "job": "CTO",
+
+      "motive": "지분 갈등",
+
+      "alibi": {
+        "claim": "편의점 방문",
+        "details": [
+          {
+            "time": "21:19",
+            "event": "건물 출입 기록"
+          },
+          {
+            "time": "21:21",
+            "event": "편의점 카드 결제"
+          }
+        ]
+      },
+
+      "interview": [
+        "저는 21시 18분쯤 바로 건물을 나갔습니다.",
+        "그때 대표님은 아직 사무실에 계셨어요.",
+        "편의점에 다녀온 뒤 바로 집에 가려고 했습니다."
+      ]
+    },
+
+    {
+      "id": "2",
+      "name": "박서연",
+      "job": "디자이너",
+
+      "motive": "해고 통보",
+
+      "alibi": {
+        "claim": "화상회의",
+        "details": [
+          {
+            "time": "21:15 ~ 21:32",
+            "event": "회의 접속 기록"
+          }
+        ]
+      },
+
+      "interview": [
+        "저는 계속 화상회의 중이었습니다.",
+        "회의 기록을 확인해보시면 될 겁니다.",
+        "회의 때문에 자리도 못 떠났어요."
+      ]
+    },
+
+    {
+      "id": "3",
+      "name": "김도윤",
+      "job": "보안 관리자",
+
+      "motive": "보안 계약 문제",
+
+      "alibi": {
+        "claim": "서버실 점검",
+        "details": [
+          {
+            "time": "21:16",
+            "event": "서버실 카드 사용"
+          },
+          {
+            "time": "21:27",
+            "event": "서버실 로그아웃"
+          }
+        ]
+      },
+
+      "interview": [
+        "21시 16분부터 서버실에 있었습니다.",
+        "보안 시스템 점검 중이었어요.",
+        "거기서 거의 움직이지 않았습니다."
+      ]
+    },
+
+    {
+      "id": "4",
+      "name": "최민아",
+      "job": "마케팅 팀장",
+
+      "motive": "투자 계약 갈등",
+
+      "alibi": {
+        "claim": "휴게실 체류",
+        "details": [
+          {
+            "time": "21:17",
+            "event": "커피 머신 사용"
+          },
+          {
+            "time": "21:29",
+            "event": "와이파이 접속 기록"
+          }
+        ]
+      },
+
+      "interview": [
+        "저는 휴게실에서 커피를 마시고 있었습니다.",
+        "대표님은 오늘 거의 못 봤어요.",
+        "사건이 났다는 소리를 듣고 나서야 알았습니다."
+      ]
+    }
+
+  ],
+
+  "answer": "1",
+
+  "explanation": "이준석은 21:18 엘리베이터를 타고 내려간 뒤 범행을 저지르고 편의점에 들른 후 21:27 엘리베이터로 다시 올라올 수 있다. 인터뷰에서 그는 21:18에 바로 건물을 나갔다고 말했지만, 21:23 복도 센서 기록과 충돌한다."
+
 }
