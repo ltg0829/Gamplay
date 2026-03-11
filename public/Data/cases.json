@@ -1,193 +1,147 @@
-[
-  {
-    "caseId": "VHARD-005",
-    "era": "modern",
-    "crimeType": "murder",
-    "method": "독사 — 저체온증을 이용한 독 발현 지연 트릭",
-    "title": { "ko": "한여름의 빙점", "en": "Freezing Point in Summer" },
-    "overview": { "ko": "냉동 창고 업체의 대표가 자신의 사무실에서 독사했다. 용의자들은 모두 사건 당시 에어컨이 고장 났다고 진술했으나, 시신의 직장 온도는 영하에 가까웠다.", "en": "A cold storage CEO was poisoned. Suspects claimed the AC was broken, but the body's core temperature was near freezing." },
-    "caseOverview": { "ko": "희생자는 독성 물질인 아코니틴에 중독되었습니다. 이 독은 보통 15분 내에 반응하지만, 범인은 사무실 온도를 영하로 낮춰 피해자의 혈류를 늦춤으로써 사망 시간을 3시간 뒤로 미루어 자신의 알리바이를 조작했습니다. 결정적 힌트: 사건 현장 책상 위의 얼음물 컵 속에 여전히 녹지 않은 커다란 얼음 조각.", "en": "The victim died of aconitine poisoning. The killer lowered the room temperature to sub-zero to delay the poison's effect by 3 hours, faking an alibi. Clue: A large, un-melted ice cube in a water glass on the desk." },
-    "location": { "ko": "서늘한 물류센터 대표실", "en": "CEO Office, Cool Logistics Center" },
-    "time": { "ko": "2026년 08월 15일 — 사망 추정 14:00~15:00", "en": "Aug 15, 2026 — TOD est. 14:00–15:00" },
-    "victim": { "ko": "백건우 (52세, 물류업체 대표)", "en": "Baek Geon-woo (52, CEO)" },
-    "difficulty": "very hard",
-    "answer": "2",
-    "explanation": { "ko": "범인인 비서 이민지는 에어컨 수리기사로 위장해 미리 온도를 조작했습니다. 그녀는 인터뷰에서 '더워서 부채질을 했다'고 말했으나, 현장의 얼음이 녹지 않았다는 점과 모순됩니다.", "en": "Secretary Lee Min-ji manipulated the AC. She claimed she was 'fanning herself due to heat,' contradicting the un-melted ice clue." },
-    "suspects": [
-      { "id": "1", "name": { "ko": "동업자 박씨", "en": "Partner Park" }, "motive": { "ko": "지분 갈등", "en": "Equity dispute" }, "alibi": { "ko": "낚시터에 있었음", "en": "At a fishing spot" } },
-      { "id": "2", "name": { "ko": "비서 이민지", "en": "Secretary Lee" }, "motive": { "ko": "공금 횡령 발각 위기", "en": "Embezzlement exposure" }, "alibi": { "ko": "사무실 밖 카페에 있었음", "en": "At a cafe outside" } }
-    ],
-    "clues": [ { "order": 1, "ko": "책상 위 얼음컵의 얼음이 2시간째 녹지 않음", "en": "Ice in the glass hasn't melted for 2 hours" } ]
+{
+  "caseId": "COMMUTE-001",
+  "era": "modern",
+  "crimeType": "murder",
+  "method": "둔기 가격",
+
+  "title": {
+    "ko": "21시 23분의 엘리베이터",
+    "en": "The Elevator at 21:23"
   },
-  {
-    "caseId": "VHARD-006",
-    "era": "modern",
-    "crimeType": "murder",
-    "method": "추락사 — 가상현실(VR) 기기를 이용한 평형감각 상실 유도",
-    "title": { "ko": "추락하는 이카루스", "en": "Falling Icarus" },
-    "overview": { "ko": "고층 펜트하우스에서 게임 개발자가 추락했다. 그는 VR 기기를 착용 중이었고, 바닥에는 아무런 발자국이 없었다.", "en": "A game dev fell from a penthouse wearing a VR headset. No footprints on the balcony." },
-    "caseOverview": { "ko": "피해자는 신작 VR 게임 테스트 중 난간 너머로 걸어 나갔습니다. 범인은 게임 데이터에 실제 지형과 다른 '가짜 바닥'을 렌더링하여 피해자가 안전하다고 믿게 만들었습니다. 결정적 힌트: 서버 로그에 남은 '맵 데이터 강제 수정' 기록.", "en": "The victim walked off the balcony during a VR test. The killer rendered a 'fake floor' in the game data. Clue: Server logs showing forced map data modification." },
-    "location": { "ko": "강남 펜트하우스 45층", "en": "45th Floor Penthouse, Gangnam" },
-    "time": { "ko": "2026년 05월 20일 23:30", "en": "May 20, 2026, 23:30" },
-    "victim": { "ko": "최현진 (34세, VR 개발사 CTO)", "en": "Choi Hyun-jin (34, CTO)" },
-    "difficulty": "very hard",
-    "answer": "1",
-    "explanation": { "ko": "메인 프로그래머 정진호는 피해자의 VR 장비에 접속해 실시간으로 맵을 조작했습니다. 그는 정전 때문에 서버를 못 봤다고 했으나 기록은 남아있었습니다.", "en": "Lead programmer Jung Jin-ho manipulated the map in real-time. He claimed the server was down due to a blackout, but logs existed." },
-    "suspects": [
-      { "id": "1", "name": { "ko": "프로그래머 정진호", "en": "Programmer Jung" }, "motive": { "ko": "기술 탈취", "en": "Tech theft" }, "alibi": { "ko": "PC룸에서 코딩 중", "en": "Coding in PC room" } }
-    ],
-    "clues": [ { "order": 1, "ko": "피해자의 VR 시야 기록에 실제와 다른 난간 위치 포착", "en": "VR footage shows mismatched railing positions" } ]
+
+  "overview": {
+    "ko": "스타트업 대표가 사무실에서 둔기에 맞아 사망했다. 사건 당시 건물에는 네 명의 직원만 남아 있었다.",
+    "en": "A startup CEO was killed by blunt force trauma in his office. Four employees remained in the building."
   },
-  {
-    "caseId": "VHARD-007",
-    "era": "modern",
-    "crimeType": "murder",
-    "method": "감전사 — 스마트홈 시스템 원격 조작",
-    "title": { "ko": "똑똑한 살인마", "en": "The Smart Killer" },
-    "overview": { "ko": "욕조에서 목욕 중이던 여성이 감전사했다. 현장에 전자기기는 없었으나, 스마트 수전이 이상 작동했다.", "en": "A woman was electrocuted in a tub. No devices nearby, but the smart faucet malfunctioned." },
-    "caseOverview": { "ko": "범인은 욕실의 스마트 조명과 수전 시스템을 해킹하여 금속 수도꼭지에 고압 전류가 흐르게 했습니다. 결정적 힌트: 피해자의 스마트폰에 남은 '시스템 업데이트' 알림과 범인의 앱 실행 기록.", "en": "The killer hacked the smart home system to electrify the metal faucet. Clue: 'System Update' notification on the victim's phone and killer's app logs." },
-    "location": { "ko": "최첨단 스마트 아파트", "en": "High-tech Smart Apartment" },
-    "time": { "ko": "2026년 03월 10일 20:15", "en": "Mar 10, 2026, 20:15" },
-    "victim": { "ko": "이지아 (28세, 모델)", "en": "Lee Ji-ah (28, Model)" },
-    "difficulty": "hard",
-    "answer": "4",
-    "explanation": { "ko": "전 남자친구이자 보안 전문가인 강민수는 헤어진 후에도 그녀의 홈 네트워크 권한을 유지하고 있었습니다.", "en": "Ex-boyfriend and security expert Kang Min-su maintained home network access after the breakup." },
-    "suspects": [
-      { "id": "4", "name": { "ko": "강민수", "en": "Kang Min-su" }, "motive": { "ko": "집착 및 스토킹", "en": "Obsession/Stalking" }, "alibi": { "ko": "보안 관제 센터 근무 중", "en": "Working at security center" } }
-    ],
-    "clues": [ { "order": 1, "ko": "피해자 가전 기기의 IP 접속 기록 중 낯선 외부 IP 발견", "en": "Foreign IP found in device access logs" } ]
+
+  "caseOverview": {
+    "ko": "피해자는 21:30경 사무실에서 발견되었다. 건물 기록에 따르면 21:18에 엘리베이터가 14층에서 1층으로 내려갔고, 21:27에 다시 14층으로 올라왔다. 또한 직원 중 한 명은 21:21에 건물 근처 편의점에서 결제를 했다.",
+    "en": "The victim was found at 21:30. Elevator logs show it traveled from 14F to 1F at 21:18 and returned at 21:27. One employee made a purchase at a nearby convenience store at 21:21."
   },
-  {
-    "caseId": "VHARD-008",
-    "era": "historical",
-    "crimeType": "murder",
-    "method": "질식사 — 밀실 내부의 얼음 승화 트릭",
-    "title": { "ko": "얼음 성의 망령", "en": "Ghost of the Ice Castle" },
-    "overview": { "ko": "조선 시대, 한여름 석빙고 내부에서 정승이 질식해 사망했다. 문은 밖에서 잠겨 있었고 내부는 얼음으로 가득했다.", "en": "Joseon Era: A minister suffocated in an ice storage during summer. Door locked from outside." },
-    "caseOverview": { "ko": "범인은 석빙고의 환기구를 막고 바닥에 대량의 드라이아이스(당시엔 '기이한 얼음')를 깔아 이산화탄소 농도를 높였습니다. 결정적 힌트: 석빙고 바닥에 남은 하얀 가루와 피해자의 보라색 손톱.", "en": "The killer blocked vents and used 'strange ice' to fill the room with $CO_{2}$. Clue: White powder on the floor and purple fingernails (cyanosis)." },
-    "location": { "ko": "궁궐 내 석빙고", "en": "Royal Ice Storage" },
-    "time": { "ko": "1750년 7월", "en": "July 1750" },
-    "victim": { "ko": "이판서 (60세, 예조판서)", "en": "Minister Lee (60)" },
-    "difficulty": "very hard",
-    "answer": "1",
-    "explanation": { "ko": "석빙고 관리인인 조씨는 연금술사로부터 '기화하는 돌'을 구해 범행에 사용했습니다.", "en": "Caregiver Jo used 'evaporating stones' obtained from an alchemist." },
-    "suspects": [
-      { "id": "1", "name": { "ko": "관리인 조씨", "en": "Caregiver Jo" }, "motive": { "ko": "가족의 복수", "en": "Family revenge" }, "alibi": { "ko": "장터에서 술을 마심", "en": "Drinking at the market" } }
-    ],
-    "clues": [ { "order": 1, "ko": "환기구 틈새에 끼워진 기름종이 조각", "en": "Oil paper scrap stuck in the vent" } ]
+
+  "victim": {
+    "ko": "윤태성 (38, 스타트업 대표)",
+    "en": "Yoon Taesung (38, CEO)"
   },
-  {
-    "caseId": "VHARD-009",
-    "era": "modern",
-    "crimeType": "murder",
-    "method": "독사 — 접촉성 독극물을 바른 도서",
-    "title": { "ko": "서점의 마지막 페이지", "en": "The Last Page of the Bookstore" },
-    "overview": { "ko": "희귀 서적 수집가가 서재에서 사망했다. 그는 책을 읽던 중이었고, 사인은 피부를 통한 독극물 흡수였다.", "en": "A rare book collector died in his study. Cause: transdermal poisoning while reading." },
-    "caseOverview": { "ko": "범인은 피해자가 평소 책장을 넘길 때 손가락에 침을 묻히는 습관이 있다는 것을 알았습니다. 그는 책장 끝에 독을 발라두었습니다. 결정적 힌트: 피해자의 혀에서 발견된 독 성분과 99페이지에 묻은 핏자국.", "en": "The killer knew the victim licked his finger to turn pages. Poison was applied to the edges. Clue: Poison on the tongue and a bloodstain on page 99." },
-    "location": { "ko": "오래된 저택의 서재", "en": "Study of an Old Mansion" },
-    "time": { "ko": "2026년 11월 05일", "en": "Nov 05, 2026" },
-    "victim": { "ko": "강교수 (65세, 사학자)", "en": "Prof. Kang (65)" },
-    "difficulty": "hard",
-    "answer": "3",
-    "explanation": { "ko": "조교수 성진우는 피해자의 미발표 논문을 훔치기 위해 그가 가장 아끼는 책에 독을 발랐습니다.", "en": "Asst. Prof. Sung poisoned the victim's favorite book to steal an unpublished paper." },
-    "suspects": [
-      { "id": "3", "name": { "ko": "조교수 성진우", "en": "Asst. Prof. Sung" }, "motive": { "ko": "논문 표절 및 탈취", "en": "Plagiarism/Theft" }, "alibi": { "ko": "도서관 대출 기록 존재", "en": "Library checkout record" } }
-    ],
-    "clues": [ { "order": 1, "ko": "피해자의 엄지손가락만 유독 변색됨", "en": "Only the victim's thumb is discolored" } ]
-  },
-  {
-    "caseId": "VHARD-010",
-    "era": "modern",
-    "crimeType": "murder",
-    "method": "질식사 — 헬륨 풍선을 이용한 산소 결핍",
-    "title": { "ko": "파티의 비극", "en": "Tragedy of the Party" },
-    "overview": { "ko": "밀폐된 파티룸에서 호스트가 사망했다. 방 안에는 수백 개의 풍선이 떠 있었고 외상은 없었다.", "en": "A host died in a sealed party room filled with hundreds of balloons. No trauma." },
-    "caseOverview": { "ko": "범인은 파티룸에 헬륨 가스통을 몰래 열어두고, 풍선을 과하게 배치하여 산소를 몰아냈습니다. 결정적 힌트: 피해자의 목소리가 기이하게 높게 녹음된 사건 직전의 음성 메모.", "en": "The killer opened helium tanks and overfilled the room with balloons to displace oxygen. Clue: High-pitched voice in a voice memo recorded just before death." },
-    "location": { "ko": "강남 파티룸", "en": "Gangnam Party Room" },
-    "time": { "ko": "2026년 12월 31일", "en": "Dec 31, 2026" },
-    "victim": { "ko": "박나래 (31세, 인플루언서)", "en": "Park Na-rae (31, Influencer)" },
-    "difficulty": "hard",
-    "answer": "2",
-    "explanation": { "ko": "이벤트 플래너 정씨는 파티 준비를 핑계로 대량의 가스통을 반입했습니다.", "en": "Event planner Jung brought in gas tanks under the guise of party prep." },
-    "suspects": [
-      { "id": "2", "name": { "ko": "이벤트 플래너 정씨", "en": "Event Planner Jung" }, "motive": { "ko": "계약 해지 원한", "en": "Contract termination grudge" }, "alibi": { "ko": "다른 층에서 세팅 중", "en": "Setting up on another floor" } }
-    ],
-    "clues": [ { "order": 1, "ko": "현장에서 발견된 빈 헬륨 가스통 5개", "en": "Five empty helium tanks found" } ]
-  },
-  {
-    "caseId": "VHARD-011",
-    "era": "future",
-    "crimeType": "murder",
-    "method": "심장마비 — 자율주행차량 해킹을 이용한 급브레이크 충격",
-    "title": { "ko": "무인차의 배신", "en": "Betrayal of the Autonomous Car" },
-    "overview": { "ko": "고속도로를 달리던 무인차 내부에서 승객이 심장마비로 사망했다. 차량 제어 장치에는 이상이 없었다.", "en": "A passenger died of a heart attack in an autonomous car. No mechanical issues found." },
-    "caseOverview": { "ko": "범인은 차량의 외부 센서를 해킹하여 가상의 장애물을 인식하게 했고, 초고속 주행 중 급브레이크를 반복하게 하여 지병이 있던 피해자에게 심한 충격을 주었습니다. 결정적 힌트: 블랙박스에 찍히지 않은 '가짜 장애물' 경고음.", "en": "The killer hacked sensors to mimic obstacles, causing repeated emergency braking that triggered a fatal heart attack in the ill victim. Clue: 'Fake obstacle' warnings not seen on dashcam." },
-    "location": { "ko": "스마트 고속도로", "en": "Smart Highway" },
-    "time": { "ko": "2030년 06월 12일", "en": "June 12, 2030" },
-    "victim": { "ko": "김회장 (72세, 기업가)", "en": "Chairman Kim (72)" },
-    "difficulty": "very hard",
-    "answer": "1",
-    "explanation": { "ko": "자율주행 소프트웨어 엔지니어인 장우진은 원격으로 센서 오버라이드를 수행했습니다.", "en": "SW engineer Jang Woo-jin remotely performed a sensor override." },
-    "suspects": [
-      { "id": "1", "name": { "ko": "엔지니어 장우진", "en": "Engineer Jang" }, "motive": { "ko": "주가 폭락 유도", "en": "Inducing stock crash" }, "alibi": { "ko": "자택 휴식 중", "en": "Resting at home" } }
-    ],
-    "clues": [ { "order": 1, "ko": "차량 로그 데이터와 외부 CCTV 영상의 불일치", "en": "Discrepancy between car logs and external CCTV" } ]
-  },
-  {
-    "caseId": "VHARD-012",
-    "era": "modern",
-    "crimeType": "murder",
-    "method": "익사 — 욕조 내 고농도 소금물을 이용한 부력 제어",
-    "title": { "ko": "가라앉지 않는 진실", "en": "The Unsinkable Truth" },
-    "overview": { "ko": "피해자가 거실에서 익사한 채 발견됐다. 주변에는 물기 하나 없었고, 오직 그녀의 폐에만 바닷물이 가득했다.", "en": "Victim found drowned in a dry living room. Only her lungs were filled with seawater." },
-    "caseOverview": { "ko": "범인은 욕실에서 피해자를 질식시킨 뒤 폐에 물을 넣고 시신을 거실로 옮겼습니다. 결정적 힌트: 거실 카펫에서 발견된 미세한 소금 결정과 피해자의 머리카락에 맺힌 소금기.", "en": "The killer drowned the victim in a tub, then moved the body. Clue: Salt crystals on the carpet and salt residue in the victim's hair." },
-    "location": { "ko": "해안가 고급 빌라", "en": "Luxury Seaside Villa" },
-    "time": { "ko": "2026년 09월 18일", "en": "Sep 18, 2026" },
-    "victim": { "ko": "최유진 (26세, 유튜버)", "en": "Choi Yu-jin (26)" },
-    "difficulty": "hard",
-    "answer": "4",
-    "explanation": { "ko": "남편 박씨는 아내의 보험금을 노리고 범행 후 현장을 말끔히 청소했으나 소금기를 지우지 못했습니다.", "en": "Husband Park failed to remove salt residue after cleaning the scene for insurance money." },
-    "suspects": [
-      { "id": "4", "name": { "ko": "남편 박씨", "en": "Husband Park" }, "motive": { "ko": "보험금", "en": "Insurance" }, "alibi": { "ko": "편의점에 다녀옴", "en": "Went to convenience store" } }
-    ],
-    "clues": [ { "order": 1, "ko": "청소기 내부에서 다량의 모래와 소금기 발견", "en": "Sand and salt found inside the vacuum cleaner" } ]
-  },
-  {
-    "caseId": "VHARD-013",
-    "era": "modern",
-    "crimeType": "murder",
-    "method": "동사 — 액체 질소를 이용한 순간 냉각",
-    "title": { "ko": "영하의 밀실", "en": "Sub-zero Locked Room" },
-    "overview": { "ko": "한여름 방 안에서 피해자가 동사했다. 문은 잠겨 있었고 에어컨은 꺼져 있었다.", "en": "Victim froze to death in a room during summer. Door locked, AC off." },
-    "caseOverview": { "ko": "범인은 문틈을 통해 액체 질소를 주입하여 실내 온도를 순간적으로 낮췄습니다. 결정적 힌트: 문틈 주변의 변색된 벽지와 바닥에 떨어진 특수 고무 장갑 조각.", "en": "The killer injected liquid nitrogen through the door gap. Clue: Discolored wallpaper near the door and a scrap of a specialized rubber glove." },
-    "location": { "ko": "오래된 아파트", "en": "Old Apartment" },
-    "time": { "ko": "2026년 07월 21일", "en": "July 21, 2026" },
-    "victim": { "ko": "윤씨 (48세, 자산가)", "en": "Mr. Yoon (48)" },
-    "difficulty": "very hard",
-    "answer": "2",
-    "explanation": { "ko": "실험실 연구원인 아들은 연구소에서 액체 질소를 몰래 빼돌려 범행을 저질렀습니다.", "en": "The son, a lab researcher, stole liquid nitrogen for the crime." },
-    "suspects": [
-      { "id": "2", "name": { "ko": "아들 윤현우", "en": "Son Yoon" }, "motive": { "ko": "유산 상속", "en": "Inheritance" }, "alibi": { "ko": "연구소 밤샘 실험", "en": "Overnight lab experiment" } }
-    ],
-    "clues": [ { "order": 1, "ko": "복도 CCTV에 찍힌 거대한 보온병을 든 괴한", "en": "Stranger with a large thermos on hallway CCTV" } ]
-  },
-  {
-    "caseId": "VHARD-014",
-    "era": "modern",
-    "crimeType": "murder",
-    "method": "추락사 — 고층 빌딩 유리창 청소 로봇 조작",
-    "title": { "ko": "유리 위의 살인", "en": "Murder on the Glass" },
-    "overview": { "ko": "유리창 청소원이 추락했다. 안전줄은 끊어져 있었고, 청소 로봇이 옆에 멈춰 있었다.", "en": "A window cleaner fell. Safety line cut, cleaning robot stopped nearby." },
-    "caseOverview": { "ko": "범인은 원격으로 청소 로봇의 경로를 조작해 안전줄을 고의로 마찰시켜 끊어버렸습니다. 결정적 힌트: 로봇의 이동 로그에 기록된 비정상적인 '왕복 마찰' 패턴.", "en": "The killer remotely manipulated the robot to saw through the safety line. Clue: Abnormal 'back-and-forth' friction patterns in robot logs." },
-    "location": { "ko": "60층 오피스 빌딩", "en": "60-story Office Building" },
-    "time": { "ko": "2026년 04월 02일", "en": "Apr 02, 2026" },
-    "victim": { "ko": "김씨 (42세, 청소 노동자)", "en": "Mr. Kim (42)" },
-    "difficulty": "hard",
-    "answer": "1",
-    "explanation": { "ko": "관리 소장은 피해자가 비리 증거를 잡자 로봇 제어권을 이용해 살해했습니다.", "en": "Manager used robot controls to kill after the victim found evidence of corruption." },
-    "suspects": [
-      { "id": "1", "name": { "ko": "관리 소장", "en": "Building Manager" }, "motive": { "ko": "비리 은폐", "en": "Corruption cover-up" }, "alibi": { "ko": "관리실에서 모니터링 중", "en": "Monitoring in the control room" } }
-    ],
-    "clues": [ { "order": 1, "ko": "로봇 집게 부분에 묻은 안전줄 성분의 나일론 가루", "en": "Nylon dust from the safety line on the robot's clamp" } ]
+
+  "estimatedDeathTime": [
+    {
+      "source": "법의학",
+      "ko": "21:18 ~ 21:28",
+      "en": "21:18 ~ 21:28"
+    },
+    {
+      "source": "마지막 메신저 확인",
+      "ko": "21:22 이후 활동 없음",
+      "en": "No activity after 21:22"
+    }
+  ],
+
+  "suspects": [
+
+    {
+      "id": "1",
+      "name": { "ko": "이준석", "en": "Lee Junseok" },
+      "job": { "ko": "CTO", "en": "CTO" },
+
+      "motive": {
+        "ko": "지분 갈등",
+        "en": "Share dispute"
+      },
+
+      "alibi": {
+        "claim": "편의점 방문",
+        "details": [
+          { "time": "21:21", "event": "편의점 카드 결제" },
+          { "time": "21:19", "event": "건물 출입문 카드 기록" }
+        ]
+      }
+    },
+
+    {
+      "id": "2",
+      "name": { "ko": "박서연", "en": "Park Seoyeon" },
+      "job": { "ko": "디자이너", "en": "Designer" },
+
+      "motive": {
+        "ko": "해고 통보",
+        "en": "Recently fired"
+      },
+
+      "alibi": {
+        "claim": "화상회의",
+        "details": [
+          { "time": "21:15 ~ 21:32", "event": "회의 접속 기록" }
+        ]
+      }
+    },
+
+    {
+      "id": "3",
+      "name": { "ko": "김도윤", "en": "Kim Doyun" },
+      "job": { "ko": "보안 관리자", "en": "Security manager" },
+
+      "motive": {
+        "ko": "보안 계약 문제",
+        "en": "Security contract issue"
+      },
+
+      "alibi": {
+        "claim": "서버실 점검",
+        "details": [
+          { "time": "21:16", "event": "서버실 카드 사용" },
+          { "time": "21:27", "event": "서버실 로그아웃" }
+        ]
+      }
+    },
+
+    {
+      "id": "4",
+      "name": { "ko": "최민아", "en": "Choi Mina" },
+      "job": { "ko": "마케팅 팀장", "en": "Marketing lead" },
+
+      "motive": {
+        "ko": "투자 계약 갈등",
+        "en": "Investment dispute"
+      },
+
+      "alibi": {
+        "claim": "휴게실 체류",
+        "details": [
+          { "time": "21:17", "event": "커피 머신 사용" },
+          { "time": "21:29", "event": "와이파이 접속" }
+        ]
+      }
+    }
+
+  ],
+
+  "clues": [
+    { "order": 1, "description": "엘리베이터 이동시간 45초" },
+    { "order": 2, "description": "계단 이동시간 약 3분" },
+    { "order": 3, "description": "편의점은 건물에서 1분 거리" },
+    { "order": 4, "description": "복도 모션센서 21:23 작동" },
+    { "order": 5, "description": "피해자 휴대폰 마지막 확인 21:22" },
+    { "order": 6, "description": "범행 무기는 사무실 트로피" }
+  ],
+
+  "timeline": [
+    { "time": "21:10", "event": "회의 종료" },
+    { "time": "21:17", "event": "휴게실 커피 머신 사용" },
+    { "time": "21:18", "event": "엘리베이터 14층 → 1층" },
+    { "time": "21:19", "event": "건물 출입문 카드 기록" },
+    { "time": "21:21", "event": "편의점 카드 결제" },
+    { "time": "21:22", "event": "피해자 마지막 메시지 확인" },
+    { "time": "21:23", "event": "복도 모션 센서 작동" },
+    { "time": "21:27", "event": "엘리베이터 1층 → 14층" },
+    { "time": "21:30", "event": "시신 발견" }
+  ],
+
+  "answer": "1",
+
+  "explanation": {
+    "ko": "이준석은 21:21 편의점 결제 기록이 있지만, 21:18 엘리베이터로 내려간 뒤 살해 후 편의점에 갔다가 21:27 엘리베이터로 돌아오는 것이 시간상 가능하다.",
+    "en": "Lee Junseok could have used the elevator at 21:18, committed the murder, briefly visited the convenience store, and returned at 21:27."
   }
-]
+
+}
