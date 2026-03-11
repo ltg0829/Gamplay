@@ -266,6 +266,18 @@ body::after {
   overflow: hidden;
   margin-bottom: 0;
 }
+.method-badge {
+  display: inline-block;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 11px;
+  letter-spacing: .12em;
+  color: var(--tape2);
+  background: rgba(200,169,110,.1);
+  border: 1px solid rgba(200,169,110,.35);
+  border-radius: 3px;
+  padding: 3px 10px;
+  text-transform: uppercase;
+}
 .meta-cell {
   flex: 1; min-width: 120px;
   padding: 9px 14px;
@@ -988,7 +1000,7 @@ body::after {
       <div class="case-era-badge" id="crimeTypeBadge" style="display:none;background:rgba(192,57,43,.25);border-color:rgba(192,57,43,.5);color:#e74c3c;margin-left:6px;"></div>
       <div class="case-number" id="caseNum">CASE #000</div>
       <div class="case-title-txt" id="caseTitle">—</div>
-      <div class="case-meta">
+      <div class="case-meta" id="caseMeta">
         <div class="meta-cell">
           <div class="meta-key" id="metaLocKey">LOCATION</div>
           <div class="meta-val" id="caseLoc">—</div>
@@ -1001,10 +1013,10 @@ body::after {
           <div class="meta-key" id="metaVicKey">VICTIM</div>
           <div class="meta-val" id="caseVictim">—</div>
         </div>
-        <div class="meta-cell">
-          <div class="meta-key">METHOD</div>
-          <div class="meta-val" id="caseMethod">—</div>
-        </div>
+      </div>
+      <!-- method: 배지 형태로 타이틀 아래 표시 -->
+      <div id="caseMethodWrap" style="display:none;margin-top:8px;">
+        <span class="method-badge" id="caseMethod"></span>
       </div>
     </div>
 
@@ -1287,13 +1299,19 @@ function renderHeader() {
   document.getElementById('synopsis').textContent =
     c.caseOverview?.[lang] || c.caseOverview?.ko || c.synopsis?.[lang] || c.synopsis?.ko || '—';
 
-  // method(범행 방법) 표시
-  const methodEl = document.getElementById('caseMethod');
-  if (methodEl) {
-    const methodVal = c.method || '';
-    methodEl.textContent  = methodVal;
-    const methodRow = methodEl.closest('.meta-cell');
-    if (methodRow) methodRow.style.display = methodVal ? '' : 'none';
+  // method 배지 표시
+  const methodEl   = document.getElementById('caseMethod');
+  const methodWrap = document.getElementById('caseMethodWrap');
+  const methodVal  = c.method || '';
+  if (methodEl)   methodEl.textContent             = methodVal;
+  if (methodWrap) methodWrap.style.display          = methodVal ? '' : 'none';
+
+  // case-meta: 보이는 셀이 하나도 없으면 전체 숨김
+  const caseMeta = document.getElementById('caseMeta');
+  if (caseMeta) {
+    const visibleCells = [...caseMeta.querySelectorAll('.meta-cell')]
+      .filter(el => el.style.display !== 'none');
+    caseMeta.style.display = visibleCells.length ? '' : 'none';
   }
 
   // 시대 배지: era 없으면 caseId prefix 사용
