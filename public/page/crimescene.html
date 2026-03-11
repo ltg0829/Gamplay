@@ -625,6 +625,32 @@ body::after {
 /* 알리바이 행 */
 .d-row.alibi-row   { color: rgba(52,152,219,.9); }
 .d-row.alibi-row strong { color: rgba(52,152,219,.7); }
+/* alibi 구조화 렌더링 */
+.alibi-claim {
+  display: block;
+  font-weight: 600;
+  color: rgba(52,152,219,.95);
+  margin-bottom: 4px;
+}
+.alibi-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.alibi-row-item {
+  display: flex;
+  gap: 8px;
+  font-size: 12px;
+  color: rgba(189,195,199,.8);
+}
+.alibi-time {
+  font-family: 'Share Tech Mono', monospace;
+  color: var(--tape2);
+  font-size: 11px;
+  min-width: 44px;
+  flex-shrink: 0;
+}
+
 
 .accuse-btn {
   display: none;
@@ -1210,18 +1236,48 @@ function renderHeader() {
     ? `CASE #${String(c.caseId).padStart(3,'0')}`
     : `CASE ${c.caseId}`;
   document.getElementById('caseNum').textContent = cidDisplay;
-  document.getElementById('caseTitle').textContent = c.title?.[lang]    || c.title?.ko    || '—';
-  document.getElementById('caseLoc').textContent   = c.location?.[lang] || c.location?.ko || '—';
-  document.getElementById('caseTime').textContent  = c.time?.[lang]     || c.time?.ko     || '—';
-  document.getElementById('caseVictim').textContent= c.victim?.[lang]   || c.victim?.ko   || '—';
-  document.getElementById('synopsis').textContent  = c.caseOverview?.[lang] || c.caseOverview?.ko || c.synopsis?.[lang] || c.synopsis?.ko || '—';
+  document.getElementById('caseTitle').textContent = c.title?.[lang] || c.title?.ko || '—';
 
-  // 시대 배지
+  // location / time / victim — 없으면 meta-cell 숨김
+  const locVal = c.location?.[lang] || c.location?.ko || '';
+  const locCell = document.getElementById('caseLoc')?.closest('.meta-cell');
+  if (locCell) locCell.style.display = locVal ? '' : 'none';
+  if (locVal) document.getElementById('caseLoc').textContent = locVal;
+
+  // 사망추정시간: time 필드 또는 estimatedDeathTime[] 배열
+  const timeEl   = document.getElementById('caseTime');
+  const timeCell = timeEl?.closest('.meta-cell');
+  const timeVal  = c.time?.[lang] || c.time?.ko || '';
+  const estTimes = (c.estimatedDeathTime || []).map(t => t[lang] || t.ko || '').filter(Boolean);
+  if (timeVal) {
+    timeEl.textContent = timeVal;
+    if (timeCell) timeCell.style.display = '';
+  } else if (estTimes.length) {
+    timeEl.textContent = estTimes.join(' / ');
+    if (timeCell) timeCell.style.display = '';
+  } else {
+    if (timeCell) timeCell.style.display = 'none';
+  }
+
+  // victim: string 또는 {ko/en} 객체 모두 처리
+  const vicRaw = c.victim;
+  const vicVal = typeof vicRaw === 'string' ? vicRaw : (vicRaw?.[lang] || vicRaw?.ko || '');
+  const vicCell = document.getElementById('caseVictim')?.closest('.meta-cell');
+  if (vicCell) vicCell.style.display = vicVal ? '' : 'none';
+  if (vicVal) document.getElementById('caseVictim').textContent = vicVal;
+
+  document.getElementById('synopsis').textContent =
+    c.caseOverview?.[lang] || c.caseOverview?.ko || c.synopsis?.[lang] || c.synopsis?.ko || '—';
+
+  // 시대 배지: era 없으면 caseId prefix 사용
   const eraMap = {
     joseon:'조선시대', medieval_europe:'중세 유럽', modern:'현대', colonial_korea:'일제강점기',
     victorian:'빅토리아', ancient_rome:'고대 로마', cold_war:'냉전', edo:'에도시대', other:'역사'
   };
-  document.getElementById('caseEraBadge').textContent = eraMap[c.era] || c.era || 'CASE';
+  const prefix = String(c.caseId).split('-')[0];
+  const prefixLabel = { COMMUTE:'출퇴근', HARD:'HARD', EASY:'EASY', MED:'MEDIUM' };
+  document.getElementById('caseEraBadge').textContent =
+    eraMap[c.era] || c.era || prefixLabel[prefix] || prefix || 'CASE';
 
   // 시도 점
   const dots = document.getElementById('attDots');
@@ -1237,6 +1293,14 @@ function renderTimeline() {
   const c = caseData;
   const el = document.getElementById('tlTable');
   el.innerHTML = '';
+
+  // timeline/slots 없으면 카드 자체 숨김
+  const tlCard = el.closest('.card');
+  if (!c.timeline?.length && !c.slots?.length) {
+    if (tlCard) tlCard.style.display = 'none';
+    return;
+  }
+  if (tlCard) tlCard.style.display = '';
 
   // 헤더
   const hrow = document.createElement('div');
@@ -1286,6 +1350,13 @@ function renderTimeline() {
 function renderClues() {
   const list = document.getElementById('clueList');
   list.innerHTML = '';
+  // clues 없으면 카드 숨김
+  const clueCard = list.closest('.card');
+  if (!caseData.clues?.length) {
+    if (clueCard) clueCard.style.display = 'none';
+    return;
+  }
+  if (clueCard) clueCard.style.display = '';
   (caseData.clues || []).forEach((c, i) => {
     if (i < revealed) {
       list.innerHTML += `
@@ -1301,6 +1372,25 @@ function renderClues() {
         </div>`;
     }
   });
+}
+
+// alibi 구조 렌더링 헬퍼
+// {claim, details[{time,event}]} 형태와 {ko,en} string 형태 모두 처리
+function renderAlibi(alibi) {
+  if (!alibi) return '—';
+  // string 형태 {ko, en}
+  if (typeof alibi === 'string') return alibi;
+  if (alibi.ko || alibi.en) return alibi[lang] || alibi.ko || '—';
+  // 구조화 형태 {claim, details[]}
+  const claim = alibi.claim || '';
+  const details = alibi.details || [];
+  if (!details.length) return claim || '—';
+  const rows = details.map(d => {
+    const time  = d.time  || '';
+    const event = d.event || d[lang] || d.ko || '';
+    return `<span class="alibi-row-item"><span class="alibi-time">${time}</span>${event}</span>`;
+  }).join('');
+  return `<span class="alibi-claim">${claim}</span><span class="alibi-details">${rows}</span>`;
 }
 
 function renderSuspects() {
@@ -1322,9 +1412,9 @@ function renderSuspects() {
         <div class="s-chev">▼</div>
       </div>
       <div class="s-detail">
-        <div class="d-row motive-row"><strong>${t('motive')}</strong>${s.motive?.[lang] || s.motive?.ko || ''}</div>
-        <div class="d-row alibi-row"><strong>${t('alibi')}</strong>${s.alibi?.[lang] || s.alibi?.ko || ''}</div>
-        <div class="d-row flag-row"><strong>${t('flag')}</strong>${s.flag?.[lang] || s.flag?.ko || ''}</div>
+        ${(s.motive?.[lang] || s.motive?.ko) ? `<div class="d-row motive-row"><strong>${t('motive')}</strong>${s.motive?.[lang] || s.motive?.ko}</div>` : ''}
+        <div class="d-row alibi-row"><strong>${t('alibi')}</strong>${renderAlibi(s.alibi)}</div>
+        ${(s.flag?.[lang] || s.flag?.ko) ? `<div class="d-row flag-row"><strong>${t('flag')}</strong>${s.flag?.[lang] || s.flag?.ko}</div>` : ''}
         ${(s.evidence?.[lang] || s.evidence?.ko) ? `<div class="d-row evidence-row"><strong>${t('evidence') || (lang==='ko'?'🔍 증거':'🔍 Evidence')}</strong>${s.evidence?.[lang] || s.evidence?.ko}</div>` : ''}
         ${(s.interview?.[lang] || s.interview?.ko) ? `<div class="d-row interview-row"><strong>${t('interview') || (lang==='ko'?'💬 진술':'💬 Statement')}</strong><em class="interview-text">${s.interview?.[lang] || s.interview?.ko}</em></div>` : ''}
         <button class="accuse-btn" onclick="event.stopPropagation();accuseSuspect('${s.id}')">
