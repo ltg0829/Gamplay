@@ -19,7 +19,7 @@ const wss    = new WebSocket.Server({ server });
 
 const PORT       = process.env.PORT || 3000;
 const JWT_SECRET = process.env.JWT_SECRET || 'nexus-games-secret-change-in-production';
-const DB_PATH    = path.join(__dirname, '..', 'data', 'users.json');
+const DB_PATH    = path.join(__dirname, '..', 'public', 'Data', 'users.json');
 
 // ── Middleware ────────────────────────────────────────
 app.use(express.json());
@@ -27,6 +27,8 @@ app.use(express.static(path.join(__dirname, '..', 'public')));
 
 // ── JSON DB ───────────────────────────────────────────
 function loadDB() {
+  const dir = path.dirname(DB_PATH);
+  if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
   if (!fs.existsSync(DB_PATH)) fs.writeFileSync(DB_PATH, JSON.stringify({ users: [] }, null, 2));
   return JSON.parse(fs.readFileSync(DB_PATH, 'utf-8'));
 }
@@ -52,7 +54,7 @@ app.get('/api/health', (_, res) => res.json({ status: 'ok', time: new Date().toI
 // 오늘의 케이스
 app.get('/api/puzzle/today', (req, res) => {
   try {
-    const casesPath = path.join(process.cwd(), 'public', 'Data', 'cases.json');
+    const casesPath = path.join(__dirname, '..', 'public', 'Data', 'cases.json');
     if (!fs.existsSync(casesPath)) return res.status(404).json({ message: 'cases.json 없음' });
     const raw   = JSON.parse(fs.readFileSync(casesPath, 'utf-8'));
     const cases = Array.isArray(raw) ? raw : (raw.cases || []);
@@ -68,7 +70,7 @@ app.get('/api/puzzle/today', (req, res) => {
 app.post('/api/puzzle/solve', (req, res) => {
   try {
     const { caseId, answer } = req.body;
-    const casesPath = path.join(process.cwd(), 'public', 'Data', 'cases.json');
+    const casesPath = path.join(__dirname, '..', 'public', 'Data', 'cases.json');
     const raw   = JSON.parse(fs.readFileSync(casesPath, 'utf-8'));
     const cases = Array.isArray(raw) ? raw : (raw.cases || []);
     const c     = cases.find(x => String(x.caseId) === String(caseId));
