@@ -1297,7 +1297,9 @@ function renderHeader() {
   if (vicVal) document.getElementById('caseVictim').textContent = vicVal;
 
   document.getElementById('synopsis').textContent =
-    c.caseOverview?.[lang] || c.caseOverview?.ko || c.synopsis?.[lang] || c.synopsis?.ko || '—';
+    c.caseOverview?.[lang] || c.caseOverview?.ko ||
+    c.overview?.[lang]     || c.overview?.ko     ||
+    c.synopsis?.[lang]     || c.synopsis?.ko     || '—';
 
   // method 배지 표시
   const methodEl   = document.getElementById('caseMethod');
@@ -1356,49 +1358,61 @@ function renderTimeline() {
   }
   if (tlCard) tlCard.style.display = '';
 
-  // 헤더
-  const hrow = document.createElement('div');
-  hrow.className = 'tl-head-row';
-  (c.slots || []).forEach((s, i) => {
-    const th = document.createElement('div');
-    th.className = 'tl-head-cell' + (i === c.deathCol ? ' death-col' : '');
-    th.textContent = i === c.deathCol ? `${s} 💀` : s;
-    hrow.appendChild(th);
-  });
-  el.appendChild(hrow);
+  // timeline 형식 감지: {time, event} 단순 배열 vs 기존 suspects 그리드
+  const isSimpleTimeline = c.timeline?.length && c.timeline[0].time !== undefined && !c.timeline[0].id;
 
-  // 행
-  (c.timeline || []).forEach(row => {
-    const sus = (c.suspects || []).find(s => s.id === row.id);
-    const name = (sus?.name?.[lang] || sus?.name?.ko || row.id).split(' ')[0];
-    const div = document.createElement('div');
-    div.className = 'tl-row';
-    const nm = document.createElement('div');
-    nm.className = 'tl-name';
-    nm.textContent = name;
-    div.appendChild(nm);
-    const cells = document.createElement('div');
-    cells.className = 'tl-cells';
-    (row.cells || []).forEach((cell, i) => {
-      const td = document.createElement('div');
-      td.className = `tl-cell ${cell.s || 'unknown'}` + (i === c.deathCol ? ' death-zone' : '');
-      const tip = document.createElement('div');
-      tip.className = 'tl-tip';
-      tip.textContent = cell[lang] || cell.ko || '';
-      td.appendChild(tip);
-      cells.appendChild(td);
+  if (isSimpleTimeline) {
+    // 새 형식: [{time, event}] → 시간순 리스트
+    document.getElementById('tlLegend').innerHTML = '';
+    c.timeline.forEach(row => {
+      const div = document.createElement('div');
+      div.className = 'tl-simple-row';
+      div.innerHTML = `<span class="tl-simple-time">${row.time || ''}</span><span class="tl-simple-event">${row.event || ''}</span>`;
+      el.appendChild(div);
     });
-    div.appendChild(cells);
-    el.appendChild(div);
-  });
+  } else {
+    // 기존 형식: suspects별 그리드
+    const hrow = document.createElement('div');
+    hrow.className = 'tl-head-row';
+    (c.slots || []).forEach((s, i) => {
+      const th = document.createElement('div');
+      th.className = 'tl-head-cell' + (i === c.deathCol ? ' death-col' : '');
+      th.textContent = i === c.deathCol ? `${s} 💀` : s;
+      hrow.appendChild(th);
+    });
+    el.appendChild(hrow);
 
-  // 범례
-  document.getElementById('tlLegend').innerHTML = `
-    <div class="leg-item"><div class="leg-dot confirmed"></div>${t('legConf')}</div>
-    <div class="leg-item"><div class="leg-dot unverified"></div>${t('legUnv')}</div>
-    <div class="leg-item"><div class="leg-dot suspicious"></div>${t('legSus')}</div>
-    <div class="leg-item"><div class="leg-dot unknown"></div>${t('legUnk')}</div>
-    <div class="leg-item" style="color:var(--red);font-family:'Share Tech Mono',monospace;font-size:12px;letter-spacing:.08em;">💀 ${lang==='ko'?'사망 추정':'Est. TOD'}</div>`;
+    (c.timeline || []).forEach(row => {
+      const sus = (c.suspects || []).find(s => s.id === row.id);
+      const name = (sus?.name?.[lang] || sus?.name?.ko || row.id).split(' ')[0];
+      const div = document.createElement('div');
+      div.className = 'tl-row';
+      const nm = document.createElement('div');
+      nm.className = 'tl-name';
+      nm.textContent = name;
+      div.appendChild(nm);
+      const cells = document.createElement('div');
+      cells.className = 'tl-cells';
+      (row.cells || []).forEach((cell, i) => {
+        const td = document.createElement('div');
+        td.className = `tl-cell ${cell.s || 'unknown'}` + (i === c.deathCol ? ' death-zone' : '');
+        const tip = document.createElement('div');
+        tip.className = 'tl-tip';
+        tip.textContent = cell[lang] || cell.ko || '';
+        td.appendChild(tip);
+        cells.appendChild(td);
+      });
+      div.appendChild(cells);
+      el.appendChild(div);
+    });
+
+    document.getElementById('tlLegend').innerHTML = `
+      <div class="leg-item"><div class="leg-dot confirmed"></div>${t('legConf')}</div>
+      <div class="leg-item"><div class="leg-dot unverified"></div>${t('legUnv')}</div>
+      <div class="leg-item"><div class="leg-dot suspicious"></div>${t('legSus')}</div>
+      <div class="leg-item"><div class="leg-dot unknown"></div>${t('legUnk')}</div>
+      <div class="leg-item" style="color:var(--red);font-family:'Share Tech Mono',monospace;font-size:12px;letter-spacing:.08em;">💀 ${lang==='ko'?'사망 추정':'Est. TOD'}</div>`;
+  }
 }
 
 function renderClues() {
@@ -1416,7 +1430,7 @@ function renderClues() {
       list.innerHTML += `
         <div class="clue-item">
           <div class="clue-num">EV-${String(c.order).padStart(2,'0')}</div>
-          <div class="clue-text">${c[lang] || c.ko || ''}</div>
+          <div class="clue-text">${c.description || c[lang] || c.ko || ''}</div>
         </div>`;
     } else if (!gameOver) {
       list.innerHTML += `
