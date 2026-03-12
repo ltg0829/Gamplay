@@ -1,65 +1,282 @@
 [
   {
-    "caseId": 20260317,
-    "difficulty": "Extreme",
+    "caseId": "VHARD-016-FINAL",
     "era": "modern",
-    "title": { "ko": "설원 위의 유령: KTX 404호의 비명", "en": "Ghost on Snow: KTX 404 Scream" },
-    "location": { "ko": "서울행 야간 고속열차 1호차", "en": "Night Express Train Car No.1" },
-    "victim": { "ko": "IT 기업가 강대표 (질식사)", "en": "CEO Kang (Suffocation)" },
-    "synopsis": {
-      "ko": "폭설로 터널 안에 멈춰선 열차. 5분간의 갑작스러운 전차선 점검으로 전등이 꺼진 사이, 1등석의 강대표가 자신의 좌석에서 숨진 채 발견되었습니다. 문은 잠겨 있었고 옆 칸 승객들은 아무 소리도 듣지 못했습니다.",
-      "en": "A train stuck in a tunnel during a blizzard. During a 5-minute blackout for inspection, CEO Kang was found dead in his first-class seat. The door was locked, and neighbors heard nothing."
+    "crimeType": "murder",
+    "method": "둔기 타격 — 현장 조작을 통한 우발적 사고 위장",
+    "title": {
+      "ko": "빗소리의 거짓말",
+      "en": "The Rain's Lie"
     },
-    "slots": [2300, 2310, 2320, 2325, 2330],
+    "overview": {
+      "ko": "폭풍우가 치는 고립된 호스텔, 주인장이 숨진 채 발견된다. 용의자들의 진술은 완벽해 보이지만, 단 하나의 소리가 누군가의 위치가 거짓임을 가리킨다.",
+      "en": "A hostel owner is found dead during a storm. All statements seem perfect, but a single sound reveals someone is lying about their location."
+    },
+    "caseOverview": {
+      "ko": "2026년 7월 15일 밤 11시, 호스텔 주인장 최씨가 2층 창고에서 발견되었습니다. 발견 당시 창고 내부의 창문은 강풍에 깨져 비바람이 들이치고 있었고, 바닥은 빗물과 와인이 섞여 엉망이었습니다. 용의자들은 밤 10시경 '천둥소리와 함께 창문 깨지는 소리'를 들었다고 진술합니다. 하지만 현장의 유리 조각과 와인의 흔적은 누군가 인위적으로 현장을 재구성했음을 암시합니다.",
+      "en": "At 23:00, July 15, 2026, owner Choi was found in a 2nd-floor storage. The window was shattered. Suspects claim to have heard the window break around 22:00. However, the mixture of wine and glass shards suggests the scene was reconstructed. Find the hole in the alibis."
+    },
+    "location": {
+      "ko": "산정 호스텔 2층 창고",
+      "en": "2nd Floor Storage, Mountain Hostel"
+    },
+    "time": {
+      "ko": "2026년 07월 15일 — 사망 추정 21:45~22:15",
+      "en": "July 15, 2026 — TOD est. 21:45–22:15"
+    },
+    "victim": {
+      "ko": "최성국 (55세, 호스텔 주인)",
+      "en": "Choi Seong-guk"
+    },
+    "difficulty": "very hard",
+    "answer": "2",
+    "explanation": {
+      "ko": "모순은 '방음 시설'에 있습니다. 대학생 한지호는 22시경 자기 방(201호)에서 '창문 깨지는 소리'를 들었다고 했습니다. 하지만 단서 2번에 따르면 201호는 완전 방음실로 설계되어 복도의 소음을 전혀 들을 수 없습니다. 거실에 있던 백민주와 서유리가 소리를 들은 것은 정상이지만, 방음실 안에 있었다는 한지호가 그 소리를 들었다는 것은 그가 실제로는 방이 아닌 '소리가 들리는 현장 근처'에 있었음을 의미합니다.",
+      "en": "The contradiction is in the 'soundproofing.' Student Han claimed he heard the glass break from Room 201 at 22:00. However, Clue 2 reveals Room 201 is a soundproof studio where outside noise cannot be heard. While those in the lounge hearing it is normal, Han's claim proves he was not in his room, but at the scene."
+    },
     "suspects": [
       {
-        "id": "A", "name": { "ko": "수행비서 정씨", "en": "Secretary Jung" },
-        "motive": { "ko": "강대표의 갑질과 비밀 장부 탈취 목적", "en": "Abuse of power and theft of secret ledger" },
-        "alibi": { "ko": "정전 당시 2호차 스낵바에서 커피를 사고 있었음", "en": "Buying coffee at the Car No.2 snack bar" },
-        "flag": { "ko": "그의 손목시계가 5분 느리게 맞춰져 있음", "en": "His wristwatch is set 5 minutes slow" }
+        "id": "1",
+        "name": {
+          "ko": "백민주",
+          "en": "Baek Min-ju"
+        },
+        "job": {
+          "ko": "장기 투숙객",
+          "en": "Long-term Guest"
+        },
+        "interview": {
+          "ko": "\"1층 거실에서 책을 보다가 10시쯤 위에서 쨍그랑하는 소리를 들었어요. 서유리 씨랑 같이 있었죠.\"",
+          "en": "\"I was reading in the lounge and heard a crash from upstairs around 22:00. I was with Ms. Seo.\""
+        }
       },
       {
-        "id": "B", "name": { "ko": "기술자 최씨", "en": "Technician Choi" },
-        "motive": { "ko": "강대표의 회사가 자신의 특허를 도용함", "en": "CEO's company stole his patent" },
-        "alibi": { "ko": "전차선 점검을 위해 열차 끝 제어실에 있었음", "en": "At the control room for inspection" },
-        "flag": { "ko": "전기 제어반에 강제로 접근한 흔적이 발견됨", "en": "Traces of forced access to the electrical panel" }
+        "id": "2",
+        "name": {
+          "ko": "한지호",
+          "en": "Han Ji-ho"
+        },
+        "job": {
+          "ko": "대학생",
+          "en": "College Student"
+        },
+        "interview": {
+          "ko": "\"과제 때문에 201호 제 방에만 있었어요. 10시쯤 옆방 창고 쪽에서 유리 깨지는 소리가 들려 아주 깜짝 놀랐습니다.\"",
+          "en": "\"I was only in my room, 201. I was startled by the sound of glass breaking next door around 22:00.\""
+        }
       },
       {
-        "id": "C", "name": { "ko": "대학생 미나", "en": "Student Mina" },
-        "motive": { "ko": "과거 강대표의 사기 사건으로 가족이 파산함", "en": "Family bankrupt due to CEO's past scam" },
-        "alibi": { "ko": "자신의 좌석(1호차 5A)에서 잠들어 있었음", "en": "Asleep in her seat (Car 1, 5A)" },
-        "flag": { "ko": "그녀의 가방 안에서 낚싯줄과 접착테이프가 발견됨", "en": "Fishing line and adhesive tape found in her bag" }
+        "id": "3",
+        "name": {
+          "ko": "서유리",
+          "en": "Seo Yu-ri"
+        },
+        "job": {
+          "ko": "프리랜서 작가",
+          "en": "Freelance Writer"
+        },
+        "interview": {
+          "ko": "\"9시부터 1층 부엌에서 야식을 먹으며 백민주 씨와 대화 중이었어요. 소리는 아주 선명하게 들렸습니다.\"",
+          "en": "\"I was having a late snack in the kitchen and talking to Ms. Baek. The sound was very clear.\""
+        }
       },
       {
-        "id": "D", "name": { "ko": "승무원 박씨", "en": "Attendant Park" },
-        "motive": { "ko": "강대표에게 거액의 빚을 지고 독촉받는 중", "en": "Heavy debt to the CEO and being pressured" },
-        "alibi": { "ko": "3호차에서 승객들의 민원을 처리하고 있었음", "en": "Handling passenger complaints in Car No.3" },
-        "flag": { "ko": "그는 모든 객실의 마스터키를 소지하고 있음", "en": "He possesses the master key for all cabins" }
+        "id": "4",
+        "name": {
+          "ko": "박태수",
+          "en": "Park Tae-su"
+        },
+        "job": {
+          "ko": "등산객",
+          "en": "Hiker"
+        },
+        "interview": {
+          "ko": "\"9시부터 곯아떨어졌습니다. 비바람이 워낙 거세서 유리 깨지는 소리는커녕 아무것도 못 들었어요.\"",
+          "en": "\"I was dead asleep since 21:00. The storm was so loud I didn't hear any glass breaking.\""
+        }
       },
       {
-        "id": "E", "name": { "ko": "기자 노씨", "en": "Journalist No" },
-        "motive": { "ko": "강대표의 추문을 취재하다가 협박당함", "en": "Blackmailed while covering CEO's scandals" },
-        "alibi": { "ko": "통로에서 편집장과 통화 중이었다고 주장함", "en": "Claims to be on a call with his editor" },
-        "flag": { "ko": "그의 휴대폰 통화 기록에는 사건 시각에 발신 내역이 없음", "en": "No outgoing calls in his phone log during the incident" }
+        "id": "5",
+        "name": {
+          "ko": "정비공 노씨",
+          "en": "Mechanic Noh"
+        },
+        "job": {
+          "ko": "설비 기사",
+          "en": "Maintenance Man"
+        },
+        "interview": {
+          "ko": "\"지하 보일러실에서 펌프를 고치느라 기계 소음 때문에 2층 소리는 전혀 들리지 않았습니다.\"",
+          "en": "\"I was fixing a pump in the basement. Machine noise blocked any sound from the 2nd floor.\""
+        }
       },
       {
-        "id": "F", "name": { "ko": "노부인 한씨", "en": "Elderly Han" },
-        "motive": { "ko": "강대표가 자신의 땅을 강제로 매입함", "en": "CEO forcibly bought her land" },
-        "alibi": { "ko": "화장실에 계속 머물러 있었다고 말함", "en": "Claims she was in the restroom the whole time" },
-        "flag": { "ko": "평소 지팡이를 짚지만 사건 현장에는 지팡이 자국이 없음", "en": "Uses a cane, but no cane marks found at the scene" }
+        "id": "6",
+        "name": {
+          "ko": "윤 비서",
+          "en": "Secretary Yoon"
+        },
+        "job": {
+          "ko": "수행 비서",
+          "en": "Secretary"
+        },
+        "interview": {
+          "ko": "\"102호 제 방에서 이어폰을 끼고 업무 통화를 하고 있었습니다. 유리 소리는 전혀 기억나지 않네요.\"",
+          "en": "\"I was on a call in Room 102 with earphones on. I don't remember any glass sound.\""
+        }
       }
     ],
     "clues": [
-      { "order": 1, "ko": "강대표의 목에는 얇고 강한 선에 의한 자국이 남았습니다.", "en": "Thin, strong line marks found on the victim's neck." },
-      { "order": 2, "ko": "1호차 환기구 덮개가 살짝 열려 있으며, 그 안에 낚싯줄이 걸려 있습니다.", "en": "The vent cover in Car 1 is slightly open with fishing line caught inside." },
-      { "order": 3, "ko": "스낵바 직원은 비서 정씨가 커피를 주문할 때 이미 전등이 꺼진 상태였다고 증언합니다.", "en": "Staff testifies lights were already out when Jung ordered coffee." },
-      { "order": 4, "ko": "정전은 외부 고장이 아니라 열차 내부 제어반에서 수동으로 조작되었습니다.", "en": "The blackout was manually triggered from the internal control panel." },
-      { "order": 5, "ko": "비서 정씨와 기술자 최씨는 사실 대학 동창이며 최근 자주 연락한 사이입니다.", "en": "Secretary Jung and Technician Choi are college friends and in frequent contact." }
+      {
+        "order": 1,
+        "ko": "유리 조각 위에 와인이 쏟아져 있고, 그 위에 다시 미세한 유리 가루가 흩어져 있음.",
+        "en": "Wine spilled over glass shards, with fine glass dust scattered on top."
+      },
+      {
+        "order": 2,
+        "ko": "호스텔 안내문: '201호는 특별 방음실로 설계되어 외부 소음이 100% 차단됩니다.'",
+        "en": "Notice: 'Room 201 is a special soundproof room with 100% noise cancellation.'"
+      },
+      {
+        "order": 3,
+        "ko": "피해자의 손톱 밑에서 검은색 고무 장갑의 미세한 조각이 발견됨.",
+        "en": "Fine fragments of a black rubber glove found under the victim's fingernails."
+      }
     ],
-    "answer": "B",
-    "explanation": {
-      "ko": "범인은 기술자 최씨입니다. 그는 비서 정씨와 공모했습니다. 정씨가 알리바이를 만드는 동안 최씨는 제어반에서 정전을 일으켰고, 환기구와 낚싯줄을 이용한 '원거리 목조르기 트릭'을 사용했습니다. 최씨는 정비사라는 직업을 이용해 누구의 의심도 받지 않고 제어실에 머물며 범행을 저질렀습니다.",
-      "en": "The culprit is Choi. He conspired with Jung. While Jung made an alibi, Choi triggered the blackout and used a 'remote strangulation trick' via vents and fishing line. As a technician, he stayed in the control room without suspicion."
-    }
+    "timeline": [
+      {
+        "id": "1",
+        "name": "백민주 (장기투숙객)",
+        "cells": [
+          {
+            "ko": "1층 거실 독서 (21:00)",
+            "s": "confirmed"
+          },
+          {
+            "ko": "파손음 청취 (22:00)",
+            "s": "confirmed"
+          },
+          {
+            "ko": "사망 추정 시간대",
+            "s": "death"
+          },
+          {
+            "ko": "2층으로 이동 (23:05)",
+            "s": "confirmed"
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "name": "한지호 (대학생)",
+        "cells": [
+          {
+            "ko": "201호 입실 (21:30)",
+            "s": "confirmed"
+          },
+          {
+            "ko": "파손음 청취 (22:00)",
+            "s": "suspicious"
+          },
+          {
+            "ko": "사망 추정 시간대",
+            "s": "death"
+          },
+          {
+            "ko": "방 밖으로 나옴 (23:00)",
+            "s": "confirmed"
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "name": "서유리 (작가)",
+        "cells": [
+          {
+            "ko": "1층 부엌 식사 (21:10)",
+            "s": "confirmed"
+          },
+          {
+            "ko": "파손음 청취 (22:00)",
+            "s": "confirmed"
+          },
+          {
+            "ko": "사망 추정 시간대",
+            "s": "death"
+          },
+          {
+            "ko": "방으로 복귀 (22:30)",
+            "s": "confirmed"
+          }
+        ]
+      },
+      {
+        "id": "4",
+        "name": "박태수 (등산객)",
+        "cells": [
+          {
+            "ko": "취침 시작 (21:00)",
+            "s": "confirmed"
+          },
+          {
+            "ko": "수면 중 (소리 못 들음)",
+            "s": "confirmed"
+          },
+          {
+            "ko": "사망 추정 시간대",
+            "s": "death"
+          },
+          {
+            "ko": "소동에 잠에서 깸 (23:10)",
+            "s": "confirmed"
+          }
+        ]
+      },
+      {
+        "id": "5",
+        "name": "정비공 노씨",
+        "cells": [
+          {
+            "ko": "지하 보일러실 작업 (21:00)",
+            "s": "confirmed"
+          },
+          {
+            "ko": "작업 중 (소리 못 들음)",
+            "s": "confirmed"
+          },
+          {
+            "ko": "사망 추정 시간대",
+            "s": "death"
+          },
+          {
+            "ko": "1층으로 올라옴 (22:45)",
+            "s": "confirmed"
+          }
+        ]
+      },
+      {
+        "id": "6",
+        "name": "윤 비서",
+        "cells": [
+          {
+            "ko": "102호 업무 통화 (21:30)",
+            "s": "confirmed"
+          },
+          {
+            "ko": "통화 중 (소리 못 들음)",
+            "s": "confirmed"
+          },
+          {
+            "ko": "사망 추정 시간대",
+            "s": "death"
+          },
+          {
+            "ko": "복도로 나옴 (23:00)",
+            "s": "confirmed"
+          }
+        ]
+      }
+    ],
+    "deathCol": 2
   }
 ]
