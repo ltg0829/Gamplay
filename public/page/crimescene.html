@@ -996,7 +996,7 @@ body::after {
   <!-- 수사 파일 탑 바 -->
   <div class="file-bar">
     <div class="file-bar-tab active">CASE FILE</div>
-    <div class="file-bar-tab" id="tabTimeline">TIMELINE</div>
+    <div class="file-bar-tab" id="tabTimeline" style="display:none">TIMELINE</div>
     <div class="file-bar-tab" id="tabEvidence">EVIDENCE</div>
     <div class="file-bar-tab" id="tabSuspects">SUSPECTS</div>
     <div class="file-bar-date" id="caseDate"></div>
@@ -1040,8 +1040,8 @@ body::after {
       <div class="synopsis-text" id="synopsis">—</div>
     </div>
 
-    <!-- 타임라인 -->
-    <div class="card" style="animation-delay:.15s">
+    <!-- 타임라인 (그리드 방식 숨김 — 단순 리스트는 타임라인 탭에 표시) -->
+    <div class="card" id="tlGridCard" style="display:none; animation-delay:.15s">
       <div class="sec-title" id="lblTimeline">MOVEMENT TIMELINE</div>
       <div class="tl-wrap">
         <div id="tlTable"></div>
@@ -1269,8 +1269,8 @@ function updateTabVisibility() {
   const hasClues    = !!(caseData.clues?.length);
   const tabTl  = document.getElementById('tabTimeline');
   const tabEv  = document.getElementById('tabEvidence');
-  if (tabTl) tabTl.style.display = hasTimeline ? '' : 'none';
-  if (tabEv) tabEv.style.display = hasClues    ? '' : 'none';
+  if (tabTl) tabTl.style.display = 'none'; // 그리드 타임라인 탭 제거
+  if (tabEv) tabEv.style.display = hasClues ? '' : 'none';
 }
 
 function renderHeader() {
