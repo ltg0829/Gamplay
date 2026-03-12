@@ -1282,7 +1282,7 @@ function renderHeader() {
     ? `CASE #${String(c.caseId).padStart(3,'0')}`
     : `CASE ${c.caseId}`;
   document.getElementById('caseNum').textContent = cidDisplay;
-  document.getElementById('caseTitle').textContent = c.title?.[lang] || c.title?.ko || '—';
+  document.getElementById('caseTitle').textContent = txt(c.title) || '—';
 
   // location / time / victim — 없으면 meta-cell 숨김
   const locVal = c.location?.[lang] || c.location?.ko || '';
@@ -1294,7 +1294,10 @@ function renderHeader() {
   const timeEl   = document.getElementById('caseTime');
   const timeCell = timeEl?.closest('.meta-cell');
   const timeVal  = c.time?.[lang] || c.time?.ko || '';
-  const estTimes = (c.estimatedDeathTime || []).map(t => t.time || t[lang] || t.ko || '').filter(Boolean);
+  const estTimes = (c.estimatedDeathTime || []).map(t => {
+    if (t.start && t.end) return `${t.start} ~ ${t.end}`;
+    return t.time || t[lang] || t.ko || '';
+  }).filter(Boolean);
   if (timeVal) {
     timeEl.textContent = timeVal;
     if (timeCell) timeCell.style.display = '';
@@ -1307,7 +1310,8 @@ function renderHeader() {
 
   // victim: string / {ko/en} / {ko, job} 모두 처리
   const vicRaw = c.victim;
-  const vicName = typeof vicRaw === 'string' ? vicRaw : (vicRaw?.[lang] || vicRaw?.ko || '');
+  const vicName = typeof vicRaw === 'string' ? vicRaw
+    : (vicRaw?.name || vicRaw?.[lang] || vicRaw?.ko || '');
   const vicJob  = vicRaw?.job || '';
   const vicVal  = vicJob ? `${vicName}  ·  ${vicJob}` : vicName;
   const vicCell = document.getElementById('caseVictim')?.closest('.meta-cell');
@@ -1315,9 +1319,9 @@ function renderHeader() {
   if (vicVal) document.getElementById('caseVictim').textContent = vicVal;
 
   document.getElementById('synopsis').textContent =
-    c.caseOverview?.[lang] || c.caseOverview?.ko ||
-    c.overview?.[lang]     || c.overview?.ko     ||
-    c.synopsis?.[lang]     || c.synopsis?.ko     || '—';
+    (typeof c.caseOverview === 'string' ? c.caseOverview : (c.caseOverview?.[lang] || c.caseOverview?.ko)) ||
+    (typeof c.overview     === 'string' ? c.overview     : (c.overview?.[lang]     || c.overview?.ko))     ||
+    (typeof c.synopsis     === 'string' ? c.synopsis     : (c.synopsis?.[lang]     || c.synopsis?.ko))     || '—';
 
   // method 배지 표시
   const methodEl   = document.getElementById('caseMethod');
@@ -1510,14 +1514,15 @@ function renderSuspects() {
   const list = document.getElementById('suspectList');
   list.innerHTML = '';
   (caseData.suspects || []).forEach(s => {
-    const isOpen = selectedId === s.id;
-    const isElim = eliminated.has(s.id);
+    const sid   = String(s.id);
+    const isOpen = selectedId === sid;
+    const isElim = eliminated.has(sid);
     const card   = document.createElement('div');
     card.className = `s-card${isOpen ? ' open' : ''}${isElim ? ' elim' : ''}`;
-    card.id = `sc-${s.id}`;
+    card.id = `sc-${sid}`;
     card.innerHTML = `
       <div class="s-hdr">
-        <div class="s-id">${s.id}</div>
+        <div class="s-id">${sid}</div>
         <div>
           <div class="s-name">${txt(s.name) || '—'}</div>
           ${(txt(s.job)) ? `<div class="s-job">${txt(s.job)}</div>` : ''}
@@ -1530,12 +1535,12 @@ function renderSuspects() {
         ${(s.flag?.[lang] || s.flag?.ko) ? `<div class="d-row flag-row"><strong>${t('flag')}</strong>${s.flag?.[lang] || s.flag?.ko}</div>` : ''}
         ${(s.evidence?.[lang] || s.evidence?.ko) ? `<div class="d-row evidence-row"><strong>${t('evidence') || (lang==='ko'?'🔍 증거':'🔍 Evidence')}</strong>${s.evidence?.[lang] || s.evidence?.ko}</div>` : ''}
         ${(s.interview) ? `<div class="d-row interview-row"><strong>${t('interview') || (lang==='ko'?'💬 진술':'💬 Statement')}</strong>${renderInterview(s.interview)}</div>` : ''}
-        <button class="accuse-btn" onclick="event.stopPropagation();accuseSuspect('${s.id}')">
+        <button class="accuse-btn" onclick="event.stopPropagation();accuseSuspect('${sid}')">
           ${t('accuseBtn')}
         </button>
       </div>`;
     if (!isElim) {
-      card.addEventListener('click', () => { if (!gameOver) toggleCard(s.id); });
+      card.addEventListener('click', () => { if (!gameOver) toggleCard(sid); });
     }
     list.appendChild(card);
   });
@@ -1567,7 +1572,7 @@ async function accuseSuspect(id) {
     explanation = data.explanation;
   } catch {
     // 오프라인 폴백: 로컬 비교
-    correct = (id === caseData.answer);
+    correct = (String(id) === String(caseData.answer));
     explanation = caseData.explanation;
   }
 
